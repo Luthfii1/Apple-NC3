@@ -1,0 +1,83 @@
+# Xcode
+#
+build/
+DerivedData/
+*.xcworkspace
+*.xcuserdata
+*.xccheckout
+*.xcscmblueprint
+*.xcuserstate
+
+# Swift Package Manager
+#
+Packages/
+Package.pins
+Package.resolved
+.swiftpm/
+
+# CocoaPods
+#
+Pods/
+Podfile.lock
+Podfile.*
+
+# Carthage
+#
+Carthage/Build/
+Carthage/Checkouts/
+
+# fastlane
+#
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+*.jks
+
+# Code Coverage
+#
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcshareddata/xcschemes/*.xcscheme
+xcuserdata
+
+# Generic
+#
+.DS_Store
+*.swp
+*.lock
+*.log
+*.temp
+*.tmp
+*.xcuserstate
+*.xcscmblueprint
+
+# Archives
+#
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.app.dSYM.zip
+*.app.dSYM
+
+# Swift Package Manager
+#
+.build/
+.swiftpm/
+
+# Core Data
+#
+*.xcscmblueprint/
+
+# Playgrounds
+#
+timeline.xctimeline
+playground.xcworkspace
+
+# SwiftLint
+#
+.swiftlint.yml
+
+# Others
+# Bachul
+.idea/
+.vscode/
