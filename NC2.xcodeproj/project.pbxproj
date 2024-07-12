@@ -26,6 +26,8 @@
 		DD7F94152C3FC737009E4C9F /* CreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94142C3FC737009E4C9F /* CreateButton.swift */; };
 		DD7F941C2C3FCAFC009E4C9F /* TodoFormSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F941B2C3FCAFC009E4C9F /* TodoFormSheet.swift */; };
 		DD7F941E2C3FCF65009E4C9F /* DeleteTodoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F941D2C3FCF65009E4C9F /* DeleteTodoUseCase.swift */; };
+		DD7F94222C40D0EB009E4C9F /* PlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94212C40D0EB009E4C9F /* PlanModel.swift */; };
+		DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94232C40D41A009E4C9F /* LearnTrunkBased.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		DD7F94142C3FC737009E4C9F /* CreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateButton.swift; sourceTree = "<group>"; };
 		DD7F941B2C3FCAFC009E4C9F /* TodoFormSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoFormSheet.swift; sourceTree = "<group>"; };
 		DD7F941D2C3FCF65009E4C9F /* DeleteTodoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoUseCase.swift; sourceTree = "<group>"; };
+		DD7F94212C40D0EB009E4C9F /* PlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanModel.swift; sourceTree = "<group>"; };
+		DD7F94232C40D41A009E4C9F /* LearnTrunkBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTrunkBased.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +88,7 @@
 			children = (
 				DD7F94092C3F86F0009E4C9F /* NC2.entitlements */,
 				DD7F940F2C3FC52E009E4C9F /* Our App */,
-				DD7F940E2C3FC3E9009E4C9F /* Learn SOLID */,
+				DD7F940E2C3FC3E9009E4C9F /* Learn Clean Architecture */,
 				DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */,
 				DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */,
 				DD7F93D02C3D4D0B009E4C9F /* Preview Content */,
@@ -220,11 +224,12 @@
 			children = (
 				DD7F94052C3F85D1009E4C9F /* GetTodosLocalSwiftDataProtocol.swift */,
 				DD7F94072C3F85E8009E4C9F /* GetTodosLocalSwiftDataDataSource.swift */,
+				DD7F94232C40D41A009E4C9F /* LearnTrunkBased.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
 		};
-		DD7F940E2C3FC3E9009E4C9F /* Learn SOLID */ = {
+		DD7F940E2C3FC3E9009E4C9F /* Learn Clean Architecture */ = {
 			isa = PBXGroup;
 			children = (
 				DD7F93E22C3D4E16009E4C9F /* Common */,
@@ -232,12 +237,13 @@
 				DD7F93D92C3D4D39009E4C9F /* Domain */,
 				DD7F93DA2C3D4D40009E4C9F /* Data */,
 			);
-			path = "Learn SOLID";
+			path = "Learn Clean Architecture";
 			sourceTree = "<group>";
 		};
 		DD7F940F2C3FC52E009E4C9F /* Our App */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F941F2C3FD13E009E4C9F /* Domain */,
 			);
 			path = "Our App";
 			sourceTree = "<group>";
@@ -248,6 +254,22 @@
 				DD7F941B2C3FCAFC009E4C9F /* TodoFormSheet.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		DD7F941F2C3FD13E009E4C9F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F94202C3FD14C009E4C9F /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		DD7F94202C3FD14C009E4C9F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F94212C40D0EB009E4C9F /* PlanModel.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,9 +350,11 @@
 				DD7F941E2C3FCF65009E4C9F /* DeleteTodoUseCase.swift in Sources */,
 				DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */,
 				DD7F93F32C3D68AA009E4C9F /* DummyData.swift in Sources */,
+				DD7F94222C40D0EB009E4C9F /* PlanModel.swift in Sources */,
 				DD7F93FA2C3D6CEC009E4C9F /* HomepageViewModel.swift in Sources */,
 				DD7F93F82C3D6C5F009E4C9F /* HomepageView.swift in Sources */,
 				DD7F94022C3F84EA009E4C9F /* GetTodosRemoteProtocol.swift in Sources */,
+				DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */,
 				DD7F94062C3F85D1009E4C9F /* GetTodosLocalSwiftDataProtocol.swift in Sources */,
 				DD7F93E82C3D4E56009E4C9F /* TodoModel.swift in Sources */,
 				DD7F93EC2C3D618A009E4C9F /* TodosRepositoryProtocol.swift in Sources */,
