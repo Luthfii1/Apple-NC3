@@ -28,6 +28,19 @@
 		DD7F941E2C3FCF65009E4C9F /* DeleteTodoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F941D2C3FCF65009E4C9F /* DeleteTodoUseCase.swift */; };
 		DD7F94222C40D0EB009E4C9F /* PlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94212C40D0EB009E4C9F /* PlanModel.swift */; };
 		DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94232C40D41A009E4C9F /* LearnTrunkBased.swift */; };
+		DD7F94262C40D53B009E4C9F /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94252C40D53B009E4C9F /* WeatherModel.swift */; };
+		DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */; };
+		DD7F942B2C40D739009E4C9F /* GetPlanUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F942A2C40D739009E4C9F /* GetPlanUseCases.swift */; };
+		DD7F942F2C40D7A0009E4C9F /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F942E2C40D7A0009E4C9F /* ButtonComponent.swift */; };
+		DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94312C40D7DC009E4C9F /* HomeView.swift */; };
+		DD7F94342C40D80E009E4C9F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */; };
+		DD7F94372C40D85C009E4C9F /* CreatePlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94362C40D85C009E4C9F /* CreatePlanViewModel.swift */; };
+		DD7F94392C40D885009E4C9F /* CreatePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94382C40D885009E4C9F /* CreatePlanView.swift */; };
+		DD7F943C2C40D8A1009E4C9F /* DetailPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F943B2C40D8A1009E4C9F /* DetailPlanView.swift */; };
+		DD7F943E2C40D8B1009E4C9F /* DetailPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F943D2C40D8B1009E4C9F /* DetailPlanViewModel.swift */; };
+		DD7F94412C40D8E7009E4C9F /* SearchPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94402C40D8E7009E4C9F /* SearchPlaceView.swift */; };
+		DD7F94432C40D923009E4C9F /* SearchPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94422C40D923009E4C9F /* SearchPlaceViewModel.swift */; };
+		DD7F944A2C40DDE6009E4C9F /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94492C40DDE6009E4C9F /* ReminderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +67,19 @@
 		DD7F941D2C3FCF65009E4C9F /* DeleteTodoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoUseCase.swift; sourceTree = "<group>"; };
 		DD7F94212C40D0EB009E4C9F /* PlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanModel.swift; sourceTree = "<group>"; };
 		DD7F94232C40D41A009E4C9F /* LearnTrunkBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTrunkBased.swift; sourceTree = "<group>"; };
+		DD7F94252C40D53B009E4C9F /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanUseCases.swift; sourceTree = "<group>"; };
+		DD7F942A2C40D739009E4C9F /* GetPlanUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlanUseCases.swift; sourceTree = "<group>"; };
+		DD7F942E2C40D7A0009E4C9F /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		DD7F94312C40D7DC009E4C9F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		DD7F94362C40D85C009E4C9F /* CreatePlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanViewModel.swift; sourceTree = "<group>"; };
+		DD7F94382C40D885009E4C9F /* CreatePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanView.swift; sourceTree = "<group>"; };
+		DD7F943B2C40D8A1009E4C9F /* DetailPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlanView.swift; sourceTree = "<group>"; };
+		DD7F943D2C40D8B1009E4C9F /* DetailPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlanViewModel.swift; sourceTree = "<group>"; };
+		DD7F94402C40D8E7009E4C9F /* SearchPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceView.swift; sourceTree = "<group>"; };
+		DD7F94422C40D923009E4C9F /* SearchPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewModel.swift; sourceTree = "<group>"; };
+		DD7F94492C40DDE6009E4C9F /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +269,8 @@
 		DD7F940F2C3FC52E009E4C9F /* Our App */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F94442C40D96F009E4C9F /* Data */,
+				DD7F942C2C40D776009E4C9F /* Presentation */,
 				DD7F941F2C3FD13E009E4C9F /* Domain */,
 			);
 			path = "Our App";
@@ -259,6 +287,7 @@
 		DD7F941F2C3FD13E009E4C9F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F94272C40D564009E4C9F /* Use Cases */,
 				DD7F94202C3FD14C009E4C9F /* Entities */,
 			);
 			path = Domain;
@@ -268,8 +297,114 @@
 			isa = PBXGroup;
 			children = (
 				DD7F94212C40D0EB009E4C9F /* PlanModel.swift */,
+				DD7F94252C40D53B009E4C9F /* WeatherModel.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		DD7F94272C40D564009E4C9F /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */,
+				DD7F942A2C40D739009E4C9F /* GetPlanUseCases.swift */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		DD7F942C2C40D776009E4C9F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F94482C40DDBD009E4C9F /* Reminder */,
+				DD7F943F2C40D8D1009E4C9F /* Search Place */,
+				DD7F943A2C40D890009E4C9F /* Detail Plan */,
+				DD7F94352C40D849009E4C9F /* Create Plan */,
+				DD7F94302C40D7B8009E4C9F /* Homepage */,
+				DD7F942D2C40D77E009E4C9F /* Reusable Components */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		DD7F942D2C40D77E009E4C9F /* Reusable Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F942E2C40D7A0009E4C9F /* ButtonComponent.swift */,
+			);
+			path = "Reusable Components";
+			sourceTree = "<group>";
+		};
+		DD7F94302C40D7B8009E4C9F /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F94312C40D7DC009E4C9F /* HomeView.swift */,
+				DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */,
+			);
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		DD7F94352C40D849009E4C9F /* Create Plan */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F94362C40D85C009E4C9F /* CreatePlanViewModel.swift */,
+				DD7F94382C40D885009E4C9F /* CreatePlanView.swift */,
+			);
+			path = "Create Plan";
+			sourceTree = "<group>";
+		};
+		DD7F943A2C40D890009E4C9F /* Detail Plan */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F943B2C40D8A1009E4C9F /* DetailPlanView.swift */,
+				DD7F943D2C40D8B1009E4C9F /* DetailPlanViewModel.swift */,
+			);
+			path = "Detail Plan";
+			sourceTree = "<group>";
+		};
+		DD7F943F2C40D8D1009E4C9F /* Search Place */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F94402C40D8E7009E4C9F /* SearchPlaceView.swift */,
+				DD7F94422C40D923009E4C9F /* SearchPlaceViewModel.swift */,
+			);
+			path = "Search Place";
+			sourceTree = "<group>";
+		};
+		DD7F94442C40D96F009E4C9F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F94452C40D981009E4C9F /* Data Source */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DD7F94452C40D981009E4C9F /* Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F94472C40D9E3009E4C9F /* Remote */,
+				DD7F94462C40D9D5009E4C9F /* Local */,
+			);
+			path = "Data Source";
+			sourceTree = "<group>";
+		};
+		DD7F94462C40D9D5009E4C9F /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		DD7F94472C40D9E3009E4C9F /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		DD7F94482C40DDBD009E4C9F /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F94492C40DDE6009E4C9F /* ReminderViewModel.swift */,
+			);
+			path = Reminder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,23 +477,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD7F943E2C40D8B1009E4C9F /* DetailPlanViewModel.swift in Sources */,
 				DD7F94042C3F857B009E4C9F /* GetTodosRemoteDataSource.swift in Sources */,
 				DD7F94152C3FC737009E4C9F /* CreateButton.swift in Sources */,
 				DD7F93F52C3D6B06009E4C9F /* GetTodosUseCase.swift in Sources */,
+				DD7F94342C40D80E009E4C9F /* HomeViewModel.swift in Sources */,
 				DD7F94132C3FC5E6009E4C9F /* TodoView.swift in Sources */,
 				DD7F940B2C3F90F4009E4C9F /* TodoRepository.swift in Sources */,
 				DD7F941E2C3FCF65009E4C9F /* DeleteTodoUseCase.swift in Sources */,
+				DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */,
 				DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */,
+				DD7F94432C40D923009E4C9F /* SearchPlaceViewModel.swift in Sources */,
 				DD7F93F32C3D68AA009E4C9F /* DummyData.swift in Sources */,
 				DD7F94222C40D0EB009E4C9F /* PlanModel.swift in Sources */,
+				DD7F94392C40D885009E4C9F /* CreatePlanView.swift in Sources */,
+				DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */,
 				DD7F93FA2C3D6CEC009E4C9F /* HomepageViewModel.swift in Sources */,
 				DD7F93F82C3D6C5F009E4C9F /* HomepageView.swift in Sources */,
 				DD7F94022C3F84EA009E4C9F /* GetTodosRemoteProtocol.swift in Sources */,
+				DD7F94372C40D85C009E4C9F /* CreatePlanViewModel.swift in Sources */,
 				DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */,
+				DD7F944A2C40DDE6009E4C9F /* ReminderViewModel.swift in Sources */,
 				DD7F94062C3F85D1009E4C9F /* GetTodosLocalSwiftDataProtocol.swift in Sources */,
+				DD7F942F2C40D7A0009E4C9F /* ButtonComponent.swift in Sources */,
+				DD7F94262C40D53B009E4C9F /* WeatherModel.swift in Sources */,
 				DD7F93E82C3D4E56009E4C9F /* TodoModel.swift in Sources */,
+				DD7F94412C40D8E7009E4C9F /* SearchPlaceView.swift in Sources */,
 				DD7F93EC2C3D618A009E4C9F /* TodosRepositoryProtocol.swift in Sources */,
 				DD7F94082C3F85E8009E4C9F /* GetTodosLocalSwiftDataDataSource.swift in Sources */,
+				DD7F943C2C40D8A1009E4C9F /* DetailPlanView.swift in Sources */,
+				DD7F942B2C40D739009E4C9F /* GetPlanUseCases.swift in Sources */,
 				DD7F940D2C3F9791009E4C9F /* InsertTodoUseCase.swift in Sources */,
 				DD7F941C2C3FCAFC009E4C9F /* TodoFormSheet.swift in Sources */,
 			);
