@@ -11,21 +11,13 @@ struct ButtonComponent: View {
     let action: () -> Void
     
     var body: some View {
-        VStack {
-           Spacer()
-        
-            HStack{
-                Spacer()
-                
-                Button(action: action, label: {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .frame(width: 50, height: 50, alignment: .bottomTrailing)
-                        .foregroundStyle(.yellow)
-                })
-                .padding()
-            }
-        }
+        Button(action: action, label: {
+            Image(systemName: "plus.circle.fill")
+                .resizable()
+                .frame(width: 50, height: 50, alignment: .bottomTrailing)
+                .foregroundStyle(.yellow)
+        })
+        .padding()
     }
 }
 
