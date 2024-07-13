@@ -14,7 +14,7 @@ struct NC2App: App {
     
     init() {
         do {
-            container = try ModelContainer(for: Todo.self)
+            container = try ModelContainer(for: PlanModel.self)
         } catch {
             fatalError("Failed to initialize SwiftData")
         }
@@ -22,15 +22,28 @@ struct NC2App: App {
     
     var body: some Scene {
         WindowGroup {
-            let getLocalTodos = GetTodosLocalSwiftDataDataSource(modelContext: container.mainContext)
-            let getRemoteTodos = GetTodosRemoteDataSource()
-            let getTodosRepo = TodoRepository(localData: getLocalTodos, remoteData: getRemoteTodos)
-            let getTodosUseCase = GetTodosUseCase(getTodosRepo: getTodosRepo)
-            let insertTodoUseCase = InsertTodoUseCase(todosRepository: getTodosRepo)
-            let deleteTodoUseCase = DeleteTodoUseCase(todosRepository: getTodosRepo)
-            let homepageViewModel = HomepageViewModel(getTodosUseCase: getTodosUseCase, insertTodoUseCase: insertTodoUseCase, deleteTodoUseCase: deleteTodoUseCase)
+//            // MARK: TESTING IMPLEMENTATION
+            let dummyGetAllPlansPreviewUseCase = GetAllPlansPreviewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
+            let dummyRefreshHomeViewUseCase = RefreshHomeViewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
+            let dummyHomeViewModel = HomeViewModel(getAllPlansPreviewUseCase: dummyGetAllPlansPreviewUseCase, refreshHomeViewUseCase: dummyRefreshHomeViewUseCase)
             
-            HomepageView(vm: homepageViewModel)
+            // MARK: IMPLEMENTATION
+            let planLocalDataSource = PlanLocalDataSource(modelContext: container.mainContext)
+            let planRepository = PlanRepository(planLocalDataSource: planLocalDataSource)
+            let getPlanPreviewUseCase = GetAllPlansPreviewUseCase(planRepository: planRepository)
+            let refreshPageViewUseCase = RefreshHomeViewUseCase(planRepository: planRepository)
+            let homeViewModel = HomeViewModel(getAllPlansPreviewUseCase: getPlanPreviewUseCase, refreshHomeViewUseCase: refreshPageViewUseCase)
+            HomeView(vm: dummyHomeViewModel)
+            
+//            // MARK: LEARN VIEW
+//            let getLocalTodos = GetTodosLocalSwiftDataDataSource(modelContext: container.mainContext)
+//            let getRemoteTodos = GetTodosRemoteDataSource()
+//            let getTodosRepo = TodoRepository(localData: getLocalTodos, remoteData: getRemoteTodos)
+//            let getTodosUseCase = GetTodosUseCase(getTodosRepo: getTodosRepo)
+//            let insertTodoUseCase = InsertTodoUseCase(todosRepository: getTodosRepo)
+//            let deleteTodoUseCase = DeleteTodoUseCase(todosRepository: getTodosRepo)
+//            let homepageViewModel = HomepageViewModel(getTodosUseCase: getTodosUseCase, insertTodoUseCase: insertTodoUseCase, deleteTodoUseCase: deleteTodoUseCase)
+//            HomepageView(vm: homepageViewModel)
         }
         .modelContainer(container)
     }
