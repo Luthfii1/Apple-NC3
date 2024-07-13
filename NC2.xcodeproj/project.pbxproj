@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
+		8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */; };
 		DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */; };
 		DD7F93CF2C3D4D0B009E4C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */; };
 		DD7F93D22C3D4D0B009E4C9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93D12C3D4D0B009E4C9F /* Preview Assets.xcassets */; };
@@ -57,6 +59,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLiveActivity.swift; sourceTree = "<group>"; };
 		DD7F93C72C3D4D0A009E4C9F /* NC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2App.swift; sourceTree = "<group>"; };
 		DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +123,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8AC3A15C2C43156E008E6AEE /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				8AC3A15D2C43163A008E6AEE /* WidgetView.swift */,
+				8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		DD7F93BE2C3D4D0A009E4C9F = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +358,7 @@
 		DD7F942C2C40D776009E4C9F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8AC3A15C2C43156E008E6AEE /* Widget */,
 				DD7F94482C40DDBD009E4C9F /* Reminder */,
 				DD7F943F2C40D8D1009E4C9F /* Search Place */,
 				DD7F943A2C40D890009E4C9F /* Detail Plan */,
@@ -542,6 +556,7 @@
 			files = (
 				DD7F944C2C42B420009E4C9F /* PlanCardComponent.swift in Sources */,
 				DD7F943E2C40D8B1009E4C9F /* DetailPlanViewModel.swift in Sources */,
+				8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */,
 				DD7F94042C3F857B009E4C9F /* GetTodosRemoteDataSource.swift in Sources */,
 				DD7F94152C3FC737009E4C9F /* CreateButton.swift in Sources */,
 				DD7F93F52C3D6B06009E4C9F /* GetTodosUseCase.swift in Sources */,
@@ -562,6 +577,7 @@
 				DD7F94632C42CA65009E4C9F /* PlanRepository.swift in Sources */,
 				DD7F93FA2C3D6CEC009E4C9F /* HomepageViewModel.swift in Sources */,
 				DD7F946B2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift in Sources */,
+				8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */,
 				DD7F94562C42C68E009E4C9F /* PlanLocalDataSourceProtocol.swift in Sources */,
 				DD7F93F82C3D6C5F009E4C9F /* HomepageView.swift in Sources */,
 				DD7F94022C3F84EA009E4C9F /* GetTodosRemoteProtocol.swift in Sources */,
