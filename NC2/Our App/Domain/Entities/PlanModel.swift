@@ -22,14 +22,25 @@ class PlanModel: Identifiable, Equatable, Hashable {
     var allDay: Bool
     var suggest: String?
     
-    init(id: UUID = UUID(), title: String, location: String, address: String, coordinatePlace: Coordinate, weatherPlan: Weather? = nil, duration: DurationTimePlan, isRepeat: Bool, date: Date, allDay: Bool, suggest: String? = nil) {
+    init(id: UUID = UUID(),
+         title: String = "",
+         location: String = "",
+         address: String = "",
+         coordinatePlace: Coordinate = Coordinate(latitude: 0, longitude: 0),
+         weatherPlan: Weather? = nil,
+         durationPlan: DurationTimePlan = DurationTimePlan(start: "", end: ""),
+         isRepeat: Bool = false,
+         date: Date = Date(),
+         allDay: Bool = false,
+         suggest: String? = nil) {
+        
         self.id = id
         self.title = title
         self.location = location
         self.address = address
         self.coordinatePlace = coordinatePlace
         self.weatherPlan = weatherPlan
-        self.durationPlan = duration
+        self.durationPlan = durationPlan
         self.isRepeat = isRepeat
         self.date = date
         self.allDay = allDay

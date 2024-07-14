@@ -23,14 +23,20 @@ struct NC2App: App {
     var body: some Scene {
         WindowGroup {
 //            // MARK: TESTING IMPLEMENTATION
-            let dummyGetAllPlansPreviewUseCase = GetAllPlansPreviewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
+            let dummyGetAllPlansPreviewUseCase = GetAllPlansPreviewUseCase(
+                planRepository: DummyPlanRepository(dummyPlans: dummyPlans),
+                AQIRepository: AQIRepository(AQIRemoteDataSource: AQIRemoteDataSource())
+            )
             let dummyRefreshHomeViewUseCase = RefreshHomeViewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
             let dummyHomeViewModel = HomeViewModel(getAllPlansPreviewUseCase: dummyGetAllPlansPreviewUseCase, refreshHomeViewUseCase: dummyRefreshHomeViewUseCase)
             
             // MARK: IMPLEMENTATION
             let planLocalDataSource = PlanLocalDataSource(modelContext: container.mainContext)
             let planRepository = PlanRepository(planLocalDataSource: planLocalDataSource)
-            let getPlanPreviewUseCase = GetAllPlansPreviewUseCase(planRepository: planRepository)
+            let getPlanPreviewUseCase = GetAllPlansPreviewUseCase(
+                planRepository: planRepository,
+                AQIRepository: AQIRepository(AQIRemoteDataSource: AQIRemoteDataSource())
+            )
             let refreshPageViewUseCase = RefreshHomeViewUseCase(planRepository: planRepository)
             let homeViewModel = HomeViewModel(getAllPlansPreviewUseCase: getPlanPreviewUseCase, refreshHomeViewUseCase: refreshPageViewUseCase)
             HomeView(vm: dummyHomeViewModel)
