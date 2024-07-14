@@ -14,7 +14,7 @@ class PlanLocalDataSource: PlanLocalDataSourceProtocol {
         self.modelContext = modelContext
     }
     
-    func getPlan() async throws -> [PlanModel] {
+    func getAllPlans() async throws -> [PlanModel] {
         let fetchDescriptor = FetchDescriptor<PlanModel>()
         let localData = try modelContext.fetch(fetchDescriptor)
         
