@@ -12,36 +12,69 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                Picker(selection: $vm.pickedPlanFilter, label: Text("Plan Filter")) {
-                    Text("Event").tag(0)
-                    Text("Routine").tag(1)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                
-                VStack (alignment: .leading) {
-                    ForEach(vm.plans, id: \.title) { plan in
-                        Text(DateFormatter.localizedString(from: plan.date, dateStyle: .medium, timeStyle: .none))
-                            .font(.subheadline)
-                            .bold()
-                            .textCase(.uppercase)
+            VStack {
+                if (vm.state.isLoading) {
+                    ProgressView("Loading logs...")
+                } else {
+                    ScrollView {
+                        Picker(selection: $vm.pickedPlanFilter, label: Text("Plan Filter")) {
+                            Text("Event").tag(0)
+                            Text("Routine").tag(1)
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
                         
-                        PlanCardComponent(plan: plan)
+                        VStack (alignment: .leading) {
+                            ForEach(vm.plans, id: \.title) { plan in
+                                Text(DateFormatter.localizedString(from: plan.date, dateStyle: .medium, timeStyle: .none))
+                                    .font(.subheadline)
+                                    .bold()
+                                    .textCase(.uppercase)
+                                
+                                // navigate and passing the plan.id
+                                PlanCardComponent(
+                                    plan: plan
+                                )
+                            }
+                        }
+                        .padding(.horizontal, 12)
+                    }
+                    .refreshable {
+                        await vm.refreshPage()
+                    }
+                    .navigationTitle("Plan")
+                    .background(.backgroundView)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .bottomBar) {
+                            HStack {
+                                Button(action: {
+                                    print("Add Plan")
+                                }, label: {
+                                    HStack () {
+                                        Image(systemName: "plus.circle.fill")
+                                            .font(.body)
+                                            .bold()
+                                            .foregroundStyle(.button)
+                                        
+                                        Text("Add Plan")
+                                            .font(.body)
+                                            .bold()
+                                            .foregroundStyle(.button)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                })
+                                
+                                Spacer()
+                            }
+                        }
                     }
                 }
-                .padding(.horizontal, 12)
             }
-            .refreshable {
-                await vm.refreshPage()
-            }
-            .navigationTitle("Plan")
-            .background(.backgroundView)
-        }
-        .onAppear {
-            Task {
-                await vm.getPlans()
+            .onAppear {
+                Task {
+                    await vm.getPlans()
+                }
             }
         }
     }

@@ -56,6 +56,13 @@
 		DD7F94672C42DB00009E4C9F /* RefreshHomeViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */; };
 		DD7F94692C42DC2C009E4C9F /* DummyPlanRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94682C42DC2C009E4C9F /* DummyPlanRepository.swift */; };
 		DD7F946B2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */; };
+		DD7F946E2C4387B8009E4C9F /* AQIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F946D2C4387B8009E4C9F /* AQIResponse.swift */; };
+		DD7F94702C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F946F2C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift */; };
+		DD7F94722C438853009E4C9F /* AQIRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94712C438853009E4C9F /* AQIRemoteDataSource.swift */; };
+		DD7F94742C43EAE9009E4C9F /* AQIRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94732C43EAE9009E4C9F /* AQIRepositoryProtocol.swift */; };
+		DD7F94762C43EB3D009E4C9F /* AQIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */; };
+		DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */; };
+		DD7F947A2C441107009E4C9F /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94792C441107009E4C9F /* StateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +117,13 @@
 		DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHomeViewUseCase.swift; sourceTree = "<group>"; };
 		DD7F94682C42DC2C009E4C9F /* DummyPlanRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyPlanRepository.swift; sourceTree = "<group>"; };
 		DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanUseCasesProtocol.swift; sourceTree = "<group>"; };
+		DD7F946D2C4387B8009E4C9F /* AQIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIResponse.swift; sourceTree = "<group>"; };
+		DD7F946F2C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
+		DD7F94712C438853009E4C9F /* AQIRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRemoteDataSource.swift; sourceTree = "<group>"; };
+		DD7F94732C43EAE9009E4C9F /* AQIRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRepositoryProtocol.swift; sourceTree = "<group>"; };
+		DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRepository.swift; sourceTree = "<group>"; };
+		DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailUseCase.swift; sourceTree = "<group>"; };
+		DD7F94792C441107009E4C9F /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +354,7 @@
 				DD7F94252C40D53B009E4C9F /* WeatherModel.swift */,
 				DD7F94592C42C873009E4C9F /* CoordinateModel.swift */,
 				DD7F945B2C42C8BC009E4C9F /* DurationModel.swift */,
+				DD7F94792C441107009E4C9F /* StateView.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -347,10 +362,11 @@
 		DD7F94272C40D564009E4C9F /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */,
 				DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */,
 				DD7F942A2C40D739009E4C9F /* GetPlanUseCase.swift */,
 				DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */,
-				DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */,
+				DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -361,9 +377,11 @@
 				8AC3A15C2C43156E008E6AEE /* Widget */,
 				DD7F94482C40DDBD009E4C9F /* Reminder */,
 				DD7F943F2C40D8D1009E4C9F /* Search Place */,
+				DD7F94302C40D7B8009E4C9F /* Homepage */,
 				DD7F943A2C40D890009E4C9F /* Detail Plan */,
 				DD7F94352C40D849009E4C9F /* Create Plan */,
-				DD7F94302C40D7B8009E4C9F /* Homepage */,
+				DD7F943F2C40D8D1009E4C9F /* Search Place */,
+				DD7F94482C40DDBD009E4C9F /* Reminder */,
 				DD7F942D2C40D77E009E4C9F /* Reusable Components */,
 			);
 			path = Presentation;
@@ -445,6 +463,8 @@
 		DD7F94472C40D9E3009E4C9F /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F946F2C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift */,
+				DD7F94712C438853009E4C9F /* AQIRemoteDataSource.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -460,6 +480,7 @@
 		DD7F94512C42BF1F009E4C9F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F946C2C43878D009E4C9F /* Model Fetching */,
 				DD7F94522C42BF2A009E4C9F /* Data Dummy */,
 			);
 			path = Common;
@@ -480,8 +501,18 @@
 				DD7F94602C42CA2A009E4C9F /* PlanRepositoryProtocol.swift */,
 				DD7F94622C42CA65009E4C9F /* PlanRepository.swift */,
 				DD7F94682C42DC2C009E4C9F /* DummyPlanRepository.swift */,
+				DD7F94732C43EAE9009E4C9F /* AQIRepositoryProtocol.swift */,
+				DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		DD7F946C2C43878D009E4C9F /* Model Fetching */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F946D2C4387B8009E4C9F /* AQIResponse.swift */,
+			);
+			path = "Model Fetching";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,6 +600,7 @@
 				DD7F94692C42DC2C009E4C9F /* DummyPlanRepository.swift in Sources */,
 				DD7F94432C40D923009E4C9F /* SearchPlaceViewModel.swift in Sources */,
 				DD7F93F32C3D68AA009E4C9F /* DummyData.swift in Sources */,
+				DD7F946E2C4387B8009E4C9F /* AQIResponse.swift in Sources */,
 				DD7F94222C40D0EB009E4C9F /* PlanModel.swift in Sources */,
 				DD7F94612C42CA2A009E4C9F /* PlanRepositoryProtocol.swift in Sources */,
 				DD7F94392C40D885009E4C9F /* CreatePlanView.swift in Sources */,
@@ -576,13 +608,17 @@
 				DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */,
 				DD7F94632C42CA65009E4C9F /* PlanRepository.swift in Sources */,
 				DD7F93FA2C3D6CEC009E4C9F /* HomepageViewModel.swift in Sources */,
+				DD7F94722C438853009E4C9F /* AQIRemoteDataSource.swift in Sources */,
 				DD7F946B2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift in Sources */,
 				8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */,
 				DD7F94562C42C68E009E4C9F /* PlanLocalDataSourceProtocol.swift in Sources */,
 				DD7F93F82C3D6C5F009E4C9F /* HomepageView.swift in Sources */,
+				DD7F94742C43EAE9009E4C9F /* AQIRepositoryProtocol.swift in Sources */,
 				DD7F94022C3F84EA009E4C9F /* GetTodosRemoteProtocol.swift in Sources */,
 				DD7F94372C40D85C009E4C9F /* CreatePlanViewModel.swift in Sources */,
+				DD7F94762C43EB3D009E4C9F /* AQIRepository.swift in Sources */,
 				DD7F945C2C42C8BC009E4C9F /* DurationModel.swift in Sources */,
+				DD7F94702C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift in Sources */,
 				DD7F945A2C42C873009E4C9F /* CoordinateModel.swift in Sources */,
 				DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */,
 				DD7F94542C42BF43009E4C9F /* dummyPlans.swift in Sources */,
@@ -597,7 +633,9 @@
 				DD7F94672C42DB00009E4C9F /* RefreshHomeViewUseCase.swift in Sources */,
 				DD7F93EC2C3D618A009E4C9F /* TodosRepositoryProtocol.swift in Sources */,
 				DD7F94082C3F85E8009E4C9F /* GetTodosLocalSwiftDataDataSource.swift in Sources */,
+				DD7F947A2C441107009E4C9F /* StateView.swift in Sources */,
 				DD7F943C2C40D8A1009E4C9F /* DetailPlanView.swift in Sources */,
+				DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */,
 				DD7F942B2C40D739009E4C9F /* GetPlanUseCase.swift in Sources */,
 				DD7F940D2C3F9791009E4C9F /* InsertTodoUseCase.swift in Sources */,
 				DD7F941C2C3FCAFC009E4C9F /* TodoFormSheet.swift in Sources */,
