@@ -11,8 +11,15 @@ struct PlanCardComponent: View {
     var plan: PlanCardEntity
     
     var body: some View {
-        NavigationLink(destination:
-                        DetailPlanView(vm: DetailPlanViewModel(planDetailUseCase: PlanDetailUseCase(AQIRepository: AQIRepository(AQIRemoteDataSource: AQIRemoteDataSource()), planRepository: DummyPlanRepository(dummyPlans: dummyPlans))),  planId: plan.id)) {
+        NavigationLink(destination: DetailPlanView(
+            vm: DetailPlanViewModel(
+                planDetailUseCase: PlanDetailUseCase(
+                    AQIRepository: AQIRepository(AQIRemoteDataSource: AQIRemoteDataSource()),
+                    planRepository: DummyPlanRepository(dummyPlans: dummyPlans)
+                )
+            ),
+            planId: plan.id
+        )) {
             VStack (alignment: .leading, spacing: 8) {
                 HStack (alignment: .top) {
                     VStack (alignment: .leading, spacing: 8) {
@@ -46,7 +53,6 @@ struct PlanCardComponent: View {
                                 .bold()
                                 .foregroundStyle(.locationPlan)
                         }
-                        
                     }
                 }
                 

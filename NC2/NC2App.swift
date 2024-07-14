@@ -22,23 +22,29 @@ struct NC2App: App {
     
     var body: some Scene {
         WindowGroup {
-//            // MARK: TESTING IMPLEMENTATION
-            let dummyGetAllPlansPreviewUseCase = GetAllPlansPreviewUseCase(
-                planRepository: DummyPlanRepository(dummyPlans: dummyPlans),
-                AQIRepository: AQIRepository(AQIRemoteDataSource: AQIRemoteDataSource())
+            // MARK: TESTING IMPLEMENTATION
+            let dummyGetAllPlansPreviewUseCase = GetAllPlansUseCase(
+                planRepository: DummyPlanRepository(dummyPlans: dummyPlans)
             )
             let dummyRefreshHomeViewUseCase = RefreshHomeViewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
-            let dummyHomeViewModel = HomeViewModel(getAllPlansPreviewUseCase: dummyGetAllPlansPreviewUseCase, refreshHomeViewUseCase: dummyRefreshHomeViewUseCase)
+            let dummyHomeViewModel = HomeViewModel(
+                getAllPlansUseCase: dummyGetAllPlansPreviewUseCase,
+                refreshHomeViewUseCase: dummyRefreshHomeViewUseCase
+            )
             
             // MARK: IMPLEMENTATION
             let planLocalDataSource = PlanLocalDataSource(modelContext: container.mainContext)
             let planRepository = PlanRepository(planLocalDataSource: planLocalDataSource)
-            let getPlanPreviewUseCase = GetAllPlansPreviewUseCase(
-                planRepository: planRepository,
-                AQIRepository: AQIRepository(AQIRemoteDataSource: AQIRemoteDataSource())
+            let getPlanPreviewUseCase = GetAllPlansUseCase(
+                planRepository: planRepository
             )
             let refreshPageViewUseCase = RefreshHomeViewUseCase(planRepository: planRepository)
-            let homeViewModel = HomeViewModel(getAllPlansPreviewUseCase: getPlanPreviewUseCase, refreshHomeViewUseCase: refreshPageViewUseCase)
+            let homeViewModel = HomeViewModel(
+                getAllPlansUseCase: getPlanPreviewUseCase,
+                refreshHomeViewUseCase: refreshPageViewUseCase
+            )
+            
+            // MARK: CALL HOMEVIEW AND SET VM
             HomeView(vm: dummyHomeViewModel)
             
 //            // MARK: LEARN VIEW

@@ -14,10 +14,19 @@ class RefreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol {
         self.planRepository = planRepository
     }
     
-    func execute() async throws -> [PlanCardEntity] {
-        let data = try await planRepository.getAllPlans()
+    func execute(isEvent: Int) async throws -> [PlanCardEntity] {
+        let allPlans = try await planRepository.getAllPlans()
+        let eventPlans = allPlans.filter {
+            isEvent == 0 ?
+            $0.isRepeat == false :
+            $0.isRepeat == true
+        }
         
-        let result = data.map { plan in
+        if eventPlans.isEmpty {
+            throw NSError(domain: "GetAllPlanEventsUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "No event plans found"])
+        }
+        
+        let result = eventPlans.map { plan in
             PlanCardEntity(
                 id: plan.id,
                 title: plan.title,

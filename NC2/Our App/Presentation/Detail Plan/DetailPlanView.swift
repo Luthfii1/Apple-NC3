@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct DetailPlanView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject var vm : DetailPlanViewModel
     var planId: UUID
     
     var body: some View {
-        NavigationView {
+        VStack {
             if (vm.state.isLoading) {
                 ProgressView("Loading logs...")
             } else {
@@ -32,7 +33,3 @@ struct DetailPlanView: View {
         }
     }
 }
-
-//#Preview {
-//    DetailPlanView()
-//}
