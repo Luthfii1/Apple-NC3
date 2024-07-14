@@ -29,15 +29,18 @@ struct HomeView: View {
                         .padding(.vertical, 8)
                         
                         VStack (alignment: .leading) {
-                            ForEach(vm.plans, id: \.id) { plan in
-                                Text(DateFormatter.localizedString(from: plan.date, dateStyle: .medium, timeStyle: .none))
-                                    .font(.subheadline)
-                                    .bold()
-                                    .textCase(.uppercase)
-                                
-                                PlanCardComponent(
-                                    plan: plan
-                                )
+                            ForEach(vm.groupedPlans.keys.sorted(), id: \.self) { date in
+                                Section(
+                                    header: Text(date)
+                                        .font(.subheadline)
+                                        .bold()
+                                        .textCase(.uppercase)
+                                        .padding(.top, 12)
+                                ) {
+                                    ForEach(vm.groupedPlans[date]!, id: \.id) { plan in
+                                        PlanCardComponent(plan: plan)
+                                    }
+                                }
                             }
                         }
                         .padding(.horizontal, 12)
