@@ -25,6 +25,12 @@ class HomeViewModel: ObservableObject {
         self.refreshHomeViewUseCase = refreshHomeViewUseCase
     }
     
+    var groupedPlans: [String: [PlanCardEntity]] {
+        Dictionary(grouping: plans) { plan in
+            DateFormatter.localizedString(from: plan.date, dateStyle: .medium, timeStyle: .none)
+        }
+    }
+    
     @MainActor
     func getPlanEvents() async {
         self.state.isLoading = true
