@@ -19,3 +19,7 @@ protocol RefreshHomeViewUseCaseProtocol {
 protocol PlanDetailUseCasesProtocol {
     func execute(planId: UUID) async throws -> PlanModel
 }
+
+protocol GetDetailUseCaseProtocol {
+    func execute() async throws -> PlanModel
+}
