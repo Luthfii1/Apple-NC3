@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D614B312C43A92A003B1314 /* EditPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614B302C43A92A003B1314 /* EditPlanView.swift */; };
+		3D614B332C43A939003B1314 /* EditPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614B322C43A939003B1314 /* EditPlanViewModel.swift */; };
 		DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */; };
 		DD7F93CF2C3D4D0B009E4C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */; };
 		DD7F93D22C3D4D0B009E4C9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93D12C3D4D0B009E4C9F /* Preview Assets.xcassets */; };
@@ -44,6 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D614B302C43A92A003B1314 /* EditPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanView.swift; sourceTree = "<group>"; };
+		3D614B322C43A939003B1314 /* EditPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanViewModel.swift; sourceTree = "<group>"; };
+		3D614B342C43C8F4003B1314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DD7F93C72C3D4D0A009E4C9F /* NC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2App.swift; sourceTree = "<group>"; };
 		DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D614B2F2C43A914003B1314 /* Edit Plan */ = {
+			isa = PBXGroup;
+			children = (
+				3D614B302C43A92A003B1314 /* EditPlanView.swift */,
+				3D614B322C43A939003B1314 /* EditPlanViewModel.swift */,
+			);
+			path = "Edit Plan";
+			sourceTree = "<group>";
+		};
 		DD7F93BE2C3D4D0A009E4C9F = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +126,7 @@
 		DD7F93C92C3D4D0A009E4C9F /* NC2 */ = {
 			isa = PBXGroup;
 			children = (
+				3D614B342C43C8F4003B1314 /* Info.plist */,
 				DD7F94092C3F86F0009E4C9F /* NC2.entitlements */,
 				DD7F940F2C3FC52E009E4C9F /* Our App */,
 				DD7F940E2C3FC3E9009E4C9F /* Learn Clean Architecture */,
@@ -314,6 +329,7 @@
 		DD7F942C2C40D776009E4C9F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3D614B2F2C43A914003B1314 /* Edit Plan */,
 				DD7F94482C40DDBD009E4C9F /* Reminder */,
 				DD7F943F2C40D8D1009E4C9F /* Search Place */,
 				DD7F943A2C40D890009E4C9F /* Detail Plan */,
@@ -494,6 +510,7 @@
 				DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */,
 				DD7F93FA2C3D6CEC009E4C9F /* HomepageViewModel.swift in Sources */,
 				DD7F93F82C3D6C5F009E4C9F /* HomepageView.swift in Sources */,
+				3D614B312C43A92A003B1314 /* EditPlanView.swift in Sources */,
 				DD7F94022C3F84EA009E4C9F /* GetTodosRemoteProtocol.swift in Sources */,
 				DD7F94372C40D85C009E4C9F /* CreatePlanViewModel.swift in Sources */,
 				DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */,
@@ -505,6 +522,7 @@
 				DD7F94412C40D8E7009E4C9F /* SearchPlaceView.swift in Sources */,
 				DD7F93EC2C3D618A009E4C9F /* TodosRepositoryProtocol.swift in Sources */,
 				DD7F94082C3F85E8009E4C9F /* GetTodosLocalSwiftDataDataSource.swift in Sources */,
+				3D614B332C43A939003B1314 /* EditPlanViewModel.swift in Sources */,
 				DD7F943C2C40D8A1009E4C9F /* DetailPlanView.swift in Sources */,
 				DD7F942B2C40D739009E4C9F /* GetPlanUseCases.swift in Sources */,
 				DD7F940D2C3F9791009E4C9F /* InsertTodoUseCase.swift in Sources */,
@@ -643,9 +661,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = XSHZNN2ULY;
+				DEVELOPMENT_TEAM = 3L9D9QLCDG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NC2/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide location-based services while using the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -673,9 +694,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = XSHZNN2ULY;
+				DEVELOPMENT_TEAM = 3L9D9QLCDG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NC2/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide location-based services while using the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
