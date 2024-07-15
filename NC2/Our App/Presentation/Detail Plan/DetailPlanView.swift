@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailPlanView: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject var vm : DetailPlanViewModel
+    @EnvironmentObject var vm : DetailPlanViewModel
     var planId: UUID
     
     var body: some View {

@@ -9,17 +9,12 @@ import SwiftUI
 
 struct PlanCardComponent: View {
     var plan: PlanCardEntity
+    @EnvironmentObject var dependencyInjection : DependencyInjection
     
     var body: some View {
-        NavigationLink(destination: DetailPlanView(
-            vm: DetailPlanViewModel(
-                planDetailUseCase: PlanDetailUseCase(
-                    AQIRepository: AQIRepository(AQIRemoteDataSource: AQIRemoteDataSource()),
-                    planRepository: DummyPlanRepository(dummyPlans: dummyPlans)
-                )
-            ),
-            planId: plan.id
-        )) {
+        NavigationLink(destination:DetailPlanView(planId: plan.id)
+            .environmentObject(dependencyInjection.dummyDetailPlanViewModel())
+        ) {
             VStack (alignment: .leading, spacing: 8) {
                 HStack (alignment: .top) {
                     VStack (alignment: .leading, spacing: 8) {

@@ -36,14 +36,16 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         Task {
             do {
+                print("here event")
                 let plansFetched = try await getAllPlansUseCase.executeEvent()
                 DispatchQueue.main.async {
                     self.plans = plansFetched
-                    self.state.isLoading.toggle()
                 }
             } catch {
                 print("Failed to load plans: \(error)")
             }
+            
+            self.state.isLoading.toggle()
         }
     }
     
@@ -55,11 +57,12 @@ class HomeViewModel: ObservableObject {
                 let plansFetched = try await refreshHomeViewUseCase.execute(isEvent: self.pickedPlanFilter)
                 DispatchQueue.main.async {
                     self.plans = plansFetched
-                    self.state.isLoading.toggle()
                 }
             } catch {
                 print("Failed to load plans: \(error)")
             }
+            
+            self.state.isLoading.toggle()
         }
     }
     
@@ -68,14 +71,16 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         Task {
             do {
+                print("here routine")
                 let plansFetched = try await getAllPlansUseCase.executeRoutine()
                 DispatchQueue.main.async {
                     self.plans = plansFetched
-                    self.state.isLoading.toggle()
                 }
             } catch {
                 print("Failed to load plans: \(error)")
             }
+            
+            self.state.isLoading.toggle()
         }
     }
     
