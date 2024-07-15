@@ -831,7 +831,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -861,7 +861,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;

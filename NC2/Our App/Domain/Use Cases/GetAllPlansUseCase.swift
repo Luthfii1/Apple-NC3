@@ -27,7 +27,7 @@ class GetAllPlansUseCase: GetAllPlanUseCasesProtocol{
     func executeEvent() async throws -> [PlanCardEntity] {
         let allPlans = try await planRepository.getAllPlans()
         let eventPlans = allPlans.filter {
-            $0.reminder == .None
+            $0.planCategory == .Event
         }
         
         if eventPlans.isEmpty {
@@ -52,7 +52,7 @@ class GetAllPlansUseCase: GetAllPlanUseCasesProtocol{
     func executeRoutine() async throws -> [PlanCardEntity] {
         let allPlans = try await planRepository.getAllPlans()
         let eventPlans = allPlans.filter {
-            $0.reminder != .None
+            $0.planCategory == .Routine
         }
         
         if eventPlans.isEmpty {
