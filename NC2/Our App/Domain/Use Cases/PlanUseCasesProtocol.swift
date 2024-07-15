@@ -14,3 +14,7 @@ protocol GetAllPlanUseCasesProtocol {
 protocol RefreshHomeViewUseCaseProtocol {
     func execute() async throws -> [PlanCardEntity]
 }
+
+protocol GetDetailUseCaseProtocol {
+    func execute() async throws -> PlanModel
+}
