@@ -10,8 +10,9 @@ import WeatherKit
 import CoreLocation
 
 struct DetailPlanView: View {
-    @StateObject var vm: DetailPlanViewModel
-    // ADA
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var vm : DetailPlanViewModel
+    var planId: UUID
     
     var body: some View {
         VStack {
@@ -21,9 +22,6 @@ struct DetailPlanView: View {
                 Text("tes")
             } else {
                 VStack(alignment: .leading) {
-//                    VStack(alignment: .leading) {
-//                    }
-                    
                     VStack {
                         // MARK: ganti jadi vm.plan.weatherPlan
                         Text("\(vm.hourlyForecast?.first?.condition.description ?? "No data yet")")
@@ -129,8 +127,11 @@ struct DetailPlanView: View {
                 }
             }
         }
-        .task {
-            await vm.getHourlyWeather()
+        .onAppear{
+            Task {
+                // await vm.getHourlyWeather()
+                await vm.getDetailPlan(planId: planId)
+            }
         }
     }
 }

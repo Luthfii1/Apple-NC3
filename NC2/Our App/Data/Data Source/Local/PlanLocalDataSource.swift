@@ -9,12 +9,13 @@ import Foundation
 import SwiftData
 
 class PlanLocalDataSource: PlanLocalDataSourceProtocol {
+    
     private var modelContext: ModelContext
     init(modelContext: ModelContext) {
         self.modelContext = modelContext
     }
     
-    func getPlan() async throws -> [PlanModel] {
+    func getAllPlans() async throws -> [PlanModel] {
         let fetchDescriptor = FetchDescriptor<PlanModel>()
         let localData = try modelContext.fetch(fetchDescriptor)
         

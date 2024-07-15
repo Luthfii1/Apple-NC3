@@ -12,26 +12,35 @@ import SwiftData
 class PlanModel: Identifiable, Equatable, Hashable {
     var id: UUID
     var title: String
-    var location: String
-    var address: String
-    var coordinatePlace: Coordinate
+    var location: Location
     var weatherPlan: Weather?
     var durationPlan: DurationTimePlan
-    var isRepeat: Bool
-    var date: Date
+    var daysRepeat: [DAYS]?
+    var planCategory: PLANCATEGORY
+    var reminder: REMINDER
     var allDay: Bool
     var suggest: String?
     
-    init(id: UUID = UUID(), title: String, location: String, address: String, coordinatePlace: Coordinate, weatherPlan: Weather? = nil, duration: DurationTimePlan, isRepeat: Bool, date: Date, allDay: Bool, suggest: String? = nil) {
+    init(
+        id: UUID = UUID(),
+        title: String = "",
+        location: Location = Location(nameLocation: "", detailAddress: "", coordinatePlace: Coordinate(longitude: 0.0, latitude: 0.0)),
+        weatherPlan: Weather? = nil,
+        durationPlan: DurationTimePlan = DurationTimePlan(start: Date(), end: Date()),
+        daysRepeat: [DAYS]? = nil,
+        planCategory: PLANCATEGORY = .Event,
+        reminder: REMINDER = .None,
+        allDay: Bool = false,
+        suggest: String? = nil
+    ) {
         self.id = id
         self.title = title
         self.location = location
-        self.address = address
-        self.coordinatePlace = coordinatePlace
         self.weatherPlan = weatherPlan
-        self.durationPlan = duration
-        self.isRepeat = isRepeat
-        self.date = date
+        self.durationPlan = durationPlan
+        self.daysRepeat = daysRepeat
+        self.planCategory = planCategory
+        self.reminder = reminder
         self.allDay = allDay
         self.suggest = suggest
     }

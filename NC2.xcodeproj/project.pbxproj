@@ -11,6 +11,14 @@
 		DD6794F52C4537FE002B24EE /* GetDetailWeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F42C4537FE002B24EE /* GetDetailWeatherUseCase.swift */; };
 		DD6794F92C453865002B24EE /* HourDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F82C453865002B24EE /* HourDetailsCell.swift */; };
 		DD6794FB2C4538C0002B24EE /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794FA2C4538C0002B24EE /* WeatherManager.swift */; };
+		8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
+		8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */; };
+		DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E32C44E7E6002B24EE /* LocationModel.swift */; };
+		DD6794E72C44E821002B24EE /* DaysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E62C44E821002B24EE /* DaysEnum.swift */; };
+		DD6794E92C44E832002B24EE /* PlanCategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */; };
+		DD6794EB2C44E847002B24EE /* ReminderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794EA2C44E847002B24EE /* ReminderEnum.swift */; };
+		DD6794EE2C44F0F0002B24EE /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794ED2C44F0F0002B24EE /* Date+Extension.swift */; };
+		DD6794F12C450EBC002B24EE /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F02C450EBC002B24EE /* DependencyInjection.swift */; };
 		DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */; };
 		DD7F93CF2C3D4D0B009E4C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */; };
 		DD7F93D22C3D4D0B009E4C9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93D12C3D4D0B009E4C9F /* Preview Assets.xcassets */; };
@@ -34,7 +42,6 @@
 		DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94232C40D41A009E4C9F /* LearnTrunkBased.swift */; };
 		DD7F94262C40D53B009E4C9F /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94252C40D53B009E4C9F /* WeatherModel.swift */; };
 		DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */; };
-		DD7F942B2C40D739009E4C9F /* GetPlanUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F942A2C40D739009E4C9F /* GetPlanUseCase.swift */; };
 		DD7F942F2C40D7A0009E4C9F /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F942E2C40D7A0009E4C9F /* ButtonComponent.swift */; };
 		DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94312C40D7DC009E4C9F /* HomeView.swift */; };
 		DD7F94342C40D80E009E4C9F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */; };
@@ -58,6 +65,14 @@
 		DD7F94672C42DB00009E4C9F /* RefreshHomeViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */; };
 		DD7F94692C42DC2C009E4C9F /* DummyPlanRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94682C42DC2C009E4C9F /* DummyPlanRepository.swift */; };
 		DD7F946B2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */; };
+		DD7F946E2C4387B8009E4C9F /* AQIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F946D2C4387B8009E4C9F /* AQIResponse.swift */; };
+		DD7F94702C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F946F2C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift */; };
+		DD7F94722C438853009E4C9F /* AQIRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94712C438853009E4C9F /* AQIRemoteDataSource.swift */; };
+		DD7F94742C43EAE9009E4C9F /* AQIRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94732C43EAE9009E4C9F /* AQIRepositoryProtocol.swift */; };
+		DD7F94762C43EB3D009E4C9F /* AQIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */; };
+		DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */; };
+		DD7F947A2C441107009E4C9F /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94792C441107009E4C9F /* StateView.swift */; };
+		DD7F947C2C4439F5009E4C9F /* GetAllPlansUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F947B2C4439F5009E4C9F /* GetAllPlansUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +81,15 @@
 		DD6794F82C453865002B24EE /* HourDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourDetailsCell.swift; sourceTree = "<group>"; };
 		DD6794FA2C4538C0002B24EE /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		DD7F93C72C3D4D0A009E4C9F /* NC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLiveActivity.swift; sourceTree = "<group>"; };
+		DD6794E32C44E7E6002B24EE /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		DD6794E62C44E821002B24EE /* DaysEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysEnum.swift; sourceTree = "<group>"; };
+		DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCategoryEnum.swift; sourceTree = "<group>"; };
+		DD6794EA2C44E847002B24EE /* ReminderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEnum.swift; sourceTree = "<group>"; };
+		DD6794ED2C44F0F0002B24EE /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		DD6794F02C450EBC002B24EE /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
+		DD7F93C72C3D4D0A009E4C9F /* Happy Kids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Kids.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2App.swift; sourceTree = "<group>"; };
 		DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD7F93D12C3D4D0B009E4C9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -90,7 +114,6 @@
 		DD7F94232C40D41A009E4C9F /* LearnTrunkBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTrunkBased.swift; sourceTree = "<group>"; };
 		DD7F94252C40D53B009E4C9F /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanUseCases.swift; sourceTree = "<group>"; };
-		DD7F942A2C40D739009E4C9F /* GetPlanUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlanUseCase.swift; sourceTree = "<group>"; };
 		DD7F942E2C40D7A0009E4C9F /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		DD7F94312C40D7DC009E4C9F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -114,6 +137,14 @@
 		DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHomeViewUseCase.swift; sourceTree = "<group>"; };
 		DD7F94682C42DC2C009E4C9F /* DummyPlanRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyPlanRepository.swift; sourceTree = "<group>"; };
 		DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanUseCasesProtocol.swift; sourceTree = "<group>"; };
+		DD7F946D2C4387B8009E4C9F /* AQIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIResponse.swift; sourceTree = "<group>"; };
+		DD7F946F2C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
+		DD7F94712C438853009E4C9F /* AQIRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRemoteDataSource.swift; sourceTree = "<group>"; };
+		DD7F94732C43EAE9009E4C9F /* AQIRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRepositoryProtocol.swift; sourceTree = "<group>"; };
+		DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRepository.swift; sourceTree = "<group>"; };
+		DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailUseCase.swift; sourceTree = "<group>"; };
+		DD7F94792C441107009E4C9F /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
+		DD7F947B2C4439F5009E4C9F /* GetAllPlansUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPlansUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +158,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8AC3A15C2C43156E008E6AEE /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				8AC3A15D2C43163A008E6AEE /* WidgetView.swift */,
+				8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		DD6794E52C44E815002B24EE /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				DD6794E62C44E821002B24EE /* DaysEnum.swift */,
+				DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */,
+				DD6794EA2C44E847002B24EE /* ReminderEnum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		DD6794EC2C44F0E3002B24EE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DD6794ED2C44F0F0002B24EE /* Date+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DD6794EF2C450EAB002B24EE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DD6794F02C450EBC002B24EE /* DependencyInjection.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		DD7F93BE2C3D4D0A009E4C9F = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +204,7 @@
 		DD7F93C82C3D4D0A009E4C9F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD7F93C72C3D4D0A009E4C9F /* NC2.app */,
+				DD7F93C72C3D4D0A009E4C9F /* Happy Kids.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -331,10 +397,13 @@
 		DD7F94202C3FD14C009E4C9F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				DD6794E52C44E815002B24EE /* Enum */,
 				DD7F94212C40D0EB009E4C9F /* PlanModel.swift */,
 				DD7F94252C40D53B009E4C9F /* WeatherModel.swift */,
 				DD7F94592C42C873009E4C9F /* CoordinateModel.swift */,
 				DD7F945B2C42C8BC009E4C9F /* DurationModel.swift */,
+				DD7F94792C441107009E4C9F /* StateView.swift */,
+				DD6794E32C44E7E6002B24EE /* LocationModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -342,10 +411,11 @@
 		DD7F94272C40D564009E4C9F /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
-				DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */,
-				DD7F942A2C40D739009E4C9F /* GetPlanUseCase.swift */,
-				DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */,
 				DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */,
+				DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */,
+				DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */,
+				DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */,
+				DD7F947B2C4439F5009E4C9F /* GetAllPlansUseCase.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -353,11 +423,12 @@
 		DD7F942C2C40D776009E4C9F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				DD7F94482C40DDBD009E4C9F /* Reminder */,
-				DD7F943F2C40D8D1009E4C9F /* Search Place */,
+				8AC3A15C2C43156E008E6AEE /* Widget */,
+				DD7F94302C40D7B8009E4C9F /* Homepage */,
 				DD7F943A2C40D890009E4C9F /* Detail Plan */,
 				DD7F94352C40D849009E4C9F /* Create Plan */,
-				DD7F94302C40D7B8009E4C9F /* Homepage */,
+				DD7F943F2C40D8D1009E4C9F /* Search Place */,
+				DD7F94482C40DDBD009E4C9F /* Reminder */,
 				DD7F942D2C40D77E009E4C9F /* Reusable Components */,
 			);
 			path = Presentation;
@@ -443,6 +514,8 @@
 		DD7F94472C40D9E3009E4C9F /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F946F2C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift */,
+				DD7F94712C438853009E4C9F /* AQIRemoteDataSource.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -458,6 +531,9 @@
 		DD7F94512C42BF1F009E4C9F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DD6794EF2C450EAB002B24EE /* Utils */,
+				DD6794EC2C44F0E3002B24EE /* Extension */,
+				DD7F946C2C43878D009E4C9F /* Model Fetching */,
 				DD7F94522C42BF2A009E4C9F /* Data Dummy */,
 			);
 			path = Common;
@@ -478,8 +554,18 @@
 				DD7F94602C42CA2A009E4C9F /* PlanRepositoryProtocol.swift */,
 				DD7F94622C42CA65009E4C9F /* PlanRepository.swift */,
 				DD7F94682C42DC2C009E4C9F /* DummyPlanRepository.swift */,
+				DD7F94732C43EAE9009E4C9F /* AQIRepositoryProtocol.swift */,
+				DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		DD7F946C2C43878D009E4C9F /* Model Fetching */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F946D2C4387B8009E4C9F /* AQIResponse.swift */,
+			);
+			path = "Model Fetching";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,7 +585,7 @@
 			);
 			name = NC2;
 			productName = NC2;
-			productReference = DD7F93C72C3D4D0A009E4C9F /* NC2.app */;
+			productReference = DD7F93C72C3D4D0A009E4C9F /* Happy Kids.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -554,19 +640,24 @@
 			files = (
 				DD7F944C2C42B420009E4C9F /* PlanCardComponent.swift in Sources */,
 				DD7F943E2C40D8B1009E4C9F /* DetailPlanViewModel.swift in Sources */,
+				DD6794F12C450EBC002B24EE /* DependencyInjection.swift in Sources */,
+				8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */,
 				DD7F94042C3F857B009E4C9F /* GetTodosRemoteDataSource.swift in Sources */,
 				DD7F94152C3FC737009E4C9F /* CreateButton.swift in Sources */,
 				DD6794F92C453865002B24EE /* HourDetailsCell.swift in Sources */,
 				DD7F93F52C3D6B06009E4C9F /* GetTodosUseCase.swift in Sources */,
 				DD7F94342C40D80E009E4C9F /* HomeViewModel.swift in Sources */,
+				DD6794E72C44E821002B24EE /* DaysEnum.swift in Sources */,
 				DD7F94132C3FC5E6009E4C9F /* TodoView.swift in Sources */,
 				DD7F940B2C3F90F4009E4C9F /* TodoRepository.swift in Sources */,
 				DD7F941E2C3FCF65009E4C9F /* DeleteTodoUseCase.swift in Sources */,
 				DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */,
 				DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */,
+				DD6794EE2C44F0F0002B24EE /* Date+Extension.swift in Sources */,
 				DD7F94692C42DC2C009E4C9F /* DummyPlanRepository.swift in Sources */,
 				DD7F94432C40D923009E4C9F /* SearchPlaceViewModel.swift in Sources */,
 				DD7F93F32C3D68AA009E4C9F /* DummyData.swift in Sources */,
+				DD7F946E2C4387B8009E4C9F /* AQIResponse.swift in Sources */,
 				DD7F94222C40D0EB009E4C9F /* PlanModel.swift in Sources */,
 				DD7F94612C42CA2A009E4C9F /* PlanRepositoryProtocol.swift in Sources */,
 				DD7F94392C40D885009E4C9F /* CreatePlanView.swift in Sources */,
@@ -574,16 +665,25 @@
 				DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */,
 				DD7F94632C42CA65009E4C9F /* PlanRepository.swift in Sources */,
 				DD7F93FA2C3D6CEC009E4C9F /* HomepageViewModel.swift in Sources */,
+				DD6794EB2C44E847002B24EE /* ReminderEnum.swift in Sources */,
+				DD7F94722C438853009E4C9F /* AQIRemoteDataSource.swift in Sources */,
 				DD7F946B2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift in Sources */,
+				8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */,
 				DD7F94562C42C68E009E4C9F /* PlanLocalDataSourceProtocol.swift in Sources */,
 				DD6794FB2C4538C0002B24EE /* WeatherManager.swift in Sources */,
 				DD7F93F82C3D6C5F009E4C9F /* HomepageView.swift in Sources */,
+				DD7F94742C43EAE9009E4C9F /* AQIRepositoryProtocol.swift in Sources */,
 				DD7F94022C3F84EA009E4C9F /* GetTodosRemoteProtocol.swift in Sources */,
+				DD7F947C2C4439F5009E4C9F /* GetAllPlansUseCase.swift in Sources */,
 				DD7F94372C40D85C009E4C9F /* CreatePlanViewModel.swift in Sources */,
+				DD7F94762C43EB3D009E4C9F /* AQIRepository.swift in Sources */,
 				DD7F945C2C42C8BC009E4C9F /* DurationModel.swift in Sources */,
+				DD7F94702C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift in Sources */,
+				DD6794E92C44E832002B24EE /* PlanCategoryEnum.swift in Sources */,
 				DD7F945A2C42C873009E4C9F /* CoordinateModel.swift in Sources */,
 				DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */,
 				DD7F94542C42BF43009E4C9F /* dummyPlans.swift in Sources */,
+				DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */,
 				DD7F944A2C40DDE6009E4C9F /* ReminderViewModel.swift in Sources */,
 				DD7F94062C3F85D1009E4C9F /* GetTodosLocalSwiftDataProtocol.swift in Sources */,
 				DD7F942F2C40D7A0009E4C9F /* ButtonComponent.swift in Sources */,
@@ -596,9 +696,11 @@
 				DD7F94672C42DB00009E4C9F /* RefreshHomeViewUseCase.swift in Sources */,
 				DD7F93EC2C3D618A009E4C9F /* TodosRepositoryProtocol.swift in Sources */,
 				DD7F94082C3F85E8009E4C9F /* GetTodosLocalSwiftDataDataSource.swift in Sources */,
+				DD7F947A2C441107009E4C9F /* StateView.swift in Sources */,
 				DD7F943C2C40D8A1009E4C9F /* DetailPlanView.swift in Sources */,
 				DD7F942B2C40D739009E4C9F /* GetPlanUseCase.swift in Sources */,
 				DD6794F32C4537E4002B24EE /* GetDetailUseCase.swift in Sources */,
+				DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */,
 				DD7F940D2C3F9791009E4C9F /* InsertTodoUseCase.swift in Sources */,
 				DD7F941C2C3FCAFC009E4C9F /* TodoFormSheet.swift in Sources */,
 			);
@@ -747,9 +849,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = NC2.NC2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
+				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -777,9 +879,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = NC2.NC2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
+				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

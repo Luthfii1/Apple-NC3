@@ -12,73 +12,63 @@ let dummyWeather = Weather(generalDescription: "Sunny", hotDegree: 30, looksLike
 let dummyPlans: [PlanModel] = [
     PlanModel(
         title: "Morning Jog",
-        location: "Central Park",
-        address: "123 Park Ave, New York, NY",
-        coordinatePlace: Coordinate(latitude: 40.785091, longitude: -73.968285),
+        location: Location(nameLocation: "Central Park", detailAddress: "123 Park Ave, New York, NY", coordinatePlace: Coordinate(longitude: -73.968285, latitude: 40.785091)),
         weatherPlan: dummyWeather,
-        duration: DurationTimePlan(start: "06:00", end: "07:00"),
-        isRepeat: true,
-        date: Date(timeIntervalSinceReferenceDate: Date().addingTimeInterval(24 * 60 * 60).timeIntervalSinceReferenceDate), // July 14, 2024
+        durationPlan: DurationTimePlan(start: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 14, hour: 6, minute: 0).date!, end: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 14, hour: 7, minute: 0).date!),
+        daysRepeat: [.Sunday, .Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday],
+        planCategory: .Routine,
+        reminder: ._5MinBefore,
         allDay: false,
         suggest: "Wear sunscreen"
     ),
     PlanModel(
         title: "Office Meeting",
-        location: "Company HQ",
-        address: "456 Business Rd, New York, NY",
-        coordinatePlace: Coordinate(latitude: 40.758896, longitude: -73.985130),
+        location: Location(nameLocation: "Company HQ", detailAddress: "456 Business Rd, New York, NY", coordinatePlace: Coordinate(longitude: -73.985130, latitude: 40.758896)),
         weatherPlan: dummyWeather,
-        duration: DurationTimePlan(start: "09:00", end: "10:30"),
-        isRepeat: false,
-        date: Date(timeIntervalSinceReferenceDate: Date().addingTimeInterval(24 * 60 * 60).timeIntervalSinceReferenceDate), // July 14, 2024
+        durationPlan: DurationTimePlan(start: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 14, hour: 9, minute: 0).date!, end: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 14, hour: 10, minute: 30).date!),
+        planCategory: .Event,
+        reminder: ._10MinBefore,
         allDay: false,
         suggest: "Prepare slides"
     ),
     PlanModel(
         title: "Lunch with Clients",
-        location: "Downtown Bistro",
-        address: "789 Food St, New York, NY",
-        coordinatePlace: Coordinate(latitude: 40.730610, longitude: -73.935242),
+        location: Location(nameLocation: "Downtown Bistro", detailAddress: "789 Food St, New York, NY", coordinatePlace: Coordinate(longitude: -73.935242, latitude: 40.730610)),
         weatherPlan: dummyWeather,
-        duration: DurationTimePlan(start: "12:00", end: "13:00"),
-        isRepeat: false,
-        date: Date(timeIntervalSinceReferenceDate: Date().addingTimeInterval(24 * 60 * 60).timeIntervalSinceReferenceDate), // July 14, 2024
+        durationPlan: DurationTimePlan(start: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 14, hour: 12, minute: 0).date!, end: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 14, hour: 13, minute: 0).date!),
+        planCategory: .Event,
+        reminder: ._15MinBefore,
         allDay: false,
         suggest: "Discuss project details"
     ),
     PlanModel(
         title: "Afternoon Nap",
-        location: "Home",
-        address: "101 Home St, New York, NY",
-        coordinatePlace: Coordinate(latitude: 40.712776, longitude: -74.005974),
+        location: Location(nameLocation: "Home", detailAddress: "101 Home St, New York, NY", coordinatePlace: Coordinate(longitude: -74.005974, latitude: 40.712776)),
         weatherPlan: dummyWeather,
-        duration: DurationTimePlan(start: "14:00", end: "15:00"),
-        isRepeat: true,
-        date: Date(timeIntervalSinceReferenceDate: Date().timeIntervalSinceReferenceDate), // July 13, 2024
+        durationPlan: DurationTimePlan(start: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 13, hour: 14, minute: 0).date!, end: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 13, hour: 15, minute: 0).date!),
+        daysRepeat: [.Sunday, .Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday],
+        planCategory: .Routine,
+        reminder: ._30MinBefore,
         allDay: false,
         suggest: "Set alarm"
     ),
     PlanModel(
         title: "Dinner with Family",
-        location: "Family House",
-        address: "102 Home St, New York, NY",
-        coordinatePlace: Coordinate(latitude: 40.712776, longitude: -74.005974),
+        location: Location(nameLocation: "Family House", detailAddress: "102 Home St, New York, NY", coordinatePlace: Coordinate(longitude: -74.005974, latitude: 40.712776)),
         weatherPlan: dummyWeather,
-        duration: DurationTimePlan(start: "19:00", end: "21:00"),
-        isRepeat: false,
-        date: Date(timeIntervalSinceReferenceDate: Date().timeIntervalSinceReferenceDate), // July 13, 2024
+        durationPlan: DurationTimePlan(start: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 13, hour: 19, minute: 0).date!, end: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 13, hour: 21, minute: 0).date!),
+        planCategory: .Event,
+        reminder: ._1HourBefore,
         allDay: false,
         suggest: "Bring dessert"
     ),
     PlanModel(
         title: "All Day Conference",
-        location: "Convention Center",
-        address: "303 Event Rd, New York, NY",
-        coordinatePlace: Coordinate(latitude: 40.754932, longitude: -73.984016),
+        location: Location(nameLocation: "Convention Center", detailAddress: "303 Event Rd, New York, NY", coordinatePlace: Coordinate(longitude: -73.984016, latitude: 40.754932)),
         weatherPlan: dummyWeather,
-        duration: DurationTimePlan(start: "00:00", end: "23:59"),
-        isRepeat: false,
-        date: Date(timeIntervalSinceReferenceDate: Date().timeIntervalSinceReferenceDate), // July 13, 2024
+        durationPlan: DurationTimePlan(start: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 13, hour: 0, minute: 0).date!, end: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 13, hour: 23, minute: 59).date!),
+        planCategory: .Event,
+        reminder: .None,
         allDay: true,
         suggest: "Networking"
     )

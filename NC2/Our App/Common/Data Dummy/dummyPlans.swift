@@ -9,183 +9,183 @@ import Foundation
 
 let dummyPlansEntity: [PlanCardEntity] = [
     PlanCardEntity(
-        title: "Morning Jog",
-        date: Date(),
+        id: UUID(),
+        title: "Morning Run",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "06:00", end: "07:00"),
-        location: "Central Park",
-        degree: 18,
-        descriptionWeather: "Clear skies"
+        durationPlan: DurationTimePlan(start: Date(), end: Date().addingTimeInterval(3600)),
+        location: Location(nameLocation: "Central Park", detailAddress: "123 Park Ave, New York, NY", coordinatePlace: Coordinate(longitude: -73.968285, latitude: 40.785091)),
+        temperature: 18,
+        weatherDescription: "Clear skies"
     ),
     PlanCardEntity(
-        title: "Office Meeting",
-        date: Date(),
+        id: UUID(),
+        title: "Team Meeting",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "09:00", end: "11:00"),
-        location: "Conference Room 1",
-        degree: 22,
-        descriptionWeather: "Sunny"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(10800), end: Date().addingTimeInterval(14400)),
+        location: Location(nameLocation: "Conference Room 1", detailAddress: "456 Business Rd, New York, NY", coordinatePlace: Coordinate(longitude: -73.985130, latitude: 40.758896)),
+        temperature: 22,
+        weatherDescription: "Sunny"
     ),
     PlanCardEntity(
+        id: UUID(),
         title: "Lunch Break",
-        date: Date(),
         allDay: false,
-        durationPlan: DurationTimePlan(start: "12:00", end: "13:00"),
-        location: "Cafeteria",
-        degree: 24,
-        descriptionWeather: "Partly cloudy"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(21600), end: Date().addingTimeInterval(25200)),
+        location: Location(nameLocation: "Cafeteria", detailAddress: "789 Food St, New York, NY", coordinatePlace: Coordinate(longitude: -73.935242, latitude: 40.730610)),
+        temperature: 24,
+        weatherDescription: "Partly cloudy"
     ),
     PlanCardEntity(
-        title: "Project Discussion",
-        date: Date(),
+        id: UUID(),
+        title: "Project Briefing",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "14:00", end: "15:30"),
-        location: "Meeting Room 2",
-        degree: 22,
-        descriptionWeather: "Sunny"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(28800), end: Date().addingTimeInterval(34200)),
+        location: Location(nameLocation: "Meeting Room 2", detailAddress: "101 Tech Blvd, New York, NY", coordinatePlace: Coordinate(longitude: -73.982620, latitude: 40.759040)),
+        temperature: 22,
+        weatherDescription: "Sunny"
     ),
     PlanCardEntity(
-        title: "Gym Session",
-        date: Date(),
+        id: UUID(),
+        title: "Fitness Session",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "17:00", end: "18:00"),
-        location: "Fitness Center",
-        degree: 20,
-        descriptionWeather: "Clear skies"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(39600), end: Date().addingTimeInterval(43200)),
+        location: Location(nameLocation: "Fitness Center", detailAddress: "123 Workout St, New York, NY", coordinatePlace: Coordinate(longitude: -73.978256, latitude: 40.754932)),
+        temperature: 20,
+        weatherDescription: "Clear skies"
     ),
     PlanCardEntity(
-        title: "Dinner with Friends",
-        date: Date(),
+        id: UUID(),
+        title: "Dinner Out",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "19:00", end: "21:00"),
-        location: "Downtown Restaurant",
-        degree: 21,
-        descriptionWeather: "Cloudy"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(68400), end: Date().addingTimeInterval(75600)),
+        location: Location(nameLocation: "Downtown Restaurant", detailAddress: "456 Foodie Lane, New York, NY", coordinatePlace: Coordinate(longitude: -73.985130, latitude: 40.758896)),
+        temperature: 21,
+        weatherDescription: "Cloudy"
     ),
     PlanCardEntity(
+        id: UUID(),
         title: "Reading Time",
-        date: Date(),
         allDay: true,
-        durationPlan: DurationTimePlan(start: "00:00", end: "00:00"),
-        location: "Home",
-        degree: 20,
-        descriptionWeather: "Rainy"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(0), end: Date().addingTimeInterval(86400)),
+        location: Location(nameLocation: "Home", detailAddress: "123 Home St, New York, NY", coordinatePlace: Coordinate(longitude: -74.005974, latitude: 40.712776)),
+        temperature: 20,
+        weatherDescription: "Rainy"
     ),
     PlanCardEntity(
+        id: UUID(),
         title: "Weekend Getaway",
-        date: Date(),
         allDay: true,
-        durationPlan: DurationTimePlan(start: "00:00", end: "00:00"),
-        location: "Mountain Resort",
-        degree: 15,
-        descriptionWeather: "Snowy"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(0), end: Date().addingTimeInterval(86400)),
+        location: Location(nameLocation: "Mountain Resort", detailAddress: "789 Mountain Rd, New York, NY", coordinatePlace: Coordinate(longitude: -73.935242, latitude: 40.730610)),
+        temperature: 15,
+        weatherDescription: "Snowy"
     ),
     PlanCardEntity(
-        title: "Brunch with Family",
-        date: Date(),
+        id: UUID(),
+        title: "Family Brunch",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "11:00", end: "13:00"),
-        location: "Family Home",
-        degree: 23,
-        descriptionWeather: "Sunny"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(39600), end: Date().addingTimeInterval(43200)),
+        location: Location(nameLocation: "Family Home", detailAddress: "101 Family St, New York, NY", coordinatePlace: Coordinate(longitude: -74.005974, latitude: 40.712776)),
+        temperature: 23,
+        weatherDescription: "Sunny"
     ),
     PlanCardEntity(
-        title: "Yoga Class",
-        date: Date(),
+        id: UUID(),
+        title: "Yoga Session",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "08:00", end: "09:00"),
-        location: "Yoga Studio",
-        degree: 19,
-        descriptionWeather: "Clear skies"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(28800), end: Date().addingTimeInterval(32400)),
+        location: Location(nameLocation: "Yoga Studio", detailAddress: "456 Wellness Blvd, New York, NY", coordinatePlace: Coordinate(longitude: -73.985130, latitude: 40.758896)),
+        temperature: 19,
+        weatherDescription: "Clear skies"
     ),
     PlanCardEntity(
-        title: "Grocery Shopping",
-        date: Date(),
+        id: UUID(),
+        title: "Grocery Run",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "10:00", end: "11:00"),
-        location: "Local Market",
-        degree: 21,
-        descriptionWeather: "Cloudy"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(36000), end: Date().addingTimeInterval(39600)),
+        location: Location(nameLocation: "Local Market", detailAddress: "789 Market St, New York, NY", coordinatePlace: Coordinate(longitude: -73.935242, latitude: 40.730610)),
+        temperature: 21,
+        weatherDescription: "Cloudy"
     ),
     PlanCardEntity(
-        title: "Afternoon Nap",
-        date: Date(),
+        id: UUID(),
+        title: "Afternoon Rest",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "14:00", end: "15:00"),
-        location: "Home",
-        degree: 20,
-        descriptionWeather: "Partly cloudy"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(50400), end: Date().addingTimeInterval(54000)),
+        location: Location(nameLocation: "Home", detailAddress: "123 Home St, New York, NY", coordinatePlace: Coordinate(longitude: -74.005974, latitude: 40.712776)),
+        temperature: 20,
+        weatherDescription: "Partly cloudy"
     ),
     PlanCardEntity(
-        title: "Evening Walk",
-        date: Date(),
+        id: UUID(),
+        title: "Evening Stroll",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "18:00", end: "19:00"),
-        location: "Neighborhood Park",
-        degree: 18,
-        descriptionWeather: "Clear skies"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(64800), end: Date().addingTimeInterval(68400)),
+        location: Location(nameLocation: "Neighborhood Park", detailAddress: "456 Park Lane, New York, NY", coordinatePlace: Coordinate(longitude: -73.985130, latitude: 40.758896)),
+        temperature: 18,
+        weatherDescription: "Clear skies"
     ),
     PlanCardEntity(
+        id: UUID(),
         title: "Movie Night",
-        date: Date(),
         allDay: false,
-        durationPlan: DurationTimePlan(start: "20:00", end: "22:00"),
-        location: "Living Room",
-        degree: 22,
-        descriptionWeather: "Cloudy"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(72000), end: Date().addingTimeInterval(79200)),
+        location: Location(nameLocation: "Living Room", detailAddress: "123 Home St, New York, NY", coordinatePlace: Coordinate(longitude: -74.005974, latitude: 40.712776)),
+        temperature: 22,
+        weatherDescription: "Cloudy"
     ),
     PlanCardEntity(
-        title: "Late Night Snack",
-        date: Date(),
+        id: UUID(),
+        title: "Midnight Snack",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "23:00", end: "23:30"),
-        location: "Kitchen",
-        degree: 20,
-        descriptionWeather: "Clear skies"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(82800), end: Date().addingTimeInterval(84600)),
+        location: Location(nameLocation: "Kitchen", detailAddress: "123 Home St, New York, NY", coordinatePlace: Coordinate(longitude: -74.005974, latitude: 40.712776)),
+        temperature: 20,
+        weatherDescription: "Clear skies"
     ),
     PlanCardEntity(
-        title: "Beach Day",
-        date: Date(),
+        id: UUID(),
+        title: "Beach Outing",
         allDay: true,
-        durationPlan: DurationTimePlan(start: "00:00", end: "00:00"),
-        location: "Sunny Beach",
-        degree: 28,
-        descriptionWeather: "Sunny"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(0), end: Date().addingTimeInterval(86400)),
+        location: Location(nameLocation: "Sunny Beach", detailAddress: "456 Beach Rd, New York, NY", coordinatePlace: Coordinate(longitude: -73.935242, latitude: 40.730610)),
+        temperature: 28,
+        weatherDescription: "Sunny"
     ),
     PlanCardEntity(
-        title: "Museum Visit",
-        date: Date(),
+        id: UUID(),
+        title: "Museum Tour",
         allDay: false,
-        durationPlan: DurationTimePlan(start: "10:00", end: "12:00"),
-        location: "City Museum",
-        degree: 23,
-        descriptionWeather: "Rainy"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(36000), end: Date().addingTimeInterval(43200)),
+        location: Location(nameLocation: "City Museum", detailAddress: "789 Museum St, New York, NY", coordinatePlace: Coordinate(longitude: -73.985130, latitude: 40.758896)),
+        temperature: 23,
+        weatherDescription: "Rainy"
     ),
     PlanCardEntity(
+        id: UUID(),
         title: "Coffee Break",
-        date: Date(),
         allDay: false,
-        durationPlan: DurationTimePlan(start: "15:00", end: "15:30"),
-        location: "Coffee Shop",
-        degree: 22,
-        descriptionWeather: "Partly cloudy"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(54000), end: Date().addingTimeInterval(55800)),
+        location: Location(nameLocation: "Coffee Shop", detailAddress: "123 Coffee St, New York, NY", coordinatePlace: Coordinate(longitude: -73.985130, latitude: 40.758896)),
+        temperature: 22,
+        weatherDescription: "Partly cloudy"
     ),
     PlanCardEntity(
+        id: UUID(),
         title: "Networking Event",
-        date: Date(),
         allDay: false,
-        durationPlan: DurationTimePlan(start: "18:00", end: "20:00"),
-        location: "Hotel Ballroom",
-        degree: 21,
-        descriptionWeather: "Clear skies"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(64800), end: Date().addingTimeInterval(72000)),
+        location: Location(nameLocation: "Hotel Ballroom", detailAddress: "456 Business Rd, New York, NY", coordinatePlace: Coordinate(longitude: -73.985130, latitude: 40.758896)),
+        temperature: 21,
+        weatherDescription: "Clear skies"
     ),
     PlanCardEntity(
+        id: UUID(),
         title: "Book Club Meeting",
-        date: Date(),
         allDay: false,
-        durationPlan: DurationTimePlan(start: "19:00", end: "20:00"),
-        location: "Library",
-        degree: 22,
-        descriptionWeather: "Cloudy"
+        durationPlan: DurationTimePlan(start: Date().addingTimeInterval(68400), end: Date().addingTimeInterval(72000)),
+        location: Location(nameLocation: "Library", detailAddress: "789 Library Rd, New York, NY", coordinatePlace: Coordinate(longitude: -73.985130, latitude: 40.758896)),
+        temperature: 22,
+        weatherDescription: "Cloudy"
     )
 ]
