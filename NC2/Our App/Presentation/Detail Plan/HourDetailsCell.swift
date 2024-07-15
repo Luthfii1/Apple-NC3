@@ -15,11 +15,11 @@ struct HourDetailsCell: View {
             VStack {
                 Text(hour.date.formatted(.dateTime.hour()))
                     .font(.system(size: 13.0))
-                
+
                 Image(systemName: hour.symbolName)
                     .font(.system(size: 22.0, weight: .bold))
                     .padding(.bottom, 3.0)
-                
+
                 Text("\(hour.temperature.value.formatted(.number.precision(.fractionLength(1))))°")
             }
         }
