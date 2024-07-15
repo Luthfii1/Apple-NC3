@@ -14,7 +14,7 @@ class DetailPlanViewModel: ObservableObject {
     // TODO: Manage the view of DetailPlanView
 //    let location = CLLocation(latitude: -6.302481, longitude: 106.652323)
     
-    @Published var isLoading = false
+//    @Published var isLoading = false
     @Published var plan: PlanModel = dummyPlans.first.unsafelyUnwrapped
     @Published var hourlyForecast: Forecast<HourWeather>?
     
@@ -23,8 +23,14 @@ class DetailPlanViewModel: ObservableObject {
     init(getDetailUseCase: GetDetailUseCaseProtocol) {
         self.getDetailUseCase = getDetailUseCase
     }
+        @Published var detailPlan: PlanModel = PlanModel()
+        @Published var state: StateView = StateView()
+//        private let planDetailUseCase: PlanDetailUseCase
+    //    
+    //    init(planDetailUseCase: PlanDetailUseCase) {
+    //        self.planDetailUseCase = planDetailUseCase
+    //    }
     
-    @MainActor
     func getHourlyWeather() async {
         isLoading = true
         Task {
@@ -39,9 +45,27 @@ class DetailPlanViewModel: ObservableObject {
                 }
             } catch {
                 print("Failed to load weather: \(error)")
+                print("Failed to load weather: \(error)")
             }
         }
     }
+    
+//    @MainActor
+//    func getDetailPlan(planId: UUID) async {
+//        self.state.isLoading = true
+//        do {
+//            let detailPlan = try await planDetailUseCase.execute(planId: planId)
+//            DispatchQueue.main.async {
+//                self.detailPlan = detailPlan
+//                self.state.isLoading.toggle()
+//            }
+//        } catch {
+//            print("Error when getting detail plan because \(error)")
+//            DispatchQueue.main.async {
+//                self.state.isLoading.toggle()
+//            }
+//        }
+//    }
     
 //    func getPlan() async {
 //        Task {

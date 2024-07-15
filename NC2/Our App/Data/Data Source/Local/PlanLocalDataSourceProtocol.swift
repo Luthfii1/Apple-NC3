@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PlanLocalDataSourceProtocol {
-    func getPlan() async throws -> [PlanModel]
+    func getAllPlans() async throws -> [PlanModel]
     func insertPlan(plan: PlanModel) async throws
     func deletePlan(at offsets: IndexSet) async throws
     func updatePlan(at offsets: IndexSet) async throws

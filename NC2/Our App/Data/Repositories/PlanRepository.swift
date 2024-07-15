@@ -14,8 +14,8 @@ class PlanRepository: PlanRepositoryProtocol {
         self.planLocalDataSource = planLocalDataSource
     }
     
-    func getPlan() async throws -> [PlanModel] {
-        let localData = try await planLocalDataSource.getPlan()
+    func getAllPlans() async throws -> [PlanModel] {
+        let localData = try await planLocalDataSource.getAllPlans()
         
         return localData
     }

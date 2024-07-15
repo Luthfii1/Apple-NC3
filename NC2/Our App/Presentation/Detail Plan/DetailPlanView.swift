@@ -10,15 +10,14 @@ import WeatherKit
 import CoreLocation
 
 struct DetailPlanView: View {
-    @StateObject var vm: DetailPlanViewModel
-    // ADA
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var vm : DetailPlanViewModel
+    var planId: UUID
     
     var body: some View {
         VStack {
-            if vm.isLoading {
-                ProgressView()
-                // MARK: nanti apus
-                Text("tes")
+            if (vm.state.isLoading) {
+                ProgressView("Loading logs...")
             } else {
                 VStack(alignment: .leading) {
 //                    VStack(alignment: .leading) {
@@ -129,8 +128,12 @@ struct DetailPlanView: View {
                 }
             }
         }
-        .task {
-            await vm.getHourlyWeather()
+        .navigationTitle("Detail Plan")
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear{
+            Task {
+                await vm.getDetailPlan(planId: planId)
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ class DummyPlanRepository: PlanRepositoryProtocol {
         self.plans = dummyPlans
     }
     
-    func getPlan() async throws -> [PlanModel] {
+    func getAllPlans() async throws -> [PlanModel] {
         return plans
     }
     

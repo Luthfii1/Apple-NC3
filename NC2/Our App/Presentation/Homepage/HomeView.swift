@@ -8,53 +8,79 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var vm: HomeViewModel
+    @EnvironmentObject var vm: HomeViewModel
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                Picker(selection: $vm.pickedPlanFilter, label: Text("Plan Filter")) {
-                    Text("Event").tag(0)
-                    Text("Routine").tag(1)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                
-                VStack (alignment: .leading) {
-                    ForEach(vm.plans, id: \.title) { plan in
-                        Text(DateFormatter.localizedString(from: plan.date, dateStyle: .medium, timeStyle: .none))
-                            .font(.subheadline)
-                            .bold()
-                            .textCase(.uppercase)
+            VStack {
+                if (vm.state.isLoading) {
+                    ProgressView("Loading logs...")
+                } else {
+                    ScrollView {
+                        Picker(selection: $vm.pickedPlanFilter, label: Text("Plan Filter")) {
+                            Text("Event")
+                                .tag(0)
+                            
+                            Text("Routine")
+                                .tag(1)
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
                         
-                        PlanCardComponent(plan: plan)
+                        VStack (alignment: .leading) {
+                            ForEach(vm.groupedPlans.keys.sorted(), id: \.self) { date in
+                                Section(
+                                    header: Text(date)
+                                        .font(.subheadline)
+                                        .bold()
+                                        .textCase(.uppercase)
+                                        .padding(.top, 12)
+                                ) {
+                                    ForEach(vm.groupedPlans[date]!, id: \.id) { plan in
+                                        PlanCardComponent(plan: plan)
+                                    }
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 12)
+                    }
+                    .refreshable {
+                        await vm.refreshPage()
+                    }
+                    .navigationTitle("Plan")
+                    .background(.backgroundView)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .bottomBar) {
+                            HStack {
+                                Button(action: {
+                                    print("Add Plan")
+                                }, label: {
+                                    HStack () {
+                                        Image(systemName: "plus.circle.fill")
+                                            .font(.body)
+                                            .bold()
+                                            .foregroundStyle(.button)
+                                        
+                                        Text("Add Plan")
+                                            .font(.body)
+                                            .bold()
+                                            .foregroundStyle(.button)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                })
+                                
+                                Spacer()
+                            }
+                        }
                     }
                 }
-                .padding(.horizontal, 12)
             }
-            .refreshable {
-                await vm.refreshPage()
-            }
-            .navigationTitle("Plan")
-            .background(.backgroundView)
-        }
-        .onAppear {
-            Task {
-                await vm.getPlans()
+            .onAppear {
+                Task {
+                    await vm.fetchPlansBasedOnFilter()
+                }
             }
         }
     }
 }
-
-//struct HomeView_Preview: PreviewProvider {
-//    // Create dummy GetAllPlansPreviewUseCase that uses dummyPlans
-////    let getAllPlansPreviewUseCase = GetAllPlansPreviewUseCase(planRepository: PlanRepository(dummyPlans: dummyPlans))
-////    let viewModel = HomeViewModel(getAllPlansPreviewUseCase: GetAllPlansPreviewUseCase(planRepository: PlanRepository(dummyPlans: dummyPlans)))
-//
-//    static var previews: some View {
-////        HomeView(vm: viewModel)
-//        let viewModel = HomeViewModel(getAllPlansPreviewUseCase: GetAllPlansPreviewUseCase(planRepository: PlanRepository(dummyPlans: dummyPlans)))
-//                HomeView(vm: viewModel)
-//    }
-//}
