@@ -20,7 +20,7 @@ struct AQIData: Codable {
     let dominentpol: String // "dominentpol" corrected to "dominentpol"
     let iaqi: IAQI
     let time: Time
-    let forecast: Forecast
+    let forecast: ForecastAQI
 }
 
 struct Attribution: Codable {
@@ -56,7 +56,7 @@ struct Time: Codable {
     let iso: String
 }
 
-struct Forecast: Codable {
+struct ForecastAQI: Codable {
     let daily: Daily
 }
 
