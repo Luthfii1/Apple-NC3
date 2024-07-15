@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
 		8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */; };
+		8AC3A1622C44CB05008E6AEE /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */; };
+		8AC3A1642C44CB3E008E6AEE /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */; };
+		8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */; };
+		8AC3A1752C452AE1008E6AEE /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1742C452AE1008E6AEE /* APIKey.swift */; };
+		8AC3A1782C452B0D008E6AEE /* GeminiBotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1762C452B0D008E6AEE /* GeminiBotViewModel.swift */; };
+		8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1772C452B0D008E6AEE /* GeminiBotScreen.swift */; };
+		8AC3A17C2C452B9B008E6AEE /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 8AC3A17B2C452B9B008E6AEE /* GoogleGenerativeAI */; };
 		DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */; };
 		DD7F93CF2C3D4D0B009E4C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */; };
 		DD7F93D22C3D4D0B009E4C9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93D12C3D4D0B009E4C9F /* Preview Assets.xcassets */; };
@@ -68,6 +75,12 @@
 /* Begin PBXFileReference section */
 		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLiveActivity.swift; sourceTree = "<group>"; };
+		8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
+		8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
+		8AC3A1742C452AE1008E6AEE /* APIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		8AC3A1762C452B0D008E6AEE /* GeminiBotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiBotViewModel.swift; sourceTree = "<group>"; };
+		8AC3A1772C452B0D008E6AEE /* GeminiBotScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiBotScreen.swift; sourceTree = "<group>"; };
 		DD7F93C72C3D4D0A009E4C9F /* NC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2App.swift; sourceTree = "<group>"; };
 		DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC3A17C2C452B9B008E6AEE /* GoogleGenerativeAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +156,8 @@
 			children = (
 				8AC3A15D2C43163A008E6AEE /* WidgetView.swift */,
 				8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */,
+				8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */,
+				8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -165,6 +181,7 @@
 		DD7F93C92C3D4D0A009E4C9F /* NC2 */ = {
 			isa = PBXGroup;
 			children = (
+				8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */,
 				DD7F94092C3F86F0009E4C9F /* NC2.entitlements */,
 				DD7F940F2C3FC52E009E4C9F /* Our App */,
 				DD7F940E2C3FC3E9009E4C9F /* Learn Clean Architecture */,
@@ -375,8 +392,6 @@
 			isa = PBXGroup;
 			children = (
 				8AC3A15C2C43156E008E6AEE /* Widget */,
-				DD7F94482C40DDBD009E4C9F /* Reminder */,
-				DD7F943F2C40D8D1009E4C9F /* Search Place */,
 				DD7F94302C40D7B8009E4C9F /* Homepage */,
 				DD7F943A2C40D890009E4C9F /* Detail Plan */,
 				DD7F94352C40D849009E4C9F /* Create Plan */,
@@ -418,6 +433,8 @@
 		DD7F943A2C40D890009E4C9F /* Detail Plan */ = {
 			isa = PBXGroup;
 			children = (
+				8AC3A1772C452B0D008E6AEE /* GeminiBotScreen.swift */,
+				8AC3A1762C452B0D008E6AEE /* GeminiBotViewModel.swift */,
 				DD7F943B2C40D8A1009E4C9F /* DetailPlanView.swift */,
 				DD7F943D2C40D8B1009E4C9F /* DetailPlanViewModel.swift */,
 			);
@@ -436,6 +453,7 @@
 		DD7F94442C40D96F009E4C9F /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				8AC3A1742C452AE1008E6AEE /* APIKey.swift */,
 				DD7F945F2C42CA07009E4C9F /* Repositories */,
 				DD7F94452C40D981009E4C9F /* Data Source */,
 			);
@@ -531,6 +549,9 @@
 			dependencies = (
 			);
 			name = NC2;
+			packageProductDependencies = (
+				8AC3A17B2C452B9B008E6AEE /* GoogleGenerativeAI */,
+			);
 			productName = NC2;
 			productReference = DD7F93C72C3D4D0A009E4C9F /* NC2.app */;
 			productType = "com.apple.product-type.application";
@@ -559,6 +580,9 @@
 				Base,
 			);
 			mainGroup = DD7F93BE2C3D4D0A009E4C9F;
+			packageReferences = (
+				8AC3A17A2C452B9B008E6AEE /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+			);
 			productRefGroup = DD7F93C82C3D4D0A009E4C9F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -573,6 +597,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */,
 				DD7F93D22C3D4D0B009E4C9F /* Preview Assets.xcassets in Resources */,
 				DD7F93CF2C3D4D0B009E4C9F /* Assets.xcassets in Resources */,
 			);
@@ -586,6 +611,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7F944C2C42B420009E4C9F /* PlanCardComponent.swift in Sources */,
+				8AC3A1752C452AE1008E6AEE /* APIKey.swift in Sources */,
 				DD7F943E2C40D8B1009E4C9F /* DetailPlanViewModel.swift in Sources */,
 				8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */,
 				DD7F94042C3F857B009E4C9F /* GetTodosRemoteDataSource.swift in Sources */,
@@ -616,6 +642,7 @@
 				DD7F94742C43EAE9009E4C9F /* AQIRepositoryProtocol.swift in Sources */,
 				DD7F94022C3F84EA009E4C9F /* GetTodosRemoteProtocol.swift in Sources */,
 				DD7F94372C40D85C009E4C9F /* CreatePlanViewModel.swift in Sources */,
+				8AC3A1782C452B0D008E6AEE /* GeminiBotViewModel.swift in Sources */,
 				DD7F94762C43EB3D009E4C9F /* AQIRepository.swift in Sources */,
 				DD7F945C2C42C8BC009E4C9F /* DurationModel.swift in Sources */,
 				DD7F94702C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift in Sources */,
@@ -623,6 +650,7 @@
 				DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */,
 				DD7F94542C42BF43009E4C9F /* dummyPlans.swift in Sources */,
 				DD7F944A2C40DDE6009E4C9F /* ReminderViewModel.swift in Sources */,
+				8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */,
 				DD7F94062C3F85D1009E4C9F /* GetTodosLocalSwiftDataProtocol.swift in Sources */,
 				DD7F942F2C40D7A0009E4C9F /* ButtonComponent.swift in Sources */,
 				DD7F94262C40D53B009E4C9F /* WeatherModel.swift in Sources */,
@@ -634,9 +662,11 @@
 				DD7F93EC2C3D618A009E4C9F /* TodosRepositoryProtocol.swift in Sources */,
 				DD7F94082C3F85E8009E4C9F /* GetTodosLocalSwiftDataDataSource.swift in Sources */,
 				DD7F947A2C441107009E4C9F /* StateView.swift in Sources */,
+				8AC3A1622C44CB05008E6AEE /* WidgetBundle.swift in Sources */,
 				DD7F943C2C40D8A1009E4C9F /* DetailPlanView.swift in Sources */,
 				DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */,
 				DD7F942B2C40D739009E4C9F /* GetPlanUseCase.swift in Sources */,
+				8AC3A1642C44CB3E008E6AEE /* AppIntent.swift in Sources */,
 				DD7F940D2C3F9791009E4C9F /* InsertTodoUseCase.swift in Sources */,
 				DD7F941C2C3FCAFC009E4C9F /* TodoFormSheet.swift in Sources */,
 			);
@@ -846,6 +876,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8AC3A17A2C452B9B008E6AEE /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8AC3A17B2C452B9B008E6AEE /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8AC3A17A2C452B9B008E6AEE /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DD7F93BF2C3D4D0A009E4C9F /* Project object */;
 }
