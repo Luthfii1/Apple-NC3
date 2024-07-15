@@ -11,10 +11,13 @@ import SwiftData
 @main
 struct NC2App: App {
     let container : ModelContainer
+    @StateObject var dependencyInjection: DependencyInjection
     
     init() {
         do {
             container = try ModelContainer(for: PlanModel.self)
+            let dependency = DependencyInjection(modelContext: container.mainContext)
+            _dependencyInjection = StateObject(wrappedValue: dependency)
         } catch {
             fatalError("Failed to initialize SwiftData")
         }
@@ -22,40 +25,9 @@ struct NC2App: App {
     
     var body: some Scene {
         WindowGroup {
-            // MARK: TESTING IMPLEMENTATION
-            let dummyGetAllPlansPreviewUseCase = GetAllPlansUseCase(
-                planRepository: DummyPlanRepository(dummyPlans: dummyPlans)
-            )
-            let dummyRefreshHomeViewUseCase = RefreshHomeViewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
-            let dummyHomeViewModel = HomeViewModel(
-                getAllPlansUseCase: dummyGetAllPlansPreviewUseCase,
-                refreshHomeViewUseCase: dummyRefreshHomeViewUseCase
-            )
-            
-            // MARK: IMPLEMENTATION
-            let planLocalDataSource = PlanLocalDataSource(modelContext: container.mainContext)
-            let planRepository = PlanRepository(planLocalDataSource: planLocalDataSource)
-            let getPlanPreviewUseCase = GetAllPlansUseCase(
-                planRepository: planRepository
-            )
-            let refreshPageViewUseCase = RefreshHomeViewUseCase(planRepository: planRepository)
-            let homeViewModel = HomeViewModel(
-                getAllPlansUseCase: getPlanPreviewUseCase,
-                refreshHomeViewUseCase: refreshPageViewUseCase
-            )
-            
-            // MARK: CALL HOMEVIEW AND SET VM
-            HomeView(vm: dummyHomeViewModel)
-            
-//            // MARK: LEARN VIEW
-//            let getLocalTodos = GetTodosLocalSwiftDataDataSource(modelContext: container.mainContext)
-//            let getRemoteTodos = GetTodosRemoteDataSource()
-//            let getTodosRepo = TodoRepository(localData: getLocalTodos, remoteData: getRemoteTodos)
-//            let getTodosUseCase = GetTodosUseCase(getTodosRepo: getTodosRepo)
-//            let insertTodoUseCase = InsertTodoUseCase(todosRepository: getTodosRepo)
-//            let deleteTodoUseCase = DeleteTodoUseCase(todosRepository: getTodosRepo)
-//            let homepageViewModel = HomepageViewModel(getTodosUseCase: getTodosUseCase, insertTodoUseCase: insertTodoUseCase, deleteTodoUseCase: deleteTodoUseCase)
-//            HomepageView(vm: homepageViewModel)
+            HomeView()
+                .environmentObject(dependencyInjection)
+                .environmentObject(dependencyInjection.homeViewModel())
         }
         .modelContainer(container)
     }

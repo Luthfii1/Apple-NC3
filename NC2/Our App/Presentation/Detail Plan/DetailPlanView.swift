@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailPlanView: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject var vm : DetailPlanViewModel
+    @EnvironmentObject var vm : DetailPlanViewModel
     var planId: UUID
     
     var body: some View {
@@ -20,7 +20,7 @@ struct DetailPlanView: View {
                 VStack (spacing: 4) {
                     Text("Hello, this is Detail Plan View with plan: \(vm.detailPlan.title)")
                     
-                    Text("AQI for location \(vm.detailPlan.coordinatePlace.longitude);\(vm.detailPlan.coordinatePlace.latitude) is \(String( vm.detailPlan.weatherPlan?.AQIndex ?? 0))")
+                    Text("AQI for location \(vm.detailPlan.location.coordinatePlace.longitude);\(vm.detailPlan.location.coordinatePlace.latitude) is \(String( vm.detailPlan.weatherPlan?.AQIndex ?? 0))")
                 }
             }
         }

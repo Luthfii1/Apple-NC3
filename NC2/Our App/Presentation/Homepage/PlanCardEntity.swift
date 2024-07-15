@@ -7,24 +7,22 @@
 
 import Foundation
 
-class PlanCardEntity {
+class PlanCardEntity: Identifiable {
     var id: UUID
     let title: String
-    let date: Date
     let allDay: Bool
     let durationPlan: DurationTimePlan
-    let location: String
-    let degree: Int
-    let descriptionWeather: String
+    let location: Location
+    let temperature: Int
+    let weatherDescription: String
     
-    init(id: UUID = UUID(), title: String, date: Date, allDay: Bool, durationPlan: DurationTimePlan, location: String, degree: Int, descriptionWeather: String) {
+    init(id: UUID, title: String, allDay: Bool, durationPlan: DurationTimePlan, location: Location, temperature: Int, weatherDescription: String) {
         self.id = id
         self.title = title
-        self.date = date
         self.allDay = allDay
         self.durationPlan = durationPlan
         self.location = location
-        self.degree = degree
-        self.descriptionWeather = descriptionWeather
+        self.temperature = temperature
+        self.weatherDescription = weatherDescription
     }
 }
