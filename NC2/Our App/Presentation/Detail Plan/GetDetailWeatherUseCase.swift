@@ -12,12 +12,12 @@ import CoreLocation
 class GetDetailWeatherUseCase {
     var location: Coordinate
     var date: Date
-    
+
     init(location: Coordinate, date: Date) {
         self.location = location
         self.date = date
     }
-    
+
     func execute() async throws -> Forecast<HourWeather> {
         let hourlyForecast = (await WeatherManager.shared.hourlyForecast(
             for: CLLocation(
@@ -25,7 +25,7 @@ class GetDetailWeatherUseCase {
                 longitude: location.longitude
             ), date: date
         ))!
-        
+
         return hourlyForecast
     }
 }

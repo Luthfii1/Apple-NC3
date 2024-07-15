@@ -16,13 +16,12 @@ struct DetailPlanView: View {
     
     var body: some View {
         VStack {
-            if (vm.state.isLoading) {
-                ProgressView("Loading logs...")
+            if vm.isLoading {
+                ProgressView()
+                // MARK: nanti apus
+                Text("tes")
             } else {
                 VStack(alignment: .leading) {
-//                    VStack(alignment: .leading) {
-//                    }
-                    
                     VStack {
                         // MARK: ganti jadi vm.plan.weatherPlan
                         Text("\(vm.hourlyForecast?.first?.condition.description ?? "No data yet")")
@@ -128,10 +127,9 @@ struct DetailPlanView: View {
                 }
             }
         }
-        .navigationTitle("Detail Plan")
-        .navigationBarTitleDisplayMode(.inline)
         .onAppear{
             Task {
+                // await vm.getHourlyWeather()
                 await vm.getDetailPlan(planId: planId)
             }
         }

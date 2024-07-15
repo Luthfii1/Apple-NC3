@@ -9,14 +9,14 @@ import Foundation
 
 class GetDetailUseCase: GetDetailUseCaseProtocol {
     private let detailRepository: DummyPlanRepository
-    
+
     init(detailRepository: DummyPlanRepository) {
         self.detailRepository = detailRepository
     }
-    
+
     func execute() async throws -> PlanModel {
         let data = try await detailRepository.getPlan()
-        
+
 //        let result = data.map { plan in
         let result = data.map { plan in
             PlanModel(
@@ -38,8 +38,7 @@ class GetDetailUseCase: GetDetailUseCaseProtocol {
             //                descriptionWeather: plan.weatherPlan?.generalDescription ?? "--"
             //            )
         }
-        
+
         return result.first.unsafelyUnwrapped
     }
 }
-
