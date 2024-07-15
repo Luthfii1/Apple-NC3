@@ -14,40 +14,39 @@ import CoreLocation
     private let service = WeatherService.shared
 
     func currentWeather(for location: CLLocation) async -> CurrentWeather? {
-        let currentWeather = await Task.detached(priority: .userInitiated) {
-            let forcast = try? await self.service.weather(
-                for: location,
-                including: .current)
-            return forcast
-        }.value
-        return currentWeather
+        return await withTaskGroup(of: CurrentWeather?.self) { group in
+            group.addTask {
+                return try? await self.service.weather(for: location, including: .current)
+            }
+            return await group.next() ?? nil
+        }
     }
 
     func dailyForecast(for location: CLLocation) async -> Forecast<DayWeather>? {
-        let dayWeather = await Task.detached(priority: .userInitiated) {
-            let forcast = try? await self.service.weather(
-                for: location,
-                including: .daily)
-            return forcast
-        }.value
-        return dayWeather
+        return await withTaskGroup(of: Forecast<DayWeather>?.self) { group in
+            group.addTask {
+                return try? await self.service.weather(for: location, including: .daily)
+            }
+            return await group.next() ?? nil
+        }
     }
 
     func hourlyForecast(for location: CLLocation, date: Date) async -> Forecast<HourWeather>? {
-        let hourWeather = await Task.detached(priority: .userInitiated) {
-            let forcast = try? await self.service.weather(
-                for: location,
-                including: .hourly(startDate: date, endDate: date.addingTimeInterval(25*3600)))
-            return forcast
-        }.value
-        return hourWeather
+        return await withTaskGroup(of: Forecast<HourWeather>?.self) { group in
+            group.addTask {
+                return try? await self.service.weather(for: location, including: .hourly(startDate: date, endDate: date.addingTimeInterval(25*3600)))
+            }
+            return await group.next() ?? nil
+        }
     }
 
     func weatherAttribution() async -> WeatherAttribution? {
-        let attrib = await Task.detached(priority: .userInitiated) {
-            return try? await self.service.attribution
-        }.value
-        return attrib
+        return await withTaskGroup(of: WeatherAttribution?.self) { group in
+            group.addTask {
+                return try? await self.service.attribution
+            }
+            return await group.next() ?? nil
+        }
     }
 
     enum WeatherDataHelper {

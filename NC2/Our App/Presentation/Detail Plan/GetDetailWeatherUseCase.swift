@@ -19,12 +19,13 @@ class GetDetailWeatherUseCase {
     }
 
     func execute() async throws -> Forecast<HourWeather>? {
-        let hourlyForecast = (await WeatherManager.shared.hourlyForecast(
+        let hourlyForecast = await WeatherManager.shared.hourlyForecast(
             for: CLLocation(
                 latitude: location.latitude,
                 longitude: location.longitude
-            ), date: date
-        ))!
+            ),
+            date: date
+        )
 
         return hourlyForecast
     }
