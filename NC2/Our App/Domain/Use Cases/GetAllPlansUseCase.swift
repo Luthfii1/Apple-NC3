@@ -27,7 +27,7 @@ class GetAllPlansUseCase: GetAllPlanUseCasesProtocol{
     func executeEvent() async throws -> [PlanCardEntity] {
         let allPlans = try await planRepository.getAllPlans()
         let eventPlans = allPlans.filter {
-            $0.isRepeat == false
+            $0.reminder == .None
         }
         
         if eventPlans.isEmpty {
@@ -38,12 +38,11 @@ class GetAllPlansUseCase: GetAllPlanUseCasesProtocol{
             PlanCardEntity(
                 id: plan.id,
                 title: plan.title,
-                date: plan.date,
                 allDay: plan.allDay,
                 durationPlan: plan.durationPlan,
                 location: plan.location,
-                degree: plan.weatherPlan?.looksLikeHotDegree ?? 0,
-                descriptionWeather: plan.weatherPlan?.generalDescription ?? "--"
+                temperature: plan.weatherPlan?.hotDegree ?? 0,
+                weatherDescription: plan.weatherPlan?.generalDescription ?? "no data"
             )
         }
         
@@ -53,7 +52,7 @@ class GetAllPlansUseCase: GetAllPlanUseCasesProtocol{
     func executeRoutine() async throws -> [PlanCardEntity] {
         let allPlans = try await planRepository.getAllPlans()
         let eventPlans = allPlans.filter {
-            $0.isRepeat == true
+            $0.reminder != .None
         }
         
         if eventPlans.isEmpty {
@@ -64,12 +63,11 @@ class GetAllPlansUseCase: GetAllPlanUseCasesProtocol{
             PlanCardEntity(
                 id: plan.id,
                 title: plan.title,
-                date: plan.date,
                 allDay: plan.allDay,
                 durationPlan: plan.durationPlan,
                 location: plan.location,
-                degree: plan.weatherPlan?.looksLikeHotDegree ?? 0,
-                descriptionWeather: plan.weatherPlan?.generalDescription ?? "--"
+                temperature: plan.weatherPlan?.hotDegree ?? 0,
+                weatherDescription: plan.weatherPlan?.generalDescription ?? "no data"
             )
         }
         

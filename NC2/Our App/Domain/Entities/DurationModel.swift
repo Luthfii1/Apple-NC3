@@ -8,6 +8,6 @@
 import Foundation
 
 struct DurationTimePlan: Codable, Equatable, Hashable {
-    var start: String
-    var end: String
+    var start: Date
+    var end: Date
 }

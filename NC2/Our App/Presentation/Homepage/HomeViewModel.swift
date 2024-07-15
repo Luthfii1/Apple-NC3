@@ -27,7 +27,7 @@ class HomeViewModel: ObservableObject {
     
     var groupedPlans: [String: [PlanCardEntity]] {
         Dictionary(grouping: plans) { plan in
-            DateFormatter.localizedString(from: plan.date, dateStyle: .medium, timeStyle: .none)
+            DateFormatter.localizedString(from: plan.durationPlan.start, dateStyle: .medium, timeStyle: .none)
         }
     }
     

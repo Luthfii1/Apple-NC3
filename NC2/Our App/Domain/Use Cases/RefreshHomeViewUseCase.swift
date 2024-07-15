@@ -16,10 +16,13 @@ class RefreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol {
     
     func execute(isEvent: Int) async throws -> [PlanCardEntity] {
         let allPlans = try await planRepository.getAllPlans()
-        let eventPlans = allPlans.filter {
-            isEvent == 0 ?
-            $0.isRepeat == false :
-            $0.isRepeat == true
+        
+        let eventPlans = allPlans.filter { plan in
+            if plan.planCategory == .Event {
+                return plan.daysRepeat == nil || plan.daysRepeat?.isEmpty == true
+            } else {
+                return plan.daysRepeat != nil && !plan.daysRepeat!.isEmpty
+            }
         }
         
         if eventPlans.isEmpty {
@@ -30,12 +33,11 @@ class RefreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol {
             PlanCardEntity(
                 id: plan.id,
                 title: plan.title,
-                date: plan.date,
                 allDay: plan.allDay,
                 durationPlan: plan.durationPlan,
                 location: plan.location,
-                degree: plan.weatherPlan?.looksLikeHotDegree ?? 0,
-                descriptionWeather: plan.weatherPlan?.generalDescription ?? "--"
+                temperature: plan.weatherPlan?.hotDegree ?? 0,
+                weatherDescription: plan.weatherPlan?.generalDescription ?? "no data"
             )
         }
         

@@ -28,7 +28,7 @@ struct PlanCardComponent: View {
                             .bold()
                             .foregroundStyle(.default)
                         
-                        Text(plan.location)
+                        Text(plan.location.nameLocation)
                             .font(.subheadline)
                             .bold()
                             .foregroundStyle(.locationPlan)
@@ -43,12 +43,12 @@ struct PlanCardComponent: View {
                             .foregroundStyle(.default)
                     } else {
                         VStack (alignment: .trailing, spacing: 8){
-                            Text(plan.durationPlan.start)
+                            Text(String(plan.durationPlan.start.formattedTime()))
                                 .font(.subheadline)
                                 .bold()
                                 .foregroundStyle(.default)
                             
-                            Text(plan.durationPlan.end)
+                            Text(plan.durationPlan.end.formattedTime())
                                 .font(.subheadline)
                                 .bold()
                                 .foregroundStyle(.locationPlan)
@@ -62,12 +62,12 @@ struct PlanCardComponent: View {
                         .bold()
                         .foregroundStyle(.default)
                     
-                    Text("\(plan.degree)°")
+                    Text("\(plan.temperature)°")
                         .font(.body)
                         .bold()
                         .foregroundStyle(.default)
                     
-                    Text(plan.descriptionWeather)
+                    Text(plan.weatherDescription)
                         .font(.body)
                         .bold()
                         .foregroundStyle(.default)

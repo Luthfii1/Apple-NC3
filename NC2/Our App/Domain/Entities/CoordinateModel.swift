@@ -8,6 +8,6 @@
 import Foundation
 
 struct Coordinate: Codable, Equatable, Hashable {
-    var latitude: Double
     var longitude: Double
+    var latitude: Double
 }
