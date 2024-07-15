@@ -18,11 +18,9 @@ class RefreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol {
         let allPlans = try await planRepository.getAllPlans()
         
         let eventPlans = allPlans.filter { plan in
-            if plan.planCategory == .Event {
-                return plan.daysRepeat == nil || plan.daysRepeat?.isEmpty == true
-            } else {
-                return plan.daysRepeat != nil && !plan.daysRepeat!.isEmpty
-            }
+            isEvent == 0 ?
+                plan.planCategory == .Event :
+                plan.planCategory == .Routine
         }
         
         if eventPlans.isEmpty {

@@ -36,7 +36,6 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         Task {
             do {
-                print("here event")
                 let plansFetched = try await getAllPlansUseCase.executeEvent()
                 DispatchQueue.main.async {
                     self.plans = plansFetched
@@ -71,7 +70,6 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         Task {
             do {
-                print("here routine")
                 let plansFetched = try await getAllPlansUseCase.executeRoutine()
                 DispatchQueue.main.async {
                     self.plans = plansFetched
