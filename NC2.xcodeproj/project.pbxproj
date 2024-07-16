@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
 		8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */; };
+		DD5D590C2C46274A009AB089 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5D590B2C46274A009AB089 /* Utils.swift */; };
 		DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E32C44E7E6002B24EE /* LocationModel.swift */; };
 		DD6794E72C44E821002B24EE /* DaysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E62C44E821002B24EE /* DaysEnum.swift */; };
 		DD6794E92C44E832002B24EE /* PlanCategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */; };
@@ -79,6 +80,7 @@
 /* Begin PBXFileReference section */
 		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLiveActivity.swift; sourceTree = "<group>"; };
+		DD5D590B2C46274A009AB089 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DD6794E32C44E7E6002B24EE /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		DD6794E62C44E821002B24EE /* DaysEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysEnum.swift; sourceTree = "<group>"; };
 		DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCategoryEnum.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				DD6794F02C450EBC002B24EE /* DependencyInjection.swift */,
+				DD5D590B2C46274A009AB089 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				DD7F945E2C42C9C6009E4C9F /* dummyPlanModel.swift in Sources */,
 				DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */,
 				DD7F94632C42CA65009E4C9F /* PlanRepository.swift in Sources */,
+				DD5D590C2C46274A009AB089 /* Utils.swift in Sources */,
 				DD7F93FA2C3D6CEC009E4C9F /* HomepageViewModel.swift in Sources */,
 				DD6794EB2C44E847002B24EE /* ReminderEnum.swift in Sources */,
 				DD7F94722C438853009E4C9F /* AQIRemoteDataSource.swift in Sources */,
@@ -853,8 +857,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NC2.HappyKids;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -883,7 +887,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
