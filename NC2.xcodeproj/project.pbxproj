@@ -257,6 +257,7 @@
 				8AC3A1922C461A9F008E6AEE /* Info.plist */,
 			);
 			path = widget;
+        };
 		DD6794E52C44E815002B24EE /* Enum */ = {
 			isa = PBXGroup;
 			children = (
