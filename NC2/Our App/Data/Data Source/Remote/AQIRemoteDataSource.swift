@@ -30,31 +30,3 @@ class AQIRemoteDataSource: AQIRemoteDataSourceProtocol {
         }
     }
 }
-
-//@Published var aqiData: AQIData?
-//
-//    init() {
-//        fetchData()
-//    }
-//
-//    func fetchData() {
-//        guard let url = URL(string: "YOUR_API_ENDPOINT_URL") else {
-//            fatalError("Invalid API endpoint URL")
-//        }
-//
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data = data else {
-//                fatalError("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-//            }
-//
-//            do {
-//                let decoder = JSONDecoder()
-//                let response = try decoder.decode(AQIResponse.self, from: data)
-//                DispatchQueue.main.async {
-//                    self.aqiData = response.data
-//                }
-//            } catch {
-//                fatalError("Error decoding JSON: \(error.localizedDescription)")
-//            }
-//        }.resume()
-//    }

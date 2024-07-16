@@ -54,7 +54,7 @@ struct PlanCardComponent: View {
                         Text("\(plan.temperature)°")
                             .shadowedText(font: .body)
                         
-                        Text(plan.weatherDescription)
+                        Text(plan.weatherDescription.toFrontCapital())
                             .shadowedText(font: .body)
                     }
                     .padding(.vertical, 4)
