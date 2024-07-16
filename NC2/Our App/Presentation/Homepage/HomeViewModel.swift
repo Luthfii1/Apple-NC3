@@ -33,6 +33,7 @@ class HomeViewModel: ObservableObject {
     
     @MainActor
     func getPlanEvents() async {
+        print("event")
         self.state.isLoading = true
         Task {
             do {
@@ -50,6 +51,7 @@ class HomeViewModel: ObservableObject {
     
     @MainActor
     func refreshPage() async {
+        print("refresh")
         self.state.isLoading = true
         Task {
             do {
@@ -67,6 +69,7 @@ class HomeViewModel: ObservableObject {
     
     @MainActor
     func getPlanRoutine() async {
+        print("routine")
         self.state.isLoading = true
         Task {
             do {

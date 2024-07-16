@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D2F9B562C4660AB00EED179 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 3D2F9B552C4660AB00EED179 /* GoogleGenerativeAI */; };
 		3D332D802C465D4C00B10FA3 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
 		3D332D822C465D6600B10FA3 /* WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */; };
 		3D332D832C465D6A00B10FA3 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */; };
 		3D332D842C465D6F00B10FA3 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */; };
+		3D332D862C465EB300B10FA3 /* MultiSelectpicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */; };
+		3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */; };
 		8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */; };
 		8AC3A1752C452AE1008E6AEE /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1742C452AE1008E6AEE /* APIKey.swift */; };
 		8AC3A1782C452B0D008E6AEE /* GeminiBotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1762C452B0D008E6AEE /* GeminiBotViewModel.swift */; };
 		8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1772C452B0D008E6AEE /* GeminiBotScreen.swift */; };
-		8AC3A17C2C452B9B008E6AEE /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 8AC3A17B2C452B9B008E6AEE /* GoogleGenerativeAI */; };
 		8AC3A1842C461A9E008E6AEE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1832C461A9E008E6AEE /* WidgetKit.framework */; };
 		8AC3A1862C461A9E008E6AEE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1852C461A9E008E6AEE /* SwiftUI.framework */; };
 		8AC3A1952C461A9F008E6AEE /* widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8AC3A1812C461A9E008E6AEE /* widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -111,6 +113,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectpicker.swift; sourceTree = "<group>"; };
+		3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
 		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLiveActivity.swift; sourceTree = "<group>"; };
 		8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
@@ -207,7 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AC3A17C2C452B9B008E6AEE /* GoogleGenerativeAI in Frameworks */,
+				3D2F9B562C4660AB00EED179 /* GoogleGenerativeAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +535,8 @@
 			children = (
 				DD7F94362C40D85C009E4C9F /* CreatePlanViewModel.swift */,
 				DD7F94382C40D885009E4C9F /* CreatePlanView.swift */,
+				3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */,
+				3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */,
 			);
 			path = "Create Plan";
 			sourceTree = "<group>";
@@ -680,7 +686,7 @@
 			);
 			name = NC2;
 			packageProductDependencies = (
-				8AC3A17B2C452B9B008E6AEE /* GoogleGenerativeAI */,
+				3D2F9B552C4660AB00EED179 /* GoogleGenerativeAI */,
 			);
 			productName = NC2;
 			productReference = DD7F93C72C3D4D0A009E4C9F /* Happy Kids.app */;
@@ -764,6 +770,7 @@
 			files = (
 				DD7F944C2C42B420009E4C9F /* PlanCardComponent.swift in Sources */,
 				8AC3A1752C452AE1008E6AEE /* APIKey.swift in Sources */,
+				3D332D862C465EB300B10FA3 /* MultiSelectpicker.swift in Sources */,
 				DD7F943E2C40D8B1009E4C9F /* DetailPlanViewModel.swift in Sources */,
 				DD6794F12C450EBC002B24EE /* DependencyInjection.swift in Sources */,
 				DD7F94042C3F857B009E4C9F /* GetTodosRemoteDataSource.swift in Sources */,
@@ -808,6 +815,7 @@
 				DD7F945A2C42C873009E4C9F /* CoordinateModel.swift in Sources */,
 				DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */,
 				DD7F94542C42BF43009E4C9F /* dummyPlans.swift in Sources */,
+				3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */,
 				DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */,
 				DD7F944A2C40DDE6009E4C9F /* ReminderViewModel.swift in Sources */,
 				8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */,
@@ -1031,6 +1039,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want to access your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1063,6 +1072,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want to access your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1125,7 +1135,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8AC3A17B2C452B9B008E6AEE /* GoogleGenerativeAI */ = {
+		3D2F9B552C4660AB00EED179 /* GoogleGenerativeAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8AC3A17A2C452B9B008E6AEE /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
 			productName = GoogleGenerativeAI;

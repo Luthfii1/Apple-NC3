@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var vm: HomeViewModel
     @State private var showAlert: Bool = false
+    @State private var isCreateSheetPresented = false
     
     var body: some View {
         NavigationStack {
@@ -46,6 +47,9 @@ struct HomeView: View {
                         }
                         .padding(.horizontal, 12)
                     }
+                    .sheet(isPresented: $isCreateSheetPresented) {
+                        CreatePlanView()
+                    }
                     .refreshable {
                         await vm.refreshPage()
                     }
@@ -56,6 +60,7 @@ struct HomeView: View {
                             HStack {
                                 Button(action: {
                                     print("Add Plan")
+                                    isCreateSheetPresented = true
                                 }, label: {
                                     HStack () {
                                         Image(systemName: "plus.circle.fill")

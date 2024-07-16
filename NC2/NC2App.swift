@@ -29,7 +29,7 @@ struct NC2App: App {
         WindowGroup {
             HomeView()
                 .environmentObject(dependencyInjection)
-                .environmentObject(dependencyInjection.dummyHomeViewModel())
+                .environmentObject(dependencyInjection.homeViewModel())
         }
         .modelContainer(container)
     }
