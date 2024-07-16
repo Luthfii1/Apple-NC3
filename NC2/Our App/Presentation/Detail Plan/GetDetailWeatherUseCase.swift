@@ -30,3 +30,24 @@ class GetDetailWeatherUseCase {
         return hourlyForecast
     }
 }
+
+class GetDayWeatherUseCase {
+    var location: Coordinate
+    var date: Date
+
+    init(location: Coordinate, date: Date) {
+        self.location = location
+        self.date = date
+    }
+
+    func execute() async throws -> Forecast<DayWeather>? {
+        let dayForecast = await WeatherManager.shared.dayForecast(for: CLLocation(
+            latitude: location.latitude,
+            longitude: location.longitude
+        ), date: date)
+        
+        print("dayforecast : \(String(describing: dayForecast?.first?.highTemperature.value))")
+
+        return dayForecast
+    }
+}

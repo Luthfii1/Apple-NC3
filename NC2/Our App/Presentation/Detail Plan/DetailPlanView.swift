@@ -17,120 +17,179 @@ struct DetailPlanView: View {
     var body: some View {
         VStack {
             if vm.isLoading {
-                ProgressView()
-                // MARK: nanti apus
-                Text("tes")
+                ProgressView("Loading...")
             } else {
-                VStack(alignment: .leading) {
-                    VStack {
-                        // MARK: ganti jadi vm.plan.weatherPlan
-                        Text("\(vm.hourlyForecast?.first?.condition.description ?? "No data yet")")
-                            .font(.title)
-                            .bold()
-                        
-                        HStack {
-                            Image(systemName: "clock.fill")
-                            Text("\(String(describing: vm.plan.durationPlan.start.formatted(date: .complete, time: .omitted)))")
-                            Text(" | ")
-                            // MARK: ganti jadi duration
-                            Text("\(String(describing: vm.plan.durationPlan.end.formatted(date: .omitted, time: .shortened)))")
-                        }
-    
-                        HStack {
-                            Image(systemName: "pin.fill")
-                            VStack(alignment: .leading) {
-                                Text("\(vm.plan.title)")
-                                Text("\(vm.plan.location)")
-                            }
-                        }
-                    }
+                ZStack{
+                    vm.getBackground(currentWeather: "Sunny")
+                        .resizable()
+                        .scaledToFill()
+                        .edgesIgnoringSafeArea(.all)
                     
-                    // MARK: place for illustration
-                    VStack {
-                        
-                    }
-                    
-                    VStack {
-                        Spacer()
-                        HStack {
-                            VStack {
-                                // MARK: ganti jadi vm.plan.weatherPlan -> symbolName, condition
-                                Image(systemName: vm.hourlyForecast?.first?.symbolName ?? "questionmark")
-                                Text("\(vm.hourlyForecast?.first?.condition.description ?? "No data yet")")
-                            }.frame(width: 164, height: 74)
-                                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                    VStack(alignment: .leading) {
+                        VStack(alignment: .leading) {
+                            Text("\(vm.detailPlan.weatherPlan?.generalDescription ?? "No data yet")")
+                                .font(.system(size: 34, weight: .heavy, design: .rounded))
+                                .bold()
+                                .padding(.top, 76)
+                                .padding(.bottom, 12)
                             
-                            VStack(alignment: .leading) {
-                                //                        Text("\(vm.hourlyForecast?.first?.temperature.value.formatted(.number.precision(.fractionLength(1))) ?? "--")ºC")
-                                Text("\(vm.plan.weatherPlan?.hotDegree ?? 0)ºC")
-                                // MARK: ini ganti jadi apa ya??
-                                Text("Humidity will make it feel warmer.")
-                                    .font(.caption2)
-                                    .fontWeight(.bold)
-                            }.frame(width: 164, height: 74)
-                                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                            HStack {
+                                Image(systemName: "clock.fill")
+                                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                
+                                Text("\(String(describing: vm.detailPlan.durationPlan.start.formatted(date: .complete, time: .omitted)))")
+                                    .font(.body)
+                                    .fontWeight(.semibold)
+                                    .fontDesign(.rounded)
+                                Text(" | ")
+                                if vm.detailPlan.allDay {
+                                    Text("All Day")
+                                }else{
+                                    Text("\(String(describing: vm.detailPlan.durationPlan.start.formatted(date: .omitted, time: .shortened))) - \(String(describing: vm.detailPlan.durationPlan.end.formatted(date: .omitted, time: .shortened)))")
+                                        .font(.body)
+                                        .fontWeight(.semibold)
+                                        .fontDesign(.rounded)
+                                }
+                            }
+                            .padding(.bottom, 12)
+                            
+                            HStack {
+                                Image(systemName: "pin.fill")
+                                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                VStack(alignment: .leading) {
+                                    Text("\(vm.detailPlan.title)")
+                                        .font(.body)
+                                        .fontWeight(.semibold)
+                                        .fontDesign(.rounded)
+                                    Text("\(vm.detailPlan.location.nameLocation)")
+                                        .font(.footnote)
+                                        .fontWeight(.semibold)
+                                        .fontDesign(.rounded)
+                                }
+                            }
+                            .padding(.bottom, 12)
                         }
                         
-                        HStack {
-                            VStack {
-                                HStack {
-                                    Image(systemName: "sun.max.fill")
-                                    Text("\(vm.plan.weatherPlan?.UVIndex ?? 0)")
-                                }
-                                Text("UV index")
-                                // MARK: GANTI
-                                Text("Partly Cloudy")
-                            }
-                            VStack {
-                                HStack {
-                                    Image(systemName: "umbrella.fill")
-                                    //                            Text("\(((vm.hourlyForecast?.first?.precipitationChance ?? 0) * 100).formatted(.number.precision(.fractionLength(0))))%")
-                                    // MARK: ini typo harusnya Precipitation
-                                    Text("\(vm.plan.weatherPlan?.Percipitation ?? 0)%")
-                                }
-                                Text("Precipitation")
-                                // MARK: ganti
-                                Text("Partly Cloudy")
-                            }
-                            VStack {
-                                HStack {
-                                    Image(systemName: "wind")
-                                    // MARK: ganti
-                                    Text("\(vm.plan.weatherPlan?.AQIndex ?? 0)")
-                                }
-                                Text("AQI")
-                                // MARK: ganti
-                                Text("Partly Cloudy")
-                            }
-                        }.frame(width: 345, height: 80)
-                            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                        // MARK: place for illustration
+                        VStack {
+                            Rectangle()
+                                .foregroundColor(.black)
+                                .frame(width: 300, height: 256)
+                        }.padding(.bottom, 12)
                         
                         VStack {
-                            if let hourly = vm.hourlyForecast {
-                                // MARK: ganti
-                                Text("Sunny conditions expected around 11AM")
-                                Divider()
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("\(vm.detailPlan.weatherPlan?.hotDegree ?? 0)ºC")
+                                        .font(.title2)
+                                        .fontWeight(.semibold)
+                                        .fontDesign(.rounded)
+                                    Text("Feels like \(vm.detailPlan.weatherPlan?.looksLikeHotDegree ?? 0)ºC")
+                                        .font(.caption2)
+                                        .fontWeight(.semibold)
+                                        .fontDesign(.rounded)
+                                    // MARK: tes
+                                    Text("\(vm.dayForecast?.first?.condition.accessibilityDescription ?? "--")")
+                                }.frame(width: 168, height: 74)
+                                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
                                 
-                                ScrollView(.horizontal) {
-                                    HStack(spacing: 12) {
-                                        ForEach(hourly, id: \.date) { hour in
-                                            HourDetailsCell(hourWeather: hour)
-                                            Divider()
+                                HStack {
+                                    VStack {
+                                        Text("HIGHEST")
+                                            .font(.caption2)
+                                            .fontWeight(.semibold)
+                                            .fontDesign(.rounded)
+                                        if let highTemp = vm.dayForecast?.first?.highTemperature.value { Text("\(highTemp.formatted(.number.precision(.fractionLength(1))))ºC")
+                                                .font(.body)
+                                                .fontWeight(.semibold)
+                                                .fontDesign(.rounded)
+                                        } else {
+                                            Text("--")
+                                        }
+                                    }.padding(.trailing, 4)
+                                    
+                                    VStack {
+                                        Text("LOWEST")
+                                            .font(.caption2)
+                                            .fontWeight(.semibold)
+                                            .fontDesign(.rounded)
+                                        
+                                        if let lowTemp = vm.dayForecast?.first?.lowTemperature.value { Text("\(lowTemp.formatted(.number.precision(.fractionLength(1))))ºC")
+                                                .font(.body)
+                                                .fontWeight(.semibold)
+                                                .fontDesign(.rounded)
+                                        } else {
+                                            Text("--")
                                         }
                                     }
-                                }
-                                .padding(.all, 5)
+                                }.frame(width: 168, height: 74)
+                                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
                             }
-                        }.frame(width: 345, height: 120)
-                            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                            
+                            HStack {
+                                VStack {
+                                    HStack {
+                                        Image(systemName: "sun.max.fill")
+                                        Text("\(vm.detailPlan.weatherPlan?.UVIndex ?? 0)")
+                                    }
+                                    Text("UV index")
+                                    // MARK: GANTI
+                                    Text("Partly Cloudy")
+                                }
+                                VStack {
+                                    HStack {
+                                        Image(systemName: "umbrella.fill")
+                                        Text("\(((vm.hourlyForecast?.first?.precipitationChance ?? 0) * 100).formatted(.number.precision(.fractionLength(0))))%")
+                                        // MARK: ini typo harusnya Precipitation
+                                        //                                        Text("\(vm.detailPlan.weatherPlan?.Percipitation ?? 0)%")
+                                        //                                        Text("\(vm.dayForecast?.first?.precipitationChance ?? 0)%")
+                                    }
+                                    Text("Precipitation")
+                                    // MARK: ganti
+                                    Text("Partly Cloudy")
+                                }
+                                VStack {
+                                    HStack {
+                                        Image(systemName: "wind")
+                                        // MARK: ganti
+                                        Text("\(vm.detailPlan.weatherPlan?.AQIndex ?? 0)")
+                                    }
+                                    Text("AQI")
+                                    // MARK: ganti
+                                    Text("Partly Cloudy")
+                                }
+                            }.frame(width: 344, height: 80)
+                                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
+                            
+                            VStack {
+                                if let hourly = vm.hourlyForecast {
+                                    // MARK: ganti
+                                    Text("Sunny conditions expected around 11AM")
+                                    Divider()
+                                    
+                                    ScrollView(.horizontal) {
+                                        HStack(spacing: 12) {
+                                            ForEach(hourly, id: \.date) { hour in
+                                                HourDetailsCell(hourWeather: hour)
+                                                Divider()
+                                            }
+                                        }
+                                    }
+                                    .padding(.all, 5)
+                                }
+                            }.frame(width: 344, height: 120)
+                                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
+                        }
+                        .padding(.bottom, 72)
                     }
                 }
             }
         }
         .onAppear{
             Task {
-                 await vm.getHourlyWeather()
-//                await vm.getDetailPlan(planId: planId)
+                await vm.getDetailPlan(planId: planId)
+                await vm.getHourlyWeather()
+                await vm.getDayWeather()
             }
         }
     }
