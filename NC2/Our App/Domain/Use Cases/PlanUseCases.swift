@@ -51,7 +51,6 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     func insertPlan(plan: PlanModel) async throws {
-        print("location \(plan.location.coordinatePlace)")
         try await planRepository.insertPlan(plan: plan)
     }
     
@@ -78,8 +77,6 @@ class PlanUseCases: PlanUseCasesProtocol{
             } else {
                 print("Failed to fetch hourly forecast for plan: \(plan.title)")
             }
-            
-            print("location: \(plan.location.coordinatePlace)")
             
             let planCardEntity = PlanCardEntity(
                 id: plan.id,
