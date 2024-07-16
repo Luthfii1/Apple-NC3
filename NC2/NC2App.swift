@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import UserNotifications
 
 @main
 struct NC2App: App {
@@ -21,6 +22,7 @@ struct NC2App: App {
         } catch {
             fatalError("Failed to initialize SwiftData")
         }
+        ReminderViewModel.shared.requestAuthorization()
     }
     
     var body: some Scene {
@@ -33,3 +35,19 @@ struct NC2App: App {
     }
 }
 
+//// Main App
+//let container : ModelContainer
+//StateObject var vm: VM
+//
+//init() {
+//    do {
+//        container = try ModelContainer(for: Model.self)
+//        let vm = VM(modelContext: container.mainContext)
+//        _vm = StateObject(wrappedValue: vm)
+//    } catch {
+//        fatalError("Failed to initialize SwiftData")
+//    }
+//}
+//
+//HomeView()
+//    .environmentObject(vm)
