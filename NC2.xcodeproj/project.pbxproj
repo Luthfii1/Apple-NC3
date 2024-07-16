@@ -510,8 +510,6 @@
 		DD7F943A2C40D890009E4C9F /* Detail Plan */ = {
 			isa = PBXGroup;
 			children = (
-				8AC3A1772C452B0D008E6AEE /* GeminiBotScreen.swift */,
-				8AC3A1762C452B0D008E6AEE /* GeminiBotViewModel.swift */,
 				DD7F943B2C40D8A1009E4C9F /* DetailPlanView.swift */,
 				DD7F943D2C40D8B1009E4C9F /* DetailPlanViewModel.swift */,
 			);
@@ -530,7 +528,6 @@
 		DD7F94442C40D96F009E4C9F /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				8AC3A1742C452AE1008E6AEE /* APIKey.swift */,
 				DD7F945F2C42CA07009E4C9F /* Repositories */,
 				DD7F94452C40D981009E4C9F /* Data Source */,
 			);
@@ -558,6 +555,9 @@
 		DD7F94472C40D9E3009E4C9F /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				8AC3A1772C452B0D008E6AEE /* GeminiBotScreen.swift */,
+				8AC3A1762C452B0D008E6AEE /* GeminiBotViewModel.swift */,
+				8AC3A1742C452AE1008E6AEE /* APIKey.swift */,
 				DD7F946F2C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift */,
 				DD7F94712C438853009E4C9F /* AQIRemoteDataSource.swift */,
 			);
