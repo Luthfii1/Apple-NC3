@@ -13,8 +13,6 @@ class CreatePlanViewModel: ObservableObject {
     @Published var title: String = ""
     @Published var location: String = ""
     @Published var allDay: Bool = false
-//    @Published var eventPicker: String = "One time event"
-//    @Published var reminderPicker: String = "None"
     @Published var startDate: Date = Date()
     @Published var endDate: Date = Date()
     
@@ -33,8 +31,6 @@ class CreatePlanViewModel: ObservableObject {
     @Published var reminderPicker: REMINDER = .None
     
     
-//    let EventSelection = ["One time event", "Routines"]
-//    let ReminderSelection = ["None", "At time of event", "5 minutes before", "10 minutes before", "15 minutes before", "30 minutes before", "1 hour before", "2 hours before", "1 day before"]
     let EventSelection = PLANCATEGORY.allCases.map { $0.rawValue }
     let ReminderSelection = REMINDER.allCases.map { $0.rawValue }
     
@@ -61,15 +57,14 @@ class CreatePlanViewModel: ObservableObject {
     
     func locationSelected() {
         if let selectedLocation = selectedLocation {
-            location = selectedLocation.name ?? "Unknown"
-            latitude = selectedLocation.placemark.coordinate.latitude
-            longitude = selectedLocation.placemark.coordinate.longitude
-            address = selectedLocation.placemark.locality ?? "No Locality"
-            
+            self.location = selectedLocation.name ?? "Unknown"
+            self.latitude = selectedLocation.placemark.coordinate.latitude
+            self.longitude = selectedLocation.placemark.coordinate.longitude
+            self.address = selectedLocation.placemark.locality ?? "No Locality"
         }
     }
     
-    func savePlan(context: ModelContext) {
+    func savePlan(context: ModelContext, homeViewModel: HomeViewModel) {
         let locationSaved = Location(
                     nameLocation: location,
                     detailAddress: address,
@@ -92,7 +87,9 @@ class CreatePlanViewModel: ObservableObject {
         
         do {
             try context.save()
-            print("all done")
+            Task {
+                await homeViewModel.fetchPlansBasedOnFilter()
+            }
         } catch {
             print("Failed to save plan: \(error)")
         }
@@ -108,7 +105,4 @@ class CreatePlanViewModel: ObservableObject {
     func cancelAction() -> Bool {
         return !title.isEmpty || !location.isEmpty
     }
-    
-    
-    
 }

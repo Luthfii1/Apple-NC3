@@ -1,19 +1,17 @@
 //
-//  CreatePlanView.swift
+//  EditPlanView.swift
 //  NC2
 //
-//  Created by Luthfi Misbachul Munir on 12/07/24.
+//  Created by Felicia Himawan on 14/07/24.
 //
-
 import SwiftUI
-import MapKit
 import SwiftData
+import MapKit
 
-struct CreatePlanView: View {
+struct EditPlanView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var homeViewModel: HomeViewModel
-    @StateObject private var viewModel = CreatePlanViewModel()
+    @StateObject var viewModel: EditPlanViewModel
     @StateObject private var searchPlaceViewModel = SearchPlaceViewModel()
     
     var body: some View {
@@ -27,16 +25,14 @@ struct CreatePlanView: View {
                         }
                         .sheet(isPresented: $searchPlaceViewModel.isSheetPresented) {
                             SearchPlace(viewModel: searchPlaceViewModel)
-                                .onAppear{
+                                .onAppear {
                                     viewModel.setWindowBackgroundColor(.black)
                                 }
                                 .onDisappear {
-                                    //                                    viewModel.locationSelected()
                                     if let selectedLocation = searchPlaceViewModel.selectedLocation {
                                         viewModel.location = selectedLocation.name ?? "Unknown"
                                         viewModel.latitude = selectedLocation.placemark.coordinate.latitude
                                         viewModel.longitude = selectedLocation.placemark.coordinate.longitude
-                                        viewModel.address = selectedLocation.placemark.locality ?? "No Locality"
                                     }
                                 }
                         }
@@ -55,7 +51,6 @@ struct CreatePlanView: View {
                     )
                     .datePickerStyle(.compact)
                     
-                    
                     DatePicker(
                         "Ends",
                         selection: $viewModel.endDate,
@@ -63,8 +58,6 @@ struct CreatePlanView: View {
                         displayedComponents: viewModel.allDay ? [.date] : [.date, .hourAndMinute]
                     )
                     .datePickerStyle(.compact)
-                    
-                    
                 }
                 
                 Section {
@@ -73,7 +66,6 @@ struct CreatePlanView: View {
                             Text(selection.rawValue).tag(selection)
                         }
                     }
-                    
                     
                     if viewModel.eventPicker == .Routine {
                         MultiSelectPicker(title: "Repeat", options: DAYS.allCases, selections: $viewModel.daysRepeat)
@@ -84,18 +76,25 @@ struct CreatePlanView: View {
                     Picker("Reminder", selection: $viewModel.reminderPicker) {
                         ForEach(REMINDER.allCases, id: \.self) { selection in
                             if selection == .None {
-                                Text(selection.rawValue)
-                                    .tag(selection)
+                                Text(selection.rawValue).tag(selection)
                                 Divider() // Add a divider after the "None" option
                             } else {
                                 Text(selection.rawValue).tag(selection)
                             }
                         }
                     }
-                    
+                }
+                
+                Section {
+                    Button("Delete Plan") {
+                        viewModel.showDeleteAlert = true
+                        //                        viewModel.deletePlan(context: context)
+                        //                        presentationMode.wrappedValue.dismiss()
+                    }
+                    .foregroundColor(.red)
                 }
             }
-            .navigationBarTitle("New Plan", displayMode: .inline)
+            .navigationBarTitle("Edit Plan", displayMode: .inline)
             .navigationBarItems(
                 leading: Button("Cancel") {
                     if viewModel.cancelAction() {
@@ -105,12 +104,22 @@ struct CreatePlanView: View {
                     }
                 },
                 trailing: Button("Done") {
-                    viewModel.savePlan(context: context, homeViewModel: homeViewModel)
+                    viewModel.saveChanges(context: context)
                     presentationMode.wrappedValue.dismiss()
                 }
                     .disabled(!viewModel.isFormValid)
                     .bold(!viewModel.isFormValid ? false : true)
             )
+            .alert(isPresented: $viewModel.showDeleteAlert) { // Add this block for the delete alert
+                Alert(
+                    title: Text("Are you sure you want to delete your plan?"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        viewModel.deletePlan(context: context)
+                        presentationMode.wrappedValue.dismiss()
+                    },
+                    secondaryButton: .cancel()
+                )
+            }
         }
         .confirmationDialog("Are you sure you want to discard your changes?", isPresented: $viewModel.showDiscardChangesDialog) {
             Button("Discard Changes", role: .destructive) {
@@ -121,12 +130,5 @@ struct CreatePlanView: View {
     message: {
         Text("Are you sure you want to discard your changes?")
     }
-        
     }
 }
-#Preview {
-    CreatePlanView()
-}
-
-
-

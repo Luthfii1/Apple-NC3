@@ -9,17 +9,7 @@ import Foundation
 import CoreLocation
 import WeatherKit
 
-// GET PLANNED FEATURES
-// TODO: UseCase when Get all Plans
-// TODO: UseCase when Pick the Detail Plan
-// TODO: UseCase when filtering Plan
-
-// WEATHER FEATURES
-// TODO: UseCase to Get Weather for all Plans
-// TODO: UseCase to Get Detail Weather
-
-
-class GetAllPlansUseCase: GetAllPlanUseCasesProtocol{
+class PlanUseCases: PlanUseCasesProtocol{
     let planRepository: PlanRepositoryProtocol
     let utils: Utils
     
@@ -101,6 +91,5 @@ class GetAllPlansUseCase: GetAllPlanUseCasesProtocol{
         
         return result
     }
-
 }
 

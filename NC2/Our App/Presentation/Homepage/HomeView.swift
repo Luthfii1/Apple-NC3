@@ -11,6 +11,8 @@ struct HomeView: View {
     @EnvironmentObject var vm: HomeViewModel
     @State private var showAlert: Bool = false
     @State private var isCreateSheetPresented = false
+//    @State private var selectedPlan: PlanCardEntity?
+//    @State private var isEditSheetPresented: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -41,6 +43,14 @@ struct HomeView: View {
                                 ) {
                                     ForEach(vm.groupedPlans[date]!, id: \.id) { plan in
                                         PlanCardComponent(plan: plan)
+//                                            .contextMenu {
+//                                                Button(action: {
+//                                                    selectedPlan = plan
+//                                                    isEditSheetPresented = true
+//                                                }) {
+//                                                    Text("Edit")
+//                                                }
+//                                            }
                                     }
                                 }
                             }
@@ -49,9 +59,12 @@ struct HomeView: View {
                     }
                     .sheet(isPresented: $isCreateSheetPresented) {
                         CreatePlanView()
-                    }
+                    }                    
+//                    .sheet(isPresented: $isEditSheetPresented) {
+//                        EditPlanView(viewModel: EditPlanViewModel(plan: selectedPlan))
+//                    }
                     .refreshable {
-                        await vm.refreshPage()
+                        await vm.fetchPlansBasedOnFilter()
                     }
                     .navigationTitle("Plan")
                     .background(.backgroundView)

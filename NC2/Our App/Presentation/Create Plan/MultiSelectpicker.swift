@@ -23,7 +23,7 @@ struct MultiSelectPicker: View {
             }) {
                 HStack {
                     Text(title)
-                        .foregroundColor(.black)
+                        .foregroundColor(.default)
                     Spacer()
                     Text(displayText)
                         .foregroundColor(.gray)
@@ -41,7 +41,6 @@ struct MultiSelectPicker: View {
                                     selections.insert(option)
                                 }
                             }
-                            .foregroundColor(.black)
                         }
                     }
                     .navigationBarTitle("Repeat", displayMode: .inline)
