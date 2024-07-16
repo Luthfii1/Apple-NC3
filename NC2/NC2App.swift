@@ -20,13 +20,19 @@ struct NC2App: App {
 //        }
 //    }
 //    
+    var container: ModelContainer {
+            do {
+                return try ModelContainer(for: PlanModel.self)
+            } catch {
+                fatalError("Failed to initialize SwiftData: \(error)")
+            }
+        }
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
-        }
-        .modelContainer(for: [
-            PlanModel.self
-        ])
+                    HomeView()
+                        .environment(\.modelContext, container.mainContext)
+                }
 //        WindowGroup {
 //            let getLocalTodos = GetTodosLocalSwiftDataDataSource(modelContext: container.mainContext)
 //            let getRemoteTodos = GetTodosRemoteDataSource()

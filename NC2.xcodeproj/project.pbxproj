@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D332D772C460E1800B10FA3 /* CoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D762C460E1800B10FA3 /* CoordinateModel.swift */; };
+		3D332D792C460E3600B10FA3 /* DurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D782C460E3600B10FA3 /* DurationModel.swift */; };
+		3D332D7B2C460E5200B10FA3 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D7A2C460E5200B10FA3 /* LocationModel.swift */; };
+		3D332D7D2C460E7200B10FA3 /* PlanCategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D7C2C460E7200B10FA3 /* PlanCategoryEnum.swift */; };
+		3D332D7F2C460E9400B10FA3 /* ReminderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D7E2C460E9400B10FA3 /* ReminderEnum.swift */; };
 		3D614B312C43A92A003B1314 /* EditPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614B302C43A92A003B1314 /* EditPlanView.swift */; };
 		3D614B332C43A939003B1314 /* EditPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614B322C43A939003B1314 /* EditPlanViewModel.swift */; };
 		3D614B362C452BAC003B1314 /* DaysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614B352C452BAC003B1314 /* DaysEnum.swift */; };
@@ -49,6 +54,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D332D762C460E1800B10FA3 /* CoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateModel.swift; sourceTree = "<group>"; };
+		3D332D782C460E3600B10FA3 /* DurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationModel.swift; sourceTree = "<group>"; };
+		3D332D7A2C460E5200B10FA3 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		3D332D7C2C460E7200B10FA3 /* PlanCategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCategoryEnum.swift; sourceTree = "<group>"; };
+		3D332D7E2C460E9400B10FA3 /* ReminderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEnum.swift; sourceTree = "<group>"; };
 		3D614B302C43A92A003B1314 /* EditPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanView.swift; sourceTree = "<group>"; };
 		3D614B322C43A939003B1314 /* EditPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanViewModel.swift; sourceTree = "<group>"; };
 		3D614B342C43C8F4003B1314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -319,6 +329,11 @@
 				DD7F94212C40D0EB009E4C9F /* PlanModel.swift */,
 				DD7F94252C40D53B009E4C9F /* WeatherModel.swift */,
 				3D614B352C452BAC003B1314 /* DaysEnum.swift */,
+				3D332D762C460E1800B10FA3 /* CoordinateModel.swift */,
+				3D332D782C460E3600B10FA3 /* DurationModel.swift */,
+				3D332D7A2C460E5200B10FA3 /* LocationModel.swift */,
+				3D332D7C2C460E7200B10FA3 /* PlanCategoryEnum.swift */,
+				3D332D7E2C460E9400B10FA3 /* ReminderEnum.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -478,6 +493,8 @@
 				DD7F94132C3FC5E6009E4C9F /* TodoView.swift in Sources */,
 				DD7F940B2C3F90F4009E4C9F /* TodoRepository.swift in Sources */,
 				3D614B362C452BAC003B1314 /* DaysEnum.swift in Sources */,
+				3D332D7F2C460E9400B10FA3 /* ReminderEnum.swift in Sources */,
+				3D332D7B2C460E5200B10FA3 /* LocationModel.swift in Sources */,
 				DD7F941E2C3FCF65009E4C9F /* DeleteTodoUseCase.swift in Sources */,
 				DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */,
 				DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */,
@@ -491,6 +508,9 @@
 				3D614B312C43A92A003B1314 /* EditPlanView.swift in Sources */,
 				DD7F94022C3F84EA009E4C9F /* GetTodosRemoteProtocol.swift in Sources */,
 				DD7F94372C40D85C009E4C9F /* CreatePlanViewModel.swift in Sources */,
+				3D332D792C460E3600B10FA3 /* DurationModel.swift in Sources */,
+				3D332D7D2C460E7200B10FA3 /* PlanCategoryEnum.swift in Sources */,
+				3D332D772C460E1800B10FA3 /* CoordinateModel.swift in Sources */,
 				DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */,
 				DD7F944A2C40DDE6009E4C9F /* ReminderViewModel.swift in Sources */,
 				DD7F94062C3F85D1009E4C9F /* GetTodosLocalSwiftDataProtocol.swift in Sources */,

@@ -13,8 +13,8 @@ class CreatePlanViewModel: ObservableObject {
     @Published var title: String = ""
     @Published var location: String = ""
     @Published var allDay: Bool = false
-    @Published var eventPicker: String = "One time event"
-    @Published var reminderPicker: String = "None"
+//    @Published var eventPicker: String = "One time event"
+//    @Published var reminderPicker: String = "None"
     @Published var startDate: Date = Date()
     @Published var endDate: Date = Date()
     
@@ -29,9 +29,13 @@ class CreatePlanViewModel: ObservableObject {
     @Published var showDiscardChangesDialog: Bool = false
     
     @Published var daysRepeat: Set<DAYS> = []
+    @Published var eventPicker: PLANCATEGORY = .Event
+    @Published var reminderPicker: REMINDER = .None
     
-    let EventSelection = ["One time event", "Routines"]
-    let ReminderSelection = ["None", "At time of event", "5 minutes before", "10 minutes before", "15 minutes before", "30 minutes before", "1 hour before", "2 hours before", "1 day before"]
+//    let EventSelection = ["One time event", "Routines"]
+//    let ReminderSelection = ["None", "At time of event", "5 minutes before", "10 minutes before", "15 minutes before", "30 minutes before", "1 hour before", "2 hours before", "1 day before"]
+    let EventSelection = PLANCATEGORY.allCases.map { $0.rawValue }
+    let ReminderSelection = REMINDER.allCases.map { $0.rawValue }
     
     private var todayDate: Date {
         return Calendar.current.startOfDay(for: Date())
@@ -65,8 +69,26 @@ class CreatePlanViewModel: ObservableObject {
     }
     
     func savePlan(context: ModelContext) {
-        let newPlan = PlanModel(title: title, location: location, timeStart: startDate, timeEnd: endDate, allDay: allDay, eventPicker: eventPicker, reminderPicker: reminderPicker, latitude: latitude, longitude: longitude, address: address, daysRepeat: Array(daysRepeat))
+        let locationSaved = Location(
+                    nameLocation: location,
+                    detailAddress: address,
+                    coordinatePlace: Coordinate(longitude: longitude, latitude: latitude)
+                )
+        
+        let durationPlan = DurationTimePlan(start: startDate, end: endDate)
+                
+                let newPlan = PlanModel(
+                    title: title,
+                    location: locationSaved,
+                    durationPlan: durationPlan,
+                    daysRepeat: Array(daysRepeat),
+                    planCategory: eventPicker,
+                    reminder: reminderPicker,
+                    allDay: allDay
+                )
+        
         context.insert(newPlan)
+        
         do {
             try context.save()
             print("all done")

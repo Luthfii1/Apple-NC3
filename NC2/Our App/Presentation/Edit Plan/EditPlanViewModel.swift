@@ -12,9 +12,10 @@ class EditPlanViewModel: ObservableObject {
     @Published var plan: PlanModel
     @Published var title: String
     @Published var location: String
+    
     @Published var allDay: Bool
-    @Published var eventPicker: String
-    @Published var reminderPicker: String
+    //    @Published var eventPicker: String
+    //    @Published var reminderPicker: String
     @Published var startDate: Date
     @Published var endDate: Date
     
@@ -27,25 +28,31 @@ class EditPlanViewModel: ObservableObject {
     
     @Published var latitude: Double
     @Published var longitude: Double
+    @Published var address: String
     
     @Published var daysRepeat: Set<DAYS>
+    @Published var eventPicker: PLANCATEGORY
+    @Published var reminderPicker: REMINDER
     
-    let EventSelection = ["One time event", "Routines"]
-    let ReminderSelection = ["None", "At time of event", "5 minutes before", "10 minutes before", "15 minutes before", "30 minutes before", "1 hour before", "2 hours before", "1 day before"]
+    
+    //    let EventSelection = ["One time event", "Routines"]
+    //    let ReminderSelection = ["None", "At time of event", "5 minutes before", "10 minutes before", "15 minutes before", "30 minutes before", "1 hour before", "2 hours before", "1 day before"]
+    
     
     init(plan: PlanModel) {
         self.plan = plan
         self.title = plan.title
-        self.location = plan.location
+        self.location = plan.location.nameLocation
+        self.address = plan.location.detailAddress
         self.allDay = plan.allDay
-        self.eventPicker = plan.eventPicker
-        self.reminderPicker = plan.reminderPicker
-        self.startDate = plan.timeStart
-        self.endDate = plan.timeEnd
-        self.latitude = plan.latitude
-        self.longitude = plan.longitude
+        self.eventPicker = plan.planCategory
+        self.reminderPicker = plan.reminder
+        self.startDate = plan.durationPlan.start
+        self.endDate = plan.durationPlan.end
+        self.latitude = plan.location.coordinatePlace.latitude
+        self.longitude = plan.location.coordinatePlace.longitude
         self.daysRepeat = Set(plan.daysRepeat ?? [])
-
+        
     }
     
     private var todayDate: Date {
@@ -78,15 +85,19 @@ class EditPlanViewModel: ObservableObject {
     }
     
     func saveChanges(context: ModelContext) {
+        let updatedLocation = Location(
+            nameLocation: location,
+            detailAddress: address,
+            coordinatePlace: Coordinate(longitude: longitude, latitude: latitude)
+        )
+        let updatedDuration = DurationTimePlan(start: startDate, end: endDate)
+        
         plan.title = title
-        plan.location = location
-        plan.timeStart = startDate
-        plan.timeEnd = endDate
+        plan.location = updatedLocation
+        plan.durationPlan = updatedDuration
         plan.allDay = allDay
-        plan.eventPicker = eventPicker
-        plan.reminderPicker = reminderPicker
-        plan.latitude = latitude
-        plan.longitude = longitude
+        plan.planCategory = eventPicker
+        plan.reminder = reminderPicker
         plan.daysRepeat = Array(daysRepeat)
         
         do {
@@ -118,6 +129,16 @@ class EditPlanViewModel: ObservableObject {
     }
     
     private func hasUnsavedChanges() -> Bool {
-            return title != plan.title || location != plan.location || allDay != plan.allDay || eventPicker != plan.eventPicker || reminderPicker != plan.reminderPicker || startDate != plan.timeStart || endDate != plan.timeEnd || latitude != plan.latitude || longitude != plan.longitude || daysRepeat != Set(plan.daysRepeat ?? [])
-        }
+        return title != plan.title ||
+        location != plan.location.nameLocation ||
+        address != plan.location.detailAddress ||
+        allDay != plan.allDay ||
+        eventPicker != plan.planCategory ||
+        reminderPicker != plan.reminder ||
+        startDate != plan.durationPlan.start ||
+        endDate != plan.durationPlan.end ||
+        latitude != plan.location.coordinatePlace.latitude ||
+        longitude != plan.location.coordinatePlace.longitude ||
+        daysRepeat != Set(plan.daysRepeat ?? [])
+    }
 }

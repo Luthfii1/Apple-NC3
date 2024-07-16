@@ -62,22 +62,24 @@ struct EditPlanView: View {
                 
                 Section {
                     Picker("Event", selection: $viewModel.eventPicker) {
-                        ForEach(viewModel.EventSelection, id: \.self) { selection in
-                            Text(selection).tag(selection)
+                        ForEach(PLANCATEGORY.allCases, id: \.self) { selection in
+                            Text(selection.rawValue).tag(selection)
                         }
                     }
                     
-                    if viewModel.eventPicker == "Routines" {
+                    if viewModel.eventPicker == .Routine {
                         MultiSelectPicker(title: "Repeat", options: DAYS.allCases, selections: $viewModel.daysRepeat)
                     }
                 }
                 
                 Section {
                     Picker("Reminder", selection: $viewModel.reminderPicker) {
-                        ForEach(viewModel.ReminderSelection, id: \.self) { selection in
-                            Text(selection).tag(selection)
-                            if selection == "None" {
+                        ForEach(REMINDER.allCases, id: \.self) { selection in
+                            if selection == .None {
+                                Text(selection.rawValue).tag(selection)
                                 Divider() // Add a divider after the "None" option
+                            } else {
+                                Text(selection.rawValue).tag(selection)
                             }
                         }
                     }

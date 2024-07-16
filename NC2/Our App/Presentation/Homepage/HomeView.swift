@@ -23,21 +23,21 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     Text(plan.title)
                         .font(.headline)
-                    Text(plan.location)
+                    Text(plan.location.nameLocation)
                         .font(.subheadline)
-                    Text("Latitude: \(plan.latitude)")
+                    Text("Latitude: \(plan.location.coordinatePlace.latitude)")
                         .font(.subheadline)
-                    Text("Longitude: \(plan.longitude)")
+                    Text("Longitude: \(plan.location.coordinatePlace.longitude)")
                         .font(.subheadline)
-                    Text("address: \(plan.address)")
+                    Text("Address: \(plan.location.detailAddress)")
                         .font(.subheadline)
                     if let daysRepeat = plan.daysRepeat {
-                                Text("Days Repeat: \(daysRepeat.isEmpty ? "No days repeat chosen" : daysRepeat.map { $0.rawValue }.joined(separator: ", "))")
-                                    .font(.subheadline)
-                            } else {
-                                Text("No days repeat chosen")
-                                    .font(.subheadline)
-                            }
+                        Text("Days Repeat: \(daysRepeat.isEmpty ? "No days repeat chosen" : daysRepeat.map { $0.rawValue }.joined(separator: ", "))")
+                            .font(.subheadline)
+                    } else {
+                        Text("No days repeat chosen")
+                            .font(.subheadline)
+                    }
                     
                 }
                 .contextMenu {
