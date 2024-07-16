@@ -841,7 +841,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = XSHZNN2ULY;
+				DEVELOPMENT_TEAM = 4V452CD2YS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -854,7 +854,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -871,7 +871,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = XSHZNN2ULY;
+				DEVELOPMENT_TEAM = 4V452CD2YS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -884,7 +884,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
