@@ -34,6 +34,7 @@ struct CreatePlanView: View {
                                         viewModel.location = selectedLocation.name ?? "Unknown"
                                         viewModel.latitude = selectedLocation.placemark.coordinate.latitude
                                         viewModel.longitude = selectedLocation.placemark.coordinate.longitude
+                                        viewModel.address = selectedLocation.placemark.locality ?? "No Locality"
                                     }
                                 }
                         }
@@ -69,6 +70,10 @@ struct CreatePlanView: View {
                         ForEach(viewModel.EventSelection, id: \.self) { selection in
                             Text(selection).tag(selection)
                         }
+                    }
+                    
+                    if viewModel.eventPicker == "Routines" {
+                        MultiSelectPicker(title: "Repeat", options: DAYS.allCases, selections: $viewModel.daysRepeat)
                     }
                     
                     
@@ -122,3 +127,7 @@ struct CreatePlanView: View {
 #Preview {
     CreatePlanView()
 }
+
+
+
+

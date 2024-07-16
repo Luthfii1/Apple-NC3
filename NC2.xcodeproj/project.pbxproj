@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3D614B312C43A92A003B1314 /* EditPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614B302C43A92A003B1314 /* EditPlanView.swift */; };
 		3D614B332C43A939003B1314 /* EditPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614B322C43A939003B1314 /* EditPlanViewModel.swift */; };
+		3D614B362C452BAC003B1314 /* DaysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614B352C452BAC003B1314 /* DaysEnum.swift */; };
+		3D614B382C4577DF003B1314 /* MultiSelectPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614B372C4577DF003B1314 /* MultiSelectPicker.swift */; };
+		3D614B3A2C45780D003B1314 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614B392C45780D003B1314 /* MultipleSelectionRow.swift */; };
 		DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */; };
 		DD7F93CF2C3D4D0B009E4C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */; };
 		DD7F93D22C3D4D0B009E4C9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93D12C3D4D0B009E4C9F /* Preview Assets.xcassets */; };
@@ -49,6 +52,9 @@
 		3D614B302C43A92A003B1314 /* EditPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanView.swift; sourceTree = "<group>"; };
 		3D614B322C43A939003B1314 /* EditPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanViewModel.swift; sourceTree = "<group>"; };
 		3D614B342C43C8F4003B1314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3D614B352C452BAC003B1314 /* DaysEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysEnum.swift; sourceTree = "<group>"; };
+		3D614B372C4577DF003B1314 /* MultiSelectPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectPicker.swift; sourceTree = "<group>"; };
+		3D614B392C45780D003B1314 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
 		DD7F93C72C3D4D0A009E4C9F /* NC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2App.swift; sourceTree = "<group>"; };
 		DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -284,7 +290,6 @@
 		DD7F940F2C3FC52E009E4C9F /* Our App */ = {
 			isa = PBXGroup;
 			children = (
-				DD7F94442C40D96F009E4C9F /* Data */,
 				DD7F942C2C40D776009E4C9F /* Presentation */,
 				DD7F941F2C3FD13E009E4C9F /* Domain */,
 			);
@@ -313,6 +318,7 @@
 			children = (
 				DD7F94212C40D0EB009E4C9F /* PlanModel.swift */,
 				DD7F94252C40D53B009E4C9F /* WeatherModel.swift */,
+				3D614B352C452BAC003B1314 /* DaysEnum.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -362,6 +368,8 @@
 			children = (
 				DD7F94362C40D85C009E4C9F /* CreatePlanViewModel.swift */,
 				DD7F94382C40D885009E4C9F /* CreatePlanView.swift */,
+				3D614B372C4577DF003B1314 /* MultiSelectPicker.swift */,
+				3D614B392C45780D003B1314 /* MultipleSelectionRow.swift */,
 			);
 			path = "Create Plan";
 			sourceTree = "<group>";
@@ -382,37 +390,6 @@
 				DD7F94422C40D923009E4C9F /* SearchPlaceViewModel.swift */,
 			);
 			path = "Search Place";
-			sourceTree = "<group>";
-		};
-		DD7F94442C40D96F009E4C9F /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				DD7F94452C40D981009E4C9F /* Data Source */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		DD7F94452C40D981009E4C9F /* Data Source */ = {
-			isa = PBXGroup;
-			children = (
-				DD7F94472C40D9E3009E4C9F /* Remote */,
-				DD7F94462C40D9D5009E4C9F /* Local */,
-			);
-			path = "Data Source";
-			sourceTree = "<group>";
-		};
-		DD7F94462C40D9D5009E4C9F /* Local */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Local;
-			sourceTree = "<group>";
-		};
-		DD7F94472C40D9E3009E4C9F /* Remote */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Remote;
 			sourceTree = "<group>";
 		};
 		DD7F94482C40DDBD009E4C9F /* Reminder */ = {
@@ -500,6 +477,7 @@
 				DD7F94342C40D80E009E4C9F /* HomeViewModel.swift in Sources */,
 				DD7F94132C3FC5E6009E4C9F /* TodoView.swift in Sources */,
 				DD7F940B2C3F90F4009E4C9F /* TodoRepository.swift in Sources */,
+				3D614B362C452BAC003B1314 /* DaysEnum.swift in Sources */,
 				DD7F941E2C3FCF65009E4C9F /* DeleteTodoUseCase.swift in Sources */,
 				DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */,
 				DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */,
@@ -519,6 +497,8 @@
 				DD7F942F2C40D7A0009E4C9F /* ButtonComponent.swift in Sources */,
 				DD7F94262C40D53B009E4C9F /* WeatherModel.swift in Sources */,
 				DD7F93E82C3D4E56009E4C9F /* TodoModel.swift in Sources */,
+				3D614B3A2C45780D003B1314 /* MultipleSelectionRow.swift in Sources */,
+				3D614B382C4577DF003B1314 /* MultiSelectPicker.swift in Sources */,
 				DD7F94412C40D8E7009E4C9F /* SearchPlaceView.swift in Sources */,
 				DD7F93EC2C3D618A009E4C9F /* TodosRepositoryProtocol.swift in Sources */,
 				DD7F94082C3F85E8009E4C9F /* GetTodosLocalSwiftDataDataSource.swift in Sources */,

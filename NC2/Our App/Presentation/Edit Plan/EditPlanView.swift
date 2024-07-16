@@ -66,6 +66,10 @@ struct EditPlanView: View {
                             Text(selection).tag(selection)
                         }
                     }
+                    
+                    if viewModel.eventPicker == "Routines" {
+                        MultiSelectPicker(title: "Repeat", options: DAYS.allCases, selections: $viewModel.daysRepeat)
+                    }
                 }
                 
                 Section {
@@ -81,8 +85,9 @@ struct EditPlanView: View {
                 
                 Section {
                     Button("Delete Plan") {
-                        viewModel.deletePlan(context: context)
-                        presentationMode.wrappedValue.dismiss()
+                        viewModel.showDeleteAlert = true
+                        //                        viewModel.deletePlan(context: context)
+                        //                        presentationMode.wrappedValue.dismiss()
                     }
                     .foregroundColor(.red)
                 }
@@ -103,6 +108,16 @@ struct EditPlanView: View {
                     .disabled(!viewModel.isFormValid)
                     .bold(!viewModel.isFormValid ? false : true)
             )
+            .alert(isPresented: $viewModel.showDeleteAlert) { // Add this block for the delete alert
+                Alert(
+                    title: Text("Are you sure you want to delete your plan?"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        viewModel.deletePlan(context: context)
+                        presentationMode.wrappedValue.dismiss()
+                    },
+                    secondaryButton: .cancel()
+                )
+            }
         }
         .confirmationDialog("Are you sure you want to discard your changes?", isPresented: $viewModel.showDiscardChangesDialog) {
             Button("Discard Changes", role: .destructive) {

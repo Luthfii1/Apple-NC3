@@ -11,28 +11,6 @@ import CoreLocation
 
 @Model
 class PlanModel: Identifiable, Equatable, Hashable{
-//    var id: UUID
-//    var title: String
-//    var location: String
-//    var address: String
-//    var coordinatePlace: String
-//    var weatherPlan: Weather?
-//    var timeStart: Date
-//    var timeEnd: Date
-//    var suggest: String?
-    
-//    init(id: UUID = UUID(), title: String, location: String, address: String, coordinatePlace: String, weatherPlan: Weather? = nil, timeStart: Date, timeEnd: Date, suggest: String? = nil) {
-//        self.id = id
-//        self.title = title
-//        self.location = location
-//        self.address = address
-//        self.coordinatePlace = coordinatePlace
-//        self.weatherPlan = weatherPlan
-//        self.timeStart = timeStart
-//        self.timeEnd = timeEnd
-//        self.suggest = suggest
-//    }
-    
     var id: UUID
     var title: String
     var location: String
@@ -43,8 +21,10 @@ class PlanModel: Identifiable, Equatable, Hashable{
     var reminderPicker: String
     var latitude: Double
     var longitude: Double
+    var address: String
+    var daysRepeat: [DAYS]?
     
-    init(id: UUID = UUID(), title: String, location: String, timeStart: Date, timeEnd: Date, allDay: Bool, eventPicker: String, reminderPicker: String, latitude: Double, longitude: Double) {
+    init(id: UUID = UUID(), title: String, location: String, timeStart: Date, timeEnd: Date, allDay: Bool, eventPicker: String, reminderPicker: String, latitude: Double, longitude: Double, address: String, daysRepeat: [DAYS]? = nil) {
         self.id = id
         self.title = title
         self.location = location
@@ -55,5 +35,7 @@ class PlanModel: Identifiable, Equatable, Hashable{
         self.reminderPicker = reminderPicker
         self.latitude = latitude
         self.longitude = longitude
+        self.address = address
+        self.daysRepeat = daysRepeat
     }
 }

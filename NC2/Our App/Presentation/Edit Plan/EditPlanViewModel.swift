@@ -23,9 +23,12 @@ class EditPlanViewModel: ObservableObject {
     @Published var isSheetPresented: Bool = false
     
     @Published var showDiscardChangesDialog: Bool = false
+    @Published var showDeleteAlert: Bool = false
     
     @Published var latitude: Double
     @Published var longitude: Double
+    
+    @Published var daysRepeat: Set<DAYS>
     
     let EventSelection = ["One time event", "Routines"]
     let ReminderSelection = ["None", "At time of event", "5 minutes before", "10 minutes before", "15 minutes before", "30 minutes before", "1 hour before", "2 hours before", "1 day before"]
@@ -41,6 +44,8 @@ class EditPlanViewModel: ObservableObject {
         self.endDate = plan.timeEnd
         self.latitude = plan.latitude
         self.longitude = plan.longitude
+        self.daysRepeat = Set(plan.daysRepeat ?? [])
+
     }
     
     private var todayDate: Date {
@@ -82,6 +87,7 @@ class EditPlanViewModel: ObservableObject {
         plan.reminderPicker = reminderPicker
         plan.latitude = latitude
         plan.longitude = longitude
+        plan.daysRepeat = Array(daysRepeat)
         
         do {
             try context.save()
@@ -112,6 +118,6 @@ class EditPlanViewModel: ObservableObject {
     }
     
     private func hasUnsavedChanges() -> Bool {
-        return title != plan.title || location != plan.location
-    }
+            return title != plan.title || location != plan.location || allDay != plan.allDay || eventPicker != plan.eventPicker || reminderPicker != plan.reminderPicker || startDate != plan.timeStart || endDate != plan.timeEnd || latitude != plan.latitude || longitude != plan.longitude || daysRepeat != Set(plan.daysRepeat ?? [])
+        }
 }

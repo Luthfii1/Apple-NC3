@@ -48,7 +48,7 @@ struct SearchPlace: View {
             }
             .navigationBarTitle("New Plan", displayMode: .inline)
             .navigationBarItems(
-                trailing: Button("Cancel") {
+                leading: Button("Cancel") {
                     presentationMode.wrappedValue.dismiss() // Dismiss the search view
                 }
             )

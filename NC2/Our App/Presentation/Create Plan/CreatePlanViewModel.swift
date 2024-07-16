@@ -24,8 +24,11 @@ class CreatePlanViewModel: ObservableObject {
     
     @Published var latitude: Double = 0.0
     @Published var longitude: Double = 0.0
+    @Published var address: String = ""
     
     @Published var showDiscardChangesDialog: Bool = false
+    
+    @Published var daysRepeat: Set<DAYS> = []
     
     let EventSelection = ["One time event", "Routines"]
     let ReminderSelection = ["None", "At time of event", "5 minutes before", "10 minutes before", "15 minutes before", "30 minutes before", "1 hour before", "2 hours before", "1 day before"]
@@ -56,11 +59,13 @@ class CreatePlanViewModel: ObservableObject {
             location = selectedLocation.name ?? "Unknown"
             latitude = selectedLocation.placemark.coordinate.latitude
             longitude = selectedLocation.placemark.coordinate.longitude
+            address = selectedLocation.placemark.locality ?? "No Locality"
+            
         }
     }
     
     func savePlan(context: ModelContext) {
-        let newPlan = PlanModel(title: title, location: location, timeStart: startDate, timeEnd: endDate, allDay: allDay, eventPicker: eventPicker, reminderPicker: reminderPicker, latitude: latitude, longitude: longitude)
+        let newPlan = PlanModel(title: title, location: location, timeStart: startDate, timeEnd: endDate, allDay: allDay, eventPicker: eventPicker, reminderPicker: reminderPicker, latitude: latitude, longitude: longitude, address: address, daysRepeat: Array(daysRepeat))
         context.insert(newPlan)
         do {
             try context.save()
