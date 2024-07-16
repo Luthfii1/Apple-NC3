@@ -14,7 +14,7 @@ struct ShadowedTextModifier: ViewModifier {
         content
             .font(font)
             .bold()
-            .foregroundStyle(.default)
+            .foregroundStyle(.white)
             .shadow(color: .black.opacity(0.4), radius: 10, x: 2, y: 2)
     }
 }

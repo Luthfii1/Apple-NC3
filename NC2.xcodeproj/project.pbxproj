@@ -21,6 +21,7 @@
 		8AC3A1842C461A9E008E6AEE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1832C461A9E008E6AEE /* WidgetKit.framework */; };
 		8AC3A1862C461A9E008E6AEE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1852C461A9E008E6AEE /* SwiftUI.framework */; };
 		8AC3A1952C461A9F008E6AEE /* widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8AC3A1812C461A9E008E6AEE /* widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DD5D590C2C46274A009AB089 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5D590B2C46274A009AB089 /* Utils.swift */; };
 		DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E32C44E7E6002B24EE /* LocationModel.swift */; };
 		DD6794E72C44E821002B24EE /* DaysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E62C44E821002B24EE /* DaysEnum.swift */; };
 		DD6794E92C44E832002B24EE /* PlanCategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */; };
@@ -86,31 +87,8 @@
 		DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */; };
 		DD7F947A2C441107009E4C9F /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94792C441107009E4C9F /* StateView.swift */; };
 		DD7F947C2C4439F5009E4C9F /* GetAllPlansUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F947B2C4439F5009E4C9F /* GetAllPlansUseCase.swift */; };
+		DDDA031D2C4653C000918185 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = DDDA031C2C4653C000918185 /* GoogleGenerativeAI */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		8AC3A1932C461A9F008E6AEE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DD7F93BF2C3D4D0A009E4C9F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8AC3A1802C461A9E008E6AEE;
-			remoteInfo = widgetExtension;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8AC3A1992C461A9F008E6AEE /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				8AC3A1952C461A9F008E6AEE /* widgetExtension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectpicker.swift; sourceTree = "<group>"; };
@@ -127,6 +105,7 @@
 		8AC3A1832C461A9E008E6AEE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		8AC3A1852C461A9E008E6AEE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8AC3A19A2C461B86008E6AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DD5D590B2C46274A009AB089 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DD6794E32C44E7E6002B24EE /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		DD6794E62C44E821002B24EE /* DaysEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysEnum.swift; sourceTree = "<group>"; };
 		DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCategoryEnum.swift; sourceTree = "<group>"; };
@@ -261,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				DD6794F02C450EBC002B24EE /* DependencyInjection.swift */,
+				DD5D590B2C46274A009AB089 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -677,12 +657,10 @@
 				DD7F93C32C3D4D0A009E4C9F /* Sources */,
 				DD7F93C42C3D4D0A009E4C9F /* Frameworks */,
 				DD7F93C52C3D4D0A009E4C9F /* Resources */,
-				8AC3A1992C461A9F008E6AEE /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8AC3A1942C461A9F008E6AEE /* PBXTargetDependency */,
 			);
 			name = NC2;
 			packageProductDependencies = (
@@ -795,6 +773,7 @@
 				DD7F945E2C42C9C6009E4C9F /* dummyPlanModel.swift in Sources */,
 				DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */,
 				DD7F94632C42CA65009E4C9F /* PlanRepository.swift in Sources */,
+				DD5D590C2C46274A009AB089 /* Utils.swift in Sources */,
 				DD7F93FA2C3D6CEC009E4C9F /* HomepageViewModel.swift in Sources */,
 				DD6794EB2C44E847002B24EE /* ReminderEnum.swift in Sources */,
 				DD7F94722C438853009E4C9F /* AQIRemoteDataSource.swift in Sources */,
@@ -834,20 +813,13 @@
 				DD7F943C2C40D8A1009E4C9F /* DetailPlanView.swift in Sources */,
 				DD6794F32C4537E4002B24EE /* GetDetailUseCase.swift in Sources */,
 				DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */,
+				8AC3A1642C44CB3E008E6AEE /* AppIntent.swift in Sources */,
 				DD7F940D2C3F9791009E4C9F /* InsertTodoUseCase.swift in Sources */,
 				DD7F941C2C3FCAFC009E4C9F /* TodoFormSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8AC3A1942C461A9F008E6AEE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8AC3A1802C461A9E008E6AEE /* widgetExtension */;
-			targetProxy = 8AC3A1932C461A9F008E6AEE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8AC3A1972C461A9F008E6AEE /* Debug */ = {
@@ -1028,7 +1000,6 @@
 		DD7F93D62C3D4D0B009E4C9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NC2/NC2Debug.entitlements;
@@ -1061,7 +1032,6 @@
 		DD7F93D72C3D4D0B009E4C9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NC2/NC2.entitlements;
