@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 
 class PlanLocalDataSource: PlanLocalDataSourceProtocol {
-    
     private var modelContext: ModelContext
     init(modelContext: ModelContext) {
         self.modelContext = modelContext
