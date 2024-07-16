@@ -17,10 +17,10 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-    private let getAllPlansUseCase: GetAllPlanUseCasesProtocol
+    private let getAllPlansUseCase: PlanUseCasesProtocol
     private let refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol
     
-    init(getAllPlansUseCase: GetAllPlanUseCasesProtocol, refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol) {
+    init(getAllPlansUseCase: PlanUseCasesProtocol, refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol) {
         self.getAllPlansUseCase = getAllPlansUseCase
         self.refreshHomeViewUseCase = refreshHomeViewUseCase
     }

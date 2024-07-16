@@ -24,7 +24,8 @@ class RefreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol {
         }
         
         if eventPlans.isEmpty {
-            throw NSError(domain: "GetAllPlanEventsUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "No event plans found"])
+//            throw NSError(domain: "GetAllPlanEventsUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "No event plans found"])
+            return [] as [PlanCardEntity]
         }
         
         let result = eventPlans.map { plan in

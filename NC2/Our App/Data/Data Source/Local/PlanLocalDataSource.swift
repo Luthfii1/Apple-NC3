@@ -39,6 +39,6 @@ class PlanLocalDataSource: PlanLocalDataSourceProtocol {
     }
     
     func updatePlan(at offsets: IndexSet) async throws {
-        
+        try modelContext.save()
     }
 }
