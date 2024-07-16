@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
-		8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */; };
-		8AC3A1622C44CB05008E6AEE /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */; };
-		8AC3A1642C44CB3E008E6AEE /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */; };
+		3D332D802C465D4C00B10FA3 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
+		3D332D822C465D6600B10FA3 /* WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */; };
+		3D332D832C465D6A00B10FA3 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */; };
+		3D332D842C465D6F00B10FA3 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */; };
+		3D332D862C465EB300B10FA3 /* MultiSelectpicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */; };
+		3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */; };
+		3DDC3C2F2C4666B000506AB5 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 3DDC3C2E2C4666B000506AB5 /* GoogleGenerativeAI */; };
+		3DDC3C342C46771100506AB5 /* EditPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C332C46771100506AB5 /* EditPlanView.swift */; };
+		3DDC3C362C46773C00506AB5 /* EditPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */; };
 		8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */; };
 		8AC3A1752C452AE1008E6AEE /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1742C452AE1008E6AEE /* APIKey.swift */; };
 		8AC3A1782C452B0D008E6AEE /* GeminiBotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1762C452B0D008E6AEE /* GeminiBotViewModel.swift */; };
@@ -82,11 +87,14 @@
 		DD7F94762C43EB3D009E4C9F /* AQIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */; };
 		DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */; };
 		DD7F947A2C441107009E4C9F /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94792C441107009E4C9F /* StateView.swift */; };
-		DD7F947C2C4439F5009E4C9F /* GetAllPlansUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F947B2C4439F5009E4C9F /* GetAllPlansUseCase.swift */; };
-		DDDA031D2C4653C000918185 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = DDDA031C2C4653C000918185 /* GoogleGenerativeAI */; };
+		DD7F947C2C4439F5009E4C9F /* PlanUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F947B2C4439F5009E4C9F /* PlanUseCases.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectpicker.swift; sourceTree = "<group>"; };
+		3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
+		3DDC3C332C46771100506AB5 /* EditPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanView.swift; sourceTree = "<group>"; };
+		3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanViewModel.swift; sourceTree = "<group>"; };
 		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLiveActivity.swift; sourceTree = "<group>"; };
 		8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
@@ -167,7 +175,7 @@
 		DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRepository.swift; sourceTree = "<group>"; };
 		DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailUseCase.swift; sourceTree = "<group>"; };
 		DD7F94792C441107009E4C9F /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
-		DD7F947B2C4439F5009E4C9F /* GetAllPlansUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPlansUseCase.swift; sourceTree = "<group>"; };
+		DD7F947B2C4439F5009E4C9F /* PlanUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanUseCases.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,13 +192,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDDA031D2C4653C000918185 /* GoogleGenerativeAI in Frameworks */,
+				3DDC3C2F2C4666B000506AB5 /* GoogleGenerativeAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DDC3C322C46766800506AB5 /* Edit Plans */ = {
+			isa = PBXGroup;
+			children = (
+				3DDC3C332C46771100506AB5 /* EditPlanView.swift */,
+				3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */,
+			);
+			path = "Edit Plans";
+			sourceTree = "<group>";
+		};
 		8AC3A15C2C43156E008E6AEE /* Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,7 +483,7 @@
 				DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */,
 				DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */,
 				DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */,
-				DD7F947B2C4439F5009E4C9F /* GetAllPlansUseCase.swift */,
+				DD7F947B2C4439F5009E4C9F /* PlanUseCases.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -474,6 +491,7 @@
 		DD7F942C2C40D776009E4C9F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3DDC3C322C46766800506AB5 /* Edit Plans */,
 				8AC3A15C2C43156E008E6AEE /* Widget */,
 				DD7F94302C40D7B8009E4C9F /* Homepage */,
 				DD7F943A2C40D890009E4C9F /* Detail Plan */,
@@ -509,6 +527,8 @@
 			children = (
 				DD7F94362C40D85C009E4C9F /* CreatePlanViewModel.swift */,
 				DD7F94382C40D885009E4C9F /* CreatePlanView.swift */,
+				3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */,
+				3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */,
 			);
 			path = "Create Plan";
 			sourceTree = "<group>";
@@ -656,7 +676,7 @@
 			);
 			name = NC2;
 			packageProductDependencies = (
-				DDDA031C2C4653C000918185 /* GoogleGenerativeAI */,
+				3DDC3C2E2C4666B000506AB5 /* GoogleGenerativeAI */,
 			);
 			productName = NC2;
 			productReference = DD7F93C72C3D4D0A009E4C9F /* Happy Kids.app */;
@@ -727,6 +747,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D332D832C465D6A00B10FA3 /* WidgetBundle.swift in Sources */,
+				3D332D842C465D6F00B10FA3 /* AppIntent.swift in Sources */,
+				3D332D822C465D6600B10FA3 /* WidgetLiveActivity.swift in Sources */,
+				3D332D802C465D4C00B10FA3 /* WidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,9 +760,9 @@
 			files = (
 				DD7F944C2C42B420009E4C9F /* PlanCardComponent.swift in Sources */,
 				8AC3A1752C452AE1008E6AEE /* APIKey.swift in Sources */,
+				3D332D862C465EB300B10FA3 /* MultiSelectpicker.swift in Sources */,
 				DD7F943E2C40D8B1009E4C9F /* DetailPlanViewModel.swift in Sources */,
 				DD6794F12C450EBC002B24EE /* DependencyInjection.swift in Sources */,
-				8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */,
 				DD7F94042C3F857B009E4C9F /* GetTodosRemoteDataSource.swift in Sources */,
 				DD7F94152C3FC737009E4C9F /* CreateButton.swift in Sources */,
 				DD6794F92C453865002B24EE /* HourDetailsCell.swift in Sources */,
@@ -749,8 +773,10 @@
 				DD7F940B2C3F90F4009E4C9F /* TodoRepository.swift in Sources */,
 				DD7F941E2C3FCF65009E4C9F /* DeleteTodoUseCase.swift in Sources */,
 				DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */,
+				3DDC3C362C46773C00506AB5 /* EditPlanViewModel.swift in Sources */,
 				DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */,
 				DD6794EE2C44F0F0002B24EE /* Date+Extension.swift in Sources */,
+				3DDC3C342C46771100506AB5 /* EditPlanView.swift in Sources */,
 				DD7F94692C42DC2C009E4C9F /* DummyPlanRepository.swift in Sources */,
 				DD7F94432C40D923009E4C9F /* SearchPlaceViewModel.swift in Sources */,
 				DD7F93F32C3D68AA009E4C9F /* DummyData.swift in Sources */,
@@ -766,13 +792,12 @@
 				DD6794EB2C44E847002B24EE /* ReminderEnum.swift in Sources */,
 				DD7F94722C438853009E4C9F /* AQIRemoteDataSource.swift in Sources */,
 				DD7F946B2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift in Sources */,
-				8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */,
 				DD7F94562C42C68E009E4C9F /* PlanLocalDataSourceProtocol.swift in Sources */,
 				DD6794FB2C4538C0002B24EE /* WeatherManager.swift in Sources */,
 				DD7F93F82C3D6C5F009E4C9F /* HomepageView.swift in Sources */,
 				DD7F94742C43EAE9009E4C9F /* AQIRepositoryProtocol.swift in Sources */,
 				DD7F94022C3F84EA009E4C9F /* GetTodosRemoteProtocol.swift in Sources */,
-				DD7F947C2C4439F5009E4C9F /* GetAllPlansUseCase.swift in Sources */,
+				DD7F947C2C4439F5009E4C9F /* PlanUseCases.swift in Sources */,
 				DD7F94372C40D85C009E4C9F /* CreatePlanViewModel.swift in Sources */,
 				8AC3A1782C452B0D008E6AEE /* GeminiBotViewModel.swift in Sources */,
 				DD6795002C457BF3002B24EE /* Text+Extension.swift in Sources */,
@@ -783,6 +808,7 @@
 				DD7F945A2C42C873009E4C9F /* CoordinateModel.swift in Sources */,
 				DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */,
 				DD7F94542C42BF43009E4C9F /* dummyPlans.swift in Sources */,
+				3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */,
 				DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */,
 				DD7F944A2C40DDE6009E4C9F /* ReminderViewModel.swift in Sources */,
 				8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */,
@@ -798,11 +824,9 @@
 				DD7F93EC2C3D618A009E4C9F /* TodosRepositoryProtocol.swift in Sources */,
 				DD7F94082C3F85E8009E4C9F /* GetTodosLocalSwiftDataDataSource.swift in Sources */,
 				DD7F947A2C441107009E4C9F /* StateView.swift in Sources */,
-				8AC3A1622C44CB05008E6AEE /* WidgetBundle.swift in Sources */,
 				DD7F943C2C40D8A1009E4C9F /* DetailPlanView.swift in Sources */,
 				DD6794F32C4537E4002B24EE /* GetDetailUseCase.swift in Sources */,
 				DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */,
-				8AC3A1642C44CB3E008E6AEE /* AppIntent.swift in Sources */,
 				DD7F940D2C3F9791009E4C9F /* InsertTodoUseCase.swift in Sources */,
 				DD7F941C2C3FCAFC009E4C9F /* TodoFormSheet.swift in Sources */,
 			);
@@ -818,7 +842,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2N2A4XFHX4;
+				DEVELOPMENT_TEAM = 3L9D9QLCDG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -830,7 +854,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sabach.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Feli.WeatherAppParents.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -846,7 +870,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2N2A4XFHX4;
+				DEVELOPMENT_TEAM = 3L9D9QLCDG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -858,7 +882,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sabach.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Feli.WeatherAppParents.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -995,10 +1019,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = 4V452CD2YS;
+				DEVELOPMENT_TEAM = 3L9D9QLCDG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want to access your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1009,7 +1034,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Feli.WeatherAppParents;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1026,10 +1051,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = 4V452CD2YS;
+				DEVELOPMENT_TEAM = 3L9D9QLCDG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want to access your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1040,7 +1066,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Feli.WeatherAppParents;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1092,7 +1118,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DDDA031C2C4653C000918185 /* GoogleGenerativeAI */ = {
+		3DDC3C2E2C4666B000506AB5 /* GoogleGenerativeAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8AC3A17A2C452B9B008E6AEE /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
 			productName = GoogleGenerativeAI;

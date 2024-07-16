@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GetAllPlanUseCasesProtocol {
+protocol PlanUseCasesProtocol {
     func executeEvent() async throws -> [PlanCardEntity]
     func executeRoutine() async throws -> [PlanCardEntity]
 }
@@ -18,6 +18,7 @@ protocol RefreshHomeViewUseCaseProtocol {
 
 protocol PlanDetailUseCasesProtocol {
     func execute(planId: UUID) async throws -> PlanModel
+    func executeEdit(planId: UUID) async throws -> PlanModel
 }
 
 protocol GetDetailUseCaseProtocol {
