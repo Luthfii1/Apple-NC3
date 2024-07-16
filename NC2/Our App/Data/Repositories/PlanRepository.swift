@@ -29,6 +29,6 @@ class PlanRepository: PlanRepositoryProtocol {
     }
     
     func updatePlan(at offsets: IndexSet) async throws {
-        try await planLocalDataSource.updatePlan(at: <#T##IndexSet#>)
+//        try await planLocalDataSource.updatePlan(at: <#T##IndexSet#>)
     }
 }

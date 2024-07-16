@@ -25,7 +25,6 @@ class PlanUseCases: PlanUseCasesProtocol{
         }
         
         if eventPlans.isEmpty {
-//            throw NSError(domain: "GetAllPlanEventsUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "No event plans found"])
             return [] as [PlanCardEntity]
         }
         

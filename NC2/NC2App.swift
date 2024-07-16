@@ -34,20 +34,3 @@ struct NC2App: App {
         .modelContainer(container)
     }
 }
-
-//// Main App
-//let container : ModelContainer
-//StateObject var vm: VM
-//
-//init() {
-//    do {
-//        container = try ModelContainer(for: Model.self)
-//        let vm = VM(modelContext: container.mainContext)
-//        _vm = StateObject(wrappedValue: vm)
-//    } catch {
-//        fatalError("Failed to initialize SwiftData")
-//    }
-//}
-//
-//HomeView()
-//    .environmentObject(vm)

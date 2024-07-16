@@ -13,7 +13,7 @@ struct PlanCardComponent: View {
     
     var body: some View {
         NavigationLink(destination: DetailPlanView(planId: plan.id)
-            .environmentObject(dependencyInjection.dummyDetailPlanViewModel())
+            .environmentObject(dependencyInjection.detailPlanViewModel())
         ) {
             ZStack {
                 Image(plan.backgroundCard)

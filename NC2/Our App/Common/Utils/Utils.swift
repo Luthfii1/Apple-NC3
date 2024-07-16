@@ -11,7 +11,7 @@ import WeatherKit
 class Utils{
     func setBackground(condition: WeatherCondition, date: Date, state: CARDSTATE) -> String {
         let hour = Calendar.current.component(.hour, from: date)
-        var stateBackground: String = {
+        let stateBackground: String = {
             switch state {
             case .Card:
                 return "Card"

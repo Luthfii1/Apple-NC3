@@ -17,7 +17,11 @@ class PlanDetailUseCase: PlanDetailUseCasesProtocol {
     }
     
     func execute(planId: UUID) async throws -> PlanModel {
+        print("ID : \(planId)")
         let dataPlans = try await planRepository.getAllPlans()
+        for dataPlan in dataPlans {
+            print("planid: \(dataPlan.title)")
+        }
         guard let plan = dataPlans.first(where: { $0.id == planId }) else {
             throw NSError(domain: "PlanDetailUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "Plan not found"])
         }

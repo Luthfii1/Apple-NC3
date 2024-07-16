@@ -44,6 +44,7 @@ class DetailPlanViewModel: ObservableObject {
             let detailPlan = try await getDetailUseCase.execute(planId: planId)
             DispatchQueue.main.async {
                 self.detailPlan = detailPlan
+                print("title: \(detailPlan.title)")
             }
         } catch {
             print("Error when getting detail plan because \(error)")
