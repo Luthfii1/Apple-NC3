@@ -18,7 +18,7 @@ class PlanUseCases: PlanUseCasesProtocol{
         utils = Utils()
     }
     
-    func executeEvent() async throws -> [PlanCardEntity] {
+    func getEvent() async throws -> [PlanCardEntity] {
         let allPlans = try await planRepository.getAllPlans()
         let eventPlans = allPlans.filter {
             $0.planCategory == .Event
@@ -34,7 +34,7 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     
-    func executeRoutine() async throws -> [PlanCardEntity] {
+    func getRoutine() async throws -> [PlanCardEntity] {
         let allPlans = try await planRepository.getAllPlans()
         let eventPlans = allPlans.filter {
             $0.planCategory == .Routine
@@ -48,6 +48,10 @@ class PlanUseCases: PlanUseCasesProtocol{
         let result = try await getWeatherAndSetBackground(eventPlans: eventPlans)
         
         return result
+    }
+    
+    func insertPlan(plan: PlanModel) async throws {
+        try await planRepository.insertPlan(plan: plan)
     }
     
     private func getWeatherAndSetBackground(eventPlans: [PlanModel]) async throws -> [PlanCardEntity] {
@@ -90,5 +94,6 @@ class PlanUseCases: PlanUseCasesProtocol{
         
         return result
     }
+    
 }
 

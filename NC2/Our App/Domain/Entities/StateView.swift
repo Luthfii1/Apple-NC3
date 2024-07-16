@@ -10,4 +10,7 @@ import Foundation
 struct StateView {
     var isLoading: Bool = false
     var showAlert: Bool = false
+    var isCreateSheetPresented: Bool = false
+    var isSheetPresented: Bool = false
+    var showDiscardChangesDialog: Bool = false
 }

@@ -8,8 +8,9 @@
 import Foundation
 
 protocol PlanUseCasesProtocol {
-    func executeEvent() async throws -> [PlanCardEntity]
-    func executeRoutine() async throws -> [PlanCardEntity]
+    func getEvent() async throws -> [PlanCardEntity]
+    func getRoutine() async throws -> [PlanCardEntity]
+    func insertPlan(plan: PlanModel) async throws 
 }
 
 protocol RefreshHomeViewUseCaseProtocol {

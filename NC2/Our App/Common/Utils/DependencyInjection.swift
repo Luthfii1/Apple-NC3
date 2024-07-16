@@ -54,4 +54,10 @@ class DependencyInjection: ObservableObject{
     func dummyDetailPlanViewModel() -> DetailPlanViewModel {
         DetailPlanViewModel(getDetailUseCase: dummyDetailPlanUseCase)
     }
+    
+    func createPlanViewModel() -> CreatePlanViewModel {
+        CreatePlanViewModel(
+            planUseCase: getPlanPreviewUseCase
+        )
+    }
 }

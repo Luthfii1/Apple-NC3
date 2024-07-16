@@ -27,7 +27,7 @@ struct DetailPlanView: View {
                     
                     VStack(alignment: .leading) {
                         VStack(alignment: .leading) {
-                            Text("\(vm.hourlyForecast?.first?.condition.rawValue ?? "No data yet")")
+                            Text("\(vm.hourlyForecast?.first?.condition.rawValue.toFrontCapital() ?? "No data yet")")
                                 .font(.system(size: 34, weight: .heavy, design: .rounded))
                                 .bold()
                                 .padding(.top, 76)
