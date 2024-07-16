@@ -9,4 +9,5 @@ import Foundation
 
 struct StateView {
     var isLoading: Bool = false
+    var showAlert: Bool = false
 }

@@ -10,28 +10,41 @@ import Foundation
 class HomeViewModel: ObservableObject {
     @Published var plans: [PlanCardEntity] = []
     @Published var state: StateView = StateView()
-    @Published var pickedPlanFilter = 0
-    private let getAllPlansPreviewUseCase: GetAllPlanUseCasesProtocol
+    @Published var pickedPlanFilter: Int = 0 {
+        didSet {
+            Task {
+                await fetchPlansBasedOnFilter()
+            }
+        }
+    }
+    private let getAllPlansUseCase: GetAllPlanUseCasesProtocol
     private let refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol
     
-    init(getAllPlansPreviewUseCase: GetAllPlanUseCasesProtocol, refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol) {
-        self.getAllPlansPreviewUseCase = getAllPlansPreviewUseCase
+    init(getAllPlansUseCase: GetAllPlanUseCasesProtocol, refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol) {
+        self.getAllPlansUseCase = getAllPlansUseCase
         self.refreshHomeViewUseCase = refreshHomeViewUseCase
     }
     
+    var groupedPlans: [String: [PlanCardEntity]] {
+        Dictionary(grouping: plans) { plan in
+            DateFormatter.localizedString(from: plan.durationPlan.start, dateStyle: .medium, timeStyle: .none)
+        }
+    }
+    
     @MainActor
-    func getPlans() async {
+    func getPlanEvents() async {
         self.state.isLoading = true
         Task {
             do {
-                let plansFetched = try await getAllPlansPreviewUseCase.execute()
+                let plansFetched = try await getAllPlansUseCase.executeEvent()
                 DispatchQueue.main.async {
                     self.plans = plansFetched
-                    self.state.isLoading.toggle()
                 }
             } catch {
                 print("Failed to load plans: \(error)")
             }
+            
+            self.state.isLoading.toggle()
         }
     }
     
@@ -40,14 +53,41 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         Task {
             do {
-                let plansFetched = try await refreshHomeViewUseCase.execute()
+                let plansFetched = try await refreshHomeViewUseCase.execute(isEvent: self.pickedPlanFilter)
                 DispatchQueue.main.async {
                     self.plans = plansFetched
-                    self.state.isLoading.toggle()
                 }
             } catch {
                 print("Failed to load plans: \(error)")
             }
+            
+            self.state.isLoading.toggle()
+        }
+    }
+    
+    @MainActor
+    func getPlanRoutine() async {
+        self.state.isLoading = true
+        Task {
+            do {
+                let plansFetched = try await getAllPlansUseCase.executeRoutine()
+                DispatchQueue.main.async {
+                    self.plans = plansFetched
+                }
+            } catch {
+                print("Failed to load plans: \(error)")
+            }
+            
+            self.state.isLoading.toggle()
+        }
+    }
+    
+    @MainActor
+    func fetchPlansBasedOnFilter() async {
+        if pickedPlanFilter == 0 {
+            await getPlanEvents()
+        } else {
+            await getPlanRoutine()
         }
     }
 }

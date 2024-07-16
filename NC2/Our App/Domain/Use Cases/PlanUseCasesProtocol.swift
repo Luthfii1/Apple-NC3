@@ -8,13 +8,18 @@
 import Foundation
 
 protocol GetAllPlanUseCasesProtocol {
-    func execute() async throws -> [PlanCardEntity]
+    func executeEvent() async throws -> [PlanCardEntity]
+    func executeRoutine() async throws -> [PlanCardEntity]
 }
 
 protocol RefreshHomeViewUseCaseProtocol {
-    func execute() async throws -> [PlanCardEntity]
+    func execute(isEvent: Int) async throws -> [PlanCardEntity]
 }
 
 protocol PlanDetailUseCasesProtocol {
     func execute(planId: UUID) async throws -> PlanModel
+}
+
+protocol GetDetailUseCaseProtocol {
+    func execute() async throws -> PlanModel
 }

@@ -24,6 +24,17 @@
 		8AC3A18F2C461A9E008E6AEE /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A18E2C461A9E008E6AEE /* AppIntent.swift */; };
 		8AC3A1912C461A9F008E6AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3A1902C461A9F008E6AEE /* Assets.xcassets */; };
 		8AC3A1952C461A9F008E6AEE /* widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8AC3A1812C461A9E008E6AEE /* widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E32C44E7E6002B24EE /* LocationModel.swift */; };
+		DD6794E72C44E821002B24EE /* DaysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E62C44E821002B24EE /* DaysEnum.swift */; };
+		DD6794E92C44E832002B24EE /* PlanCategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */; };
+		DD6794EB2C44E847002B24EE /* ReminderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794EA2C44E847002B24EE /* ReminderEnum.swift */; };
+		DD6794EE2C44F0F0002B24EE /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794ED2C44F0F0002B24EE /* Date+Extension.swift */; };
+		DD6794F12C450EBC002B24EE /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F02C450EBC002B24EE /* DependencyInjection.swift */; };
+		DD6794F32C4537E4002B24EE /* GetDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F22C4537E4002B24EE /* GetDetailUseCase.swift */; };
+		DD6794F52C4537FE002B24EE /* GetDetailWeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F42C4537FE002B24EE /* GetDetailWeatherUseCase.swift */; };
+		DD6794F92C453865002B24EE /* HourDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F82C453865002B24EE /* HourDetailsCell.swift */; };
+		DD6794FB2C4538C0002B24EE /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794FA2C4538C0002B24EE /* WeatherManager.swift */; };
+		DD6795002C457BF3002B24EE /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794FF2C457BF3002B24EE /* Text+Extension.swift */; };
 		DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */; };
 		DD7F93CF2C3D4D0B009E4C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */; };
 		DD7F93D22C3D4D0B009E4C9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93D12C3D4D0B009E4C9F /* Preview Assets.xcassets */; };
@@ -47,7 +58,6 @@
 		DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94232C40D41A009E4C9F /* LearnTrunkBased.swift */; };
 		DD7F94262C40D53B009E4C9F /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94252C40D53B009E4C9F /* WeatherModel.swift */; };
 		DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */; };
-		DD7F942B2C40D739009E4C9F /* GetPlanUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F942A2C40D739009E4C9F /* GetPlanUseCase.swift */; };
 		DD7F942F2C40D7A0009E4C9F /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F942E2C40D7A0009E4C9F /* ButtonComponent.swift */; };
 		DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94312C40D7DC009E4C9F /* HomeView.swift */; };
 		DD7F94342C40D80E009E4C9F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */; };
@@ -78,6 +88,7 @@
 		DD7F94762C43EB3D009E4C9F /* AQIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */; };
 		DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */; };
 		DD7F947A2C441107009E4C9F /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94792C441107009E4C9F /* StateView.swift */; };
+		DD7F947C2C4439F5009E4C9F /* GetAllPlansUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F947B2C4439F5009E4C9F /* GetAllPlansUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +135,19 @@
 		8AC3A1922C461A9F008E6AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AC3A19A2C461B86008E6AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DD7F93C72C3D4D0A009E4C9F /* NC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD6794E32C44E7E6002B24EE /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		DD6794E62C44E821002B24EE /* DaysEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysEnum.swift; sourceTree = "<group>"; };
+		DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCategoryEnum.swift; sourceTree = "<group>"; };
+		DD6794EA2C44E847002B24EE /* ReminderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEnum.swift; sourceTree = "<group>"; };
+		DD6794ED2C44F0F0002B24EE /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		DD6794F02C450EBC002B24EE /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
+		DD6794F22C4537E4002B24EE /* GetDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetailUseCase.swift; sourceTree = "<group>"; };
+		DD6794F42C4537FE002B24EE /* GetDetailWeatherUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetailWeatherUseCase.swift; sourceTree = "<group>"; };
+		DD6794F82C453865002B24EE /* HourDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourDetailsCell.swift; sourceTree = "<group>"; };
+		DD6794FA2C4538C0002B24EE /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		DD6794FC2C453B1E002B24EE /* NC2Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NC2Debug.entitlements; sourceTree = "<group>"; };
+		DD6794FF2C457BF3002B24EE /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
+		DD7F93C72C3D4D0A009E4C9F /* Happy Kids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Kids.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2App.swift; sourceTree = "<group>"; };
 		DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD7F93D12C3D4D0B009E4C9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -148,7 +172,6 @@
 		DD7F94232C40D41A009E4C9F /* LearnTrunkBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTrunkBased.swift; sourceTree = "<group>"; };
 		DD7F94252C40D53B009E4C9F /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanUseCases.swift; sourceTree = "<group>"; };
-		DD7F942A2C40D739009E4C9F /* GetPlanUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlanUseCase.swift; sourceTree = "<group>"; };
 		DD7F942E2C40D7A0009E4C9F /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		DD7F94312C40D7DC009E4C9F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +202,7 @@
 		DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRepository.swift; sourceTree = "<group>"; };
 		DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailUseCase.swift; sourceTree = "<group>"; };
 		DD7F94792C441107009E4C9F /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
+		DD7F947B2C4439F5009E4C9F /* GetAllPlansUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPlansUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +257,31 @@
 				8AC3A1922C461A9F008E6AEE /* Info.plist */,
 			);
 			path = widget;
+		DD6794E52C44E815002B24EE /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				DD6794E62C44E821002B24EE /* DaysEnum.swift */,
+				DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */,
+				DD6794EA2C44E847002B24EE /* ReminderEnum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		DD6794EC2C44F0E3002B24EE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DD6794ED2C44F0F0002B24EE /* Date+Extension.swift */,
+				DD6794FF2C457BF3002B24EE /* Text+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DD6794EF2C450EAB002B24EE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DD6794F02C450EBC002B24EE /* DependencyInjection.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		DD7F93BE2C3D4D0A009E4C9F = {
@@ -250,6 +299,7 @@
 			children = (
 				DD7F93C72C3D4D0A009E4C9F /* NC2.app */,
 				8AC3A1812C461A9E008E6AEE /* widgetExtension.appex */,
+				DD7F93C72C3D4D0A009E4C9F /* Happy Kids.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,6 +309,7 @@
 			children = (
 				8AC3A19A2C461B86008E6AEE /* Info.plist */,
 				8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */,
+				DD6794FC2C453B1E002B24EE /* NC2Debug.entitlements */,
 				DD7F94092C3F86F0009E4C9F /* NC2.entitlements */,
 				DD7F940F2C3FC52E009E4C9F /* Our App */,
 				DD7F940E2C3FC3E9009E4C9F /* Learn Clean Architecture */,
@@ -444,11 +495,13 @@
 		DD7F94202C3FD14C009E4C9F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				DD6794E52C44E815002B24EE /* Enum */,
 				DD7F94212C40D0EB009E4C9F /* PlanModel.swift */,
 				DD7F94252C40D53B009E4C9F /* WeatherModel.swift */,
 				DD7F94592C42C873009E4C9F /* CoordinateModel.swift */,
 				DD7F945B2C42C8BC009E4C9F /* DurationModel.swift */,
 				DD7F94792C441107009E4C9F /* StateView.swift */,
+				DD6794E32C44E7E6002B24EE /* LocationModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -458,9 +511,9 @@
 			children = (
 				DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */,
 				DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */,
-				DD7F942A2C40D739009E4C9F /* GetPlanUseCase.swift */,
 				DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */,
 				DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */,
+				DD7F947B2C4439F5009E4C9F /* GetAllPlansUseCase.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -512,6 +565,10 @@
 			children = (
 				DD7F943B2C40D8A1009E4C9F /* DetailPlanView.swift */,
 				DD7F943D2C40D8B1009E4C9F /* DetailPlanViewModel.swift */,
+				DD6794F22C4537E4002B24EE /* GetDetailUseCase.swift */,
+				DD6794F42C4537FE002B24EE /* GetDetailWeatherUseCase.swift */,
+				DD6794F82C453865002B24EE /* HourDetailsCell.swift */,
+				DD6794FA2C4538C0002B24EE /* WeatherManager.swift */,
 			);
 			path = "Detail Plan";
 			sourceTree = "<group>";
@@ -575,6 +632,8 @@
 		DD7F94512C42BF1F009E4C9F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DD6794EF2C450EAB002B24EE /* Utils */,
+				DD6794EC2C44F0E3002B24EE /* Extension */,
 				DD7F946C2C43878D009E4C9F /* Model Fetching */,
 				DD7F94522C42BF2A009E4C9F /* Data Dummy */,
 			);
@@ -649,7 +708,7 @@
 				8AC3A17B2C452B9B008E6AEE /* GoogleGenerativeAI */,
 			);
 			productName = NC2;
-			productReference = DD7F93C72C3D4D0A009E4C9F /* NC2.app */;
+			productReference = DD7F93C72C3D4D0A009E4C9F /* Happy Kids.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -732,16 +791,20 @@
 				DD7F944C2C42B420009E4C9F /* PlanCardComponent.swift in Sources */,
 				8AC3A1752C452AE1008E6AEE /* APIKey.swift in Sources */,
 				DD7F943E2C40D8B1009E4C9F /* DetailPlanViewModel.swift in Sources */,
+				DD6794F12C450EBC002B24EE /* DependencyInjection.swift in Sources */,
 				8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */,
 				DD7F94042C3F857B009E4C9F /* GetTodosRemoteDataSource.swift in Sources */,
 				DD7F94152C3FC737009E4C9F /* CreateButton.swift in Sources */,
+				DD6794F92C453865002B24EE /* HourDetailsCell.swift in Sources */,
 				DD7F93F52C3D6B06009E4C9F /* GetTodosUseCase.swift in Sources */,
 				DD7F94342C40D80E009E4C9F /* HomeViewModel.swift in Sources */,
+				DD6794E72C44E821002B24EE /* DaysEnum.swift in Sources */,
 				DD7F94132C3FC5E6009E4C9F /* TodoView.swift in Sources */,
 				DD7F940B2C3F90F4009E4C9F /* TodoRepository.swift in Sources */,
 				DD7F941E2C3FCF65009E4C9F /* DeleteTodoUseCase.swift in Sources */,
 				DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */,
 				DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */,
+				DD6794EE2C44F0F0002B24EE /* Date+Extension.swift in Sources */,
 				DD7F94692C42DC2C009E4C9F /* DummyPlanRepository.swift in Sources */,
 				DD7F94432C40D923009E4C9F /* SearchPlaceViewModel.swift in Sources */,
 				DD7F93F32C3D68AA009E4C9F /* DummyData.swift in Sources */,
@@ -753,21 +816,27 @@
 				DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */,
 				DD7F94632C42CA65009E4C9F /* PlanRepository.swift in Sources */,
 				DD7F93FA2C3D6CEC009E4C9F /* HomepageViewModel.swift in Sources */,
+				DD6794EB2C44E847002B24EE /* ReminderEnum.swift in Sources */,
 				DD7F94722C438853009E4C9F /* AQIRemoteDataSource.swift in Sources */,
 				DD7F946B2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift in Sources */,
 				8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */,
 				DD7F94562C42C68E009E4C9F /* PlanLocalDataSourceProtocol.swift in Sources */,
+				DD6794FB2C4538C0002B24EE /* WeatherManager.swift in Sources */,
 				DD7F93F82C3D6C5F009E4C9F /* HomepageView.swift in Sources */,
 				DD7F94742C43EAE9009E4C9F /* AQIRepositoryProtocol.swift in Sources */,
 				DD7F94022C3F84EA009E4C9F /* GetTodosRemoteProtocol.swift in Sources */,
+				DD7F947C2C4439F5009E4C9F /* GetAllPlansUseCase.swift in Sources */,
 				DD7F94372C40D85C009E4C9F /* CreatePlanViewModel.swift in Sources */,
 				8AC3A1782C452B0D008E6AEE /* GeminiBotViewModel.swift in Sources */,
+				DD6795002C457BF3002B24EE /* Text+Extension.swift in Sources */,
 				DD7F94762C43EB3D009E4C9F /* AQIRepository.swift in Sources */,
 				DD7F945C2C42C8BC009E4C9F /* DurationModel.swift in Sources */,
 				DD7F94702C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift in Sources */,
+				DD6794E92C44E832002B24EE /* PlanCategoryEnum.swift in Sources */,
 				DD7F945A2C42C873009E4C9F /* CoordinateModel.swift in Sources */,
 				DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */,
 				DD7F94542C42BF43009E4C9F /* dummyPlans.swift in Sources */,
+				DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */,
 				DD7F944A2C40DDE6009E4C9F /* ReminderViewModel.swift in Sources */,
 				8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */,
 				DD7F94062C3F85D1009E4C9F /* GetTodosLocalSwiftDataProtocol.swift in Sources */,
@@ -775,6 +844,7 @@
 				DD7F94262C40D53B009E4C9F /* WeatherModel.swift in Sources */,
 				DD7F93E82C3D4E56009E4C9F /* TodoModel.swift in Sources */,
 				DD7F94412C40D8E7009E4C9F /* SearchPlaceView.swift in Sources */,
+				DD6794F52C4537FE002B24EE /* GetDetailWeatherUseCase.swift in Sources */,
 				DD7F94582C42C72D009E4C9F /* PlanLocalDataSource.swift in Sources */,
 				DD7F94502C42BF0E009E4C9F /* PlanCardEntity.swift in Sources */,
 				DD7F94672C42DB00009E4C9F /* RefreshHomeViewUseCase.swift in Sources */,
@@ -783,6 +853,7 @@
 				DD7F947A2C441107009E4C9F /* StateView.swift in Sources */,
 				8AC3A1622C44CB05008E6AEE /* WidgetBundle.swift in Sources */,
 				DD7F943C2C40D8A1009E4C9F /* DetailPlanView.swift in Sources */,
+				DD6794F32C4537E4002B24EE /* GetDetailUseCase.swift in Sources */,
 				DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */,
 				DD7F942B2C40D739009E4C9F /* GetPlanUseCase.swift in Sources */,
 				8AC3A1642C44CB3E008E6AEE /* AppIntent.swift in Sources */,
@@ -983,7 +1054,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = NC2/NC2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NC2/NC2Debug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
@@ -1003,6 +1074,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sabach.weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
+				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1035,6 +1109,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sabach.weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
+				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

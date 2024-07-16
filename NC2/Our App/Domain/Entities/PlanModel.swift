@@ -12,37 +12,35 @@ import SwiftData
 class PlanModel: Identifiable, Equatable, Hashable {
     var id: UUID
     var title: String
-    var location: String
-    var address: String
-    var coordinatePlace: Coordinate
+    var location: Location
     var weatherPlan: Weather?
     var durationPlan: DurationTimePlan
-    var isRepeat: Bool
-    var date: Date
+    var daysRepeat: [DAYS]?
+    var planCategory: PLANCATEGORY
+    var reminder: REMINDER
     var allDay: Bool
     var suggest: String?
     
-    init(id: UUID = UUID(),
-         title: String = "",
-         location: String = "",
-         address: String = "",
-         coordinatePlace: Coordinate = Coordinate(latitude: 0, longitude: 0),
-         weatherPlan: Weather? = nil,
-         durationPlan: DurationTimePlan = DurationTimePlan(start: "", end: ""),
-         isRepeat: Bool = false,
-         date: Date = Date(),
-         allDay: Bool = false,
-         suggest: String? = nil) {
-        
+    init(
+        id: UUID = UUID(),
+        title: String = "",
+        location: Location = Location(nameLocation: "", detailAddress: "", coordinatePlace: Coordinate(longitude: 0.0, latitude: 0.0)),
+        weatherPlan: Weather? = nil,
+        durationPlan: DurationTimePlan = DurationTimePlan(start: Date(), end: Date()),
+        daysRepeat: [DAYS]? = nil,
+        planCategory: PLANCATEGORY = .Event,
+        reminder: REMINDER = .None,
+        allDay: Bool = false,
+        suggest: String? = nil
+    ) {
         self.id = id
         self.title = title
         self.location = location
-        self.address = address
-        self.coordinatePlace = coordinatePlace
         self.weatherPlan = weatherPlan
         self.durationPlan = durationPlan
-        self.isRepeat = isRepeat
-        self.date = date
+        self.daysRepeat = daysRepeat
+        self.planCategory = planCategory
+        self.reminder = reminder
         self.allDay = allDay
         self.suggest = suggest
     }

@@ -9,70 +9,61 @@ import SwiftUI
 
 struct PlanCardComponent: View {
     var plan: PlanCardEntity
+    @EnvironmentObject var dependencyInjection: DependencyInjection
     
     var body: some View {
-        NavigationLink(destination:
-                        DetailPlanView(vm: DetailPlanViewModel(planDetailUseCase: PlanDetailUseCase(AQIRepository: AQIRepository(AQIRemoteDataSource: AQIRemoteDataSource()), planRepository: DummyPlanRepository(dummyPlans: dummyPlans))),  planId: plan.id)) {
-            VStack (alignment: .leading, spacing: 8) {
-                HStack (alignment: .top) {
-                    VStack (alignment: .leading, spacing: 8) {
-                        Text(plan.title)
-                            .font(.body)
-                            .bold()
-                            .foregroundStyle(.default)
-                        
-                        Text(plan.location)
-                            .font(.subheadline)
-                            .bold()
-                            .foregroundStyle(.locationPlan)
-                    }
-                    
-                    Spacer()
-                    
-                    if (plan.allDay) {
-                        Text("all-day")
-                            .font(.subheadline)
-                            .bold()
-                            .foregroundStyle(.default)
-                    } else {
-                        VStack (alignment: .trailing, spacing: 8){
-                            Text(plan.durationPlan.start)
-                                .font(.subheadline)
-                                .bold()
-                                .foregroundStyle(.default)
+        NavigationLink(destination: DetailPlanView(planId: plan.id)
+            .environmentObject(dependencyInjection.dummyDetailPlanViewModel())
+        ) {
+            ZStack {
+                Image(plan.backgroundCard)
+                    .resizable()
+                    .scaledToFill()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(plan.title)
+                                .shadowedText(font: .body)
                             
-                            Text(plan.durationPlan.end)
-                                .font(.subheadline)
-                                .bold()
-                                .foregroundStyle(.locationPlan)
+                            Text(plan.location.nameLocation)
+                                .shadowedText(font: .subheadline)
                         }
                         
+                        Spacer()
+                        
+                        if plan.allDay {
+                            Text("all-day")
+                                .shadowedText(font: .subheadline)
+                        } else {
+                            VStack(alignment: .trailing, spacing: 8) {
+                                Text(plan.durationPlan.start.formattedTime())
+                                    .shadowedText(font: .subheadline)
+                                
+                                Text(plan.durationPlan.end.formattedTime())
+                                    .shadowedText(font: .subheadline)
+                            }
+                        }
                     }
-                }
-                
-                HStack{
-                    Image(systemName: "cloud.sun.fill")
-                        .font(.body)
-                        .bold()
-                        .foregroundStyle(.default)
                     
-                    Text("\(plan.degree)°")
-                        .font(.body)
-                        .bold()
-                        .foregroundStyle(.default)
-                    
-                    Text(plan.descriptionWeather)
-                        .font(.body)
-                        .bold()
-                        .foregroundStyle(.default)
+                    HStack {
+                        Image(systemName: "cloud.sun.fill")
+                            .shadowedText(font: .body)
+                        
+                        Text("\(plan.temperature)°")
+                            .shadowedText(font: .body)
+                        
+                        Text(plan.weatherDescription)
+                            .shadowedText(font: .body)
+                    }
+                    .padding(.vertical, 4)
                 }
-                .padding(.vertical, 4)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 8)
-            .background(Color.card)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding(.vertical, 4)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
         }
     }
 }
