@@ -45,6 +45,8 @@ class GetDayWeatherUseCase {
             latitude: location.latitude,
             longitude: location.longitude
         ), date: date)
+        
+        print("dayforecast : \(String(describing: dayForecast?.first?.highTemperature.value))")
 
         return dayForecast
     }

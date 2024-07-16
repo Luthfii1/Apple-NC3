@@ -28,55 +28,102 @@ struct DetailPlanView: View {
                     VStack(alignment: .leading) {
                         VStack(alignment: .leading) {
                             Text("\(vm.detailPlan.weatherPlan?.generalDescription ?? "No data yet")")
-                                .font(.title)
+                                .font(.system(size: 34, weight: .heavy, design: .rounded))
                                 .bold()
+                                .padding(.top, 76)
+                                .padding(.bottom, 12)
                             
                             HStack {
                                 Image(systemName: "clock.fill")
+                                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                
                                 Text("\(String(describing: vm.detailPlan.durationPlan.start.formatted(date: .complete, time: .omitted)))")
+                                    .font(.body)
+                                    .fontWeight(.semibold)
+                                    .fontDesign(.rounded)
                                 Text(" | ")
-                                Text("\(String(describing: vm.detailPlan.durationPlan.start.formatted(date: .omitted, time: .shortened))) - \(String(describing: vm.detailPlan.durationPlan.end.formatted(date: .omitted, time: .shortened)))")
+                                if vm.detailPlan.allDay {
+                                    Text("All Day")
+                                }else{
+                                    Text("\(String(describing: vm.detailPlan.durationPlan.start.formatted(date: .omitted, time: .shortened))) - \(String(describing: vm.detailPlan.durationPlan.end.formatted(date: .omitted, time: .shortened)))")
+                                        .font(.body)
+                                        .fontWeight(.semibold)
+                                        .fontDesign(.rounded)
+                                }
                             }
+                            .padding(.bottom, 12)
                             
                             HStack {
                                 Image(systemName: "pin.fill")
+                                    .font(.system(size: 14, weight: .semibold, design: .rounded))
                                 VStack(alignment: .leading) {
                                     Text("\(vm.detailPlan.title)")
+                                        .font(.body)
+                                        .fontWeight(.semibold)
+                                        .fontDesign(.rounded)
                                     Text("\(vm.detailPlan.location.nameLocation)")
+                                        .font(.footnote)
+                                        .fontWeight(.semibold)
+                                        .fontDesign(.rounded)
                                 }
                             }
+                            .padding(.bottom, 12)
                         }
                         
                         // MARK: place for illustration
                         VStack {
-                            
-                        }
+                            Rectangle()
+                                .foregroundColor(.black)
+                                .frame(width: 300, height: 256)
+                        }.padding(.bottom, 12)
                         
                         VStack {
-//                            Spacer()
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text("\(vm.detailPlan.weatherPlan?.hotDegree ?? 0)ºC")
-                                    // MARK: ini ganti jadi apa ya??
+                                        .font(.title2)
+                                        .fontWeight(.semibold)
+                                        .fontDesign(.rounded)
                                     Text("Feels like \(vm.detailPlan.weatherPlan?.looksLikeHotDegree ?? 0)ºC")
                                         .font(.caption2)
-                                        .fontWeight(.bold)
-                                    //                                Text("\(vm.dayForecast?.first?.condition.accessibilityDescription ?? "--")")
-                                }.frame(width: 164, height: 74)
-                                    .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                                        .fontWeight(.semibold)
+                                        .fontDesign(.rounded)
+                                    // MARK: tes
+                                    Text("\(vm.dayForecast?.first?.condition.accessibilityDescription ?? "--")")
+                                }.frame(width: 168, height: 74)
+                                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
                                 
                                 HStack {
                                     VStack {
                                         Text("HIGHEST")
-                                        Text("\(String(describing: vm.dayForecast?.first?.highTemperature.value.formatted(.number.precision(.fractionLength(1)))))ºC")
-                                    }
+                                            .font(.caption2)
+                                            .fontWeight(.semibold)
+                                            .fontDesign(.rounded)
+                                        if let highTemp = vm.dayForecast?.first?.highTemperature.value { Text("\(highTemp.formatted(.number.precision(.fractionLength(1))))ºC")
+                                                .font(.body)
+                                                .fontWeight(.semibold)
+                                                .fontDesign(.rounded)
+                                        } else {
+                                            Text("--")
+                                        }
+                                    }.padding(.trailing, 4)
                                     
                                     VStack {
                                         Text("LOWEST")
-                                        Text("\(String(describing: vm.dayForecast?.first?.lowTemperature.value.formatted(.number.precision(.fractionLength(1)))))ºC")
+                                            .font(.caption2)
+                                            .fontWeight(.semibold)
+                                            .fontDesign(.rounded)
+                                        
+                                        if let lowTemp = vm.dayForecast?.first?.lowTemperature.value { Text("\(lowTemp.formatted(.number.precision(.fractionLength(1))))ºC")
+                                                .font(.body)
+                                                .fontWeight(.semibold)
+                                                .fontDesign(.rounded)
+                                        } else {
+                                            Text("--")
+                                        }
                                     }
-                                }.frame(width: 164, height: 74)
-                                    .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                                }.frame(width: 168, height: 74)
+                                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
                             }
                             
                             HStack {
@@ -94,7 +141,8 @@ struct DetailPlanView: View {
                                         Image(systemName: "umbrella.fill")
                                         Text("\(((vm.hourlyForecast?.first?.precipitationChance ?? 0) * 100).formatted(.number.precision(.fractionLength(0))))%")
                                         // MARK: ini typo harusnya Precipitation
-                                        Text("\(vm.detailPlan.weatherPlan?.Percipitation ?? 0)%")
+                                        //                                        Text("\(vm.detailPlan.weatherPlan?.Percipitation ?? 0)%")
+                                        //                                        Text("\(vm.dayForecast?.first?.precipitationChance ?? 0)%")
                                     }
                                     Text("Precipitation")
                                     // MARK: ganti
@@ -110,8 +158,8 @@ struct DetailPlanView: View {
                                     // MARK: ganti
                                     Text("Partly Cloudy")
                                 }
-                            }.frame(width: 345, height: 80)
-                                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                            }.frame(width: 344, height: 80)
+                                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
                             
                             VStack {
                                 if let hourly = vm.hourlyForecast {
@@ -129,9 +177,10 @@ struct DetailPlanView: View {
                                     }
                                     .padding(.all, 5)
                                 }
-                            }.frame(width: 345, height: 120)
-                                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                            }.frame(width: 344, height: 120)
+                                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
                         }
+                        .padding(.bottom, 72)
                     }
                 }
             }
@@ -143,11 +192,6 @@ struct DetailPlanView: View {
                 await vm.getDayWeather()
             }
         }
-//        .background(vm.getBackground(currentWeather: "Sunny")
-//            .resizable()
-//            .scaledToFill()
-//            .edgesIgnoringSafeArea(.all)
-//            .transformEffect(.init(scaleX: 1.2, y: 1.2)))
     }
 }
 
