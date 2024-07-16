@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD6794F32C4537E4002B24EE /* GetDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F22C4537E4002B24EE /* GetDetailUseCase.swift */; };
-		DD6794F52C4537FE002B24EE /* GetDetailWeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F42C4537FE002B24EE /* GetDetailWeatherUseCase.swift */; };
-		DD6794F92C453865002B24EE /* HourDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F82C453865002B24EE /* HourDetailsCell.swift */; };
-		DD6794FB2C4538C0002B24EE /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794FA2C4538C0002B24EE /* WeatherManager.swift */; };
 		8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
 		8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */; };
 		DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E32C44E7E6002B24EE /* LocationModel.swift */; };
@@ -19,6 +15,11 @@
 		DD6794EB2C44E847002B24EE /* ReminderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794EA2C44E847002B24EE /* ReminderEnum.swift */; };
 		DD6794EE2C44F0F0002B24EE /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794ED2C44F0F0002B24EE /* Date+Extension.swift */; };
 		DD6794F12C450EBC002B24EE /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F02C450EBC002B24EE /* DependencyInjection.swift */; };
+		DD6794F32C4537E4002B24EE /* GetDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F22C4537E4002B24EE /* GetDetailUseCase.swift */; };
+		DD6794F52C4537FE002B24EE /* GetDetailWeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F42C4537FE002B24EE /* GetDetailWeatherUseCase.swift */; };
+		DD6794F92C453865002B24EE /* HourDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794F82C453865002B24EE /* HourDetailsCell.swift */; };
+		DD6794FB2C4538C0002B24EE /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794FA2C4538C0002B24EE /* WeatherManager.swift */; };
+		DD6795002C457BF3002B24EE /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794FF2C457BF3002B24EE /* Text+Extension.swift */; };
 		DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */; };
 		DD7F93CF2C3D4D0B009E4C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */; };
 		DD7F93D22C3D4D0B009E4C9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93D12C3D4D0B009E4C9F /* Preview Assets.xcassets */; };
@@ -76,11 +77,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DD6794F22C4537E4002B24EE /* GetDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetailUseCase.swift; sourceTree = "<group>"; };
-		DD6794F42C4537FE002B24EE /* GetDetailWeatherUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetailWeatherUseCase.swift; sourceTree = "<group>"; };
-		DD6794F82C453865002B24EE /* HourDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourDetailsCell.swift; sourceTree = "<group>"; };
-		DD6794FA2C4538C0002B24EE /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
-		DD7F93C72C3D4D0A009E4C9F /* NC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLiveActivity.swift; sourceTree = "<group>"; };
 		DD6794E32C44E7E6002B24EE /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
@@ -89,6 +85,12 @@
 		DD6794EA2C44E847002B24EE /* ReminderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEnum.swift; sourceTree = "<group>"; };
 		DD6794ED2C44F0F0002B24EE /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		DD6794F02C450EBC002B24EE /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
+		DD6794F22C4537E4002B24EE /* GetDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetailUseCase.swift; sourceTree = "<group>"; };
+		DD6794F42C4537FE002B24EE /* GetDetailWeatherUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetailWeatherUseCase.swift; sourceTree = "<group>"; };
+		DD6794F82C453865002B24EE /* HourDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourDetailsCell.swift; sourceTree = "<group>"; };
+		DD6794FA2C4538C0002B24EE /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		DD6794FC2C453B1E002B24EE /* NC2Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NC2Debug.entitlements; sourceTree = "<group>"; };
+		DD6794FF2C457BF3002B24EE /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
 		DD7F93C72C3D4D0A009E4C9F /* Happy Kids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Kids.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2App.swift; sourceTree = "<group>"; };
 		DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				DD6794ED2C44F0F0002B24EE /* Date+Extension.swift */,
+				DD6794FF2C457BF3002B24EE /* Text+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 		DD7F93C92C3D4D0A009E4C9F /* NC2 */ = {
 			isa = PBXGroup;
 			children = (
+				DD6794FC2C453B1E002B24EE /* NC2Debug.entitlements */,
 				DD7F94092C3F86F0009E4C9F /* NC2.entitlements */,
 				DD7F940F2C3FC52E009E4C9F /* Our App */,
 				DD7F940E2C3FC3E9009E4C9F /* Learn Clean Architecture */,
@@ -676,6 +680,7 @@
 				DD7F94022C3F84EA009E4C9F /* GetTodosRemoteProtocol.swift in Sources */,
 				DD7F947C2C4439F5009E4C9F /* GetAllPlansUseCase.swift in Sources */,
 				DD7F94372C40D85C009E4C9F /* CreatePlanViewModel.swift in Sources */,
+				DD6795002C457BF3002B24EE /* Text+Extension.swift in Sources */,
 				DD7F94762C43EB3D009E4C9F /* AQIRepository.swift in Sources */,
 				DD7F945C2C42C8BC009E4C9F /* DurationModel.swift in Sources */,
 				DD7F94702C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift in Sources */,
@@ -698,7 +703,6 @@
 				DD7F94082C3F85E8009E4C9F /* GetTodosLocalSwiftDataDataSource.swift in Sources */,
 				DD7F947A2C441107009E4C9F /* StateView.swift in Sources */,
 				DD7F943C2C40D8A1009E4C9F /* DetailPlanView.swift in Sources */,
-				DD7F942B2C40D739009E4C9F /* GetPlanUseCase.swift in Sources */,
 				DD6794F32C4537E4002B24EE /* GetDetailUseCase.swift in Sources */,
 				DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */,
 				DD7F940D2C3F9791009E4C9F /* InsertTodoUseCase.swift in Sources */,
@@ -833,7 +837,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = NC2/NC2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NC2/NC2Debug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";

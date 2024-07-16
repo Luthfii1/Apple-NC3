@@ -8,37 +8,16 @@
 import Foundation
 
 class GetDetailUseCase: GetDetailUseCaseProtocol {
-    private let detailRepository: DummyPlanRepository
+    private let detailRepository: PlanRepositoryProtocol
 
-    init(detailRepository: DummyPlanRepository) {
+    init(detailRepository: PlanRepositoryProtocol) {
         self.detailRepository = detailRepository
     }
 
     func execute() async throws -> PlanModel {
-        let data = try await detailRepository.getPlan()
+        let data = try await detailRepository.getAllPlans()
+        // TODO: Get Detail Plan based on id
 
-//        let result = data.map { plan in
-        let result = data.map { plan in
-            PlanModel(
-                title: plan.title,
-                location: plan.location,
-                address: plan.address,
-                coordinatePlace: plan.coordinatePlace,
-                duration: plan.durationPlan,
-                isRepeat: plan.isRepeat,
-                date: plan.date,
-                allDay: plan.allDay)
-            //            PlanCardEntity(
-            //                title: plan.title,
-            //                date: plan.date,
-            //                allDay: plan.allDay,
-            //                durationPlan: plan.durationPlan,
-            //                location: plan.location,
-            //                degree: plan.weatherPlan?.looksLikeHotDegree ?? 0,
-            //                descriptionWeather: plan.weatherPlan?.generalDescription ?? "--"
-            //            )
-        }
-
-        return result.first.unsafelyUnwrapped
+        return data.first.unsafelyUnwrapped
     }
 }

@@ -30,10 +30,10 @@ struct DetailPlanView: View {
                         
                         HStack {
                             Image(systemName: "clock.fill")
-                            Text("\(String(describing: vm.plan.date.formatted(date: .complete, time: .omitted)))")
+                            Text("\(String(describing: vm.plan.durationPlan.start.formatted(date: .complete, time: .omitted)))")
                             Text(" | ")
                             // MARK: ganti jadi duration
-                            Text("\(String(describing: vm.plan.date.formatted(date: .omitted, time: .shortened)))")
+                            Text("\(String(describing: vm.plan.durationPlan.end.formatted(date: .omitted, time: .shortened)))")
                         }
     
                         HStack {
@@ -129,8 +129,8 @@ struct DetailPlanView: View {
         }
         .onAppear{
             Task {
-                // await vm.getHourlyWeather()
-                await vm.getDetailPlan(planId: planId)
+                 await vm.getHourlyWeather()
+//                await vm.getDetailPlan(planId: planId)
             }
         }
     }

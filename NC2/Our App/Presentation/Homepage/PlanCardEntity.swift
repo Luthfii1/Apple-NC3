@@ -15,8 +15,9 @@ class PlanCardEntity: Identifiable {
     let location: Location
     let temperature: Int
     let weatherDescription: String
+    let backgroundCard: String
     
-    init(id: UUID, title: String, allDay: Bool, durationPlan: DurationTimePlan, location: Location, temperature: Int, weatherDescription: String) {
+    init(id: UUID, title: String, allDay: Bool, durationPlan: DurationTimePlan, location: Location, temperature: Int, weatherDescription: String, backgroundCard: String) {
         self.id = id
         self.title = title
         self.allDay = allDay
@@ -24,5 +25,6 @@ class PlanCardEntity: Identifiable {
         self.location = location
         self.temperature = temperature
         self.weatherDescription = weatherDescription
+        self.backgroundCard = backgroundCard
     }
 }

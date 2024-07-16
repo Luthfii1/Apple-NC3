@@ -35,7 +35,8 @@ class RefreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol {
                 durationPlan: plan.durationPlan,
                 location: plan.location,
                 temperature: plan.weatherPlan?.hotDegree ?? 0,
-                weatherDescription: plan.weatherPlan?.generalDescription ?? "no data"
+                weatherDescription: plan.weatherPlan?.generalDescription ?? "no data",
+                backgroundCard: "clearCard"
             )
         }
         

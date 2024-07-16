@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var vm: HomeViewModel
+    @State private var showAlert: Bool = false
     
     var body: some View {
         NavigationStack {
