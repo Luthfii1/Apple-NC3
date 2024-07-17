@@ -44,6 +44,7 @@ class NotificationManager :ObservableObject{
         let uv = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.UVIndex ?? 0
         
         //GPT Command
+        //Temperature
         if temperature >= 0{
             content.title = "Bachul is Coming!!!"
             content.body = "Mohon untuk tetap stay di rumah"
@@ -57,6 +58,18 @@ class NotificationManager :ObservableObject{
         else if temperature >= 30{
             content.title = "Bachul is Coming!!!"
             content.body = "Mohon untuk tetap stay di rumah"
+        }
+        
+        //UV
+        else if uv >= 6 {
+            content.title = "🌞 High UV Today! "
+            content.body = "The UV index is very high. Make sure your child wears a hat and sunglasses! 🧢🕶️"
+        }
+        
+        //Precipitation Rain
+        else if precipitation >= 70 {
+            content.title = "🌞 High UV Today! "
+            content.body = "The UV index is very high. Make sure your child wears a hat and sunglasses! 🧢🕶️"
         }
         
         content.sound = UNNotificationSound.default
