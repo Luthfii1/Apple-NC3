@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 
 class PlanLocalDataSource: PlanLocalDataSourceProtocol {
-    
     private var modelContext: ModelContext
     init(modelContext: ModelContext) {
         self.modelContext = modelContext
@@ -40,6 +39,6 @@ class PlanLocalDataSource: PlanLocalDataSourceProtocol {
     }
     
     func updatePlan(at offsets: IndexSet) async throws {
-        
+        try modelContext.save()
     }
 }
