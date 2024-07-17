@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum PLANCATEGORY: String, Codable {
-    case Event, Routine
+enum PLANCATEGORY: String, Codable, CaseIterable {
+    case Event
+    case Routine
 }
 

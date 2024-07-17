@@ -21,7 +21,7 @@ class PlanRepository: PlanRepositoryProtocol {
     }
     
     func insertPlan(plan: PlanModel) async throws {
-        
+        try await planLocalDataSource.insertPlan(plan: plan)
     }
     
     func deletePlan(at offsets: IndexSet) async throws {
@@ -29,6 +29,6 @@ class PlanRepository: PlanRepositoryProtocol {
     }
     
     func updatePlan(at offsets: IndexSet) async throws {
-        
+//        try await planLocalDataSource.updatePlan(at: <#T##IndexSet#>)
     }
 }

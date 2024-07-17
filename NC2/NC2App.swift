@@ -37,4 +37,3 @@ struct NC2App: App {
         .modelContainer(container)
     }
 }
-

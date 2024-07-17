@@ -11,18 +11,15 @@ import SwiftUI
 import CoreLocation
 
 class DetailPlanViewModel: ObservableObject {
-//    let location = CLLocation(latitude: -6.302481, longitude: 106.652323)
-    
     @Published var isLoading = false
-    @Published var plan: PlanModel = dummyPlans.first.unsafelyUnwrapped
+    @Published var dayForecast: Forecast<DayWeather>?
     @Published var hourlyForecast: Forecast<HourWeather>?
     @Published var detailPlan: PlanModel = PlanModel()
-//    private let planDetailUseCase: PlanDetailUseCase
+    
     private let getDetailUseCase: PlanDetailUseCase
     
-    init(getDetailUseCase: PlanDetailUseCase/*, planDetailUseCase: PlanDetailUseCase*/) {
+    init(getDetailUseCase: PlanDetailUseCase) {
         self.getDetailUseCase = getDetailUseCase
-//        self.planDetailUseCase = planDetailUseCase
     }
     
     @MainActor
@@ -30,11 +27,8 @@ class DetailPlanViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
-//                let planFetched = try await getDetailUseCase.execute()
-//                let weatherFetched = try await GetDetailWeatherUseCase(location: planFetched.coordinatePlace, date: planFetched.date).execute()
-                let weatherFetched = try await GetDetailWeatherUseCase(location: plan.location.coordinatePlace, date: plan.durationPlan.start).execute()
+                let weatherFetched = try await GetDetailWeatherUseCase(location: detailPlan.location.coordinatePlace, date: detailPlan.durationPlan.start).execute()
                 DispatchQueue.main.async {
-//                    self.plan = planFetched
                     self.hourlyForecast = weatherFetched
                     self.isLoading = false
                 }
@@ -44,33 +38,36 @@ class DetailPlanViewModel: ObservableObject {
         }
     }
     
-//    func getPlan() async {
-//        Task {
-//            do {
-//                let planFetched = try await getDetailUseCase.execute()
-//                DispatchQueue.main.async {
-//                    self.plan = planFetched
-//                }
-//            } catch {
-//                print("Failed to load weather: \(error)")
-//            }
-//        }
-//    }
+    @MainActor
+    func getDetailPlan(planId: UUID) async {
+        do {
+            let detailPlan = try await getDetailUseCase.execute(planId: planId)
+            DispatchQueue.main.async {
+                self.detailPlan = detailPlan
+                print("title: \(detailPlan.title)")
+            }
+        } catch {
+            print("Error when getting detail plan because \(error)")
+        }
+    }
     
-//    @MainActor
-//    func getDetailPlan(planId: UUID) async {
-//        self.state.isLoading = true
-//        do {
-//            let detailPlan = try await planDetailUseCase.execute(planId: planId)
-//            DispatchQueue.main.async {
-//                self.detailPlan = detailPlan
-//                self.state.isLoading.toggle()
-//            }
-//        } catch {
-//            print("Error when getting detail plan because \(error)")
-//            DispatchQueue.main.async {
-//                self.state.isLoading.toggle()
-//            }
-//        }
-//    }
+    @MainActor
+    func getDayWeather() async {
+        do {
+            let dayWeather = try await GetDayWeatherUseCase(location: detailPlan.location.coordinatePlace, date: detailPlan.durationPlan.start).execute()
+            DispatchQueue.main.async {
+                self.dayForecast = dayWeather
+            }
+        } catch {
+            print("Error when getting detail plan because \(error)")
+        }
+    }
+    
+    func getBackground(currentWeather: String) -> Image {
+        if currentWeather == "Sunny" {
+            return Image("CloudyBackground")
+        }
+            
+        return Image(currentWeather)
+    }
 }

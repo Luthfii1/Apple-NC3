@@ -17,10 +17,10 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-    private let getAllPlansUseCase: GetAllPlanUseCasesProtocol
+    private let getAllPlansUseCase: PlanUseCasesProtocol
     private let refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol
     
-    init(getAllPlansUseCase: GetAllPlanUseCasesProtocol, refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol) {
+    init(getAllPlansUseCase: PlanUseCasesProtocol, refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol) {
         self.getAllPlansUseCase = getAllPlansUseCase
         self.refreshHomeViewUseCase = refreshHomeViewUseCase
     }
@@ -36,7 +36,7 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         Task {
             do {
-                let plansFetched = try await getAllPlansUseCase.executeEvent()
+                let plansFetched = try await getAllPlansUseCase.getEvent()
                 DispatchQueue.main.async {
                     self.plans = plansFetched
                 }
@@ -70,7 +70,7 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         Task {
             do {
-                let plansFetched = try await getAllPlansUseCase.executeRoutine()
+                let plansFetched = try await getAllPlansUseCase.getRoutine()
                 DispatchQueue.main.async {
                     self.plans = plansFetched
                 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var vm: HomeViewModel
-    @State private var showAlert: Bool = false
+    @EnvironmentObject var dependencyInjection: DependencyInjection
     
     var body: some View {
         NavigationStack {
@@ -46,8 +46,12 @@ struct HomeView: View {
                         }
                         .padding(.horizontal, 12)
                     }
+                    .sheet(isPresented: $vm.state.isCreateSheetPresented) {
+                        CreatePlanView()
+                            .environmentObject(dependencyInjection.createPlanViewModel())
+                    }
                     .refreshable {
-                        await vm.refreshPage()
+                        await vm.fetchPlansBasedOnFilter()
                     }
                     .navigationTitle("Plan")
                     .background(.backgroundView)
@@ -55,7 +59,7 @@ struct HomeView: View {
                         ToolbarItemGroup(placement: .bottomBar) {
                             HStack {
                                 Button(action: {
-                                    print("Add Plan")
+                                    vm.state.isCreateSheetPresented = true
                                 }, label: {
                                     HStack () {
                                         Image(systemName: "plus.circle.fill")
@@ -70,7 +74,6 @@ struct HomeView: View {
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 })
-                                
                                 Spacer()
                             }
                         }
