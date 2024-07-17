@@ -13,6 +13,9 @@
 		3D332D842C465D6F00B10FA3 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */; };
 		3D332D862C465EB300B10FA3 /* MultiSelectpicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */; };
 		3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */; };
+		3D9587252C476719000CDDFF /* SwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587242C476719000CDDFF /* SwipeableView.swift */; };
+		3D9587272C477208000CDDFF /* CustomRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */; };
+		3DDC3C2F2C4666B000506AB5 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 3DDC3C2E2C4666B000506AB5 /* GoogleGenerativeAI */; };
 		3DDC3C342C46771100506AB5 /* EditPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C332C46771100506AB5 /* EditPlanView.swift */; };
 		3DDC3C362C46773C00506AB5 /* EditPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */; };
 		8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */; };
@@ -110,6 +113,8 @@
 /* Begin PBXFileReference section */
 		3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectpicker.swift; sourceTree = "<group>"; };
 		3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
+		3D9587242C476719000CDDFF /* SwipeableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableView.swift; sourceTree = "<group>"; };
+		3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
 		3DDC3C332C46771100506AB5 /* EditPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanView.swift; sourceTree = "<group>"; };
 		3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanViewModel.swift; sourceTree = "<group>"; };
 		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
@@ -558,6 +563,8 @@
 				DD7F94312C40D7DC009E4C9F /* HomeView.swift */,
 				DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */,
 				DD7F944F2C42BF0E009E4C9F /* PlanCardEntity.swift */,
+				3D9587242C476719000CDDFF /* SwipeableView.swift */,
+				3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -824,6 +831,7 @@
 				DD6794E72C44E821002B24EE /* DaysEnum.swift in Sources */,
 				DD7F94132C3FC5E6009E4C9F /* TodoView.swift in Sources */,
 				DD7F940B2C3F90F4009E4C9F /* TodoRepository.swift in Sources */,
+				3D9587252C476719000CDDFF /* SwipeableView.swift in Sources */,
 				DD7F941E2C3FCF65009E4C9F /* DeleteTodoUseCase.swift in Sources */,
 				DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */,
 				3DDC3C362C46773C00506AB5 /* EditPlanViewModel.swift in Sources */,
@@ -867,6 +875,7 @@
 				DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */,
 				DD7F944A2C40DDE6009E4C9F /* NotificationManager.swift in Sources */,
 				8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */,
+				3D9587272C477208000CDDFF /* CustomRoundedCorner.swift in Sources */,
 				8AC3A1A22C4675BC008E6AEE /* Test.swift in Sources */,
 				DD7F94062C3F85D1009E4C9F /* GetTodosLocalSwiftDataProtocol.swift in Sources */,
 				DD7F942F2C40D7A0009E4C9F /* ButtonComponent.swift in Sources */,

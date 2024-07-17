@@ -14,8 +14,6 @@ class EditPlanViewModel: ObservableObject {
     @Published var location: String
     
     @Published var allDay: Bool
-    //    @Published var eventPicker: String
-    //    @Published var reminderPicker: String
     @Published var startDate: Date
     @Published var endDate: Date
     
@@ -33,15 +31,6 @@ class EditPlanViewModel: ObservableObject {
     @Published var daysRepeat: Set<DAYS>
     @Published var eventPicker: PLANCATEGORY
     @Published var reminderPicker: REMINDER
-    
-//    private var planDetailUseCase: PlanDetailUseCasesProtocol
-    
-
-    
-    
-    //    let EventSelection = ["One time event", "Routines"]
-    //    let ReminderSelection = ["None", "At time of event", "5 minutes before", "10 minutes before", "15 minutes before", "30 minutes before", "1 hour before", "2 hours before", "1 day before"]
-    
     
     init(plan: PlanModel) {
         self.plan = plan
@@ -63,17 +52,13 @@ class EditPlanViewModel: ObservableObject {
         return Calendar.current.startOfDay(for: Date())
     }
     
-    private var tenDaysFromToday: Date {
-        return Calendar.current.date(byAdding: .day, value: 10, to: todayDate) ?? Date()
-    }
-    
     private var currentTime: DateComponents {
         return Calendar.current.dateComponents([.hour, .minute], from: Date())
     }
     
     var dateRange: ClosedRange<Date> {
         let now = Calendar.current.date(bySettingHour: currentTime.hour!, minute: currentTime.minute!, second: 0, of: todayDate) ?? todayDate
-        return now...tenDaysFromToday
+        return now...Date.distantFuture
     }
     
     var isFormValid: Bool {

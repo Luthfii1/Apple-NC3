@@ -29,6 +29,7 @@ struct HomeView: View {
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
                         
+                        
                         VStack (alignment: .leading) {
                             ForEach(vm.groupedPlans.keys.sorted(), id: \.self) { date in
                                 Section(
@@ -39,7 +40,7 @@ struct HomeView: View {
                                         .padding(.top, 12)
                                 ) {
                                     ForEach(vm.groupedPlans[date]!, id: \.id) { plan in
-                                        PlanCardComponent(plan: plan)
+                                        SwipeableView(plan: plan)
                                     }
                                 }
                             }

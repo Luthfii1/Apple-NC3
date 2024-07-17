@@ -38,19 +38,15 @@ class CreatePlanViewModel: ObservableObject {
         return Calendar.current.startOfDay(for: Date())
     }
     
-    private var tenDaysFromToday: Date {
-        return Calendar.current.date(byAdding: .day, value: 10, to: todayDate) ?? Date()
-    }
-    
     private var currentTime: DateComponents {
         return Calendar.current.dateComponents([.hour, .minute], from: Date())
     }
     
     var dateRange: ClosedRange<Date> {
         let now = Calendar.current.date(bySettingHour: currentTime.hour!, minute: currentTime.minute!, second: 0, of: todayDate) ?? todayDate
-        return now...tenDaysFromToday
+        return now...Date.distantFuture
     }
-    
+
     var isFormValid: Bool {
         return !newPlan.title.isEmpty && !newPlan.location.nameLocation.isEmpty
     }
