@@ -105,14 +105,43 @@ struct CreatePlanView: View {
                     }
                     
                 }
+                
+                if !isCreate {
+                    Section {
+                        Button("Delete Plan") {
+                            createPlanVM.state.showDeleteAlert = true
+                        }
+                        .foregroundColor(.red)
+                    }
+                }
+            }
+            .alert(isPresented: $createPlanVM.state.showDeleteAlert) { // Add this block for the delete alert
+                Alert(
+                    title: Text("Are you sure you want to delete your plan?"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        Task {
+                            await homeViewModel.deletePlan(planId: createPlanVM.newPlan.id)
+                        }
+                        presentationMode.wrappedValue.dismiss()
+                    },
+                    secondaryButton: .cancel()
+                )
             }
             .navigationBarTitle("New Plan", displayMode: .inline)
             .navigationBarItems(
                 leading: Button("Cancel") {
-                    if createPlanVM.cancelAction() {
-                        createPlanVM.state.showDiscardChangesDialog = true
+                    if isCreate {
+                        if createPlanVM.cancelAction() {
+                            createPlanVM.state.showDiscardChangesDialog = true
+                        } else {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     } else {
-                        presentationMode.wrappedValue.dismiss()
+                        if createPlanVM.cancelEditChanges() {
+                            createPlanVM.state.showDiscardChangesDialog = true
+                        } else {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     }
                 },
                 trailing: Button("Done") {
@@ -139,6 +168,9 @@ struct CreatePlanView: View {
                 presentationMode.wrappedValue.dismiss()
             }
             Button("Cancel", role: .cancel) {}
+        }
+        message: {
+            Text("Are you sure you want to discard your changes?")
         }
     }
 }

@@ -14,4 +14,5 @@ struct StateView {
     var isEditSheetPresented: Bool = false
     var isSheetPresented: Bool = false
     var showDiscardChangesDialog: Bool = false
+    var showDeleteAlert: Bool = false
 }
