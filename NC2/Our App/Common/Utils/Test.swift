@@ -9,27 +9,33 @@ import Foundation
 import SwiftData
 
 //Grouping UseCase ke dalam satu fungsi
-class DependencyInjection: ObservableObject{
-    private var modelContext: ModelContext
-    init(modelContext: ModelContext) {
+class Test {
+    
+    static let shared = Test()
+    
+    private init() {}
+    
+    private var modelContext: ModelContext?
+    func initializer(modelContext: ModelContext) {
         self.modelContext = modelContext
+        
     }
     
     // MARK: IMPLEMENTATION
-    lazy var planLocalDataSource = PlanLocalDataSource(modelContext: modelContext)
+    lazy var planLocalDataSource = PlanLocalDataSource(modelContext: modelContext!)
     lazy var aqiDataSource = AQIRemoteDataSource()
     
     lazy var planRepository = PlanRepository(planLocalDataSource: planLocalDataSource)
     lazy var aqiRepository = AQIRepository(AQIRemoteDataSource: aqiDataSource)
     
     // MARK: IMPLEMENTATION USE CASES
-    lazy var getPlanPreviewUseCase = PlanUseCases(planRepository: planRepository)
+    lazy var getPlanPreviewUseCase = GetAllPlansUseCase(planRepository: planRepository)
     lazy var refreshPageViewUseCase = RefreshHomeViewUseCase(planRepository: planRepository)
     lazy var detailPlanUseCase = PlanDetailUseCase(AQIRepository: aqiRepository, planRepository: planRepository)
     
     // MARK: TESTING
     lazy var dummyPlanRepository = DummyPlanRepository(dummyPlans: dummyPlans)
-    lazy var dummyGetAllPlansPreviewUseCase = PlanUseCases(planRepository: dummyPlanRepository)
+    lazy var dummyGetAllPlansPreviewUseCase = GetAllPlansUseCase(planRepository: dummyPlanRepository)
     lazy var dummyRefreshHomeViewUseCase = RefreshHomeViewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
     lazy var dummyDetailPlanUseCase = PlanDetailUseCase(AQIRepository: aqiRepository, planRepository: dummyPlanRepository)
     
@@ -57,16 +63,12 @@ class DependencyInjection: ObservableObject{
     
     
     func detailPlanViewModel() -> DetailPlanViewModel {
+//        DetailPlanViewModel(planDetailUseCase: detailPlanUseCase)
         DetailPlanViewModel(getDetailUseCase: detailPlanUseCase)
     }
     
     func dummyDetailPlanViewModel() -> DetailPlanViewModel {
+//        DetailPlanViewModel(planDetailUseCase: dummyDetailPlanUseCase)
         DetailPlanViewModel(getDetailUseCase: dummyDetailPlanUseCase)
-    }
-    
-    func createPlanViewModel() -> CreatePlanViewModel {
-        CreatePlanViewModel(
-            planUseCase: getPlanPreviewUseCase
-        )
     }
 }

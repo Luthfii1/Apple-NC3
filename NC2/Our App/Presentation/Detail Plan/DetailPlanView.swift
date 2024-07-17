@@ -32,7 +32,6 @@ struct DetailPlanView: View {
                                 .bold()
                                 .padding(.top, 76)
                                 .padding(.bottom, 12)
-                            
                             HStack {
                                 Image(systemName: "clock.fill")
                                     .font(.system(size: 14, weight: .semibold, design: .rounded))

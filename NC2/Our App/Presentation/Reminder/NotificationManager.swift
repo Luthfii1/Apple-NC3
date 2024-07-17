@@ -8,12 +8,16 @@
 import Foundation
 import UserNotifications
 
-class ReminderViewModel{
+class NotificationManager :ObservableObject{
     
-    //Singleton Class
-    static let shared = ReminderViewModel()
+//    private let getDetailUseCase: GetAllPlansUseCase
+//    
+//    init(getDetailUseCase: GetAllPlansUseCase/*, planDetailUseCase: PlanDetailUseCase*/) {
+//        self.getDetailUseCase = getDetailUseCase
+//    }
+    static let shared = NotificationManager()
     
-    private init() { }
+    private init(){}
     
     //Request Izin Awal ke User
     func requestAuthorization() {
@@ -33,8 +37,28 @@ class ReminderViewModel{
         
         //Pesan dan Kesan kepada Bachul
         let content = UNMutableNotificationContent()
-        content.title = "Bachul is Coming!!!"
-        content.body = "Mohon untuk tetap stay di rumah"
+        
+        let temperature = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.hotDegree ?? 0
+        let precipitation = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.Percipitation ?? 0
+        let cuaca = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.generalDescription
+        let uv = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.UVIndex ?? 0
+        
+        //GPT Command
+        if temperature >= 0{
+            content.title = "Bachul is Coming!!!"
+            content.body = "Mohon untuk tetap stay di rumah"
+        }
+        
+        else if temperature >= 30{
+            content.title = "Bachul is Coming!!!"
+            content.body = "Mohon untuk tetap stay di rumah"
+        }
+        
+        else if temperature >= 30{
+            content.title = "Bachul is Coming!!!"
+            content.body = "Mohon untuk tetap stay di rumah"
+        }
+        
         content.sound = UNNotificationSound.default
         
         //Setiap 10 detik Bachul datang
