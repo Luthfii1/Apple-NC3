@@ -12,6 +12,7 @@ protocol PlanUseCasesProtocol {
     func getRoutine() async throws -> [PlanCardEntity]
     func insertPlan(plan: PlanModel) async throws 
     func updatePlan(plan: PlanModel) async throws
+    func deletePlan(planId: UUID) async throws
 }
 
 protocol RefreshHomeViewUseCaseProtocol {
