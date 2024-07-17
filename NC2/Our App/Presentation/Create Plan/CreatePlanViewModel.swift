@@ -8,6 +8,7 @@
 import Foundation
 import MapKit
 import SwiftData
+import WidgetKit
 
 class CreatePlanViewModel: ObservableObject {
     @Published var state: StateView
@@ -24,12 +25,30 @@ class CreatePlanViewModel: ObservableObject {
         self.comparePlan = PlanModel()
     }
     
+    private var widgetPlan = WidgetPlanModel(
+        id: UUID(),
+        title: "Morning Routine",
+        temprature: 22,
+        durationPlan: Date(),
+        allDay: false
+    )
+    
     @MainActor
     func insertPlan(homeViewModel: HomeViewModel) async {
         self.state.isLoading = true
         Task {
             do {
                 try await planUseCase.insertPlan(plan: newPlan)
+                DispatchQueue.main.async {
+                    self.widgetPlan.id = self.newPlan.id
+                    self.widgetPlan.title = self.newPlan.title
+                    self.widgetPlan.temprature = self.newPlan.weatherPlan?.hotDegree ?? 0
+                    self.widgetPlan.durationPlan = self.newPlan.durationPlan.start
+                    self.widgetPlan.allDay = self.newPlan.allDay
+                    
+                    self.saveWidgetPlanModel(self.widgetPlan)
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
                 await homeViewModel.fetchPlansBasedOnFilter()
             } catch {
                 print("Failed to load plans: \(error)")
@@ -90,6 +109,15 @@ class CreatePlanViewModel: ObservableObject {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let window = windowScene.windows.first {
             window.backgroundColor = color
+        }
+    }
+    
+    private func saveWidgetPlanModel(_ model: WidgetPlanModel) {
+        if let sharedDefaults = UserDefaults(suiteName: AppGroupManager.suiteName) {
+            let encoder = JSONEncoder()
+            if let encodedModel = try? encoder.encode(model) {
+                sharedDefaults.set(encodedModel, forKey: "widgetPlanModel")
+            }
         }
     }
     

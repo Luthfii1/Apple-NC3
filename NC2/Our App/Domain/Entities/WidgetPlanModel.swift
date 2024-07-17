@@ -8,9 +8,9 @@
 import Foundation
 
 struct WidgetPlanModel: Codable, Identifiable {
-    let id: UUID
-    let title: String
-    let temprature: Double
-    let durationPlan: String
-    let allDay: Bool
+    var id: UUID
+    var title: String
+    var temprature: Int
+    var durationPlan: Date
+    var allDay: Bool
 }

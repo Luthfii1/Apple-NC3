@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D332D802C465D4C00B10FA3 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
-		3D332D822C465D6600B10FA3 /* WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */; };
-		3D332D832C465D6A00B10FA3 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */; };
-		3D332D842C465D6F00B10FA3 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */; };
 		3D332D862C465EB300B10FA3 /* MultiSelectpicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */; };
 		3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */; };
 		3D9587252C476719000CDDFF /* SwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587242C476719000CDDFF /* SwipeableView.swift */; };
@@ -23,9 +19,6 @@
 		8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1772C452B0D008E6AEE /* GeminiBotScreen.swift */; };
 		8AC3A1842C461A9E008E6AEE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1832C461A9E008E6AEE /* WidgetKit.framework */; };
 		8AC3A1862C461A9E008E6AEE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1852C461A9E008E6AEE /* SwiftUI.framework */; };
-		8AC3A19B2C465BD1008E6AEE /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
-		8AC3A19D2C465BDA008E6AEE /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */; };
-		8AC3A19E2C465BEE008E6AEE /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */; };
 		8AC3A1A22C4675BC008E6AEE /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1A12C4675BC008E6AEE /* Test.swift */; };
 		8AC3A1A82C46A6BF008E6AEE /* WidgetPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1A72C46A6BF008E6AEE /* WidgetPlanModel.swift */; };
 		8AC3A1A92C46A6BF008E6AEE /* WidgetPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1A72C46A6BF008E6AEE /* WidgetPlanModel.swift */; };
@@ -33,11 +26,18 @@
 		8AC3A1AB2C46A6F6008E6AEE /* DaysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E62C44E821002B24EE /* DaysEnum.swift */; };
 		8AC3A1AC2C46A700008E6AEE /* DurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F945B2C42C8BC009E4C9F /* DurationModel.swift */; };
 		8AC3A1AD2C46A707008E6AEE /* ReminderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794EA2C44E847002B24EE /* ReminderEnum.swift */; };
+		8AC3A1AE2C46A855008E6AEE /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94252C40D53B009E4C9F /* WeatherModel.swift */; };
 		8AC3A1BE2C474CD7008E6AEE /* WidgetExtensionEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1BC2C474CD7008E6AEE /* WidgetExtensionEntryView.swift */; };
 		8AC3A1C12C474CFE008E6AEE /* WidgetExtension_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1BF2C474CFE008E6AEE /* WidgetExtension_Previews.swift */; };
 		8AC3A1C32C474E39008E6AEE /* AppGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1C22C474E39008E6AEE /* AppGroupManager.swift */; };
 		8AC3A1C42C474E39008E6AEE /* AppGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1C22C474E39008E6AEE /* AppGroupManager.swift */; };
 		8AC3A1C52C4767F2008E6AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */; };
+		8AC3A1CC2C47AB67008E6AEE /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1C62C47AB67008E6AEE /* AppIntent.swift */; };
+		8AC3A1CD2C47AB67008E6AEE /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1C72C47AB67008E6AEE /* Provider.swift */; };
+		8AC3A1CE2C47AB67008E6AEE /* WidgetExtension_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1C82C47AB67008E6AEE /* WidgetExtension_Previews.swift */; };
+		8AC3A1CF2C47AB67008E6AEE /* WidgetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1C92C47AB67008E6AEE /* WidgetExtension.swift */; };
+		8AC3A1D02C47AB67008E6AEE /* WidgetExtensionEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1CA2C47AB67008E6AEE /* WidgetExtensionEntryView.swift */; };
+		8AC3A1D12C47C0ED008E6AEE /* CreatePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94382C40D885009E4C9F /* CreatePlanView.swift */; };
 		DD260E962C46D8C4009F43F2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD260E952C46D8C4009F43F2 /* String+Extension.swift */; };
 		DD5D590C2C46274A009AB089 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5D590B2C46274A009AB089 /* Utils.swift */; };
 		DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E32C44E7E6002B24EE /* LocationModel.swift */; };
@@ -113,10 +113,6 @@
 		3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
 		3DDC3C332C46771100506AB5 /* EditPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanView.swift; sourceTree = "<group>"; };
 		3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanViewModel.swift; sourceTree = "<group>"; };
-		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
-		8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLiveActivity.swift; sourceTree = "<group>"; };
-		8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
-		8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 		8AC3A1742C452AE1008E6AEE /* APIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		8AC3A1762C452B0D008E6AEE /* GeminiBotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiBotViewModel.swift; sourceTree = "<group>"; };
@@ -128,9 +124,12 @@
 		8AC3A1A12C4675BC008E6AEE /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		8AC3A1A72C46A6BF008E6AEE /* WidgetPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPlanModel.swift; sourceTree = "<group>"; };
 		8AC3A1AF2C473C91008E6AEE /* widgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widgetExtension.entitlements; sourceTree = "<group>"; };
-		8AC3A1BC2C474CD7008E6AEE /* WidgetExtensionEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetExtensionEntryView.swift; sourceTree = "<group>"; };
-		8AC3A1BF2C474CFE008E6AEE /* WidgetExtension_Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetExtension_Previews.swift; sourceTree = "<group>"; };
 		8AC3A1C22C474E39008E6AEE /* AppGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupManager.swift; sourceTree = "<group>"; };
+		8AC3A1C62C47AB67008E6AEE /* AppIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		8AC3A1C72C47AB67008E6AEE /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		8AC3A1C82C47AB67008E6AEE /* WidgetExtension_Previews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetExtension_Previews.swift; sourceTree = "<group>"; };
+		8AC3A1C92C47AB67008E6AEE /* WidgetExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetExtension.swift; sourceTree = "<group>"; };
+		8AC3A1CA2C47AB67008E6AEE /* WidgetExtensionEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetExtensionEntryView.swift; sourceTree = "<group>"; };
 		DD260E952C46D8C4009F43F2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		DD5D590B2C46274A009AB089 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DD6794E32C44E7E6002B24EE /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
@@ -231,19 +230,6 @@
 			path = "Edit Plans";
 			sourceTree = "<group>";
 		};
-		8AC3A15C2C43156E008E6AEE /* Widget */ = {
-			isa = PBXGroup;
-			children = (
-				8AC3A15D2C43163A008E6AEE /* WidgetView.swift */,
-				8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */,
-				8AC3A1BC2C474CD7008E6AEE /* WidgetExtensionEntryView.swift */,
-				8AC3A1BF2C474CFE008E6AEE /* WidgetExtension_Previews.swift */,
-				8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */,
-			);
-			name = Widget;
-			path = "NC2/Preview Content/Widget";
-			sourceTree = "<group>";
-		};
 		8AC3A1822C461A9E008E6AEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,10 +239,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8AC3A1CB2C47AB67008E6AEE /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				8AC3A1C62C47AB67008E6AEE /* AppIntent.swift */,
+				8AC3A1C72C47AB67008E6AEE /* Provider.swift */,
+				8AC3A1C82C47AB67008E6AEE /* WidgetExtension_Previews.swift */,
+				8AC3A1C92C47AB67008E6AEE /* WidgetExtension.swift */,
+				8AC3A1CA2C47AB67008E6AEE /* WidgetExtensionEntryView.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		DD260E982C47704F009F43F2 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -297,7 +294,6 @@
 			children = (
 				8AC3A1AF2C473C91008E6AEE /* widgetExtension.entitlements */,
 				DD7F93C92C3D4D0A009E4C9F /* NC2 */,
-				8AC3A15C2C43156E008E6AEE /* Widget */,
 				8AC3A1822C461A9E008E6AEE /* Frameworks */,
 				DD7F93C82C3D4D0A009E4C9F /* Products */,
 				DD260E982C47704F009F43F2 /* Recovered References */,
@@ -325,6 +321,7 @@
 				DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */,
 				DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */,
 				DD7F93D02C3D4D0B009E4C9F /* Preview Content */,
+				8AC3A1CB2C47AB67008E6AEE /* Widget */,
 			);
 			path = NC2;
 			sourceTree = "<group>";
@@ -789,6 +786,11 @@
 			files = (
 				8AC3A1AB2C46A6F6008E6AEE /* DaysEnum.swift in Sources */,
 				8AC3A1C42C474E39008E6AEE /* AppGroupManager.swift in Sources */,
+				8AC3A1D12C47C0ED008E6AEE /* CreatePlanView.swift in Sources */,
+				8AC3A1CD2C47AB67008E6AEE /* Provider.swift in Sources */,
+				8AC3A1CF2C47AB67008E6AEE /* WidgetExtension.swift in Sources */,
+				8AC3A1AE2C46A855008E6AEE /* WeatherModel.swift in Sources */,
+				8AC3A1CE2C47AB67008E6AEE /* WidgetExtension_Previews.swift in Sources */,
 				8AC3A1BE2C474CD7008E6AEE /* WidgetExtensionEntryView.swift in Sources */,
 				8AC3A19D2C465BDA008E6AEE /* WidgetBundle.swift in Sources */,
 				8AC3A19E2C465BEE008E6AEE /* AppIntent.swift in Sources */,
@@ -796,12 +798,9 @@
 				8AC3A1AA2C46A6E9008E6AEE /* PlanCategoryEnum.swift in Sources */,
 				8AC3A1AD2C46A707008E6AEE /* ReminderEnum.swift in Sources */,
 				8AC3A1AC2C46A700008E6AEE /* DurationModel.swift in Sources */,
-				8AC3A19B2C465BD1008E6AEE /* WidgetView.swift in Sources */,
 				8AC3A1A92C46A6BF008E6AEE /* WidgetPlanModel.swift in Sources */,
-				3D332D832C465D6A00B10FA3 /* WidgetBundle.swift in Sources */,
-				3D332D842C465D6F00B10FA3 /* AppIntent.swift in Sources */,
-				3D332D822C465D6600B10FA3 /* WidgetLiveActivity.swift in Sources */,
-				3D332D802C465D4C00B10FA3 /* WidgetView.swift in Sources */,
+				8AC3A1CC2C47AB67008E6AEE /* AppIntent.swift in Sources */,
+				8AC3A1D02C47AB67008E6AEE /* WidgetExtensionEntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,7 +897,7 @@
 				CODE_SIGN_ENTITLEMENTS = widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XSHZNN2ULY;
+				DEVELOPMENT_TEAM = 2N2A4XFHX4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -910,7 +909,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bachul.happykids.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = sabach.happykids.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -927,7 +926,7 @@
 				CODE_SIGN_ENTITLEMENTS = widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3L9D9QLCDG;
+				DEVELOPMENT_TEAM = 2N2A4XFHX4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -1076,7 +1075,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = XSHZNN2ULY;
+				DEVELOPMENT_TEAM = 2N2A4XFHX4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
@@ -1092,7 +1091,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.NC2.HappyKids;
+				PRODUCT_BUNDLE_IDENTIFIER = sabach.happykids;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1109,7 +1108,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = 3L9D9QLCDG;
+				DEVELOPMENT_TEAM = 2N2A4XFHX4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
