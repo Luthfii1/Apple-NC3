@@ -13,7 +13,6 @@
 		3D332D842C465D6F00B10FA3 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */; };
 		3D332D862C465EB300B10FA3 /* MultiSelectpicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */; };
 		3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */; };
-		3DDC3C2F2C4666B000506AB5 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 3DDC3C2E2C4666B000506AB5 /* GoogleGenerativeAI */; };
 		3DDC3C342C46771100506AB5 /* EditPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C332C46771100506AB5 /* EditPlanView.swift */; };
 		3DDC3C362C46773C00506AB5 /* EditPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */; };
 		8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */; };
@@ -22,9 +21,8 @@
 		8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1772C452B0D008E6AEE /* GeminiBotScreen.swift */; };
 		8AC3A1842C461A9E008E6AEE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1832C461A9E008E6AEE /* WidgetKit.framework */; };
 		8AC3A1862C461A9E008E6AEE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1852C461A9E008E6AEE /* SwiftUI.framework */; };
-		8AC3A1952C461A9F008E6AEE /* widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8AC3A1812C461A9E008E6AEE /* widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8AC3A19B2C465BD1008E6AEE /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* Provider.swift */; };
-		8AC3A19D2C465BDA008E6AEE /* WidgetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetExtension.swift */; };
+		8AC3A19B2C465BD1008E6AEE /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
+		8AC3A19D2C465BDA008E6AEE /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */; };
 		8AC3A19E2C465BEE008E6AEE /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */; };
 		8AC3A1A22C4675BC008E6AEE /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1A12C4675BC008E6AEE /* Test.swift */; };
 		8AC3A1A82C46A6BF008E6AEE /* WidgetPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1A72C46A6BF008E6AEE /* WidgetPlanModel.swift */; };
@@ -106,11 +104,10 @@
 		DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */; };
 		DD7F947A2C441107009E4C9F /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94792C441107009E4C9F /* StateView.swift */; };
 		DD7F947C2C4439F5009E4C9F /* PlanUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F947B2C4439F5009E4C9F /* PlanUseCases.swift */; };
+		DDCB3E762C47779600466E2B /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCB3E752C47779600466E2B /* GoogleGenerativeAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8AC3A15D2C43163A008E6AEE /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
-		8AC3A1612C44CB05008E6AEE /* WidgetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetExtension.swift; sourceTree = "<group>"; };
 		3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectpicker.swift; sourceTree = "<group>"; };
 		3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
 		3DDC3C332C46771100506AB5 /* EditPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanView.swift; sourceTree = "<group>"; };
@@ -219,7 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DDC3C2F2C4666B000506AB5 /* GoogleGenerativeAI in Frameworks */,
+				DDCB3E762C47779600466E2B /* GoogleGenerativeAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,8 +235,8 @@
 		8AC3A15C2C43156E008E6AEE /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				8AC3A15D2C43163A008E6AEE /* Provider.swift */,
-				8AC3A1612C44CB05008E6AEE /* WidgetExtension.swift */,
+				8AC3A15D2C43163A008E6AEE /* WidgetView.swift */,
+				8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */,
 				8AC3A1BC2C474CD7008E6AEE /* WidgetExtensionEntryView.swift */,
 				8AC3A1BF2C474CFE008E6AEE /* WidgetExtension_Previews.swift */,
 				8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */,
@@ -257,18 +254,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8AC3A1872C461A9E008E6AEE /* widget */ = {
+		DD260E982C47704F009F43F2 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				8AC3A1882C461A9E008E6AEE /* widgetBundle.swift */,
-				8AC3A18A2C461A9E008E6AEE /* widgetLiveActivity.swift */,
-				8AC3A18C2C461A9E008E6AEE /* widget.swift */,
-				8AC3A18E2C461A9E008E6AEE /* AppIntent.swift */,
-				8AC3A1902C461A9F008E6AEE /* Assets.xcassets */,
-				8AC3A1922C461A9F008E6AEE /* Info.plist */,
+				8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */,
 			);
-			path = widget;
-        };
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		DD6794E52C44E815002B24EE /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +301,7 @@
 				8AC3A15C2C43156E008E6AEE /* Widget */,
 				8AC3A1822C461A9E008E6AEE /* Frameworks */,
 				DD7F93C82C3D4D0A009E4C9F /* Products */,
+				DD260E982C47704F009F43F2 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -539,7 +533,6 @@
 			isa = PBXGroup;
 			children = (
 				3DDC3C322C46766800506AB5 /* Edit Plans */,
-				8AC3A15C2C43156E008E6AEE /* Widget */,
 				DD7F94302C40D7B8009E4C9F /* Homepage */,
 				DD7F943A2C40D890009E4C9F /* Detail Plan */,
 				DD7F94352C40D849009E4C9F /* Create Plan */,
@@ -723,7 +716,7 @@
 			);
 			name = NC2;
 			packageProductDependencies = (
-				3DDC3C2E2C4666B000506AB5 /* GoogleGenerativeAI */,
+				DDCB3E752C47779600466E2B /* GoogleGenerativeAI */,
 			);
 			productName = NC2;
 			productReference = DD7F93C72C3D4D0A009E4C9F /* Happy Kids.app */;
@@ -798,14 +791,14 @@
 				8AC3A1AB2C46A6F6008E6AEE /* DaysEnum.swift in Sources */,
 				8AC3A1C42C474E39008E6AEE /* AppGroupManager.swift in Sources */,
 				8AC3A1BE2C474CD7008E6AEE /* WidgetExtensionEntryView.swift in Sources */,
-				8AC3A19D2C465BDA008E6AEE /* WidgetExtension.swift in Sources */,
+				8AC3A19D2C465BDA008E6AEE /* WidgetBundle.swift in Sources */,
 				8AC3A19E2C465BEE008E6AEE /* AppIntent.swift in Sources */,
 				8AC3A1AE2C46A855008E6AEE /* WeatherModel.swift in Sources */,
 				8AC3A1C12C474CFE008E6AEE /* WidgetExtension_Previews.swift in Sources */,
 				8AC3A1AA2C46A6E9008E6AEE /* PlanCategoryEnum.swift in Sources */,
 				8AC3A1AD2C46A707008E6AEE /* ReminderEnum.swift in Sources */,
 				8AC3A1AC2C46A700008E6AEE /* DurationModel.swift in Sources */,
-				8AC3A19B2C465BD1008E6AEE /* Provider.swift in Sources */,
+				8AC3A19B2C465BD1008E6AEE /* WidgetView.swift in Sources */,
 				8AC3A1A92C46A6BF008E6AEE /* WidgetPlanModel.swift in Sources */,
 				3D332D832C465D6A00B10FA3 /* WidgetBundle.swift in Sources */,
 				3D332D842C465D6F00B10FA3 /* AppIntent.swift in Sources */,
@@ -907,7 +900,7 @@
 				CODE_SIGN_ENTITLEMENTS = widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3L9D9QLCDG;
+				DEVELOPMENT_TEAM = XSHZNN2ULY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -919,7 +912,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sabach.happykids.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = bachul.happykids.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1085,7 +1078,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = 3L9D9QLCDG;
+				DEVELOPMENT_TEAM = XSHZNN2ULY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
@@ -1101,7 +1094,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = sabach.happykids;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NC2.HappyKids;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1186,7 +1179,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3DDC3C2E2C4666B000506AB5 /* GoogleGenerativeAI */ = {
+		DDCB3E752C47779600466E2B /* GoogleGenerativeAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8AC3A17A2C452B9B008E6AEE /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
 			productName = GoogleGenerativeAI;

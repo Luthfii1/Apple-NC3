@@ -54,6 +54,10 @@ class PlanUseCases: PlanUseCasesProtocol{
         try await planRepository.insertPlan(plan: plan)
     }
     
+    func getPlanData() -> PlanModel {
+        dummyPlans.first.unsafelyUnwrapped
+    }
+    
     private func getWeatherAndSetBackground(eventPlans: [PlanModel]) async throws -> [PlanCardEntity] {
         var result = [PlanCardEntity]()
         

@@ -29,13 +29,13 @@ class Test {
     lazy var aqiRepository = AQIRepository(AQIRemoteDataSource: aqiDataSource)
     
     // MARK: IMPLEMENTATION USE CASES
-    lazy var getPlanPreviewUseCase = GetAllPlansUseCase(planRepository: planRepository)
+    lazy var getPlanPreviewUseCase = PlanUseCases(planRepository: planRepository)
     lazy var refreshPageViewUseCase = RefreshHomeViewUseCase(planRepository: planRepository)
     lazy var detailPlanUseCase = PlanDetailUseCase(AQIRepository: aqiRepository, planRepository: planRepository)
     
     // MARK: TESTING
     lazy var dummyPlanRepository = DummyPlanRepository(dummyPlans: dummyPlans)
-    lazy var dummyGetAllPlansPreviewUseCase = GetAllPlansUseCase(planRepository: dummyPlanRepository)
+    lazy var dummyGetAllPlansPreviewUseCase = PlanUseCases(planRepository: dummyPlanRepository)
     lazy var dummyRefreshHomeViewUseCase = RefreshHomeViewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
     lazy var dummyDetailPlanUseCase = PlanDetailUseCase(AQIRepository: aqiRepository, planRepository: dummyPlanRepository)
     
