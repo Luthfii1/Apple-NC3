@@ -62,6 +62,15 @@ class PlanUseCases: PlanUseCasesProtocol{
         try await planRepository.updatePlan(plan: plan)
     }
     
+    func deletePlan(planId: UUID) async throws {
+        let dataPlans = try await planRepository.getAllPlans()
+        guard let plan = dataPlans.first(where: { $0.id == planId }) else {
+            throw NSError(domain: "PlanDetailUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "Plan not found"])
+        }
+        
+        try await planRepository.deletePlan(plan: plan)
+    }
+    
     private func getWeatherAndSetBackground(eventPlans: [PlanModel]) async throws -> [PlanCardEntity] {
         var result = [PlanCardEntity]()
         

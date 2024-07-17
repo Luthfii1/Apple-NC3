@@ -26,18 +26,6 @@ class PlanLocalDataSource: PlanLocalDataSourceProtocol {
         try modelContext.save()
     }
     
-    func deletePlan(at offsets: IndexSet) async throws {
-        let fetchDescriptor = FetchDescriptor<PlanModel>()
-        let localData = try modelContext.fetch(fetchDescriptor)
-        
-        for offset in offsets {
-            let plan = localData[offset]
-            modelContext.delete(plan)
-        }
-        
-        try modelContext.save()
-    }
-    
     func updatePlan(plan: PlanModel) async throws {
         let fetchDescriptor = FetchDescriptor<PlanModel>()
         var allData = try modelContext.fetch(fetchDescriptor)
@@ -46,7 +34,7 @@ class PlanLocalDataSource: PlanLocalDataSourceProtocol {
             throw NSError(domain: "YourAppDomain", code: 404, userInfo: [NSLocalizedDescriptionKey: "Plan not found for update"])
         }
         
-        var existingPlan = allData[index]
+        let existingPlan = allData[index]
         
         existingPlan.title = plan.title
         existingPlan.location = plan.location
@@ -59,6 +47,12 @@ class PlanLocalDataSource: PlanLocalDataSourceProtocol {
         existingPlan.suggest = plan.suggest
         
         allData[index] = existingPlan
+        
+        try modelContext.save()
+    }
+    
+    func deletePlan(plan: PlanModel) async throws {
+        modelContext.delete(plan)
         
         try modelContext.save()
     }

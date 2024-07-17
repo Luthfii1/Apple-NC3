@@ -23,8 +23,8 @@ class PlanRepository: PlanRepositoryProtocol {
         try await planLocalDataSource.insertPlan(plan: plan)
     }
     
-    func deletePlan(at offsets: IndexSet) async throws {
-        
+    func deletePlan(plan: PlanModel) async throws {
+        try await planLocalDataSource.deletePlan(plan: plan)
     }
     
     func updatePlan(plan: PlanModel) async throws {

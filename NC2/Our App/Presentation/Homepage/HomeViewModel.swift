@@ -50,6 +50,22 @@ class HomeViewModel: ObservableObject {
     }
     
     @MainActor
+    func deletePlan(planId: UUID) async {
+        self.state.isLoading = true
+        Task {
+            do {
+                try await getAllPlansUseCase.deletePlan(planId: planId)
+                Task {
+                    await fetchPlansBasedOnFilter()
+                }
+            } catch {
+                print("Failed to load plans: \(error)")
+            }
+            self.state.isLoading.toggle()
+        }
+    }
+    
+    @MainActor
     func refreshPage() async {
         self.state.isLoading = true
         Task {

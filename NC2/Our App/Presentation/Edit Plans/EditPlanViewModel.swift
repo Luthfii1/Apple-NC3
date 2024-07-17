@@ -91,7 +91,6 @@ class EditPlanViewModel: ObservableObject {
         
         do {
             try context.save()
-            print("Plan updated successfully")
         } catch {
             print("Failed to update plan: \(error)")
         }

@@ -32,7 +32,9 @@ struct SwipeableView: View {
                 }
                 
                 Button(action: {
-                    print("delete pressed")
+                    Task {
+                        await vm.deletePlan(planId: plan.id)
+                    }
                 }) {
                     Image(systemName: "trash")
                         .resizable()
