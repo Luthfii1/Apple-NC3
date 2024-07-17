@@ -48,7 +48,11 @@ struct HomeView: View {
                         .padding(.horizontal, 12)
                     }
                     .sheet(isPresented: $vm.state.isCreateSheetPresented) {
-                        CreatePlanView()
+                        CreatePlanView(isCreate: true)
+                            .environmentObject(dependencyInjection.createPlanViewModel())
+                    }
+                    .sheet(isPresented: $vm.state.isEditSheetPresented) {
+                        CreatePlanView(isCreate: false, idPlan: vm.idPlanEdit)
                             .environmentObject(dependencyInjection.createPlanViewModel())
                     }
                     .refreshable {

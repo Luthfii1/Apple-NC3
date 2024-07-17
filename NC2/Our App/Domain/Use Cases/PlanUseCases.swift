@@ -58,6 +58,10 @@ class PlanUseCases: PlanUseCasesProtocol{
         dummyPlans.first.unsafelyUnwrapped
     }
     
+    func updatePlan(plan: PlanModel) async throws {
+        try await planRepository.updatePlan(plan: plan)
+    }
+    
     private func getWeatherAndSetBackground(eventPlans: [PlanModel]) async throws -> [PlanCardEntity] {
         var result = [PlanCardEntity]()
         
@@ -73,6 +77,9 @@ class PlanUseCases: PlanUseCasesProtocol{
                 ),
                 date: plan.durationPlan.start
             ) {
+                plan.weatherPlan = hourlyForecastPlan
+                try await planRepository.insertPlan(plan: plan)
+                
                 if let firstForecast = hourlyForecastPlan.forecast.first {
                     condition = firstForecast.condition.rawValue
                     temperature = firstForecast.temperature.value
@@ -88,7 +95,7 @@ class PlanUseCases: PlanUseCasesProtocol{
                 allDay: plan.allDay,
                 durationPlan: plan.durationPlan,
                 location: plan.location,
-                temperature: Int(temperature),
+                temperature: temperature,
                 weatherDescription: condition,
                 backgroundCard: background
             )

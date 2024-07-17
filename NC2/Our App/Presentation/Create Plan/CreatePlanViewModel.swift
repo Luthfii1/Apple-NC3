@@ -13,9 +13,11 @@ class CreatePlanViewModel: ObservableObject {
     @Published var state: StateView
     @Published var newPlan: PlanModel
     private let planUseCase: PlanUseCasesProtocol
+    private let detailUseCase: PlanDetailUseCasesProtocol
     
-    init(planUseCase: PlanUseCasesProtocol) {
+    init(planUseCase: PlanUseCasesProtocol, detailUseCase: PlanDetailUseCasesProtocol) {
         self.planUseCase = planUseCase
+        self.detailUseCase = detailUseCase
         self.state = StateView()
         self.newPlan = PlanModel()
     }
@@ -31,6 +33,36 @@ class CreatePlanViewModel: ObservableObject {
                 print("Failed to load plans: \(error)")
             }
             self.state.isLoading.toggle()
+        }
+    }
+    
+    @MainActor
+    func updatePlan(homeViewModel: HomeViewModel) async {
+        self.state.isLoading = true
+        Task {
+            do {
+                try await planUseCase.updatePlan(plan: newPlan)
+                await homeViewModel.fetchPlansBasedOnFilter()
+            } catch {
+                print("Failed to load plans: \(error)")
+            }
+            self.state.isLoading.toggle()
+        }
+    }
+    
+    @MainActor
+    func getDetailPlan(planId: UUID) async {
+        self.state.isLoading = true
+        Task{
+            do {
+                let detailPlan = try await detailUseCase.executeGetDetailPlan(planId: planId)
+                DispatchQueue.main.async {
+                    self.newPlan = detailPlan
+                }
+            } catch {
+                print("Failed when get detail plan: \(error)")
+            }
+            self.state.isLoading = false
         }
     }
     

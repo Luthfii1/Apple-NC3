@@ -38,10 +38,10 @@ class NotificationManager :ObservableObject{
         //Pesan dan Kesan kepada Bachul
         let content = UNMutableNotificationContent()
         
-        let temperature = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.hotDegree ?? 0
-        let precipitation = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.Percipitation ?? 0
-        let cuaca = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.generalDescription
-        let uv = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.UVIndex ?? 0
+        let temperature = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.temperature.value ?? 0
+        let precipitation = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.precipitation ?? .none
+        let cuaca = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.condition
+        let uv = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.uvIndex.value ?? 0
         
         //GPT Command
         if temperature >= 0{

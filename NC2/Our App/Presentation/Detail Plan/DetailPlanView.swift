@@ -27,7 +27,7 @@ struct DetailPlanView: View {
                     
                     VStack(alignment: .leading) {
                         VStack(alignment: .leading) {
-                            Text("\(vm.hourlyForecast?.first?.condition.rawValue.toFrontCapital() ?? "No data yet")")
+                            Text("\(vm.detailPlan.weatherPlan?.forecast.first?.condition.rawValue.toFrontCapital() ?? "No data yet")")
                                 .font(.system(size: 34, weight: .heavy, design: .rounded))
                                 .bold()
                                 .padding(.top, 76)
@@ -79,11 +79,11 @@ struct DetailPlanView: View {
                         VStack {
                             HStack {
                                 VStack(alignment: .leading) {
-                                    Text("\(vm.detailPlan.weatherPlan?.hotDegree ?? 0)ºC")
+                                    Text("\(vm.detailPlan.weatherPlan?.first?.temperature.value ?? 0)ºC")
                                         .font(.title2)
                                         .fontWeight(.semibold)
                                         .fontDesign(.rounded)
-                                    Text("Feels like \(vm.detailPlan.weatherPlan?.looksLikeHotDegree ?? 0)ºC")
+                                    Text("Feels like \(vm.detailPlan.weatherPlan?.first?.apparentTemperature.value ?? 0)ºC")
                                         .font(.caption2)
                                         .fontWeight(.semibold)
                                         .fontDesign(.rounded)
@@ -98,7 +98,7 @@ struct DetailPlanView: View {
                                             .font(.caption2)
                                             .fontWeight(.semibold)
                                             .fontDesign(.rounded)
-                                        if let highTemp = vm.dayForecast?.first?.highTemperature.value { Text("\(highTemp.formatted(.number.precision(.fractionLength(1))))ºC")
+                                        if let highTemp = vm.dayForecast?.forecast.first?.highTemperature.value { Text("\(highTemp.formatted(.number.precision(.fractionLength(1))))ºC")
                                                 .font(.body)
                                                 .fontWeight(.semibold)
                                                 .fontDesign(.rounded)
@@ -113,7 +113,7 @@ struct DetailPlanView: View {
                                             .fontWeight(.semibold)
                                             .fontDesign(.rounded)
                                         
-                                        if let lowTemp = vm.dayForecast?.first?.lowTemperature.value { Text("\(lowTemp.formatted(.number.precision(.fractionLength(1))))ºC")
+                                        if let lowTemp = vm.dayForecast?.forecast.first?.lowTemperature.value { Text("\(lowTemp.formatted(.number.precision(.fractionLength(1))))ºC")
                                                 .font(.body)
                                                 .fontWeight(.semibold)
                                                 .fontDesign(.rounded)
@@ -129,7 +129,7 @@ struct DetailPlanView: View {
                                 VStack {
                                     HStack {
                                         Image(systemName: "sun.max.fill")
-                                        Text("\(vm.detailPlan.weatherPlan?.UVIndex ?? 0)")
+                                        Text("\(vm.detailPlan.weatherPlan?.first?.uvIndex.value ?? 0)")
                                     }
                                     Text("UV index")
                                     // MARK: GANTI
@@ -141,7 +141,7 @@ struct DetailPlanView: View {
                                         Text("\(((vm.hourlyForecast?.first?.precipitationChance ?? 0) * 100).formatted(.number.precision(.fractionLength(0))))%")
                                         // MARK: ini typo harusnya Precipitation
                                         //                                        Text("\(vm.detailPlan.weatherPlan?.Percipitation ?? 0)%")
-                                        //                                        Text("\(vm.dayForecast?.first?.precipitationChance ?? 0)%")
+                                        //                                        Text("\(vm.detailPlan.weatherPlan?.forecast.first?.precipitationChance ?? 0)%")
                                     }
                                     Text("Precipitation")
                                     // MARK: ganti
@@ -151,7 +151,7 @@ struct DetailPlanView: View {
                                     HStack {
                                         Image(systemName: "wind")
                                         // MARK: ganti
-                                        Text("\(vm.detailPlan.weatherPlan?.AQIndex ?? 0)")
+                                        Text("\(vm.detailPlan.aqiIndex ?? 0)")
                                     }
                                     Text("AQI")
                                     // MARK: ganti

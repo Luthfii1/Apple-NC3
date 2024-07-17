@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct SwipeableView: View {
+    @EnvironmentObject var vm: HomeViewModel
     let plan: PlanCardEntity
     @State private var offset: CGFloat = 0
     @State private var isSwiped = false
@@ -18,7 +19,8 @@ struct SwipeableView: View {
             HStack (spacing: 0){
                 Spacer()
                 Button(action: {
-                    print("edit pressed")
+                    vm.state.isEditSheetPresented = true
+                    vm.idPlanEdit = plan.id
                 }) {
                     Image(systemName: "pencil")
                         .resizable()
@@ -55,7 +57,6 @@ struct SwipeableView: View {
                             } else {
                                 if gesture.translation.width < 0 {
                                     self.offset = max(gesture.translation.width, -145)
-                                    print(gesture.translation.width)
                                 }
                             }
                         }

@@ -9,7 +9,6 @@ import Foundation
 
 class PlanRepository: PlanRepositoryProtocol {
     private let planLocalDataSource: PlanLocalDataSourceProtocol
-    
     init(planLocalDataSource: PlanLocalDataSourceProtocol) {
         self.planLocalDataSource = planLocalDataSource
     }
@@ -28,7 +27,13 @@ class PlanRepository: PlanRepositoryProtocol {
         
     }
     
-    func updatePlan(at offsets: IndexSet) async throws {
-//        try await planLocalDataSource.updatePlan(at: <#T##IndexSet#>)
+    func updatePlan(plan: PlanModel) async throws {
+        try await planLocalDataSource.updatePlan(plan: plan)
     }
 }
+//
+//extension PlanRepository: AQIRepositoryProtocol {
+//    func getAQI(geoLocation: Coordinate) async throws -> AQIResponse {
+//        <#code#>
+//    }
+//}

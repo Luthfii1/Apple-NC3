@@ -9,6 +9,7 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var plans: [PlanCardEntity] = []
+    @Published var idPlanEdit: UUID = UUID()
     @Published var state: StateView = StateView()
     @Published var pickedPlanFilter: Int = 0 {
         didSet {
