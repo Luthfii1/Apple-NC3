@@ -24,7 +24,16 @@ class PlanDetailUseCase: PlanDetailUseCasesProtocol {
         
         let coordinatePlace = plan.location.coordinatePlace
         let currentAQIData = try await AQIRepository.getAQI(geoLocation: coordinatePlace)
-        plan.weatherPlan?.AQIndex = currentAQIData.data.aqi
+        plan.aqiIndex = currentAQIData.data.aqi
+        
+        return plan
+    }
+    
+    func executeGetDetailPlan(planId: UUID) async throws -> PlanModel {
+        let dataPlans = try await planRepository.getAllPlans()
+        guard let plan = dataPlans.first(where: { $0.id == planId }) else {
+            throw NSError(domain: "PlanDetailUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "Plan not found"])
+        }
         
         return plan
     }

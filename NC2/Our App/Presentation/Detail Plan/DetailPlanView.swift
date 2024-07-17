@@ -35,7 +35,6 @@ struct DetailPlanView: View {
                                     .foregroundStyle(Color.white)
                                     .bold()
                                     .padding(.bottom, 12)
-                                
                                 HStack {
                                     Image(systemName: "clock.fill")
                                         .shadowedText(font: .system(size: 14, weight: .semibold, design: .rounded))
@@ -85,8 +84,9 @@ struct DetailPlanView: View {
                                     }
                                 }
                                 .padding(.bottom, 12)
-                            }
-                            
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    ZStack {
                             VStack(alignment: .leading) {
                                 HStack {
                                     ZStack {
@@ -98,9 +98,6 @@ struct DetailPlanView: View {
                                             .padding(.trailing, 36)
                                             .padding(.top, 32)
                                             .multilineTextAlignment(.center)
-                                    }
-                                    .offset(x:4, y:24)
-                                    
                                     Image(Utils().setCTA(condition: vm.hourlyForecast?.first?.condition ?? .clear, isDay: vm.hourlyForecast?.first?.isDaylight ?? true, isBadUV: vm.isBadUV(uvi: vm.detailPlan.weatherPlan?.UVIndex ?? 0), isBadAQI: vm.isBadAQI(aqi: vm.detailPlan.weatherPlan?.AQIndex ?? 0)))
                                     
                                 }

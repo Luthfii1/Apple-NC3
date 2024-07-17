@@ -8,6 +8,14 @@
 import Foundation
 
 class DummyPlanRepository: PlanRepositoryProtocol {
+    func deletePlan(plan: PlanModel) async throws {
+        
+    }
+    
+    func updatePlan(plan: PlanModel) async throws {
+        
+    }
+    
     // MARK: TESTING
     private let plans: [PlanModel]
     init(dummyPlans: [PlanModel]) {

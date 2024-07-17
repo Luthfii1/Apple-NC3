@@ -9,6 +9,7 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var plans: [PlanCardEntity] = []
+    @Published var idPlanEdit: UUID = UUID()
     @Published var state: StateView = StateView()
     @Published var pickedPlanFilter: Int = 0 {
         didSet {
@@ -17,10 +18,10 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-    private let getAllPlansUseCase: GetAllPlanUseCasesProtocol
+    private let getAllPlansUseCase: PlanUseCasesProtocol
     private let refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol
     
-    init(getAllPlansUseCase: GetAllPlanUseCasesProtocol, refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol) {
+    init(getAllPlansUseCase: PlanUseCasesProtocol, refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol) {
         self.getAllPlansUseCase = getAllPlansUseCase
         self.refreshHomeViewUseCase = refreshHomeViewUseCase
     }
@@ -36,7 +37,7 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         Task {
             do {
-                let plansFetched = try await getAllPlansUseCase.executeEvent()
+                let plansFetched = try await getAllPlansUseCase.getEvent()
                 DispatchQueue.main.async {
                     self.plans = plansFetched
                 }
@@ -44,6 +45,22 @@ class HomeViewModel: ObservableObject {
                 print("Failed to load plans: \(error)")
             }
             
+            self.state.isLoading.toggle()
+        }
+    }
+    
+    @MainActor
+    func deletePlan(planId: UUID) async {
+        self.state.isLoading = true
+        Task {
+            do {
+                try await getAllPlansUseCase.deletePlan(planId: planId)
+                Task {
+                    await fetchPlansBasedOnFilter()
+                }
+            } catch {
+                print("Failed to load plans: \(error)")
+            }
             self.state.isLoading.toggle()
         }
     }
@@ -70,7 +87,7 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         Task {
             do {
-                let plansFetched = try await getAllPlansUseCase.executeRoutine()
+                let plansFetched = try await getAllPlansUseCase.getRoutine()
                 DispatchQueue.main.async {
                     self.plans = plansFetched
                 }

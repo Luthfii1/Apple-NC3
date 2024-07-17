@@ -10,6 +10,6 @@ import Foundation
 protocol PlanRepositoryProtocol {
     func getAllPlans() async throws -> [PlanModel]
     func insertPlan(plan: PlanModel) async throws
-    func deletePlan(at offsets: IndexSet) async throws
-    func updatePlan(at offsets: IndexSet) async throws
+    func deletePlan(plan: PlanModel) async throws
+    func updatePlan(plan: PlanModel) async throws
 }

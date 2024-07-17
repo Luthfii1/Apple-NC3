@@ -24,7 +24,8 @@ class RefreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol {
         }
         
         if eventPlans.isEmpty {
-            throw NSError(domain: "GetAllPlanEventsUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "No event plans found"])
+//            throw NSError(domain: "GetAllPlanEventsUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "No event plans found"])
+            return [] as [PlanCardEntity]
         }
         
         let result = eventPlans.map { plan in
@@ -34,8 +35,8 @@ class RefreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol {
                 allDay: plan.allDay,
                 durationPlan: plan.durationPlan,
                 location: plan.location,
-                temperature: plan.weatherPlan?.hotDegree ?? 0,
-                weatherDescription: plan.weatherPlan?.generalDescription ?? "no data",
+                temperature: plan.weatherPlan?.first?.temperature.value ?? 0,
+                weatherDescription: plan.weatherPlan?.first?.condition.rawValue ?? "no data",
                 backgroundCard: "clearCard"
             )
         }
