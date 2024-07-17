@@ -14,6 +14,8 @@ struct CreatePlanView: View {
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var createPlanVM: CreatePlanViewModel
     @StateObject private var searchPlaceViewModel = SearchPlaceViewModel()
+    var isCreate: Bool
+    var idPlan: UUID?
     
     var body: some View {
         NavigationView {
@@ -115,13 +117,22 @@ struct CreatePlanView: View {
                 },
                 trailing: Button("Done") {
                     Task {
-                        await createPlanVM.insertPlan(homeViewModel: homeViewModel)
+                        isCreate ?
+                            await createPlanVM.insertPlan(homeViewModel: homeViewModel) :
+                            await createPlanVM.updatePlan(homeViewModel: homeViewModel)
                     }
                     presentationMode.wrappedValue.dismiss()
                 }
                     .disabled(!createPlanVM.isFormValid)
                     .bold(!createPlanVM.isFormValid ? false : true)
             )
+        }
+        .onAppear{
+            if !isCreate {
+                Task{
+                    await createPlanVM.getDetailPlan(planId: idPlan!)
+                }
+            }
         }
         .confirmationDialog("Are you sure you want to discard your changes?", isPresented: $createPlanVM.state.showDiscardChangesDialog) {
             Button("Discard Changes", role: .destructive) {
@@ -133,7 +144,7 @@ struct CreatePlanView: View {
 }
 
 #Preview {
-    CreatePlanView()
+    CreatePlanView(isCreate: true)
 }
 
 

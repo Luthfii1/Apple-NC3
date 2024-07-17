@@ -15,7 +15,6 @@
 		3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */; };
 		3D9587252C476719000CDDFF /* SwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587242C476719000CDDFF /* SwipeableView.swift */; };
 		3D9587272C477208000CDDFF /* CustomRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */; };
-		3DDC3C2F2C4666B000506AB5 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 3DDC3C2E2C4666B000506AB5 /* GoogleGenerativeAI */; };
 		3DDC3C342C46771100506AB5 /* EditPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C332C46771100506AB5 /* EditPlanView.swift */; };
 		3DDC3C362C46773C00506AB5 /* EditPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */; };
 		8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */; };
@@ -75,7 +74,6 @@
 		DD7F94222C40D0EB009E4C9F /* PlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94212C40D0EB009E4C9F /* PlanModel.swift */; };
 		DD7F94242C40D41A009E4C9F /* LearnTrunkBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94232C40D41A009E4C9F /* LearnTrunkBased.swift */; };
 		DD7F94262C40D53B009E4C9F /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94252C40D53B009E4C9F /* WeatherModel.swift */; };
-		DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */; };
 		DD7F942F2C40D7A0009E4C9F /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F942E2C40D7A0009E4C9F /* ButtonComponent.swift */; };
 		DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94312C40D7DC009E4C9F /* HomeView.swift */; };
 		DD7F94342C40D80E009E4C9F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */; };
@@ -173,7 +171,6 @@
 		DD7F94212C40D0EB009E4C9F /* PlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanModel.swift; sourceTree = "<group>"; };
 		DD7F94232C40D41A009E4C9F /* LearnTrunkBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTrunkBased.swift; sourceTree = "<group>"; };
 		DD7F94252C40D53B009E4C9F /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
-		DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanUseCases.swift; sourceTree = "<group>"; };
 		DD7F942E2C40D7A0009E4C9F /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		DD7F94312C40D7DC009E4C9F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -526,7 +523,6 @@
 			isa = PBXGroup;
 			children = (
 				DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */,
-				DD7F94282C40D572009E4C9F /* CreatePlanUseCases.swift */,
 				DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */,
 				DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */,
 				DD7F947B2C4439F5009E4C9F /* PlanUseCases.swift */,
@@ -847,7 +843,6 @@
 				DD7F94612C42CA2A009E4C9F /* PlanRepositoryProtocol.swift in Sources */,
 				DD7F94392C40D885009E4C9F /* CreatePlanView.swift in Sources */,
 				DD7F945E2C42C9C6009E4C9F /* dummyPlanModel.swift in Sources */,
-				DD7F94292C40D572009E4C9F /* CreatePlanUseCases.swift in Sources */,
 				DD7F94632C42CA65009E4C9F /* PlanRepository.swift in Sources */,
 				DD5D590C2C46274A009AB089 /* Utils.swift in Sources */,
 				DD7F93FA2C3D6CEC009E4C9F /* HomepageViewModel.swift in Sources */,
