@@ -14,13 +14,22 @@ struct HourDetailsCell: View {
         if let hour = hourWeather {
             VStack {
                 Text(hour.date.formatted(.dateTime.hour()))
-                    .font(.system(size: 13.0))
+                    .font(.footnote)
+                    .fontWeight(.semibold)
+                    .fontDesign(.rounded)
+                    .foregroundStyle(Color.white)
 
                 Image(systemName: hour.symbolName+".fill")
                     .font(.system(size: 22.0, weight: .bold))
                     .padding(.bottom, 3.0)
+                    .frame(height: 24)
+                    .foregroundStyle(Color.white)
 
                 Text("\(hour.temperature.value.formatted(.number.precision(.fractionLength(1))))°")
+                    .font(.footnote)
+                    .fontWeight(.semibold)
+                    .fontDesign(.rounded)
+                    .foregroundStyle(Color.white)
             }
         }
     }

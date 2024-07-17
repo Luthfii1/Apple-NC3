@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6376F4C92C4783D200AFBF22 /* NanumPen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6376F4C82C4783D200AFBF22 /* NanumPen.ttf */; };
 		8AC3A15E2C43163A008E6AEE /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
 		8AC3A1602C431650008E6AEE /* WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */; };
 		8AC3A1622C44CB05008E6AEE /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */; };
@@ -87,6 +88,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6376F4C82C4783D200AFBF22 /* NanumPen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumPen.ttf; sourceTree = "<group>"; };
 		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLiveActivity.swift; sourceTree = "<group>"; };
 		8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
@@ -191,6 +193,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6376F4C12C46E55200AFBF22 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6376F4C82C4783D200AFBF22 /* NanumPen.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		8AC3A15C2C43156E008E6AEE /* Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +274,7 @@
 				8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */,
 				DD6794FC2C453B1E002B24EE /* NC2Debug.entitlements */,
 				DD7F94092C3F86F0009E4C9F /* NC2.entitlements */,
+				6376F4C12C46E55200AFBF22 /* Fonts */,
 				DD7F940F2C3FC52E009E4C9F /* Our App */,
 				DD7F940E2C3FC3E9009E4C9F /* Learn Clean Architecture */,
 				DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */,
@@ -716,6 +727,7 @@
 			files = (
 				8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */,
 				DD7F93D22C3D4D0B009E4C9F /* Preview Assets.xcassets in Resources */,
+				6376F4C92C4783D200AFBF22 /* NanumPen.ttf in Resources */,
 				DD7F93CF2C3D4D0B009E4C9F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,28 +22,6 @@ import CoreLocation
         }
     }
     
-//    func dayForecast(for location: CLLocation, date: Date) async -> DayWeather? {
-//        do {
-//            let forecast = try await self.service.weather(for: location, including: .daily(startDate: date, endDate: date))
-////            let calendar = Calendar.current
-////            return forecast.first(where: { calendar.isDate($0.date, inSameDayAs: date) })
-//            return forecast.first
-//        } catch {
-//            print("Failed to fetch weather: \(error)")
-//            return nil
-//        }
-//
-//    }
-    
-//    func dayForecast(for location: CLLocation, date: Date) async -> Forecast<DayWeather>? {
-//        return await withTaskGroup(of: Forecast<DayWeather>?.self) { group in
-//            group.addTask {
-//                return try? await self.service.weather(for: location, including: .daily(startDate: date, endDate: date))
-//            }
-//            return await group.next() ?? nil
-//        }
-//    }
-    
     func dayForecast(for location: CLLocation, date: Date) async -> Forecast<DayWeather>? {
       let dayWeather = await Task.detached(priority: .userInitiated) {
         let forcast = try? await self.service.weather(

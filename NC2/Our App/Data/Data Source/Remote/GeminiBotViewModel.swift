@@ -48,7 +48,7 @@ class GeminiBotViewModel: ObservableObject {
       errorMessage = nil
       outputText = ""
 
-      let prompt = "Summarize the following text for me: \(inputText)"
+      let prompt = "\(inputText)"
 
       let outputContentStream = model.generateContentStream(prompt)
 

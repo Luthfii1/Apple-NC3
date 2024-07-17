@@ -83,5 +83,6 @@ struct HomeView: View {
                 }
             }
         }
+        .tint(Color.white)
     }
 }
