@@ -25,6 +25,10 @@ class GetAllPlansUseCase: GetAllPlanUseCasesProtocol{
         self.planRepository = planRepository
     }
     
+    func getPlanData() -> PlanModel {
+        dummyPlans.first.unsafelyUnwrapped
+    }
+    
     func executeEvent() async throws -> [PlanCardEntity] {
         var result = [PlanCardEntity]()
         var background = "clearCard"

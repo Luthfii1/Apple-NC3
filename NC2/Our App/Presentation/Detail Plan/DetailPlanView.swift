@@ -62,7 +62,10 @@ struct DetailPlanView: View {
                             
                             VStack(alignment: .leading) {
                                 //                        Text("\(vm.hourlyForecast?.first?.temperature.value.formatted(.number.precision(.fractionLength(1))) ?? "--")ºC")
+                                
+                                //CUACA PLAN
                                 Text("\(vm.plan.weatherPlan?.hotDegree ?? 0)ºC")
+                                
                                 // MARK: ini ganti jadi apa ya??
                                 Text("Humidity will make it feel warmer.")
                                     .font(.caption2)
@@ -76,6 +79,7 @@ struct DetailPlanView: View {
                                 HStack {
                                     Image(systemName: "sun.max.fill")
                                     Text("\(vm.plan.weatherPlan?.UVIndex ?? 0)")
+                                    
                                 }
                                 Text("UV index")
                                 // MARK: GANTI
