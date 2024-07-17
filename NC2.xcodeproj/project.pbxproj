@@ -30,6 +30,7 @@
 		8AC3A1C12C474CFE008E6AEE /* WidgetExtension_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1BF2C474CFE008E6AEE /* WidgetExtension_Previews.swift */; };
 		8AC3A1C32C474E39008E6AEE /* AppGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1C22C474E39008E6AEE /* AppGroupManager.swift */; };
 		8AC3A1C42C474E39008E6AEE /* AppGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1C22C474E39008E6AEE /* AppGroupManager.swift */; };
+		8AC3A1C52C4767F2008E6AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */; };
 		DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E32C44E7E6002B24EE /* LocationModel.swift */; };
 		DD6794E72C44E821002B24EE /* DaysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E62C44E821002B24EE /* DaysEnum.swift */; };
 		DD6794E92C44E832002B24EE /* PlanCategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */; };
@@ -753,6 +754,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC3A1C52C4767F2008E6AEE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -79,6 +79,7 @@ struct DetailPlanView: View {
                                 HStack {
                                     Image(systemName: "sun.max.fill")
                                     Text("\(vm.plan.weatherPlan?.UVIndex ?? 0)")
+                                    
                                 }
                                 Text("UV index")
                                 // MARK: GANTI
