@@ -57,7 +57,7 @@ struct CreatePlanView: View {
                     DatePicker(
                         "Ends",
                         selection: $createPlanVM.newPlan.durationPlan.end,
-                        in: createPlanVM.newPlan.durationPlan.start...createPlanVM.dateRange.upperBound,
+                        in: createPlanVM.newPlan.durationPlan.start...Date.distantFuture,
                         displayedComponents: createPlanVM.newPlan.allDay ? [.date] : [.date, .hourAndMinute]
                     )
                     .datePickerStyle(.compact)
