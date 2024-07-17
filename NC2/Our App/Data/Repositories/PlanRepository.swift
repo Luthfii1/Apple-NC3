@@ -31,3 +31,9 @@ class PlanRepository: PlanRepositoryProtocol {
         try await planLocalDataSource.updatePlan(plan: plan)
     }
 }
+//
+//extension PlanRepository: AQIRepositoryProtocol {
+//    func getAQI(geoLocation: Coordinate) async throws -> AQIResponse {
+//        <#code#>
+//    }
+//}

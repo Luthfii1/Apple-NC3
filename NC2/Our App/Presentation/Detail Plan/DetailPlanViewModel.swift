@@ -11,7 +11,7 @@ import SwiftUI
 import CoreLocation
 
 class DetailPlanViewModel: ObservableObject {
-    @Published var isLoading = false
+    @Published var isLoading = true
     @Published var dayForecast: Forecast<DayWeather>?
     @Published var hourlyForecast: Forecast<HourWeather>?
     @Published var detailPlan: PlanModel = PlanModel()

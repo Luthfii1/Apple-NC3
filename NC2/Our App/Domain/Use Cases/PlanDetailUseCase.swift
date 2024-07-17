@@ -24,7 +24,7 @@ class PlanDetailUseCase: PlanDetailUseCasesProtocol {
         
         let coordinatePlace = plan.location.coordinatePlace
         let currentAQIData = try await AQIRepository.getAQI(geoLocation: coordinatePlace)
-        plan.weatherPlan?.AQIndex = currentAQIData.data.aqi
+        plan.aqiIndex = currentAQIData.data.aqi
         
         return plan
     }
