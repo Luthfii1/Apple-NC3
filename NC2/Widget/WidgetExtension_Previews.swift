@@ -10,7 +10,7 @@ import WidgetKit
 
 struct WidgetExtension_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetExtensionEntryView(entry: SimpleEntry(date: Date(), widgetPlan: WidgetPlanModel(id: UUID(), title: "Preview", temprature: 22.5, durationPlan: "1 hour", allDay: true)))
+        WidgetExtensionEntryView(entry: SimpleEntry(date: Date(), widgetPlan: WidgetPlanModel(id: UUID(), title: "Preview", temprature: Int(22.5), durationPlan: Date(), allDay: true)))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
