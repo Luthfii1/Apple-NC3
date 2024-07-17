@@ -13,12 +13,16 @@ import WidgetKit
 class CreatePlanViewModel: ObservableObject {
     @Published var state: StateView
     @Published var newPlan: PlanModel
+    @Published var comparePlan: PlanModel
     private let planUseCase: PlanUseCasesProtocol
+    private let detailUseCase: PlanDetailUseCasesProtocol
     
-    init(planUseCase: PlanUseCasesProtocol) {
+    init(planUseCase: PlanUseCasesProtocol, detailUseCase: PlanDetailUseCasesProtocol) {
         self.planUseCase = planUseCase
+        self.detailUseCase = detailUseCase
         self.state = StateView()
         self.newPlan = PlanModel()
+        self.comparePlan = PlanModel()
     }
     
     private var widgetPlan = WidgetPlanModel(
@@ -50,6 +54,37 @@ class CreatePlanViewModel: ObservableObject {
                 print("Failed to load plans: \(error)")
             }
             self.state.isLoading.toggle()
+        }
+    }
+    
+    @MainActor
+    func updatePlan(homeViewModel: HomeViewModel) async {
+        self.state.isLoading = true
+        Task {
+            do {
+                try await planUseCase.updatePlan(plan: newPlan)
+                await homeViewModel.fetchPlansBasedOnFilter()
+            } catch {
+                print("Failed to load plans: \(error)")
+            }
+            self.state.isLoading.toggle()
+        }
+    }
+    
+    @MainActor
+    func getDetailPlan(planId: UUID) async {
+        self.state.isLoading = true
+        Task{
+            do {
+                let detailPlan = try await detailUseCase.executeGetDetailPlan(planId: planId)
+                DispatchQueue.main.async {
+                    self.newPlan = detailPlan
+                    self.comparePlan = detailPlan
+                }
+            } catch {
+                print("Failed when get detail plan: \(error)")
+            }
+            self.state.isLoading = false
         }
     }
     
@@ -88,5 +123,19 @@ class CreatePlanViewModel: ObservableObject {
     
     func cancelAction() -> Bool {
         return !newPlan.title.isEmpty || !newPlan.location.nameLocation.isEmpty
+    }
+    
+    func cancelEditChanges() -> Bool {
+        return hasUnsavedChanges()
+    }
+    
+    private func hasUnsavedChanges() -> Bool {
+        return newPlan.title != comparePlan.title ||
+        newPlan.location != comparePlan.location ||
+        newPlan.durationPlan != comparePlan.durationPlan ||
+        newPlan.allDay != comparePlan.allDay ||
+        newPlan.planCategory != comparePlan.planCategory ||
+        newPlan.reminder != comparePlan.reminder ||
+        newPlan.daysRepeat != comparePlan.daysRepeat
     }
 }

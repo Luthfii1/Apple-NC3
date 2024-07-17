@@ -15,6 +15,8 @@ struct CreatePlanView: View {
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var createPlanVM: CreatePlanViewModel
     @StateObject private var searchPlaceViewModel = SearchPlaceViewModel()
+    var isCreate: Bool
+    var idPlan: UUID?
     
     var body: some View {
         NavigationView {
@@ -104,20 +106,51 @@ struct CreatePlanView: View {
                     }
                     
                 }
+                
+                if !isCreate {
+                    Section {
+                        Button("Delete Plan") {
+                            createPlanVM.state.showDeleteAlert = true
+                        }
+                        .foregroundColor(.red)
+                    }
+                }
+            }
+            .alert(isPresented: $createPlanVM.state.showDeleteAlert) { // Add this block for the delete alert
+                Alert(
+                    title: Text("Are you sure you want to delete your plan?"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        Task {
+                            await homeViewModel.deletePlan(planId: createPlanVM.newPlan.id)
+                        }
+                        presentationMode.wrappedValue.dismiss()
+                    },
+                    secondaryButton: .cancel()
+                )
             }
             
             .navigationBarTitle("New Plan", displayMode: .inline)
             .navigationBarItems(
                 leading: Button("Cancel") {
-                    if createPlanVM.cancelAction() {
-                        createPlanVM.state.showDiscardChangesDialog = true
+                    if isCreate {
+                        if createPlanVM.cancelAction() {
+                            createPlanVM.state.showDiscardChangesDialog = true
+                        } else {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     } else {
-                        presentationMode.wrappedValue.dismiss()
+                        if createPlanVM.cancelEditChanges() {
+                            createPlanVM.state.showDiscardChangesDialog = true
+                        } else {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     }
                 },
                 trailing: Button("Done") {
                     Task {
-                        await createPlanVM.insertPlan(homeViewModel: homeViewModel)
+                        isCreate ?
+                            await createPlanVM.insertPlan(homeViewModel: homeViewModel) :
+                            await createPlanVM.updatePlan(homeViewModel: homeViewModel)
                     }
                     presentationMode.wrappedValue.dismiss()
                     
@@ -128,18 +161,28 @@ struct CreatePlanView: View {
                     .bold(!createPlanVM.isFormValid ? false : true)
             )
         }
+        .onAppear{
+            if !isCreate {
+                Task{
+                    await createPlanVM.getDetailPlan(planId: idPlan!)
+                }
+            }
+        }
         .confirmationDialog("Are you sure you want to discard your changes?", isPresented: $createPlanVM.state.showDiscardChangesDialog) {
             Button("Discard Changes", role: .destructive) {
                 presentationMode.wrappedValue.dismiss()
             }
             Button("Cancel", role: .cancel) {}
         }
+        message: {
+            Text("Are you sure you want to discard your changes?")
+        }
     }
 }
 
-//#Preview {
-//    CreatePlanView()
-//}
+#Preview {
+    CreatePlanView(isCreate: true)
+}
 
 
 
