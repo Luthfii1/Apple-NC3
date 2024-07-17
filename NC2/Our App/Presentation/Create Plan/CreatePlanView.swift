@@ -22,24 +22,28 @@ struct CreatePlanView: View {
             Form {
                 Section {
                     TextField("Title", text: $createPlanVM.newPlan.title)
-                    TextField("Location", text: $createPlanVM.newPlan.location.nameLocation)
-                        .onTapGesture {
-                            searchPlaceViewModel.isSheetPresented = true
-                        }
-                        .sheet(isPresented: $searchPlaceViewModel.isSheetPresented) {
-                            SearchPlace(viewModel: searchPlaceViewModel)
-                                .onAppear{
-                                    createPlanVM.setWindowBackgroundColor(.black)
+                    Button(action: {
+                        searchPlaceViewModel.isSheetPresented = true
+                    }, label: {
+                        TextField("Location", text: $createPlanVM.newPlan.location.nameLocation)
+                            .disabled(true)
+                    })
+                    .foregroundStyle(Color.primary)
+                    .sheet(isPresented: $searchPlaceViewModel.isSheetPresented) {
+                        SearchPlace(viewModel: searchPlaceViewModel)
+                            .onAppear{
+                                print("2")
+                                createPlanVM.setWindowBackgroundColor(.black)
+                            }
+                            .onDisappear {
+                                if let selectedLocation = searchPlaceViewModel.selectedLocation {
+                                    createPlanVM.newPlan.location.nameLocation = selectedLocation.name ?? "Unknown"
+                                    createPlanVM.newPlan.location.coordinatePlace.latitude = selectedLocation.placemark.coordinate.latitude
+                                    createPlanVM.newPlan.location.coordinatePlace.longitude = selectedLocation.placemark.coordinate.longitude
+                                    createPlanVM.newPlan.location.detailAddress = selectedLocation.placemark.locality ?? "No Locality"
                                 }
-                                .onDisappear {
-                                    if let selectedLocation = searchPlaceViewModel.selectedLocation {
-                                        createPlanVM.newPlan.location.nameLocation = selectedLocation.name ?? "Unknown"
-                                        createPlanVM.newPlan.location.coordinatePlace.latitude = selectedLocation.placemark.coordinate.latitude
-                                        createPlanVM.newPlan.location.coordinatePlace.longitude = selectedLocation.placemark.coordinate.longitude
-                                        createPlanVM.newPlan.location.detailAddress = selectedLocation.placemark.locality ?? "No Locality"
-                                    }
-                                }
-                        }
+                            }
+                    }
                 }
                 
                 Section {
@@ -147,8 +151,8 @@ struct CreatePlanView: View {
                 trailing: Button("Done") {
                     Task {
                         isCreate ?
-                            await createPlanVM.insertPlan(homeViewModel: homeViewModel) :
-                            await createPlanVM.updatePlan(homeViewModel: homeViewModel)
+                        await createPlanVM.insertPlan(homeViewModel: homeViewModel) :
+                        await createPlanVM.updatePlan(homeViewModel: homeViewModel)
                     }
                     presentationMode.wrappedValue.dismiss()
                 }

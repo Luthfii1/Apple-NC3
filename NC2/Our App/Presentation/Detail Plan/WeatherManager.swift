@@ -26,10 +26,10 @@ import CoreLocation
       let dayWeather = await Task.detached(priority: .userInitiated) {
         let forcast = try? await self.service.weather(
           for: location,
-          including: .daily(startDate: date, endDate: date.addingTimeInterval(25*3600)))
+          including: .daily)
         return forcast
       }.value
-      return dayWeather
+        return dayWeather
     }
     
     func hourlyForecast(for location: CLLocation, date: Date) async -> Forecast<HourWeather>? {

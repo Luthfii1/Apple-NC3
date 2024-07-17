@@ -31,13 +31,13 @@ class Test {
     // MARK: IMPLEMENTATION USE CASES
     lazy var getPlanPreviewUseCase = PlanUseCases(planRepository: planRepository)
     lazy var refreshPageViewUseCase = RefreshHomeViewUseCase(planRepository: planRepository)
-    lazy var detailPlanUseCase = PlanDetailUseCase(AQIRepository: aqiRepository, planRepository: planRepository)
+    lazy var detailPlanUseCase = PlanDetailUseCase(/*AQIRepository: aqiRepository,*/ planRepository: planRepository)
     
     // MARK: TESTING
     lazy var dummyPlanRepository = DummyPlanRepository(dummyPlans: dummyPlans)
     lazy var dummyGetAllPlansPreviewUseCase = PlanUseCases(planRepository: dummyPlanRepository)
     lazy var dummyRefreshHomeViewUseCase = RefreshHomeViewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
-    lazy var dummyDetailPlanUseCase = PlanDetailUseCase(AQIRepository: aqiRepository, planRepository: dummyPlanRepository)
+    lazy var dummyDetailPlanUseCase = PlanDetailUseCase(/*AQIRepository: aqiRepository,*/ planRepository: dummyPlanRepository)
     
     
     

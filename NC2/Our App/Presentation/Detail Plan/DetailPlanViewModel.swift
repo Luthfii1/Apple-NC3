@@ -24,7 +24,7 @@ class DetailPlanViewModel: ObservableObject {
     
     @MainActor
     func getHourlyWeather() async {
-        isLoading = true
+        self.isLoading = true
         Task {
             do {
                 let weatherFetched = try await GetDetailWeatherUseCase(location: detailPlan.location.coordinatePlace, date: detailPlan.durationPlan.start).execute()
@@ -40,10 +40,12 @@ class DetailPlanViewModel: ObservableObject {
     
     @MainActor
     func getDetailPlan(planId: UUID) async {
+        self.isLoading = true
         do {
             let detailPlan = try await getDetailUseCase.execute(planId: planId)
             DispatchQueue.main.async {
                 self.detailPlan = detailPlan
+                self.isLoading = false
             }
         } catch {
             print("Error when getting detail plan because \(error)")
@@ -128,21 +130,18 @@ class DetailPlanViewModel: ObservableObject {
     }
     
     func generateInputText() -> String {
-        let title = detailPlan.title
         let weather = String(describing: hourlyForecast?.first?.condition)
         let uvIndex = hourlyForecast?.first?.uvIndex.value ?? 0
         let precipitationChance = hourlyForecast?.first?.precipitationChance ?? 0
-        let airQualityIndex = detailPlan.weatherPlan?.AQIndex ?? 0
+        let airQualityIndex = detailPlan.aqiIndex ?? 0
         
         return String(localized:  
             """
-            I want you to generate a call to action copywriting for me. I will give you information like this for each time I want you to generate the copywriting.
-            Title: \(title)
             Weather: \(weather)
             UV: \(uvIndex)
             Precipitation chance: \(precipitationChance)
             Air quality index: \(airQualityIndex)
-            Make the content max 5 words containing recommendation according to the data (like use sunscreen, mask, umbrella, jacket), end with emoji, show only the copywriting!
+            Make the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. End with emoji. Show only the call-to-action copywriting!
             """)
 //            """
 //            I want you to generate a call to action copywriting for me. I will give you information like this for each time I want you to generate the copywriting.
