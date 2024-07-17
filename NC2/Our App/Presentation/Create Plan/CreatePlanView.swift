@@ -8,6 +8,7 @@
 import SwiftUI
 import MapKit
 import SwiftData
+import WidgetKit
 
 struct CreatePlanView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -104,6 +105,7 @@ struct CreatePlanView: View {
                     
                 }
             }
+            
             .navigationBarTitle("New Plan", displayMode: .inline)
             .navigationBarItems(
                 leading: Button("Cancel") {
@@ -118,6 +120,9 @@ struct CreatePlanView: View {
                         await createPlanVM.insertPlan(homeViewModel: homeViewModel)
                     }
                     presentationMode.wrappedValue.dismiss()
+                    
+                    NotificationManager.shared.scheduleNotifications()
+                    
                 }
                     .disabled(!createPlanVM.isFormValid)
                     .bold(!createPlanVM.isFormValid ? false : true)
@@ -132,9 +137,9 @@ struct CreatePlanView: View {
     }
 }
 
-#Preview {
-    CreatePlanView()
-}
+//#Preview {
+//    CreatePlanView()
+//}
 
 
 
