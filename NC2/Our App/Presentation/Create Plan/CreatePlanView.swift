@@ -59,7 +59,7 @@ struct CreatePlanView: View {
                     DatePicker(
                         "Ends",
                         selection: $viewModel.endDate,
-                        in: viewModel.startDate...viewModel.dateRange.upperBound,
+                        in: viewModel.startDate...Date.distantFuture,
                         displayedComponents: viewModel.allDay ? [.date] : [.date, .hourAndMinute]
                     )
                     .datePickerStyle(.compact)

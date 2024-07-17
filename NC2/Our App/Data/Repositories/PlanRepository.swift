@@ -8,6 +8,10 @@
 import Foundation
 
 class PlanRepository: PlanRepositoryProtocol {
+    func updatePlan(at offsets: IndexSet) async throws {
+        
+    }
+    
     private let planLocalDataSource: PlanLocalDataSourceProtocol
     
     init(planLocalDataSource: PlanLocalDataSourceProtocol) {
@@ -28,7 +32,7 @@ class PlanRepository: PlanRepositoryProtocol {
         
     }
     
-    func updatePlan(at offsets: IndexSet) async throws {
-        try await planLocalDataSource.updatePlan(at: <#T##IndexSet#>)
-    }
+//    func updatePlan(at offsets: IndexSet) async throws {
+//        try await planLocalDataSource.updatePlan(at: <#T##IndexSet#>)
+//    }
 }
