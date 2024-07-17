@@ -10,57 +10,55 @@ import MapKit
 import SwiftData
 
 struct CreatePlanView: View {
-    @Environment(\.modelContext) private var context
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var homeViewModel: HomeViewModel
-    @StateObject private var viewModel = CreatePlanViewModel()
+    @EnvironmentObject var createPlanVM: CreatePlanViewModel
     @StateObject private var searchPlaceViewModel = SearchPlaceViewModel()
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Title", text: $viewModel.title)
-                    TextField("Location", text: $viewModel.location)
+                    TextField("Title", text: $createPlanVM.newPlan.title)
+                    TextField("Location", text: $createPlanVM.newPlan.location.nameLocation)
                         .onTapGesture {
                             searchPlaceViewModel.isSheetPresented = true
                         }
                         .sheet(isPresented: $searchPlaceViewModel.isSheetPresented) {
                             SearchPlace(viewModel: searchPlaceViewModel)
                                 .onAppear{
-                                    viewModel.setWindowBackgroundColor(.black)
+                                    createPlanVM.setWindowBackgroundColor(.black)
                                 }
                                 .onDisappear {
-                                    //                                    viewModel.locationSelected()
                                     if let selectedLocation = searchPlaceViewModel.selectedLocation {
-                                        viewModel.location = selectedLocation.name ?? "Unknown"
-                                        viewModel.latitude = selectedLocation.placemark.coordinate.latitude
-                                        viewModel.longitude = selectedLocation.placemark.coordinate.longitude
-                                        viewModel.address = selectedLocation.placemark.locality ?? "No Locality"
+                                        createPlanVM.newPlan.location.nameLocation = selectedLocation.name ?? "Unknown"
+                                        createPlanVM.newPlan.location.coordinatePlace.latitude = selectedLocation.placemark.coordinate.latitude
+                                        createPlanVM.newPlan.location.coordinatePlace.longitude = selectedLocation.placemark.coordinate.longitude
+                                        createPlanVM.newPlan.location.detailAddress = selectedLocation.placemark.locality ?? "No Locality"
                                     }
                                 }
                         }
                 }
                 
                 Section {
-                    Toggle(isOn: $viewModel.allDay) {
+                    Toggle(isOn: $createPlanVM.newPlan.allDay) {
                         Text("All-day")
                     }
                     
                     DatePicker(
                         "Starts",
-                        selection: $viewModel.startDate,
-                        in: viewModel.dateRange,
-                        displayedComponents: viewModel.allDay ? [.date] : [.date, .hourAndMinute]
+                        selection: $createPlanVM.newPlan.durationPlan.start,
+                        in: createPlanVM.dateRange,
+                        displayedComponents: createPlanVM.newPlan.allDay ? [.date] : [.date, .hourAndMinute]
                     )
                     .datePickerStyle(.compact)
                     
                     
                     DatePicker(
                         "Ends",
-                        selection: $viewModel.endDate,
-                        in: viewModel.startDate...Date.distantFuture,
-                        displayedComponents: viewModel.allDay ? [.date] : [.date, .hourAndMinute]
+                        selection: $createPlanVM.newPlan.durationPlan.end,
+                        in: createPlanVM.newPlan.durationPlan.start...createPlanVM.dateRange.upperBound,
+                        displayedComponents: createPlanVM.newPlan.allDay ? [.date] : [.date, .hourAndMinute]
                     )
                     .datePickerStyle(.compact)
                     
@@ -68,25 +66,36 @@ struct CreatePlanView: View {
                 }
                 
                 Section {
-                    Picker("Event", selection: $viewModel.eventPicker) {
+                    Picker("Event", selection: $createPlanVM.newPlan.planCategory) {
                         ForEach(PLANCATEGORY.allCases, id: \.self) { selection in
                             Text(selection.rawValue).tag(selection)
                         }
                     }
                     
                     
-                    if viewModel.eventPicker == .Routine {
-                        MultiSelectPicker(title: "Repeat", options: DAYS.allCases, selections: $viewModel.daysRepeat)
+                    if createPlanVM.newPlan.planCategory == .Routine {
+                        MultiSelectPicker(
+                            title: "Repeat",
+                            options: DAYS.allCases,
+                            selections: Binding(
+                                get: {
+                                    createPlanVM.newPlan.daysRepeat ?? Set()
+                                },
+                                set: {
+                                    createPlanVM.newPlan.daysRepeat = $0
+                                }
+                            )
+                        )
                     }
                 }
                 
                 Section {
-                    Picker("Reminder", selection: $viewModel.reminderPicker) {
+                    Picker("Reminder", selection: $createPlanVM.newPlan.reminder) {
                         ForEach(REMINDER.allCases, id: \.self) { selection in
                             if selection == .None {
                                 Text(selection.rawValue)
                                     .tag(selection)
-                                Divider() // Add a divider after the "None" option
+                                Divider()
                             } else {
                                 Text(selection.rawValue).tag(selection)
                             }
@@ -98,32 +107,31 @@ struct CreatePlanView: View {
             .navigationBarTitle("New Plan", displayMode: .inline)
             .navigationBarItems(
                 leading: Button("Cancel") {
-                    if viewModel.cancelAction() {
-                        viewModel.showDiscardChangesDialog = true
+                    if createPlanVM.cancelAction() {
+                        createPlanVM.state.showDiscardChangesDialog = true
                     } else {
                         presentationMode.wrappedValue.dismiss()
                     }
                 },
                 trailing: Button("Done") {
-                    viewModel.savePlan(context: context, homeViewModel: homeViewModel)
+                    Task {
+                        await createPlanVM.insertPlan(homeViewModel: homeViewModel)
+                    }
                     presentationMode.wrappedValue.dismiss()
                 }
-                    .disabled(!viewModel.isFormValid)
-                    .bold(!viewModel.isFormValid ? false : true)
+                    .disabled(!createPlanVM.isFormValid)
+                    .bold(!createPlanVM.isFormValid ? false : true)
             )
         }
-        .confirmationDialog("Are you sure you want to discard your changes?", isPresented: $viewModel.showDiscardChangesDialog) {
+        .confirmationDialog("Are you sure you want to discard your changes?", isPresented: $createPlanVM.state.showDiscardChangesDialog) {
             Button("Discard Changes", role: .destructive) {
                 presentationMode.wrappedValue.dismiss()
             }
             Button("Cancel", role: .cancel) {}
         }
-    message: {
-        Text("Are you sure you want to discard your changes?")
-    }
-        
     }
 }
+
 #Preview {
     CreatePlanView()
 }

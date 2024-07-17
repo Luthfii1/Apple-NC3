@@ -87,7 +87,7 @@ class EditPlanViewModel: ObservableObject {
         plan.allDay = allDay
         plan.planCategory = eventPicker
         plan.reminder = reminderPicker
-        plan.daysRepeat = Array(daysRepeat)
+        plan.daysRepeat = daysRepeat
         
         do {
             try context.save()

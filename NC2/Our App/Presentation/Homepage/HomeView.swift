@@ -9,10 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var vm: HomeViewModel
-    @State private var showAlert: Bool = false
-    @State private var isCreateSheetPresented = false
-    //    @State private var selectedPlan: PlanCardEntity?
-    //    @State private var isEditSheetPresented: Bool = false
+    @EnvironmentObject var dependencyInjection: DependencyInjection
     
     var body: some View {
         NavigationStack {
@@ -44,28 +41,16 @@ struct HomeView: View {
                                 ) {
                                     ForEach(vm.groupedPlans[date]!, id: \.id) { plan in
                                         SwipeableView(plan: plan)
-//                                                                                        .padding(.horizontal, 12)
-//                                                                                        .padding(.vertical, 4)
-                                        //                                            .contextMenu {
-                                        //                                                Button(action: {
-                                        //                                                    selectedPlan = plan
-                                        //                                                    isEditSheetPresented = true
-                                        //                                                }) {
-                                        //                                                    Text("Edit")
-                                        //                                                }
-                                        //                                            }
                                     }
                                 }
                             }
                         }
                         .padding(.horizontal, 12)
                     }
-                    .sheet(isPresented: $isCreateSheetPresented) {
+                    .sheet(isPresented: $vm.state.isCreateSheetPresented) {
                         CreatePlanView()
+                            .environmentObject(dependencyInjection.createPlanViewModel())
                     }
-                    //                    .sheet(isPresented: $isEditSheetPresented) {
-                    //                        EditPlanView(viewModel: EditPlanViewModel(plan: selectedPlan))
-                    //                    }
                     .refreshable {
                         await vm.fetchPlansBasedOnFilter()
                     }
@@ -75,8 +60,7 @@ struct HomeView: View {
                         ToolbarItemGroup(placement: .bottomBar) {
                             HStack {
                                 Button(action: {
-                                    print("Add Plan")
-                                    isCreateSheetPresented = true
+                                    vm.state.isCreateSheetPresented = true
                                 }, label: {
                                     HStack () {
                                         Image(systemName: "plus.circle.fill")
@@ -91,7 +75,6 @@ struct HomeView: View {
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 })
-                                
                                 Spacer()
                             }
                         }

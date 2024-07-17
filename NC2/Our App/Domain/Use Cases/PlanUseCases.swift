@@ -18,14 +18,13 @@ class PlanUseCases: PlanUseCasesProtocol{
         utils = Utils()
     }
     
-    func executeEvent() async throws -> [PlanCardEntity] {
+    func getEvent() async throws -> [PlanCardEntity] {
         let allPlans = try await planRepository.getAllPlans()
         let eventPlans = allPlans.filter {
             $0.planCategory == .Event
         }
         
         if eventPlans.isEmpty {
-//            throw NSError(domain: "GetAllPlanEventsUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "No event plans found"])
             return [] as [PlanCardEntity]
         }
         
@@ -35,7 +34,7 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     
-    func executeRoutine() async throws -> [PlanCardEntity] {
+    func getRoutine() async throws -> [PlanCardEntity] {
         let allPlans = try await planRepository.getAllPlans()
         let eventPlans = allPlans.filter {
             $0.planCategory == .Routine
@@ -49,6 +48,14 @@ class PlanUseCases: PlanUseCasesProtocol{
         let result = try await getWeatherAndSetBackground(eventPlans: eventPlans)
         
         return result
+    }
+    
+    func insertPlan(plan: PlanModel) async throws {
+        try await planRepository.insertPlan(plan: plan)
+    }
+    
+    func getPlanData() -> PlanModel {
+        dummyPlans.first.unsafelyUnwrapped
     }
     
     private func getWeatherAndSetBackground(eventPlans: [PlanModel]) async throws -> [PlanCardEntity] {
@@ -91,5 +98,6 @@ class PlanUseCases: PlanUseCasesProtocol{
         
         return result
     }
+    
 }
 

@@ -13,7 +13,7 @@ struct PlanCardComponent: View {
     
     var body: some View {
         NavigationLink(destination: DetailPlanView(planId: plan.id)
-            .environmentObject(dependencyInjection.dummyDetailPlanViewModel())
+            .environmentObject(dependencyInjection.detailPlanViewModel())
         ) {
             ZStack {
                 Image(plan.backgroundCard)
@@ -54,7 +54,7 @@ struct PlanCardComponent: View {
                         Text("\(plan.temperature)°")
                             .shadowedText(font: .body)
                         
-                        Text(plan.weatherDescription)
+                        Text(plan.weatherDescription.toFrontCapital())
                             .shadowedText(font: .body)
                     }
                     .padding(.vertical, 4)
