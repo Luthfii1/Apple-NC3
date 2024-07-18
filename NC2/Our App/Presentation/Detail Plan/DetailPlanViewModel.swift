@@ -66,52 +66,52 @@ class DetailPlanViewModel: ObservableObject {
     
     func aqiCondition(aqi: Int) -> String {
         if aqi < 0 {
-            return "NO DATA"
+            return String(localized: "NO DATA")
         }else if aqi <= 50 {
-            return "GOOD"
+            return String(localized: "GOOD")
         }else if aqi <= 100 {
-            return "MODERATE"
+            return String(localized: "MODERATE")
         }else if aqi <= 150 {
             //            return "UNHEALTHY for Sensitive Groups"
-            return "UNHEALTHY"
+            return String(localized: "UNHEALTHY")
         }else if aqi <= 200 {
             //            return "UNHEALTHY"
-            return "BAD"
+            return String(localized: "BAD")
         }else if aqi <= 300 {
             //            return "VERY UNHEALTHY"
-            return "VERY BAD"
+            return String(localized: "VERY BAD")
         }else {
-            return "HAZARDOUS"
+            return String(localized: "HAZARDOUS")
         }
     }
     
     func uviCondition(uvi: Int) -> String {
         if uvi < 0 {
-            return "NO DATA"
+            return String(localized: "NO DATA")
         }else if uvi <= 2 {
-            return "LOW"
+            return String(localized: "LOW")
         }else if uvi <= 5 {
-            return "MODERATE"
+            return String(localized: "MODERATE")
         }else if uvi <= 7 {
-            return "HIGH"
+            return String(localized: "HIGH")
         }else if uvi <= 10 {
-            return "VERY HIGH"
+            return String(localized: "VERY HIGH")
         }else {
-            return "EXTREME"
+            return String(localized: "EXTREME")
         }
     }
     
     func precipitationCondition(prepCon: Double) -> String {
         if prepCon < 0 {
-            return "NO DATA"
+            return String(localized: "NO DATA")
         }else if prepCon <= 25 {
-            return "VERY LOW"
+            return String(localized: "VERY LOW")
         }else if prepCon <= 50 {
-            return "LOW"
+            return String(localized: "LOW")
         }else if prepCon <= 75 {
-            return "HIGH"
+            return String(localized: "HIGH")
         }else {
-            return "VERY HIGH"
+            return String(localized: "VERY HIGH")
         }
     }
     

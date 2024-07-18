@@ -82,7 +82,7 @@ struct CreatePlanView: View {
                     
                     if createPlanVM.newPlan.planCategory == .Routine {
                         MultiSelectPicker(
-                            title: "Repeat",
+                            title: String(localized: "Repeat"),
                             options: DAYS.allCases,
                             selections: Binding(
                                 get: {
@@ -172,11 +172,11 @@ struct CreatePlanView: View {
                 }
             }
         }
-        .confirmationDialog("Are you sure you want to discard your changes?", isPresented: $createPlanVM.state.showDiscardChangesDialog) {
-            Button("Discard Changes", role: .destructive) {
+        .confirmationDialog( String(localized: "Are you sure you want to discard your changes?"), isPresented: $createPlanVM.state.showDiscardChangesDialog) {
+            Button(String(localized: "Discard Changes"), role: .destructive) {
                 presentationMode.wrappedValue.dismiss()
             }
-            Button("Cancel", role: .cancel) {}
+            Button(String(localized: "Cancel"), role: .cancel) {}
         }
         message: {
             Text("Are you sure you want to discard your changes?")
