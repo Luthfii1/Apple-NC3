@@ -53,39 +53,39 @@ class NotificationManager :ObservableObject{
         
         content.title = "\(title)"
         
-        if cuaca == "Clear"{
+        if cuaca == .clear {
             content.body = "It's a beautiful day for \(title)!☀️. Enjoy the clear weather on your way"
         }
         
-        else if cuaca == "Night Thunder"{
+        else if cuaca == .thunderstorms{
             content.body = "It's a stormy night!⛈️. Don't forget your raincoat and umbrella for your walk to \(title)"
         }
         
-        else if cuaca == "Night Rain"{
+        else if cuaca == .rain{
             content.body = "It's a rainy night!🌧️. Remember to bring an umbrella and wear something warm!"
         }
         
-        else if cuaca == "Night"{
+        else if cuaca == .blizzard{
             content.body = "It's a chilly night, so make sure to bundle up on your way to \(title)!🧥"
         }
         
-        else if cuaca == "Cloudy"{
+        else if cuaca == .cloudy{
             content.body = "It's a cloudy day today. Don't forget your umbrella!☔️"
         }
         
-        else if cuaca == "Scorching"{
+        else if cuaca == .hot{
             content.body = "It's scorching out there!🥵. Don't forget your water bottle and dress cool for the day."
         }
         
-        else if cuaca == "Thunderstorm"{
+        else if cuaca == .thunderstorms{
             content.body = "Don’t forget your raincoat and umbrella - there are thunderstorms expected!🌧️"
         }
         
-        else if cuaca == "Rain"{
+        else if cuaca == .rain{
             content.body = "Don’t forget your umbrella!☔️. It's raining outside, so be sure to stay dry on your way to \(title)."
         }
         
-        else if cuaca == "Partly Cloudy"{
+        else if cuaca == .partlyCloudy{
             content.body = "It's partly cloudy, so don't forget your jacket!🧥"
         }
         

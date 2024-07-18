@@ -10,7 +10,7 @@ import Foundation
 struct WidgetPlanModel: Codable, Identifiable {
     var id: UUID
     var title: String
-    var temprature: Int
+    var temprature: Double
     var durationPlan: Date
     var allDay: Bool
 }

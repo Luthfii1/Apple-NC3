@@ -8,11 +8,11 @@
 import Foundation
 
 class PlanDetailUseCase: PlanDetailUseCasesProtocol {
-//    private let AQIRepository: AQIRepositoryProtocol
+    private let AQIRepository: AQIRepositoryProtocol
     private let planRepository: PlanRepositoryProtocol
     
-    init(/*AQIRepository: AQIRepositoryProtocol,*/ planRepository: PlanRepositoryProtocol) {
-//        self.AQIRepository = AQIRepository
+    init(AQIRepository: AQIRepositoryProtocol, planRepository: PlanRepositoryProtocol) {
+        self.AQIRepository = AQIRepository
         self.planRepository = planRepository
     }
     
@@ -23,8 +23,8 @@ class PlanDetailUseCase: PlanDetailUseCasesProtocol {
         }
         
         let coordinatePlace = plan.location.coordinatePlace
-//        let currentAQIData = try await AQIRepository.getAQI(geoLocation: coordinatePlace)
-//        plan.aqiIndex = currentAQIData.data.aqi
+        let currentAQIData = try await AQIRepository.getAQI(geoLocation: coordinatePlace)
+        plan.aqiIndex = currentAQIData.data.aqi
         
         return plan
     }

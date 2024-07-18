@@ -1,10 +1,3 @@
-//
-//  AQIFetchModel.swift
-//  NC2
-//
-//  Created by Luthfi Misbachul Munir on 14/07/24.
-//
-
 import Foundation
 
 struct AQIResponse: Codable {
@@ -17,7 +10,7 @@ struct AQIData: Codable {
     let idx: Int
     let attributions: [Attribution]
     let city: City
-    let dominentpol: String // "dominentpol" corrected to "dominentpol"
+    let dominentpol: String
     let iaqi: IAQI
     let time: Time
     let forecast: ForecastAQI
@@ -39,10 +32,13 @@ struct City: Codable {
 struct IAQI: Codable {
     let dew: Measurement?
     let h: Measurement
+    let no2: Measurement?
     let p: Measurement
-    let pm25: Measurement
+    let pm10: Measurement?
+    let so2: Measurement?
     let t: Measurement
     let w: Measurement
+    let wg: Measurement?
 }
 
 struct Measurement: Codable {

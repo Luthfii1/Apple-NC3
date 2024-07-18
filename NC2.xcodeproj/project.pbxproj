@@ -30,9 +30,9 @@
 		8AC3A1AB2C46A6F6008E6AEE /* DaysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E62C44E821002B24EE /* DaysEnum.swift */; };
 		8AC3A1AC2C46A700008E6AEE /* DurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F945B2C42C8BC009E4C9F /* DurationModel.swift */; };
 		8AC3A1AD2C46A707008E6AEE /* ReminderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794EA2C44E847002B24EE /* ReminderEnum.swift */; };
-		8AC3A1AE2C46A855008E6AEE /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94252C40D53B009E4C9F /* WeatherModel.swift */; };
-		8AC3A1BE2C474CD7008E6AEE /* WidgetExtensionEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1BC2C474CD7008E6AEE /* WidgetExtensionEntryView.swift */; };
-		8AC3A1C12C474CFE008E6AEE /* WidgetExtension_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1BF2C474CFE008E6AEE /* WidgetExtension_Previews.swift */; };
+		8AC3A1AE2C46A855008E6AEE /* (null) in Sources */ = {isa = PBXBuildFile; };
+		8AC3A1BE2C474CD7008E6AEE /* (null) in Sources */ = {isa = PBXBuildFile; };
+		8AC3A1C12C474CFE008E6AEE /* (null) in Sources */ = {isa = PBXBuildFile; };
 		8AC3A1C32C474E39008E6AEE /* AppGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1C22C474E39008E6AEE /* AppGroupManager.swift */; };
 		8AC3A1C42C474E39008E6AEE /* AppGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1C22C474E39008E6AEE /* AppGroupManager.swift */; };
 		8AC3A1C52C4767F2008E6AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7F93CE2C3D4D0B009E4C9F /* Assets.xcassets */; };
@@ -121,7 +121,6 @@
 		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLiveActivity.swift; sourceTree = "<group>"; };
 		8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
-		8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 		8AC3A1742C452AE1008E6AEE /* APIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		8AC3A1762C452B0D008E6AEE /* GeminiBotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiBotViewModel.swift; sourceTree = "<group>"; };
@@ -247,19 +246,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		8AC3A15C2C43156E008E6AEE /* Widget */ = {
-			isa = PBXGroup;
-			children = (
-				8AC3A15D2C43163A008E6AEE /* WidgetView.swift */,
-				8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */,
-				8AC3A1BC2C474CD7008E6AEE /* WidgetExtensionEntryView.swift */,
-				8AC3A1BF2C474CFE008E6AEE /* WidgetExtension_Previews.swift */,
-				8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */,
-			);
-			name = Widget;
-			path = "NC2/Preview Content/Widget";
-			sourceTree = "<group>";
-		};
 		8AC3A1822C461A9E008E6AEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +270,9 @@
 		DD260E982C47704F009F43F2 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */,
+				8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */,
+				8AC3A15D2C43163A008E6AEE /* WidgetView.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -821,12 +810,10 @@
 				8AC3A1D12C47C0ED008E6AEE /* CreatePlanView.swift in Sources */,
 				8AC3A1CD2C47AB67008E6AEE /* Provider.swift in Sources */,
 				8AC3A1CF2C47AB67008E6AEE /* WidgetExtension.swift in Sources */,
-				8AC3A1AE2C46A855008E6AEE /* WeatherModel.swift in Sources */,
+				8AC3A1AE2C46A855008E6AEE /* (null) in Sources */,
 				8AC3A1CE2C47AB67008E6AEE /* WidgetExtension_Previews.swift in Sources */,
-				8AC3A1BE2C474CD7008E6AEE /* WidgetExtensionEntryView.swift in Sources */,
-				8AC3A19D2C465BDA008E6AEE /* WidgetBundle.swift in Sources */,
-				8AC3A19E2C465BEE008E6AEE /* AppIntent.swift in Sources */,
-				8AC3A1C12C474CFE008E6AEE /* WidgetExtension_Previews.swift in Sources */,
+				8AC3A1BE2C474CD7008E6AEE /* (null) in Sources */,
+				8AC3A1C12C474CFE008E6AEE /* (null) in Sources */,
 				8AC3A1AA2C46A6E9008E6AEE /* PlanCategoryEnum.swift in Sources */,
 				8AC3A1AD2C46A707008E6AEE /* ReminderEnum.swift in Sources */,
 				8AC3A1AC2C46A700008E6AEE /* DurationModel.swift in Sources */,
@@ -932,7 +919,7 @@
 				CODE_SIGN_ENTITLEMENTS = widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2N2A4XFHX4;
+				DEVELOPMENT_TEAM = XSHZNN2ULY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -944,7 +931,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sabach.happykids.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = bachul.happykids.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1110,8 +1097,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = 4V452CD2YS;
-				DEVELOPMENT_TEAM = 2N2A4XFHX4;
+				DEVELOPMENT_TEAM = XSHZNN2ULY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
@@ -1121,14 +1107,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
-				PRODUCT_BUNDLE_IDENTIFIER = sabach.happykids;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NC2.HappyKids;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1155,7 +1140,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
