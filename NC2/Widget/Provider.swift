@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), widgetPlan: WidgetPlanModel(id: UUID(), title: "Placeholder", temprature: 0.0, durationPlan: "N/A", allDay: false))
+        SimpleEntry(date: Date(), widgetPlan: WidgetPlanModel(id: UUID(), title: "Placeholder", temprature: Int(0.0), durationPlan: Date(), allDay: false))
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date(), widgetPlan: loadWidgetPlanModel() ?? WidgetPlanModel(id: UUID(), title: "Snapshot", temprature: 0.0, durationPlan: "N/A", allDay: false))
+        let entry = SimpleEntry(date: Date(), widgetPlan: loadWidgetPlanModel() ?? WidgetPlanModel(id: UUID(), title: "Snapshot", temprature: Int(0.0), durationPlan: Date(), allDay: false))
         completion(entry)
     }
 
@@ -22,7 +22,7 @@ struct Provider: TimelineProvider {
         var entries: [SimpleEntry] = []
 
         let currentDate = Date()
-        let entry = SimpleEntry(date: currentDate, widgetPlan: loadWidgetPlanModel() ?? WidgetPlanModel(id: UUID(), title: "Timeline", temprature: 0.0, durationPlan: "N/A", allDay: false))
+        let entry = SimpleEntry(date: currentDate, widgetPlan: loadWidgetPlanModel() ?? WidgetPlanModel(id: UUID(), title: "Timeline", temprature: Int(0.0), durationPlan: Date(), allDay: false))
         entries.append(entry)
 
         let timeline = Timeline(entries: entries, policy: .atEnd)

@@ -8,5 +8,5 @@
 import Foundation
 
 class AppGroupManager{
-    static let suiteName = "group.com.bachul.widget"
+    static let suiteName = "group.com.sabach.widget"
 }
