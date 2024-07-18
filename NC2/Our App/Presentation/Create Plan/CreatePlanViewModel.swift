@@ -42,7 +42,7 @@ class CreatePlanViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.widgetPlan.id = self.newPlan.id
                     self.widgetPlan.title = self.newPlan.title
-                    self.widgetPlan.temprature = self.newPlan.weatherPlan?.hotDegree ?? 0
+                    self.widgetPlan.temprature = self.newPlan.weatherPlan?.forecast.first?.temperature.value ?? 0
                     self.widgetPlan.durationPlan = self.newPlan.durationPlan.start
                     self.widgetPlan.allDay = self.newPlan.allDay
                     
