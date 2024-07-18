@@ -60,13 +60,13 @@ struct MultiSelectPicker: View {
     
     private var displayText: String {
         if selections.isEmpty {
-            return "Select"
+            return String(localized: "Select")
         } else if selections.count == options.count {
-            return "Every Day"
+            return String(localized: "Every Day")
         } else if selections == Set([.Monday, .Tuesday, .Wednesday, .Thursday, .Friday]) {
-            return "Every Weekday"
+            return String(localized: "Every Weekday")
         } else if selections == Set([.Saturday, .Sunday]) {
-            return "Every Weekend"
+            return String(localized: "Every Weekend")
         } else {
             return selections.map { $0.rawValue }.joined(separator: ", ")
         }

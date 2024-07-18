@@ -14,6 +14,7 @@
 		3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */; };
 		3D9587252C476719000CDDFF /* SwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587242C476719000CDDFF /* SwipeableView.swift */; };
 		3D9587272C477208000CDDFF /* CustomRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */; };
+		3D95872C2C48AF08000CDDFF /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3D95872B2C48AEC7000CDDFF /* Localizable.xcstrings */; };
 		3DDC3C342C46771100506AB5 /* EditPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C332C46771100506AB5 /* EditPlanView.swift */; };
 		3DDC3C362C46773C00506AB5 /* EditPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */; };
 		6376F4C92C4783D200AFBF22 /* NanumPen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6376F4C82C4783D200AFBF22 /* NanumPen.ttf */; };
@@ -115,6 +116,7 @@
 		3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
 		3D9587242C476719000CDDFF /* SwipeableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableView.swift; sourceTree = "<group>"; };
 		3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
+		3D95872B2C48AEC7000CDDFF /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		3DDC3C332C46771100506AB5 /* EditPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanView.swift; sourceTree = "<group>"; };
 		3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanViewModel.swift; sourceTree = "<group>"; };
 		6376F4C82C4783D200AFBF22 /* NanumPen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumPen.ttf; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 		DD7F93BE2C3D4D0A009E4C9F = {
 			isa = PBXGroup;
 			children = (
+				3D95872B2C48AEC7000CDDFF /* Localizable.xcstrings */,
 				8AC3A1AF2C473C91008E6AEE /* widgetExtension.entitlements */,
 				DD7F93C92C3D4D0A009E4C9F /* NC2 */,
 				8AC3A1822C461A9E008E6AEE /* Frameworks */,
@@ -763,6 +766,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = DD7F93BE2C3D4D0A009E4C9F;
 			packageReferences = (
@@ -792,6 +796,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */,
+				3D95872C2C48AF08000CDDFF /* Localizable.xcstrings in Resources */,
 				DD7F93D22C3D4D0B009E4C9F /* Preview Assets.xcassets in Resources */,
 				6376F4C92C4783D200AFBF22 /* NanumPen.ttf in Resources */,
 				DD7F93CF2C3D4D0B009E4C9F /* Assets.xcassets in Resources */,
@@ -1097,7 +1102,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = XSHZNN2ULY;
+				DEVELOPMENT_TEAM = 3L9D9QLCDG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
@@ -1113,7 +1118,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.NC2.HappyKids;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Feli.WeatherAppParents;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1130,7 +1135,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
-				DEVELOPMENT_TEAM = 2N2A4XFHX4;
+				DEVELOPMENT_TEAM = 3L9D9QLCDG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
@@ -1146,7 +1151,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Feli.WeatherAppParents;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
