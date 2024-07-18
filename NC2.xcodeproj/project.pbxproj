@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D332D802C465D4C00B10FA3 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15D2C43163A008E6AEE /* WidgetView.swift */; };
+		3D332D822C465D6600B10FA3 /* WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */; };
+		3D332D832C465D6A00B10FA3 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */; };
 		3D332D862C465EB300B10FA3 /* MultiSelectpicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */; };
 		3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */; };
 		3D9587252C476719000CDDFF /* SwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587242C476719000CDDFF /* SwipeableView.swift */; };
 		3D9587272C477208000CDDFF /* CustomRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */; };
 		3DDC3C342C46771100506AB5 /* EditPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C332C46771100506AB5 /* EditPlanView.swift */; };
 		3DDC3C362C46773C00506AB5 /* EditPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */; };
+		6376F4C92C4783D200AFBF22 /* NanumPen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6376F4C82C4783D200AFBF22 /* NanumPen.ttf */; };
 		8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */; };
 		8AC3A1752C452AE1008E6AEE /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1742C452AE1008E6AEE /* APIKey.swift */; };
 		8AC3A1782C452B0D008E6AEE /* GeminiBotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1762C452B0D008E6AEE /* GeminiBotViewModel.swift */; };
@@ -113,6 +117,11 @@
 		3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
 		3DDC3C332C46771100506AB5 /* EditPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanView.swift; sourceTree = "<group>"; };
 		3DDC3C352C46773C00506AB5 /* EditPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanViewModel.swift; sourceTree = "<group>"; };
+		6376F4C82C4783D200AFBF22 /* NanumPen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumPen.ttf; sourceTree = "<group>"; };
+		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		8AC3A15F2C431650008E6AEE /* WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLiveActivity.swift; sourceTree = "<group>"; };
+		8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
+		8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 		8AC3A1742C452AE1008E6AEE /* APIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		8AC3A1762C452B0D008E6AEE /* GeminiBotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiBotViewModel.swift; sourceTree = "<group>"; };
@@ -230,6 +239,27 @@
 			path = "Edit Plans";
 			sourceTree = "<group>";
 		};
+		6376F4C12C46E55200AFBF22 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6376F4C82C4783D200AFBF22 /* NanumPen.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8AC3A15C2C43156E008E6AEE /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				8AC3A15D2C43163A008E6AEE /* WidgetView.swift */,
+				8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */,
+				8AC3A1BC2C474CD7008E6AEE /* WidgetExtensionEntryView.swift */,
+				8AC3A1BF2C474CFE008E6AEE /* WidgetExtension_Previews.swift */,
+				8AC3A1632C44CB3D008E6AEE /* AppIntent.swift */,
+			);
+			name = Widget;
+			path = "NC2/Preview Content/Widget";
+			sourceTree = "<group>";
+		};
 		8AC3A1822C461A9E008E6AEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +346,7 @@
 				8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */,
 				DD6794FC2C453B1E002B24EE /* NC2Debug.entitlements */,
 				DD7F94092C3F86F0009E4C9F /* NC2.entitlements */,
+				6376F4C12C46E55200AFBF22 /* Fonts */,
 				DD7F940F2C3FC52E009E4C9F /* Our App */,
 				DD7F940E2C3FC3E9009E4C9F /* Learn Clean Architecture */,
 				DD7F93CA2C3D4D0A009E4C9F /* NC2App.swift */,
@@ -726,7 +757,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					8AC3A1802C461A9E008E6AEE = {
 						CreatedOnToolsVersion = 15.3;
@@ -773,6 +804,7 @@
 			files = (
 				8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */,
 				DD7F93D22C3D4D0B009E4C9F /* Preview Assets.xcassets in Resources */,
+				6376F4C92C4783D200AFBF22 /* NanumPen.ttf in Resources */,
 				DD7F93CF2C3D4D0B009E4C9F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -799,6 +831,9 @@
 				8AC3A1AD2C46A707008E6AEE /* ReminderEnum.swift in Sources */,
 				8AC3A1AC2C46A700008E6AEE /* DurationModel.swift in Sources */,
 				8AC3A1A92C46A6BF008E6AEE /* WidgetPlanModel.swift in Sources */,
+				3D332D832C465D6A00B10FA3 /* WidgetBundle.swift in Sources */,
+				3D332D822C465D6600B10FA3 /* WidgetLiveActivity.swift in Sources */,
+				3D332D802C465D4C00B10FA3 /* WidgetView.swift in Sources */,
 				8AC3A1CC2C47AB67008E6AEE /* AppIntent.swift in Sources */,
 				8AC3A1D02C47AB67008E6AEE /* WidgetExtensionEntryView.swift in Sources */,
 			);
@@ -1075,6 +1110,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
+				DEVELOPMENT_TEAM = 4V452CD2YS;
 				DEVELOPMENT_TEAM = 2N2A4XFHX4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1085,12 +1121,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
 				PRODUCT_BUNDLE_IDENTIFIER = sabach.happykids;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1118,13 +1155,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = sabach.happykids;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
 				PRODUCT_NAME = "Happy Kids";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

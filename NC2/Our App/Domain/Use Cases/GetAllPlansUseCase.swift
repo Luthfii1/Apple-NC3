@@ -50,7 +50,11 @@ class GetAllPlansUseCase: GetAllPlanUseCasesProtocol{
                 ),
                 date: plan.durationPlan.start
             ) {
-                print("forecast: \(hourlyForecast)")
+                if let firstForecast = hourlyForecastPlan.forecast.first {
+                    condition = firstForecast.condition.rawValue
+                    temperature = firstForecast.temperature.value
+                    background = utils.setBackground(condition: firstForecast.condition, isDay: firstForecast.isDaylight, date: plan.durationPlan.start, state: .Card)
+                }
             } else {
                 print("Failed to fetch hourly forecast for plan: \(plan.title)")
             }

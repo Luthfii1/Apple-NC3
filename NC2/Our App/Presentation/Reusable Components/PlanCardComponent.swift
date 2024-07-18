@@ -34,7 +34,7 @@ struct PlanCardComponent: View {
                         Spacer()
                         
                         if plan.allDay {
-                            Text("all-day")
+                            Text("All Day")
                                 .shadowedText(font: .subheadline)
                         } else {
                             VStack(alignment: .trailing, spacing: 8) {
@@ -51,7 +51,7 @@ struct PlanCardComponent: View {
                         Image(systemName: "cloud.sun.fill")
                             .shadowedText(font: .body)
                         
-                        Text("\(plan.temperature)°")
+                        Text("\(String(format: "%.1f", plan.temperature))°C")
                             .shadowedText(font: .body)
                         
                         Text(plan.weatherDescription.toFrontCapital())
