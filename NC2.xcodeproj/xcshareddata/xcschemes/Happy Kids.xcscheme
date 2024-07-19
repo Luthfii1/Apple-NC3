@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DD7F93C62C3D4D0A009E4C9F"
-               BuildableName = "Happy Kids.app"
+               BuildableName = "WePlan.app"
                BlueprintName = "NC2"
                ReferencedContainer = "container:NC2.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DD7F93C62C3D4D0A009E4C9F"
-            BuildableName = "Happy Kids.app"
+            BuildableName = "WePlan.app"
             BlueprintName = "NC2"
             ReferencedContainer = "container:NC2.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DD7F93C62C3D4D0A009E4C9F"
-            BuildableName = "Happy Kids.app"
+            BuildableName = "WePlan.app"
             BlueprintName = "NC2"
             ReferencedContainer = "container:NC2.xcodeproj">
          </BuildableReference>

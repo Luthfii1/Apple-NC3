@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1600"
-   version = "1.7">
+   version = "2.2">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
@@ -16,10 +16,19 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DD7F93C62C3D4D0A009E4C9F"
-               BuildableName = "Happy Kids.app"
+               BuildableName = "WePlan.app"
                BlueprintName = "NC2"
                ReferencedContainer = "container:NC2.xcodeproj">
             </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <AutocreatedTestPlanReference>
+            </AutocreatedTestPlanReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
@@ -31,10 +40,9 @@
       shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = "id"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -46,7 +54,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DD7F93C62C3D4D0A009E4C9F"
-            BuildableName = "Happy Kids.app"
+            BuildableName = "WePlan.app"
             BlueprintName = "NC2"
             ReferencedContainer = "container:NC2.xcodeproj">
          </BuildableReference>
@@ -70,7 +78,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DD7F93C62C3D4D0A009E4C9F"
-            BuildableName = "Happy Kids.app"
+            BuildableName = "WePlan.app"
             BlueprintName = "NC2"
             ReferencedContainer = "container:NC2.xcodeproj">
          </BuildableReference>
