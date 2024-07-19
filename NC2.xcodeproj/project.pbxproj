@@ -298,7 +298,6 @@
 				8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */,
 				DD6794FC2C453B1E002B24EE /* NC2Debug.entitlements */,
 				DD7F94092C3F86F0009E4C9F /* NC2.entitlements */,
-				6376F4C12C46E55200AFBF22 /* Fonts */,
 				DD7F94512C42BF1F009E4C9F /* Common */,
 				DD7F942C2C40D776009E4C9F /* Presentation */,
 				DD7F941F2C3FD13E009E4C9F /* Domain */,
@@ -460,6 +459,7 @@
 		DD7F94512C42BF1F009E4C9F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6376F4C12C46E55200AFBF22 /* Fonts */,
 				DD6794EF2C450EAB002B24EE /* Utils */,
 				DD6794EC2C44F0E3002B24EE /* Extension */,
 				DD7F946C2C43878D009E4C9F /* Model Fetching */,
