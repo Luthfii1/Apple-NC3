@@ -9,43 +9,43 @@ import Foundation
 import WeatherKit
 
 class Utils{
-    func setBackground(condition: WeatherCondition, isDay: Bool, date: Date, state: CARDSTATE) -> String {
-        let stateBackground: String = {
-            switch state {
-            case .Card:
-                return "Card"
-            case .Widget:
-                return "Widget"
-            case .Detail:
-                return "Detail"
-            }
-        }()
+    func setBackground(condition: WeatherCondition, isDay: Bool, date: Date/*, state: CARDSTATE*/) -> String {
+//        let stateBackground: String = {
+//            switch state {
+//            case .Card:
+//                return "Card"
+//            case .Widget:
+//                return "Widget"
+//            case .Detail:
+//                return "Detail"
+//            }
+//        }()
         
         if !isDay {
             switch condition {
             case .rain, .drizzle, .freezingRain, .freezingDrizzle, .hail, .heavyRain, .sleet, .sunShowers:
-                return "rainNight" + stateBackground
+                return "rainNight" /*+ stateBackground*/
             case .scatteredThunderstorms, .isolatedThunderstorms, .strongStorms, .thunderstorms, .tropicalStorm:
-                return "thunderStormNight" + stateBackground
+                return "thunderStormNight" /*+ stateBackground*/
             default:
-                return "night" + stateBackground
+                return "night" /*+ stateBackground*/
             }
         } else {
             switch condition {
             case .rain, .drizzle, .freezingRain, .freezingDrizzle, .hail, .heavyRain, .sleet, .sunShowers:
-                return "rain" + stateBackground
+                return "rain" /*+ stateBackground*/
             case .scatteredThunderstorms, .isolatedThunderstorms, .strongStorms, .thunderstorms, .tropicalStorm:
-                return "thunderStorm" + stateBackground
+                return "thunderStorm" /*+ stateBackground*/
             case .breezy, .cloudy, .foggy, .mostlyCloudy:
-                return "cloudy" + stateBackground
+                return "cloudy" /*+ stateBackground*/
             case .partlyCloudy:
-                return "partlyCloudy" + stateBackground
+                return "partlyCloudy" /*+ stateBackground*/
             case .clear, .mostlyClear:
-                return "clear" + stateBackground
+                return "clear" /*+ stateBackground*/
             case .hot:
-                return "scorching" + stateBackground
+                return "scorching" /*+ stateBackground*/
             default:
-                return "clear" + stateBackground
+                return "clear" /*+ stateBackground*/
             }
         }
     }

@@ -22,6 +22,7 @@ class PlanModel: Identifiable, Equatable, Hashable {
     var reminder: REMINDER
     var allDay: Bool
     var suggest: String?
+    var background: String?
     
     init(
         id: UUID = UUID(),
@@ -33,7 +34,8 @@ class PlanModel: Identifiable, Equatable, Hashable {
         planCategory: PLANCATEGORY = .Event,
         reminder: REMINDER = .None,
         allDay: Bool = false,
-        suggest: String? = nil
+        suggest: String? = nil,
+        background: String? = "clear"
     ) {
         self.id = id
         self.title = title
@@ -45,6 +47,7 @@ class PlanModel: Identifiable, Equatable, Hashable {
         self.reminder = reminder
         self.allDay = allDay
         self.suggest = suggest
+        self.background = background
     }
     
     static func == (lhs: PlanModel, rhs: PlanModel) -> Bool {

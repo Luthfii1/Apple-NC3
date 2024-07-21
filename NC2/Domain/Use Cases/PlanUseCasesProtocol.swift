@@ -8,11 +8,13 @@
 import Foundation
 
 protocol PlanUseCasesProtocol {
-    func getEvent() async throws -> [PlanCardEntity]
-    func getRoutine() async throws -> [PlanCardEntity]
     func insertPlan(plan: PlanModel) async throws 
     func updatePlan(plan: PlanModel) async throws
     func deletePlan(planId: UUID) async throws
+    // ========== UPDATED BELOW
+    func getAllPlans() async throws
+    func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [PlanCardEntity]
+    func getWeatherAndSetBackground() async throws
 }
 
 protocol RefreshHomeViewUseCaseProtocol {

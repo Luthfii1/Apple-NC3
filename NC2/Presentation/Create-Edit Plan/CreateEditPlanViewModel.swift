@@ -49,7 +49,7 @@ class CreateEditPlanViewModel: ObservableObject {
                     self.saveWidgetPlanModel(self.widgetPlan)
                     WidgetCenter.shared.reloadAllTimelines()
                 }
-                await homeViewModel.fetchPlansBasedOnFilter()
+                await homeViewModel.getPlansByFilter()
             } catch {
                 print("Failed to load plans: \(error)")
             }
@@ -63,7 +63,7 @@ class CreateEditPlanViewModel: ObservableObject {
         Task {
             do {
                 try await planUseCase.updatePlan(plan: newPlan)
-                await homeViewModel.fetchPlansBasedOnFilter()
+                await homeViewModel.getPlansByFilter()
             } catch {
                 print("Failed to load plans: \(error)")
             }

@@ -15,7 +15,7 @@ struct HomeView: View {
         NavigationStack {
             VStack {
                 if (vm.state.isLoading) {
-                    ProgressView("Loading logs...")
+                    ProgressView("Fetching data...")
                 } else {
                     ScrollView {
                         Picker(selection: $vm.pickedPlanFilter, label: Text("Plan Filter")) {
@@ -56,7 +56,7 @@ struct HomeView: View {
                             .environmentObject(dependencyInjection.createPlanViewModel())
                     }
                     .refreshable {
-                        await vm.fetchPlansBasedOnFilter()
+                        await vm.refreshPage()
                     }
                     .navigationTitle("Plan")
                     .background(.backgroundView)
@@ -87,7 +87,7 @@ struct HomeView: View {
             }
             .onAppear {
                 Task {
-                    await vm.fetchPlansBasedOnFilter()
+                    await vm.checkAndGetPlansData()
                 }
             }
         }

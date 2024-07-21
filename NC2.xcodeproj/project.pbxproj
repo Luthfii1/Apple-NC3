@@ -335,9 +335,9 @@
 			isa = PBXGroup;
 			children = (
 				DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */,
+				DD7F947B2C4439F5009E4C9F /* PlanUseCases.swift */,
 				DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */,
 				DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */,
-				DD7F947B2C4439F5009E4C9F /* PlanUseCases.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";

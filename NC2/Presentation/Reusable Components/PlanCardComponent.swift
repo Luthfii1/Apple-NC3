@@ -16,7 +16,7 @@ struct PlanCardComponent: View {
             .environmentObject(dependencyInjection.detailPlanViewModel())
         ) {
             ZStack {
-                Image(plan.backgroundCard)
+                Image(plan.backgroundCard ?? "clearCard")
                     .resizable()
                     .scaledToFill()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -51,10 +51,10 @@ struct PlanCardComponent: View {
                         Image(systemName: "cloud.sun.fill")
                             .shadowedText(font: .body)
                         
-                        Text("\(String(format: "%.1f", plan.temperature))°C")
+                        Text("\(String(format: "%.1f", plan.temperature ?? 0))°C")
                             .shadowedText(font: .body)
                         
-                        Text(plan.weatherDescription.toFrontCapital())
+                        Text(plan.weatherDescription?.toFrontCapital() ?? "fetching data")
                             .shadowedText(font: .body)
                     }
                     .padding(.vertical, 4)

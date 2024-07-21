@@ -368,6 +368,9 @@
         }
       }
     },
+    "Fetching data..." : {
+
+    },
     "Go" : {
       "localizations" : {
         "id" : {
@@ -499,6 +502,7 @@
       }
     },
     "Loading logs..." : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
