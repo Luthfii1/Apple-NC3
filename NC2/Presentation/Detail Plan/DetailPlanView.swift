@@ -24,7 +24,7 @@ struct DetailPlanView: View {
                 ProgressView("Loading...")
             } else {
                 ZStack{
-                    Image(Utils().setBackground(condition: vm.detailPlan.weatherPlan?.first?.condition ?? .clear, isDay: vm.detailPlan.weatherPlan?.first?.isDaylight ?? true, date: vm.detailPlan.durationPlan.start/*, state: .Detail*/))
+                    Image((vm.detailPlan.background != nil) ? (vm.detailPlan.background! + "Detail") : "clearDetail")
                         .resizable()
                         .scaledToFill()
                         .edgesIgnoringSafeArea(.all)

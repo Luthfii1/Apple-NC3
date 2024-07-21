@@ -7,8 +7,8 @@
 
 import Foundation
 
-let dummyPlansEntity: [PlanCardEntity] = [
-    PlanCardEntity(
+let dummyPlansEntity: [HomeCardUIModel] = [
+    HomeCardUIModel(
         id: UUID(),
         title: "Morning Run",
         allDay: false,
@@ -18,7 +18,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Clear skies",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Team Meeting",
         allDay: false,
@@ -28,7 +28,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Sunny",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Lunch Break",
         allDay: false,
@@ -38,7 +38,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Partly cloudy",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Project Briefing",
         allDay: false,
@@ -48,7 +48,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Sunny",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Fitness Session",
         allDay: false,
@@ -58,7 +58,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Clear skies",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Dinner Out",
         allDay: false,
@@ -68,7 +68,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Cloudy",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Reading Time",
         allDay: true,
@@ -78,7 +78,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Rainy",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Weekend Getaway",
         allDay: true,
@@ -88,7 +88,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Snowy",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Family Brunch",
         allDay: false,
@@ -98,7 +98,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Sunny",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Yoga Session",
         allDay: false,
@@ -108,7 +108,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Clear skies",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Grocery Run",
         allDay: false,
@@ -118,7 +118,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Cloudy",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Afternoon Rest",
         allDay: false,
@@ -128,7 +128,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Partly cloudy",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Evening Stroll",
         allDay: false,
@@ -138,7 +138,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Clear skies",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Movie Night",
         allDay: false,
@@ -148,7 +148,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Cloudy",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Midnight Snack",
         allDay: false,
@@ -158,7 +158,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Clear skies",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Beach Outing",
         allDay: true,
@@ -168,7 +168,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Sunny",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Museum Tour",
         allDay: false,
@@ -178,7 +178,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Rainy",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Coffee Break",
         allDay: false,
@@ -188,7 +188,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Partly cloudy",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Networking Event",
         allDay: false,
@@ -198,7 +198,7 @@ let dummyPlansEntity: [PlanCardEntity] = [
         weatherDescription: "Clear skies",
         backgroundCard: "clearCard"
     ),
-    PlanCardEntity(
+    HomeCardUIModel(
         id: UUID(),
         title: "Book Club Meeting",
         allDay: false,

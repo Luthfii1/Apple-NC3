@@ -13,12 +13,12 @@ protocol PlanUseCasesProtocol {
     func deletePlan(planId: UUID) async throws
     // ========== UPDATED BELOW
     func getAllPlans() async throws
-    func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [PlanCardEntity]
+    func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [HomeCardUIModel]
     func getWeatherAndSetBackground() async throws
 }
 
 protocol RefreshHomeViewUseCaseProtocol {
-    func execute(isEvent: Int) async throws -> [PlanCardEntity]
+    func execute(isEvent: Int) async throws -> [HomeCardUIModel]
 }
 
 protocol PlanDetailUseCasesProtocol {

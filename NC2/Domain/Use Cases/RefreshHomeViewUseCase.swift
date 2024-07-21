@@ -14,7 +14,7 @@ class RefreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol {
         self.planRepository = planRepository
     }
     
-    func execute(isEvent: Int) async throws -> [PlanCardEntity] {
+    func execute(isEvent: Int) async throws -> [HomeCardUIModel] {
         let allPlans = try await planRepository.getAllPlans()
         
         let eventPlans = allPlans.filter { plan in
@@ -25,11 +25,11 @@ class RefreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol {
         
         if eventPlans.isEmpty {
 //            throw NSError(domain: "GetAllPlanEventsUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "No event plans found"])
-            return [] as [PlanCardEntity]
+            return [] as [HomeCardUIModel]
         }
         
         let result = eventPlans.map { plan in
-            PlanCardEntity(
+            HomeCardUIModel(
                 id: plan.id,
                 title: plan.title,
                 allDay: plan.allDay,

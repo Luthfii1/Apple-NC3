@@ -39,6 +39,7 @@ class CreateEditPlanViewModel: ObservableObject {
         Task {
             do {
                 try await planUseCase.insertPlan(plan: newPlan)
+                print("finish insert plan")
                 DispatchQueue.main.async {
                     self.widgetPlan.id = self.newPlan.id
                     self.widgetPlan.title = self.newPlan.title
@@ -50,6 +51,7 @@ class CreateEditPlanViewModel: ObservableObject {
                     WidgetCenter.shared.reloadAllTimelines()
                 }
                 await homeViewModel.getPlansByFilter()
+                print("finish get plans")
             } catch {
                 print("Failed to load plans: \(error)")
             }

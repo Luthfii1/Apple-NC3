@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PlanCardEntity: Identifiable {
+class HomeCardUIModel: Identifiable {
     var id: UUID
     let title: String
     let allDay: Bool

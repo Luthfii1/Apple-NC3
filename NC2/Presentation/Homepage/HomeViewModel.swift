@@ -8,7 +8,7 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
-    @Published var plans: [PlanCardEntity] = []
+    @Published var plans: [HomeCardUIModel] = []
     @Published var idPlanEdit: UUID = UUID()
     @Published var isNewOpen: Bool
     @Published var state: StateView = StateView()
@@ -28,7 +28,7 @@ class HomeViewModel: ObservableObject {
         self.isNewOpen = true
     }
     
-    var groupedPlans: [String: [PlanCardEntity]] {
+    var groupedPlans: [String: [HomeCardUIModel]] {
         Dictionary(grouping: plans) { plan in
             DateFormatter.localizedString(from: plan.durationPlan.start, dateStyle: .medium, timeStyle: .none)
         }
@@ -86,6 +86,7 @@ class HomeViewModel: ObservableObject {
                 category: pickedPlanFilter == 0 ?
                     .Event : .Routine
             )
+            print("homeVMPlans")
             self.plans = plansFetched
         } catch {
             print("Failed to load plans: \(error)")
@@ -95,16 +96,12 @@ class HomeViewModel: ObservableObject {
     @MainActor
     func deletePlan(planId: UUID) async {
         self.state.isLoading = true
-        Task {
-            do {
-                try await getAllPlansUseCase.deletePlan(planId: planId)
-                Task {
-                    await getPlansByFilter()
-                }
-            } catch {
-                print("Failed to load plans: \(error)")
-            }
-            self.state.isLoading.toggle()
+        do {
+            try await getAllPlansUseCase.deletePlan(planId: planId)
+            await getPlansByFilter()
+        } catch {
+            print("Failed to load plans: \(error)")
         }
+        self.state.isLoading.toggle()
     }
 }

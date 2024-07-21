@@ -23,18 +23,18 @@ class PlanUseCases: PlanUseCasesProtocol{
         self.allPlans = try await planRepository.getAllPlans()
     }
     
-    func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [PlanCardEntity] {
-        var result = [PlanCardEntity]()
+    func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [HomeCardUIModel] {
+        var result = [HomeCardUIModel]()
         
         let eventPlans = self.allPlans.filter {
             $0.planCategory == category
         }
         if eventPlans.isEmpty {
-            return [] as [PlanCardEntity]
+            return [] as [HomeCardUIModel]
         }
         
         for plan in eventPlans {
-            let convertToPlanCardUIModel = PlanCardEntity(
+            let convertToPlanCardUIModel = HomeCardUIModel(
                 id: plan.id,
                 title: plan.title,
                 allDay: plan.allDay,
@@ -46,6 +46,7 @@ class PlanUseCases: PlanUseCasesProtocol{
             )
             
             result.append(convertToPlanCardUIModel)
+            print(plan.title)
         }
         
         return result
@@ -77,43 +78,15 @@ class PlanUseCases: PlanUseCasesProtocol{
                 print("Failed to fetch hourly forecast for plan: \(plan.title)")
             }
             
-            self.allPlans = try await planRepository.getAllPlans()
+            try await self.getAllPlans()
         }
-    }
-    
-    func getEvent() async throws -> [PlanCardEntity] {
-        let allPlans = try await planRepository.getAllPlans()
-        let eventPlans = allPlans.filter {
-            $0.planCategory == .Event
-        }
-        
-        if eventPlans.isEmpty {
-            return [] as [PlanCardEntity]
-        }
-        
-        let result = try await getWeatherAndSetBackground(eventPlans: eventPlans)
-        
-        return result
-    }
-    
-    
-    func getRoutine() async throws -> [PlanCardEntity] {
-        let allPlans = try await planRepository.getAllPlans()
-        let eventPlans = allPlans.filter {
-            $0.planCategory == .Routine
-        }
-        
-        if eventPlans.isEmpty {
-            return [] as [PlanCardEntity]
-        }
-        
-        let result = try await getWeatherAndSetBackground(eventPlans: eventPlans)
-        
-        return result
     }
     
     func insertPlan(plan: PlanModel) async throws {
         try await planRepository.insertPlan(plan: plan)
+        print("finish insert")
+        try await self.getAllPlans()
+        print("get all plans")
     }
     
     func getPlanData() -> PlanModel {
@@ -125,57 +98,12 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     func deletePlan(planId: UUID) async throws {
-        let dataPlans = try await planRepository.getAllPlans()
-        guard let plan = dataPlans.first(where: { $0.id == planId }) else {
+        guard let plan = allPlans.first(where: { $0.id == planId }) else {
             throw NSError(domain: "PlanDetailUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "Plan not found"])
         }
         
         try await planRepository.deletePlan(plan: plan)
+        try await self.getAllPlans()
     }
-    
-    private func getWeatherAndSetBackground(eventPlans: [PlanModel]) async throws -> [PlanCardEntity] {
-        var result = [PlanCardEntity]()
-        
-        for plan in eventPlans {
-            var background = "clearCard"
-            var temperature: Double = 0
-            var condition: String = "no data"
-            
-            if let hourlyForecastPlan = await WeatherManager.shared.hourlyForecast(
-                for: CLLocation(
-                    latitude: plan.location.coordinatePlace.latitude,
-                    longitude: plan.location.coordinatePlace.longitude
-                ),
-                date: plan.durationPlan.start
-            ) {
-                plan.weatherPlan = hourlyForecastPlan
-                try await planRepository.insertPlan(plan: plan)
-                
-                if let firstForecast = hourlyForecastPlan.forecast.first {
-                    condition = firstForecast.condition.rawValue
-                    temperature = firstForecast.temperature.value
-                    background = utils.setBackground(condition: firstForecast.condition, isDay: firstForecast.isDaylight, date: plan.durationPlan.start/*, state: .Card*/)
-                }
-            } else {
-                print("Failed to fetch hourly forecast for plan: \(plan.title)")
-            }
-            
-            let planCardEntity = PlanCardEntity(
-                id: plan.id,
-                title: plan.title,
-                allDay: plan.allDay,
-                durationPlan: plan.durationPlan,
-                location: plan.location,
-                temperature: temperature,
-                weatherDescription: condition,
-                backgroundCard: background
-            )
-            
-            result.append(planCardEntity)
-        }
-        
-        return result
-    }
-    
 }
 

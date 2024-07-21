@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlanCardComponent: View {
-    var plan: PlanCardEntity
+    var plan: HomeCardUIModel
     @EnvironmentObject var dependencyInjection: DependencyInjection
     
     var body: some View {

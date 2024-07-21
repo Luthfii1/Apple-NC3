@@ -10,7 +10,8 @@ import SwiftUI
 
 struct SwipeableView: View {
     @EnvironmentObject var vm: HomeViewModel
-    let plan: PlanCardEntity
+    let plan: HomeCardUIModel
+    
     @State private var offset: CGFloat = 0
     @State private var isSwiped = false
     
