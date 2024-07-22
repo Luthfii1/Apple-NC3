@@ -46,13 +46,12 @@ class PlanUseCases: PlanUseCasesProtocol{
             )
             
             result.append(convertToPlanCardUIModel)
-            print(plan.title)
         }
         
         return result
     }
     
-    func getWeatherAndSetBackground() async throws /*-> [PlanCardEntity]*/ {
+    func getWeatherAndSetBackground() async throws {
         for plan in self.allPlans {
             var background = "clearCard"
             
@@ -84,9 +83,7 @@ class PlanUseCases: PlanUseCasesProtocol{
     
     func insertPlan(plan: PlanModel) async throws {
         try await planRepository.insertPlan(plan: plan)
-        print("finish insert")
         try await self.getAllPlans()
-        print("get all plans")
     }
     
     func getPlanData() -> PlanModel {

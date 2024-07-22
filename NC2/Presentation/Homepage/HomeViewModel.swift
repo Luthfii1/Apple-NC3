@@ -58,8 +58,6 @@ class HomeViewModel: ObservableObject {
     @MainActor
     func firstOpenApp() async {
         self.state.isLoading = true
-        
-        // Fetch all plans
         do {
             try await getAllPlansUseCase.getAllPlans()
             await getPlansByFilter()
@@ -69,7 +67,11 @@ class HomeViewModel: ObservableObject {
             self.state.isLoading = false
         }
         
-        // Fetch weather and set background
+        await self.refreshGetWeather()
+    }
+    
+    @MainActor
+    func refreshGetWeather() async {
         do {
             try await getAllPlansUseCase.getWeatherAndSetBackground()
             await getPlansByFilter()
@@ -78,7 +80,6 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    
     @MainActor
     func getPlansByFilter() async {
         do {
@@ -86,11 +87,22 @@ class HomeViewModel: ObservableObject {
                 category: pickedPlanFilter == 0 ?
                     .Event : .Routine
             )
-            print("homeVMPlans")
             self.plans = plansFetched
         } catch {
             print("Failed to load plans: \(error)")
         }
+    }
+    
+    @MainActor
+    func insertPlan(plan: PlanModel) async {
+        do {
+            try await getAllPlansUseCase.insertPlan(plan: plan)
+            await getPlansByFilter()
+        } catch {
+            print("Failed to load plans: \(error)")
+        }
+        
+        await self.refreshGetWeather()
     }
     
     @MainActor

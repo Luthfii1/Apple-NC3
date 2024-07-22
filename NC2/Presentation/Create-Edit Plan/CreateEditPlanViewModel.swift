@@ -35,28 +35,17 @@ class CreateEditPlanViewModel: ObservableObject {
     
     @MainActor
     func insertPlan(homeViewModel: HomeViewModel) async {
-        self.state.isLoading = true
-        Task {
-            do {
-                try await planUseCase.insertPlan(plan: newPlan)
-                print("finish insert plan")
-                DispatchQueue.main.async {
-                    self.widgetPlan.id = self.newPlan.id
-                    self.widgetPlan.title = self.newPlan.title
-                    self.widgetPlan.temprature = self.newPlan.weatherPlan?.forecast.first?.temperature.value ?? 0
-                    self.widgetPlan.durationPlan = self.newPlan.durationPlan.start
-                    self.widgetPlan.allDay = self.newPlan.allDay
-                    
-                    self.saveWidgetPlanModel(self.widgetPlan)
-                    WidgetCenter.shared.reloadAllTimelines()
-                }
-                await homeViewModel.getPlansByFilter()
-                print("finish get plans")
-            } catch {
-                print("Failed to load plans: \(error)")
-            }
-            self.state.isLoading.toggle()
-        }
+        await homeViewModel.insertPlan(plan: newPlan)
+//        DispatchQueue.main.async {
+//            self.widgetPlan.id = self.newPlan.id
+//            self.widgetPlan.title = self.newPlan.title
+//            self.widgetPlan.temprature = self.newPlan.weatherPlan?.forecast.first?.temperature.value ?? 0
+//            self.widgetPlan.durationPlan = self.newPlan.durationPlan.start
+//            self.widgetPlan.allDay = self.newPlan.allDay
+//            
+//            self.saveWidgetPlanModel(self.widgetPlan)
+//            WidgetCenter.shared.reloadAllTimelines()
+//        }
     }
     
     @MainActor
@@ -102,7 +91,7 @@ class CreateEditPlanViewModel: ObservableObject {
         let now = Calendar.current.date(bySettingHour: currentTime.hour!, minute: currentTime.minute!, second: 0, of: todayDate) ?? todayDate
         return now...Date.distantFuture
     }
-
+    
     var isFormValid: Bool {
         return !newPlan.title.isEmpty && !newPlan.location.nameLocation.isEmpty
     }
