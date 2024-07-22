@@ -7,32 +7,33 @@
 
 import SwiftUI
 import SwiftData
+import UserNotifications
 
 @main
 struct NC2App: App {
     let container : ModelContainer
+    @StateObject var dependencyInjection: DependencyInjection
+    
     
     init() {
         do {
-            container = try ModelContainer(for: Todo.self)
+            container = try ModelContainer(for: PlanModel.self)
+            let dependency = DependencyInjection(modelContext: container.mainContext)
+            Test.shared.initializer(modelContext: container.mainContext)
+            _dependencyInjection = StateObject(wrappedValue: dependency)
+            
         } catch {
             fatalError("Failed to initialize SwiftData")
         }
+        NotificationManager.shared.requestAuthorization()
     }
     
     var body: some Scene {
         WindowGroup {
-            let getLocalTodos = GetTodosLocalSwiftDataDataSource(modelContext: container.mainContext)
-            let getRemoteTodos = GetTodosRemoteDataSource()
-            let getTodosRepo = TodoRepository(localData: getLocalTodos, remoteData: getRemoteTodos)
-            let getTodosUseCase = GetTodosUseCase(getTodosRepo: getTodosRepo)
-            let insertTodoUseCase = InsertTodoUseCase(todosRepository: getTodosRepo)
-            let deleteTodoUseCase = DeleteTodoUseCase(todosRepository: getTodosRepo)
-            let homepageViewModel = HomepageViewModel(getTodosUseCase: getTodosUseCase, insertTodoUseCase: insertTodoUseCase, deleteTodoUseCase: deleteTodoUseCase)
-            
-            HomepageView(vm: homepageViewModel)
+            HomeView()
+                .environmentObject(dependencyInjection)
+                .environmentObject(Test.shared.homeViewModel())
         }
         .modelContainer(container)
     }
 }
-
