@@ -25,16 +25,14 @@ class DetailPlanViewModel: ObservableObject {
     @MainActor
     func getHourlyWeather() async {
         self.isLoading = true
-        Task {
-            do {
-                let weatherFetched = try await GetDetailWeatherUseCase(location: detailPlan.location.coordinatePlace, date: detailPlan.durationPlan.start).execute()
-                DispatchQueue.main.async {
-                    self.hourlyForecast = weatherFetched
-                    self.isLoading = false
-                }
-            } catch {
-                print("Failed to load weather: \(error)")
+        do {
+            let weatherFetched = try await GetDetailWeatherUseCase(location: detailPlan.location.coordinatePlace, date: detailPlan.durationPlan.start).execute()
+            DispatchQueue.main.async {
+                self.hourlyForecast = weatherFetched
+                self.isLoading = false
             }
+        } catch {
+            print("Failed to load weather: \(error)")
         }
     }
     
@@ -135,7 +133,7 @@ class DetailPlanViewModel: ObservableObject {
         let precipitationChance = hourlyForecast?.first?.precipitationChance ?? 0
         let airQualityIndex = detailPlan.aqiIndex ?? 0
         
-        return String(localized:  
+        return String(localized:
             """
             Weather: \(weather)
             UV: \(uvIndex)
@@ -143,14 +141,14 @@ class DetailPlanViewModel: ObservableObject {
             Air quality index: \(airQualityIndex)
             Make the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. End with emoji. Show only the call-to-action copywriting!
             """)
-//            """
-//            I want you to generate a call to action copywriting for me. I will give you information like this for each time I want you to generate the copywriting.
-//            Title: \(title)
-//            Weather: \(weather)
-//            UV: \(uvIndex)
-//            Precipitation chance: \(precipitationChance)
-//            Air quality index: \(airQualityIndex)
-//            Make the content max 5 words containing recommendation according to the data (like use sunscreen, mask, umbrella, jacket), end with emoji, show only the copywriting!
-//            """
+        //            """
+        //            I want you to generate a call to action copywriting for me. I will give you information like this for each time I want you to generate the copywriting.
+        //            Title: \(title)
+        //            Weather: \(weather)
+        //            UV: \(uvIndex)
+        //            Precipitation chance: \(precipitationChance)
+        //            Air quality index: \(airQualityIndex)
+        //            Make the content max 5 words containing recommendation according to the data (like use sunscreen, mask, umbrella, jacket), end with emoji, show only the copywriting!
+        //            """
     }
 }

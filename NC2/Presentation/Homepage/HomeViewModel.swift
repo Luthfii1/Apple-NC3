@@ -37,22 +37,16 @@ class HomeViewModel: ObservableObject {
     @MainActor
     func checkAndGetPlansData() async {
         if isNewOpen {
-            Task {
-                await firstOpenApp()
-                self.isNewOpen = false
-            }
+            await firstOpenApp()
+            self.isNewOpen = false
         } else {
-            Task {
-                await getPlansByFilter()
-            }
+            await getPlansByFilter()
         }
     }
     
     @MainActor
     func refreshPage() async {
-        Task {
-            await firstOpenApp()
-        }
+        await firstOpenApp()
     }
     
     @MainActor
@@ -106,6 +100,18 @@ class HomeViewModel: ObservableObject {
     }
     
     @MainActor
+    func updatePlan(plan: PlanModel) async {
+        do {
+            try await getAllPlansUseCase.updatePlan(plan: plan)
+            await getPlansByFilter()
+        } catch {
+            print("Failed to load plans: \(error)")
+        }
+        
+        await self.refreshGetWeather()
+    }
+    
+    @MainActor
     func deletePlan(planId: UUID) async {
         self.state.isLoading = true
         do {
@@ -115,5 +121,12 @@ class HomeViewModel: ObservableObject {
             print("Failed to load plans: \(error)")
         }
         self.state.isLoading.toggle()
+    }
+    
+    func resetSwipeOffsetFlag() {
+        self.state.resetSwipeOffset = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.state.resetSwipeOffset = false
+        }
     }
 }

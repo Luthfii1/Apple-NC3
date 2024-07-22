@@ -83,6 +83,14 @@ struct SwipeableView: View {
                             }
                         }
                 )
+                .onChange(of: vm.state.resetSwipeOffset, {
+                    if vm.state.resetSwipeOffset {
+                        withAnimation {
+                            offset = 0
+                            isSwiped = false
+                        }
+                    }
+                })
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

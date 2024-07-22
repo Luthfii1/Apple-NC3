@@ -50,6 +50,22 @@ class PlanModel: Identifiable, Equatable, Hashable {
         self.background = background
     }
     
+    func copy() -> PlanModel {
+        return PlanModel(
+            id: self.id,
+            title: self.title,
+            location: self.location,
+            weatherPlan: self.weatherPlan,
+            durationPlan: self.durationPlan,
+            daysRepeat: self.daysRepeat,
+            planCategory: self.planCategory,
+            reminder: self.reminder,
+            allDay: self.allDay,
+            suggest: self.suggest,
+            background: self.background
+        )
+    }
+    
     static func == (lhs: PlanModel, rhs: PlanModel) -> Bool {
         return lhs.id == rhs.id
     }
