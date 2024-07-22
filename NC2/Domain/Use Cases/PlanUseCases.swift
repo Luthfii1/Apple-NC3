@@ -20,10 +20,15 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     func getAllPlans() async throws {
+        print("getAllPlans")
         self.allPlans = try await planRepository.getAllPlans()
+        for plan in allPlans {
+            print("title: \(plan.title)")
+        }
     }
     
     func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [HomeCardUIModel] {
+        print("getAllPlansByFilter")
         var result = [HomeCardUIModel]()
         
         let eventPlans = self.allPlans.filter {
@@ -52,6 +57,7 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     func getWeatherAndSetBackground() async throws {
+        print("setWeather")
         for plan in self.allPlans {
             var background = "clearCard"
             
@@ -76,25 +82,30 @@ class PlanUseCases: PlanUseCasesProtocol{
             } else {
                 print("Failed to fetch hourly forecast for plan: \(plan.title)")
             }
-            
-            try await self.getAllPlans()
         }
+        
+        try await self.getAllPlans()
     }
     
     func insertPlan(plan: PlanModel) async throws {
+        print("insertplan")
         try await planRepository.insertPlan(plan: plan)
         try await self.getAllPlans()
     }
     
     func getPlanData() -> PlanModel {
-        dummyPlans.first.unsafelyUnwrapped
+        print("getplandata")
+        return dummyPlans.first.unsafelyUnwrapped
     }
     
     func updatePlan(plan: PlanModel) async throws {
+        print("updateplan")
         try await planRepository.updatePlan(plan: plan)
+        try await self.getAllPlans()
     }
     
     func deletePlan(planId: UUID) async throws {
+        print("deletplan")
         guard let plan = allPlans.first(where: { $0.id == planId }) else {
             throw NSError(domain: "PlanDetailUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "Plan not found"])
         }

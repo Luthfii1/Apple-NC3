@@ -15,4 +15,5 @@ struct StateView {
     var isSheetPresented: Bool = false
     var showDiscardChangesDialog: Bool = false
     var showDeleteAlert: Bool = false
+    var resetSwipeOffset: Bool = false
 }

@@ -25,58 +25,45 @@ class CreateEditPlanViewModel: ObservableObject {
         self.comparePlan = PlanModel()
     }
     
-    private var widgetPlan = WidgetPlanModel(
-        id: UUID(),
-        title: "Morning Routine",
-        temprature: 22,
-        durationPlan: Date(),
-        allDay: false
-    )
+    //    private var widgetPlan = WidgetPlanModel(
+    //        id: UUID(),
+    //        title: "Morning Routine",
+    //        temprature: 22,
+    //        durationPlan: Date(),
+    //        allDay: false
+    //    )
     
     @MainActor
     func insertPlan(homeViewModel: HomeViewModel) async {
         await homeViewModel.insertPlan(plan: newPlan)
-//        DispatchQueue.main.async {
-//            self.widgetPlan.id = self.newPlan.id
-//            self.widgetPlan.title = self.newPlan.title
-//            self.widgetPlan.temprature = self.newPlan.weatherPlan?.forecast.first?.temperature.value ?? 0
-//            self.widgetPlan.durationPlan = self.newPlan.durationPlan.start
-//            self.widgetPlan.allDay = self.newPlan.allDay
-//            
-//            self.saveWidgetPlanModel(self.widgetPlan)
-//            WidgetCenter.shared.reloadAllTimelines()
-//        }
+        //        DispatchQueue.main.async {
+        //            self.widgetPlan.id = self.newPlan.id
+        //            self.widgetPlan.title = self.newPlan.title
+        //            self.widgetPlan.temprature = self.newPlan.weatherPlan?.forecast.first?.temperature.value ?? 0
+        //            self.widgetPlan.durationPlan = self.newPlan.durationPlan.start
+        //            self.widgetPlan.allDay = self.newPlan.allDay
+        //
+        //            self.saveWidgetPlanModel(self.widgetPlan)
+        //            WidgetCenter.shared.reloadAllTimelines()
+        //        }
     }
     
     @MainActor
     func updatePlan(homeViewModel: HomeViewModel) async {
-        self.state.isLoading = true
-        Task {
-            do {
-                try await planUseCase.updatePlan(plan: newPlan)
-                await homeViewModel.getPlansByFilter()
-            } catch {
-                print("Failed to load plans: \(error)")
-            }
-            self.state.isLoading.toggle()
-        }
+        await homeViewModel.updatePlan(plan: newPlan)
     }
     
     @MainActor
     func getDetailPlan(planId: UUID) async {
         self.state.isLoading = true
-        Task{
-            do {
-                let detailPlan = try await detailUseCase.executeGetDetailPlan(planId: planId)
-                DispatchQueue.main.async {
-                    self.newPlan = detailPlan
-                    self.comparePlan = detailPlan
-                }
-            } catch {
-                print("Failed when get detail plan: \(error)")
-            }
-            self.state.isLoading = false
+        do {
+            let detailPlan = try await detailUseCase.executeGetDetailPlan(planId: planId)
+            self.newPlan = detailPlan
+            self.comparePlan = detailPlan.copy()
+        } catch {
+            print("Failed when get detail plan: \(error)")
         }
+        self.state.isLoading = false
     }
     
     private var todayDate: Date {
@@ -112,12 +99,20 @@ class CreateEditPlanViewModel: ObservableObject {
         }
     }
     
+    func resetNewPlanToComparePlan() {
+        self.newPlan = self.comparePlan.copy()
+    }
+    
     func cancelAction() -> Bool {
         return !newPlan.title.isEmpty || !newPlan.location.nameLocation.isEmpty
     }
     
     func cancelEditChanges() -> Bool {
-        return hasUnsavedChanges()
+        if hasUnsavedChanges() {
+            self.resetNewPlanToComparePlan()
+            return true
+        }
+        return false
     }
     
     private func hasUnsavedChanges() -> Bool {

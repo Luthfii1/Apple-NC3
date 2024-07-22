@@ -33,7 +33,6 @@ struct CreateEditPlanView: View {
                     .sheet(isPresented: $searchPlaceViewModel.isSheetPresented) {
                         SearchPlace(viewModel: searchPlaceViewModel)
                             .onAppear{
-                                print("2")
                                 createPlanVM.setWindowBackgroundColor(.black)
                             }
                             .onDisappear {
@@ -60,7 +59,6 @@ struct CreateEditPlanView: View {
                     )
                     .datePickerStyle(.compact)
                     
-                    
                     DatePicker(
                         "Ends",
                         selection: $createPlanVM.newPlan.durationPlan.end,
@@ -68,8 +66,6 @@ struct CreateEditPlanView: View {
                         displayedComponents: createPlanVM.newPlan.allDay ? [.date] : [.date, .hourAndMinute]
                     )
                     .datePickerStyle(.compact)
-                    
-                    
                 }
                 
                 Section {
@@ -78,7 +74,6 @@ struct CreateEditPlanView: View {
                             Text(selection.rawValue).tag(selection)
                         }
                     }
-                    
                     
                     if createPlanVM.newPlan.planCategory == .Routine {
                         MultiSelectPicker(
@@ -136,18 +131,24 @@ struct CreateEditPlanView: View {
             .navigationBarItems(
                 leading: Button("Cancel") {
                     if isCreate {
+                        print("cancel create")
                         if createPlanVM.cancelAction() {
                             createPlanVM.state.showDiscardChangesDialog = true
                         } else {
                             presentationMode.wrappedValue.dismiss()
                         }
                     } else {
+                        print("cancel edit")
                         if createPlanVM.cancelEditChanges() {
+                            print("there are changes")
                             createPlanVM.state.showDiscardChangesDialog = true
                         } else {
+                            print("no changes")
                             presentationMode.wrappedValue.dismiss()
                         }
                     }
+                    
+                    homeViewModel.resetSwipeOffsetFlag()
                 },
                 trailing: Button("Done") {
                     Task {
@@ -171,8 +172,9 @@ struct CreateEditPlanView: View {
                 }
             }
         }
-        .confirmationDialog( String(localized: "Are you sure you want to discard your changes?"), isPresented: $createPlanVM.state.showDiscardChangesDialog) {
+        .confirmationDialog(String(localized: "Are you sure you want to discard your changes?"), isPresented: $createPlanVM.state.showDiscardChangesDialog) {
             Button(String(localized: "Discard Changes"), role: .destructive) {
+                createPlanVM.resetNewPlanToComparePlan()
                 presentationMode.wrappedValue.dismiss()
             }
             Button(String(localized: "Cancel"), role: .cancel) {}
