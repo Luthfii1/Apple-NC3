@@ -53,7 +53,6 @@ struct PlanCardComponent: View {
                 }
                 .padding(.vertical, 4)
             }
-//            .frame(width: 100)
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
             .background(
