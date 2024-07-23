@@ -108,7 +108,7 @@ class PlanUseCases: PlanUseCasesProtocol{
         let currentDate = calendar.startOfDay(for: Date())
         
         for plan in allPlans {
-            if (plan.durationPlan.start < currentDate) {
+            if (plan.durationPlan.start < currentDate && plan.planCategory == .Event) {
                 try await self.deletePlan(planId: plan.id)
             }
         }
