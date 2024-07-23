@@ -101,7 +101,17 @@ class PlanUseCases: PlanUseCasesProtocol{
         }
         
         try await planRepository.deletePlan(plan: plan)
-        try await self.getAllPlans()
+    }
+    
+    func removePreviousDatePlans() async throws {
+        let calendar = Calendar.current
+        let currentDate = calendar.startOfDay(for: Date())
+        
+        for plan in allPlans {
+            if (plan.durationPlan.start < currentDate && plan.planCategory == .Event) {
+                try await self.deletePlan(planId: plan.id)
+            }
+        }
     }
 }
 

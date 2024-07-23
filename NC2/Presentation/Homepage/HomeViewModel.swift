@@ -52,6 +52,8 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         do {
             try await getAllPlansUseCase.getAllPlans()
+            try await getAllPlansUseCase.removePreviousDatePlans()
+            try await getAllPlansUseCase.getAllPlans()
             await getPlansByFilter()
             self.state.isLoading = false
         } catch {
@@ -114,6 +116,7 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         do {
             try await getAllPlansUseCase.deletePlan(planId: planId)
+            try await getAllPlansUseCase.getAllPlans()
             await getPlansByFilter()
         } catch {
             print("Failed to load plans: \(error)")
