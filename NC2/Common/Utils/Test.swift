@@ -44,8 +44,7 @@ class Test {
     // MARK: FUNCTION
     func homeViewModel() -> HomeViewModel {
         HomeViewModel(
-            getAllPlansUseCase: getPlanPreviewUseCase,
-            refreshHomeViewUseCase: refreshPageViewUseCase
+            getAllPlansUseCase: getPlanPreviewUseCase
         )
     }
     
@@ -55,20 +54,15 @@ class Test {
     
     func dummyHomeViewModel() -> HomeViewModel {
         HomeViewModel(
-           getAllPlansUseCase: dummyGetAllPlansPreviewUseCase,
-           refreshHomeViewUseCase: dummyRefreshHomeViewUseCase
+           getAllPlansUseCase: dummyGetAllPlansPreviewUseCase
        )
     }
     
-    
-    
     func detailPlanViewModel() -> DetailPlanViewModel {
-//        DetailPlanViewModel(planDetailUseCase: detailPlanUseCase)
         DetailPlanViewModel(getDetailUseCase: detailPlanUseCase)
     }
     
     func dummyDetailPlanViewModel() -> DetailPlanViewModel {
-//        DetailPlanViewModel(planDetailUseCase: dummyDetailPlanUseCase)
         DetailPlanViewModel(getDetailUseCase: dummyDetailPlanUseCase)
     }
 }

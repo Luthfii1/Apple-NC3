@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct SwipeableView: View {
     @EnvironmentObject var vm: HomeViewModel
     let plan: HomeCardUIModel
@@ -15,9 +14,12 @@ struct SwipeableView: View {
     @State private var offset: CGFloat = 0
     @State private var isSwiped = false
     
+    private let buttonHeight: CGFloat = 100
+    
     var body: some View {
-        ZStack {
-            HStack (spacing: 0){
+        ZStack(alignment: .leading) {
+            // Buttons for Edit and Delete
+            HStack(spacing: 0) {
                 Spacer()
                 Button(action: {
                     vm.state.isEditSheetPresented = true
@@ -27,7 +29,7 @@ struct SwipeableView: View {
                         .resizable()
                         .scaledToFit()
                         .padding(30)
-                        .frame(width: 80, height: 104)
+                        .frame(width: 80, height: buttonHeight)
                         .background(Color.gray)
                         .foregroundColor(.white)
                 }
@@ -41,14 +43,17 @@ struct SwipeableView: View {
                         .resizable()
                         .scaledToFit()
                         .padding(27)
-                        .frame(width: 74, height: 104)
+                        .frame(width: 74, height: buttonHeight)
                         .background(Color.red)
                         .foregroundColor(.white)
                         .customCornerRadius(10, corners: [.topRight, .bottomRight])
                 }
             }
+            .frame(height: buttonHeight)
             
+            // Plan Card
             PlanCardComponent(plan: plan)
+                .frame(minHeight: buttonHeight)
                 .offset(x: offset)
                 .highPriorityGesture(
                     DragGesture()
@@ -95,5 +100,3 @@ struct SwipeableView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
-
-
