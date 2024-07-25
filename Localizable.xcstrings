@@ -68,6 +68,7 @@
       }
     },
     "%@°C" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -96,6 +97,9 @@
           }
         }
       }
+    },
+    "%lld°C" : {
+
     },
     "Add Plan" : {
       "localizations" : {
