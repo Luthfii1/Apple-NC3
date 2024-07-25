@@ -259,13 +259,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		DD7B641E2C4A170600308EED /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		DD7F93BE2C3D4D0A009E4C9F = {
 			isa = PBXGroup;
 			children = (
@@ -291,7 +284,7 @@
 		DD7F93C92C3D4D0A009E4C9F /* NC2 */ = {
 			isa = PBXGroup;
 			children = (
-				DD7B641E2C4A170600308EED /* Preview Content */,
+				DDAAD0D92C52AD8300C0066E /* Preview Content */,
 				8AC3A19A2C461B86008E6AEE /* Info.plist */,
 				8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */,
 				DD6794FC2C453B1E002B24EE /* NC2Debug.entitlements */,
@@ -484,6 +477,13 @@
 				DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		DDAAD0D92C52AD8300C0066E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
