@@ -15,7 +15,6 @@ struct DetailPlanView: View {
     @StateObject var gemini = GeminiBotViewModel()
     var planId: UUID
     
-    @EnvironmentObject var dependencyInjection: DependencyInjection
     @EnvironmentObject var vmHome : HomeViewModel
     
     var body: some View {
@@ -317,11 +316,11 @@ struct DetailPlanView: View {
                 }
                 .sheet(isPresented: $vmHome.state.isCreateSheetPresented) {
                     CreateEditPlanView(isCreate: true)
-                        .environmentObject(dependencyInjection.createPlanViewModel())
+                        .environmentObject(DependencyInjection.shared.createPlanViewModel())
                 }
                 .sheet(isPresented: $vmHome.state.isEditSheetPresented) {
                     CreateEditPlanView(isCreate: false, idPlan: vmHome.idPlanEdit)
-                        .environmentObject(dependencyInjection.createPlanViewModel())
+                        .environmentObject(DependencyInjection.shared.createPlanViewModel())
                 }
             }
         }

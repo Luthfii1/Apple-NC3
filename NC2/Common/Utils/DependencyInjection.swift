@@ -10,13 +10,18 @@ import SwiftData
 
 //Grouping UseCase ke dalam satu fungsi
 class DependencyInjection: ObservableObject{
-    private var modelContext: ModelContext
-    init(modelContext: ModelContext) {
+    static let shared = DependencyInjection()
+    
+    private init() {}
+    
+    private var modelContext: ModelContext?
+    func initializer(modelContext: ModelContext) {
         self.modelContext = modelContext
+        
     }
     
     // MARK: IMPLEMENTATION
-    lazy var planLocalDataSource = PlanLocalDataSource(modelContext: modelContext)
+    lazy var planLocalDataSource = PlanLocalDataSource(modelContext: modelContext!)
     lazy var aqiDataSource = AQIRemoteDataSource()
     
     lazy var planRepository = PlanRepository(planLocalDataSource: planLocalDataSource)

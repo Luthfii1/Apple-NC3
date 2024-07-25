@@ -38,12 +38,12 @@ class NotificationManager :ObservableObject{
         //Pesan dan Kesan kepada Bachul
         let content = UNMutableNotificationContent()
         
-        let temperature = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.temperature.value ?? 0
-        let precipitation = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.precipitation ?? .none
-        let cuaca = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.condition
-        let uv = Test.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.uvIndex.value ?? 0
+        let temperature = DependencyInjection.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.temperature.value ?? 0
+        let precipitation = DependencyInjection.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.precipitation ?? .none
+        let cuaca = DependencyInjection.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.condition
+        let uv = DependencyInjection.shared.getPlanPreviewUseCase.getPlanData().weatherPlan?.first?.uvIndex.value ?? 0
         
-        let title = Test.shared.getPlanPreviewUseCase.getPlanData().title
+        let title = DependencyInjection.shared.getPlanPreviewUseCase.getPlanData().title
         //GPT Command
         
 //        Title:[Plan Title]

@@ -12,7 +12,7 @@
 		3D332D832C465D6A00B10FA3 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */; };
 		3D332D862C465EB300B10FA3 /* MultiSelectpicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */; };
 		3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */; };
-		3D9587252C476719000CDDFF /* SwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587242C476719000CDDFF /* SwipeableView.swift */; };
+		3D9587252C476719000CDDFF /* SwipeableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587242C476719000CDDFF /* SwipeableComponent.swift */; };
 		3D95872C2C48AF08000CDDFF /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3D95872B2C48AEC7000CDDFF /* Localizable.xcstrings */; };
 		6376F4C92C4783D200AFBF22 /* NanumPen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6376F4C82C4783D200AFBF22 /* NanumPen.ttf */; };
 		8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */; };
@@ -21,7 +21,6 @@
 		8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1772C452B0D008E6AEE /* GeminiBotScreen.swift */; };
 		8AC3A1842C461A9E008E6AEE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1832C461A9E008E6AEE /* WidgetKit.framework */; };
 		8AC3A1862C461A9E008E6AEE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1852C461A9E008E6AEE /* SwiftUI.framework */; };
-		8AC3A1A22C4675BC008E6AEE /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1A12C4675BC008E6AEE /* Test.swift */; };
 		8AC3A1A82C46A6BF008E6AEE /* WidgetPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1A72C46A6BF008E6AEE /* WidgetPlanModel.swift */; };
 		8AC3A1A92C46A6BF008E6AEE /* WidgetPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1A72C46A6BF008E6AEE /* WidgetPlanModel.swift */; };
 		8AC3A1AA2C46A6E9008E6AEE /* PlanCategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */; };
@@ -94,7 +93,7 @@
 /* Begin PBXFileReference section */
 		3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectpicker.swift; sourceTree = "<group>"; };
 		3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
-		3D9587242C476719000CDDFF /* SwipeableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableView.swift; sourceTree = "<group>"; };
+		3D9587242C476719000CDDFF /* SwipeableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableComponent.swift; sourceTree = "<group>"; };
 		3D95872B2C48AEC7000CDDFF /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		6376F4C82C4783D200AFBF22 /* NanumPen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumPen.ttf; sourceTree = "<group>"; };
 		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
@@ -108,7 +107,6 @@
 		8AC3A1832C461A9E008E6AEE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		8AC3A1852C461A9E008E6AEE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8AC3A19A2C461B86008E6AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8AC3A1A12C4675BC008E6AEE /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		8AC3A1A72C46A6BF008E6AEE /* WidgetPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPlanModel.swift; sourceTree = "<group>"; };
 		8AC3A1AF2C473C91008E6AEE /* widgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widgetExtension.entitlements; sourceTree = "<group>"; };
 		8AC3A1C22C474E39008E6AEE /* AppGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupManager.swift; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				DD6794F02C450EBC002B24EE /* DependencyInjection.swift */,
-				8AC3A1A12C4675BC008E6AEE /* Test.swift */,
 				8AC3A1C22C474E39008E6AEE /* AppGroupManager.swift */,
 				DD5D590B2C46274A009AB089 /* Utils.swift */,
 			);
@@ -372,7 +369,7 @@
 				DD7F94312C40D7DC009E4C9F /* HomeView.swift */,
 				DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */,
 				DD7F944F2C42BF0E009E4C9F /* HomeCardUIModel.swift */,
-				3D9587242C476719000CDDFF /* SwipeableView.swift */,
+				3D9587242C476719000CDDFF /* SwipeableComponent.swift */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -630,7 +627,7 @@
 				DD6794F92C453865002B24EE /* HourDetailsCell.swift in Sources */,
 				DD7F94342C40D80E009E4C9F /* HomeViewModel.swift in Sources */,
 				DD6794E72C44E821002B24EE /* DaysEnum.swift in Sources */,
-				3D9587252C476719000CDDFF /* SwipeableView.swift in Sources */,
+				3D9587252C476719000CDDFF /* SwipeableComponent.swift in Sources */,
 				DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */,
 				DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */,
 				DD6794EE2C44F0F0002B24EE /* Date+Extension.swift in Sources */,
@@ -665,7 +662,6 @@
 				DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */,
 				DD7F944A2C40DDE6009E4C9F /* NotificationManager.swift in Sources */,
 				8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */,
-				8AC3A1A22C4675BC008E6AEE /* Test.swift in Sources */,
 				DD7F942F2C40D7A0009E4C9F /* ButtonComponent.swift in Sources */,
 				DD7F94412C40D8E7009E4C9F /* SearchPlaceView.swift in Sources */,
 				DD6794F52C4537FE002B24EE /* GetDetailWeatherUseCase.swift in Sources */,

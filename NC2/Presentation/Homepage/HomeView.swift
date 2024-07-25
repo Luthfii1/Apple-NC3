@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var vm: HomeViewModel
-    @EnvironmentObject var dependencyInjection: DependencyInjection
     
     var body: some View {
         NavigationStack {
@@ -40,7 +39,7 @@ struct HomeView: View {
                                         .padding(.top, 12)
                                 ) {
                                     ForEach(vm.groupedPlans[date]!, id: \.id) { plan in
-                                        SwipeableView(plan: plan)
+                                        SwipeableComponent(plan: plan)
                                     }
                                 }
                             }
@@ -49,11 +48,11 @@ struct HomeView: View {
                     }
                     .sheet(isPresented: $vm.state.isCreateSheetPresented) {
                         CreateEditPlanView(isCreate: true)
-                            .environmentObject(dependencyInjection.createPlanViewModel())
+                            .environmentObject(DependencyInjection.shared.createPlanViewModel())
                     }
                     .sheet(isPresented: $vm.state.isEditSheetPresented) {
                         CreateEditPlanView(isCreate: false, idPlan: vm.idPlanEdit)
-                            .environmentObject(dependencyInjection.createPlanViewModel())
+                            .environmentObject(DependencyInjection.shared.createPlanViewModel())
                     }
                     .refreshable {
                         await vm.refreshPage()
