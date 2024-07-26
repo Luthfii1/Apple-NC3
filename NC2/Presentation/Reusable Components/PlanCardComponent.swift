@@ -51,7 +51,7 @@ struct PlanCardComponent: View {
                         Image(systemName: "cloud.sun.fill")
                             .shadowedText(font: .body)
                         
-                        Text("\(String(format: "%.1f", plan.temperature ?? 0))°C")
+                        Text("\(String(format: "%.0f", plan.temperature ?? 0))°C")
                             .shadowedText(font: .body)
                         
                         Text(plan.weatherDescription?.toFrontCapital() ?? "fetching data")
