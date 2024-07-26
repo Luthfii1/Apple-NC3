@@ -13,15 +13,13 @@ struct MultipleSelectionRow: View {
     var action: () -> Void
     
     var body: some View {
-        
         Button(action: action) {
             HStack {
                 Text(title)
-                    .foregroundColor(.default)
+                    .foregroundStyle(.white)
                 if isSelected {
                     Spacer()
                     Image(systemName: "checkmark")
-                        .foregroundColor(.blue)
                 }
             }
         }

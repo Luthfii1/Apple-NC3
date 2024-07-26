@@ -25,7 +25,7 @@ let dummyPlans: [PlanModel] = [
 //        weatherPlan: dummyWeatherPlan,
         durationPlan: DurationTimePlan(start: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 14, hour: 6, minute: 0).date!, end: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 14, hour: 7, minute: 0).date!),
         daysRepeat: [.Sunday, .Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday],
-        planCategory: .Routine,
+        planCategory: .Repeat,
         reminder: ._5MinBefore,
         allDay: false,
         suggest: "Wear sunscreen"
@@ -56,7 +56,7 @@ let dummyPlans: [PlanModel] = [
 //        weatherPlan: dummyWeatherPlan,
         durationPlan: DurationTimePlan(start: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 13, hour: 14, minute: 0).date!, end: DateComponents(calendar: Calendar.current, year: 2024, month: 7, day: 13, hour: 15, minute: 0).date!),
         daysRepeat: [.Sunday, .Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday],
-        planCategory: .Routine,
+        planCategory: .Repeat,
         reminder: ._30MinBefore,
         allDay: false,
         suggest: "Set alarm"

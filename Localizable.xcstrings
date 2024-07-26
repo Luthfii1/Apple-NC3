@@ -97,6 +97,83 @@
         }
       }
     },
+    "1 day before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 hari sebelum"
+          }
+        }
+      }
+    },
+    "1 hour before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 jam sebelum"
+          }
+        }
+      }
+    },
+    "2 hours before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 jam sebelum"
+          }
+        }
+      }
+    },
+    "5 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 menit sebelum"
+          }
+        }
+      }
+    },
+    "10 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 menit sebelum"
+          }
+        }
+      }
+    },
+    "15 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "15 menit sebelum"
+          }
+        }
+      }
+    },
+    "30 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 menut sebelum"
+          }
+        }
+      }
+    },
     "Add Plan" : {
       "localizations" : {
         "id" : {
@@ -153,6 +230,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apakah Anda yakin ingin membuang perubahan Anda?"
+          }
+        }
+      }
+    },
+    "At time of event" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pada saat kegiatan"
           }
         }
       }
@@ -369,7 +457,25 @@
       }
     },
     "Fetching data..." : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Memuat data..."
+          }
+        }
+      }
+    },
+    "Friday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jumat"
+          }
+        }
+      }
     },
     "Go" : {
       "localizations" : {
@@ -562,6 +668,17 @@
         }
       }
     },
+    "Monday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Senin"
+          }
+        }
+      }
+    },
     "New Plan" : {
       "localizations" : {
         "id" : {
@@ -578,6 +695,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "TDAK ADA DATA"
+          }
+        }
+      }
+    },
+    "None" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak ada"
           }
         }
       }
@@ -642,6 +770,17 @@
         }
       }
     },
+    "Saturday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sabtu"
+          }
+        }
+      }
+    },
     "Save" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -683,6 +822,17 @@
         }
       }
     },
+    "Sunday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minggu"
+          }
+        }
+      }
+    },
     "Text sample" : {
       "localizations" : {
         "id" : {
@@ -693,12 +843,34 @@
         }
       }
     },
+    "Thursday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamis"
+          }
+        }
+      }
+    },
     "Title" : {
       "localizations" : {
         "id" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Judul"
+          }
+        }
+      }
+    },
+    "Tuesday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selasa"
           }
         }
       }
@@ -765,6 +937,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Weather: %1$@\nUV: %2$lld\nPrecipitation chance: %3$lf\nAir quality index: %4$lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. End with emoji. Show only the call-to-action copywriting! Please make it in bahasa indonesia."
+          }
+        }
+      }
+    },
+    "Wednesday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rabu"
           }
         }
       }
