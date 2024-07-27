@@ -84,7 +84,7 @@ class HomeViewModel: ObservableObject {
         do {
             let plansFetched = try await getAllPlansUseCase.getAllPlansByFilter(
                 category: pickedPlanFilter == 0 ?
-                    .Event : .Routine
+                    .Event : .Repeat
             )
             self.plans = plansFetched
         } catch {

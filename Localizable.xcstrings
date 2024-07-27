@@ -116,11 +116,82 @@
         }
       }
     },
-    "%lld°C" : {
-
+    "1 day before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 hari sebelum"
+          }
+        }
+      }
     },
-    "%lldºC" : {
-
+    "1 hour before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 jam sebelum"
+          }
+        }
+      }
+    },
+    "2 hours before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 jam sebelum"
+          }
+        }
+      }
+    },
+    "5 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 menit sebelum"
+          }
+        }
+      }
+    },
+    "10 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 menit sebelum"
+          }
+        }
+      }
+    },
+    "15 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "15 menit sebelum"
+          }
+        }
+      }
+    },
+    "30 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 menut sebelum"
+          }
+        }
+      }
     },
     "Add Plan" : {
       "localizations" : {
@@ -200,6 +271,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apakah Anda yakin ingin membuang perubahan Anda?"
+          }
+        }
+      }
+    },
+    "At time of event" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pada saat kegiatan"
           }
         }
       }
@@ -457,8 +539,26 @@
         }
       }
     },
-    "Feels like %lldºC" : {
-
+    "Fetching data..." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Memuat data..."
+          }
+        }
+      }
+    },
+    "Friday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jumat"
+          }
+        }
+      }
     },
     "Fetching data..." : {
       "localizations" : {
@@ -691,6 +791,17 @@
         }
       }
     },
+    "Monday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Senin"
+          }
+        }
+      }
+    },
     "New Plan" : {
       "localizations" : {
         "id" : {
@@ -706,17 +817,18 @@
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "TDAK ADA DATA"
+            "value" : "TIDAK ADA DATA"
           }
         }
       }
     },
-    "Occasional showers are likely. Keep an umbrella or raincoat handy and consider indoor alternatives for your activities." : {
+    "None" : {
+      "extractionState" : "manual",
       "localizations" : {
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hujan sesekali mungkin terjadi. Siapkan payung atau jas hujan dan pertimbangkan alternatif kegiatan di dalam ruangan."
+            "value" : "Tidak ada"
           }
         }
       }
@@ -793,6 +905,17 @@
         }
       }
     },
+    "Saturday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sabtu"
+          }
+        }
+      }
+    },
     "Save" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -844,6 +967,17 @@
         }
       }
     },
+    "Sunday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minggu"
+          }
+        }
+      }
+    },
     "Text sample" : {
       "localizations" : {
         "id" : {
@@ -854,42 +988,13 @@
         }
       }
     },
-    "The air quality is good with little or no risk. Feel free to enjoy your outdoor activities without concern." : {
+    "Thursday" : {
+      "extractionState" : "manual",
       "localizations" : {
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kualitas udara baik dengan sedikit atau tanpa risiko. Silakan nikmati aktivitas di luar ruangan tanpa khawatir."
-          }
-        }
-      }
-    },
-    "The sun is moderately strong, so cover up with clothing, wear a hat and sunglasses, and use sunscreen with SPF 30+. Seek shade during midday hours." : {
-      "localizations" : {
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sinar matahari cukup kuat, jadi tutupi tubuh dengan pakaian, kenakan topi dan kacamata hitam, serta gunakan tabir surya dengan SPF 30+. Cari tempat teduh saat tengah hari."
-          }
-        }
-      }
-    },
-    "The UV index is high, increasing the risk of skin damage. Limit your sun exposure between 10 a.m. and 4 p.m., seek shade, wear protective clothing, a wide-brimmed hat, and UV-blocking sunglasses, and use broad-spectrum SPF 30+ sunscreen." : {
-      "localizations" : {
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Indeks UV tinggi, meningkatkan risiko kerusakan kulit. Batasi paparan sinar matahari antara pukul 10 pagi dan 4 sore, cari tempat teduh, kenakan pakaian pelindung, topi bertepi lebar, dan kacamata hitam yang menghalangi UV, serta gunakan tabir surya spektrum luas SPF 30+."
-          }
-        }
-      }
-    },
-    "There's a slight chance of light rain or drizzle. It’s a good idea to bring an umbrella just in case while enjoying your day outdoors." : {
-      "localizations" : {
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ada kemungkinan hujan ringan atau gerimis. Sebaiknya bawa payung sebagai antisipasi saat menikmati hari Anda di luar ruangan."
+            "value" : "Kamis"
           }
         }
       }
@@ -900,6 +1005,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Judul"
+          }
+        }
+      }
+    },
+    "Tuesday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selasa"
           }
         }
       }
@@ -993,28 +1109,14 @@
         }
       }
     },
-    "Weather: %@\nUV: %lld\nPrecipitation chance: %lf\nAir quality index: %lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting!" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Weather: %1$@\nUV: %2$lld\nPrecipitation chance: %3$lf\nAir quality index: %4$lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting!"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weather: %1$@\nUV: %2$lld\nPrecipitation chance: %3$lf\nAir quality index: %4$lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting! Make it in Bahasa Indonesia!"
-          }
-        }
-      }
-    },
-    "Widespread showers are expected. Be prepared for rain throughout the day, wear waterproof clothing, and plan for indoor activities if possible." : {
+    "Wednesday" : {
+      "extractionState" : "manual",
+
       "localizations" : {
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hujan luas diperkirakan akan terjadi. Siapkan diri untuk hujan sepanjang hari, kenakan pakaian tahan air, dan rencanakan kegiatan di dalam ruangan jika memungkinkan."
+            "value" : "Rabu"
           }
         }
       }

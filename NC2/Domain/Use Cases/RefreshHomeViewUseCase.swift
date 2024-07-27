@@ -20,7 +20,7 @@ class RefreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol {
         let eventPlans = allPlans.filter { plan in
             isEvent == 0 ?
                 plan.planCategory == .Event :
-                plan.planCategory == .Routine
+            plan.planCategory == .Repeat
         }
         
         if eventPlans.isEmpty {
