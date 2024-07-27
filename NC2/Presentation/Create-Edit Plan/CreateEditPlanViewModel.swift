@@ -49,7 +49,35 @@ class CreateEditPlanViewModel: ObservableObject {
     
     @MainActor
     func updatePlan(homeViewModel: HomeViewModel) async {
-        await homeViewModel.updatePlan(plan: newPlan)
+        do {
+            try await homeViewModel.updatePlan(plan: newPlan)
+        } catch {
+            print("error update plan")
+        }
+    }
+    
+    @MainActor
+    func cancelPlan(homeViewModel: HomeViewModel) async {
+        print("cancelling")
+        let tempPlan = newPlan
+        let backToPreviousData = comparePlan
+        
+        self.newPlan = self.comparePlan
+        
+        async let updateTempPlan: () = homeViewModel.updatePlan(plan: tempPlan)
+        async let updateBackToPreviousData: () = homeViewModel.updatePlan(plan: backToPreviousData)
+        
+        do {
+            try await updateTempPlan
+        } catch {
+            print("Failed to update plan with tempPlan: \(error)")
+        }
+        
+        do {
+            try await updateBackToPreviousData
+        } catch {
+            print("Failed to update plan with backToPreviousData: \(error)")
+        }
     }
     
     @MainActor
@@ -107,20 +135,11 @@ class CreateEditPlanViewModel: ObservableObject {
         }
     }
     
-    func resetNewPlanToComparePlan() {
-        self.newPlan = self.comparePlan
-    }
-    
     func cancelAction() -> Bool {
         return !newPlan.title.isEmpty || !newPlan.location.nameLocation.isEmpty
     }
     
-    func cancelEditChanges() -> Bool {
-        return hasUnsavedChanges()
-    }
-    
-    private func hasUnsavedChanges() -> Bool {
-        print("title: \(self.newPlan.title)")
+    func hasUnsavedChanges() -> Bool {
         return newPlan.title != comparePlan.title ||
         newPlan.location != comparePlan.location ||
         newPlan.durationPlan != comparePlan.durationPlan ||

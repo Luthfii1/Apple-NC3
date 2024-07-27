@@ -9,44 +9,39 @@ import SwiftUI
 
 struct PlanCardComponent: View {
     var plan: HomeCardUIModel
-
+    
     var body: some View {
         NavigationLink(destination: DetailPlanView(planId: plan.id)
             .environmentObject(DependencyInjection.shared.detailPlanViewModel())
         ) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack(alignment: .top) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(plan.title)
-                            .shadowedText(font: .body)
-
-                        Text(plan.location.nameLocation.truncated(to: 15))
-                            .shadowedText(font: .subheadline)
-                    }
-
+                    Text(plan.title)
+                        .shadowedText(font: .body)
+                    
                     Spacer()
-
+                    
                     if plan.allDay {
                         Text("All Day")
                             .shadowedText(font: .subheadline)
                     } else {
-                        VStack(alignment: .trailing, spacing: 8) {
-                            Text(plan.durationPlan.start.formattedTime())
-                                .shadowedText(font: .subheadline)
-
-                            Text(plan.durationPlan.end.formattedTime())
-                                .shadowedText(font: .subheadline)
-                        }
+                        Text("\(plan.durationPlan.start.formattedTime24Hour()) - \(plan.durationPlan.end.formattedTime24Hour())")
+                            .shadowedText(font: .subheadline)
                     }
                 }
-
+                
+                Text(plan.location.nameLocation.truncated(to: 15))
+                    .shadowedText(font: .subheadline)
+                
+                
+                
                 HStack {
                     Image(systemName: "cloud.sun.fill")
                         .shadowedText(font: .body)
-
+                    
                     Text("\(Int(ceil(plan.temperature ?? 0)))°C")
                         .shadowedText(font: .body)
-
+                    
                     Text(plan.weatherDescription?.toFrontCapital() ?? "fetching data")
                         .shadowedText(font: .body)
                 }
