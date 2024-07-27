@@ -9,6 +9,7 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var plans: [HomeCardUIModel] = []
+    @Published var selectedPlan: HomeCardUIModel? = nil
     @Published var idPlanEdit: UUID = UUID()
     @Published var isNewOpen: Bool
     @Published var state: StateView = StateView()
@@ -19,12 +20,14 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-    private let getAllPlansUseCase: PlanUseCasesProtocol
-    private let refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol
+    @Published var offset: CGFloat = 0
+    @Published var isSwiped = false
+    @Published var buttonHeight: CGFloat = 100
     
-    init(getAllPlansUseCase: PlanUseCasesProtocol, refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol) {
+    private let getAllPlansUseCase: PlanUseCasesProtocol
+    
+    init(getAllPlansUseCase: PlanUseCasesProtocol) {
         self.getAllPlansUseCase = getAllPlansUseCase
-        self.refreshHomeViewUseCase = refreshHomeViewUseCase
         self.isNewOpen = true
     }
     
@@ -53,6 +56,8 @@ class HomeViewModel: ObservableObject {
     func firstOpenApp() async {
         self.state.isLoading = true
         do {
+            try await getAllPlansUseCase.getAllPlans()
+            try await getAllPlansUseCase.removePreviousDatePlans()
             try await getAllPlansUseCase.getAllPlans()
             await getPlansByFilter()
             self.state.isLoading = false
@@ -116,6 +121,7 @@ class HomeViewModel: ObservableObject {
         self.state.isLoading = true
         do {
             try await getAllPlansUseCase.deletePlan(planId: planId)
+            try await getAllPlansUseCase.getAllPlans()
             await getPlansByFilter()
         } catch {
             print("Failed to load plans: \(error)")

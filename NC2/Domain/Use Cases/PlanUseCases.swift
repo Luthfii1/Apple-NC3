@@ -20,15 +20,10 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     func getAllPlans() async throws {
-        print("getAllPlans")
         self.allPlans = try await planRepository.getAllPlans()
-        for plan in allPlans {
-            print("title: \(plan.title)")
-        }
     }
     
     func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [HomeCardUIModel] {
-        print("getAllPlansByFilter")
         var result = [HomeCardUIModel]()
         
         let eventPlans = self.allPlans.filter {
@@ -57,7 +52,6 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     func getWeatherAndSetBackground() async throws {
-        print("setWeather")
         for plan in self.allPlans {
             var background = "clearCard"
             
@@ -88,30 +82,36 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     func insertPlan(plan: PlanModel) async throws {
-        print("insertplan")
         try await planRepository.insertPlan(plan: plan)
         try await self.getAllPlans()
     }
     
     func getPlanData() -> PlanModel {
-        print("getplandata")
         return dummyPlans.first.unsafelyUnwrapped
     }
     
     func updatePlan(plan: PlanModel) async throws {
-        print("updateplan")
         try await planRepository.updatePlan(plan: plan)
         try await self.getAllPlans()
     }
     
     func deletePlan(planId: UUID) async throws {
-        print("deletplan")
         guard let plan = allPlans.first(where: { $0.id == planId }) else {
             throw NSError(domain: "PlanDetailUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "Plan not found"])
         }
         
         try await planRepository.deletePlan(plan: plan)
-        try await self.getAllPlans()
+    }
+    
+    func removePreviousDatePlans() async throws {
+        let calendar = Calendar.current
+        let currentDate = calendar.startOfDay(for: Date())
+        
+        for plan in allPlans {
+            if (plan.durationPlan.start < currentDate && plan.planCategory == .Event) {
+                try await self.deletePlan(planId: plan.id)
+            }
+        }
     }
 }
 

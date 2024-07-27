@@ -14,6 +14,7 @@ class CreateEditPlanViewModel: ObservableObject {
     @Published var state: StateView
     @Published var newPlan: PlanModel
     @Published var comparePlan: PlanModel
+    @Published var discardChanges: Bool = false
     private let planUseCase: PlanUseCasesProtocol
     private let detailUseCase: PlanDetailUseCasesProtocol
     
@@ -54,8 +55,15 @@ class CreateEditPlanViewModel: ObservableObject {
     }
     
     @MainActor
+    func setDiscardNotification() {
+        self.discardChanges = true
+    }
+    
+    @MainActor
     func getDetailPlan(planId: UUID) async {
-        self.state.isLoading = true
+        DispatchQueue.main.async {
+            self.state.isLoading = true
+        }
         do {
             let detailPlan = try await detailUseCase.executeGetDetailPlan(planId: planId)
             self.newPlan = detailPlan
@@ -63,7 +71,9 @@ class CreateEditPlanViewModel: ObservableObject {
         } catch {
             print("Failed when get detail plan: \(error)")
         }
-        self.state.isLoading = false
+        DispatchQueue.main.async {
+            self.state.isLoading = false
+        }
     }
     
     private var todayDate: Date {
@@ -100,22 +110,24 @@ class CreateEditPlanViewModel: ObservableObject {
     }
     
     func resetNewPlanToComparePlan() {
-        self.newPlan = self.comparePlan.copy()
+        print("newplan: \(self.newPlan.title)")
+        print("copy: \(self.comparePlan.title)")
+        self.newPlan = self.comparePlan
+        print("newplan after: \(self.newPlan.title)")
     }
     
     func cancelAction() -> Bool {
+        print("title: \(self.newPlan.title)")
         return !newPlan.title.isEmpty || !newPlan.location.nameLocation.isEmpty
     }
     
     func cancelEditChanges() -> Bool {
-        if hasUnsavedChanges() {
-            self.resetNewPlanToComparePlan()
-            return true
-        }
-        return false
+        print("title: \(self.newPlan.title)")
+        return hasUnsavedChanges()
     }
     
     private func hasUnsavedChanges() -> Bool {
+        print("title: \(self.newPlan.title)")
         return newPlan.title != comparePlan.title ||
         newPlan.location != comparePlan.location ||
         newPlan.durationPlan != comparePlan.durationPlan ||

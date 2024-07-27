@@ -14,6 +14,7 @@ struct DetailPlanView: View {
     @EnvironmentObject var vm : DetailPlanViewModel
     @StateObject var gemini = GeminiBotViewModel()
     var planId: UUID
+    @EnvironmentObject var vmHome : HomeViewModel
     
     var body: some View {
         VStack(spacing: 0) {
@@ -27,35 +28,36 @@ struct DetailPlanView: View {
                         .edgesIgnoringSafeArea(.all)
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("\(vm.detailPlan.weatherPlan?.first?.condition.description ?? "No data yet")")
-                            .shadowedText(font: .system(size: 34, weight: .heavy, design: .rounded))
-                            .foregroundStyle(Color.white)
-                            .bold()
-                            .padding(.bottom, 16)
-                        
-                        HStack(spacing: 0) {
+                        VStack(alignment: .leading) {
+                            Text("\(vm.detailPlan.weatherPlan?.first?.condition.description ?? "No data yet")")
+                                .shadowedText(font: .system(size: 34, weight: .heavy, design: .rounded))
+                                .foregroundStyle(Color.white)
+                                .bold()
+                                .padding(.bottom, 16)
+                            
+                          HStack(spacing: 0) {
                             Image(systemName: "clock.fill")
                                 .shadowedText(font: .system(size: 14, weight: .semibold, design: .rounded))
-                                .foregroundStyle(Color.white)
-                                .padding(.trailing, 8)
                             
                             Text("\(String(describing: vm.detailPlan.durationPlan.start.formatted(date: .complete, time: .omitted)))")
                                 .shadowedText(font: .body)
                                 .foregroundStyle(Color.white)
                                 .fontWeight(.semibold)
                                 .fontDesign(.rounded)
+                            
                             Text(" | ")
                                 .shadowedText(font: .body)
                                 .foregroundStyle(Color.white)
                                 .fontWeight(.semibold)
                                 .fontDesign(.rounded)
+                            
                             if vm.detailPlan.allDay {
                                 Text("All Day")
                                     .shadowedText(font: .body)
                                     .foregroundStyle(Color.white)
                                     .fontWeight(.semibold)
                                     .fontDesign(.rounded)
-                            }else{
+                            } else {
                                 Text("\(String(describing: vm.detailPlan.durationPlan.start.formatted(date: .omitted, time: .shortened))) - \(String(describing: vm.detailPlan.durationPlan.end.formatted(date: .omitted, time: .shortened)))")
                                     .shadowedText(font: .body)
                                     .foregroundStyle(Color.white)
@@ -86,10 +88,10 @@ struct DetailPlanView: View {
                                     .fontDesign(.rounded)
                             }
                         }
-                        .padding(.bottom, 16)
+
                         
-                        VStack(spacing: 0) {
-                            HStack(spacing: 0) {
+                        VStack(alignment: .leading) {
+                            HStack {
                                 ZStack {
                                     Image(.chatBox)
                                     Text(gemini.outputText)
@@ -113,6 +115,7 @@ struct DetailPlanView: View {
                             VStack(spacing: 0) {
                                 HStack(spacing: 0) {
                                     VStack(alignment: .leading, spacing: 0) {
+                                      //spacer, vstack, spacer
                                         Text("\(String(format: "%.0f", vm.detailPlan.weatherPlan?.first?.temperature.value ?? 0))ºC")
                                             .font(.title)
                                             .foregroundStyle(Color.white)
@@ -123,7 +126,9 @@ struct DetailPlanView: View {
                                             .foregroundStyle(Color.white)
                                             .fontWeight(.semibold)
                                             .fontDesign(.rounded)
+                                      //spacer
                                     }
+                                  //spacer
                                     .frame(width: 164, height: 70)
                                     .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
                                     .padding(.trailing, 17)
@@ -135,7 +140,9 @@ struct DetailPlanView: View {
                                                 .fontWeight(.semibold)
                                                 .fontDesign(.rounded)
                                                 .foregroundStyle(Color.detailSecondary)
-                                            if let highTemp = vm.dayForecast?.first?.highTemperature.value { Text("\(highTemp.formatted(.number.precision(.fractionLength(0))))ºC")
+                                          
+                                            if let highTemp = vm.dayForecast?.first?.highTemperature.value { 
+                                              Text("\(highTemp.formatted(.number.precision(.fractionLength(0))))ºC")
                                                     .font(.body)
                                                     .foregroundStyle(Color.white)
                                                     .fontWeight(.semibold)
@@ -144,6 +151,8 @@ struct DetailPlanView: View {
                                                 Text("--")
                                                     .foregroundStyle(Color.white)
                                             }
+                                            
+                                            Spacer()
                                         }
                                         .padding(.trailing, 20)
                                         
@@ -154,7 +163,8 @@ struct DetailPlanView: View {
                                                 .fontDesign(.rounded)
                                                 .foregroundStyle(Color.detailSecondary)
                                             
-                                            if let lowTemp = vm.dayForecast?.first?.lowTemperature.value { Text("\(lowTemp.formatted(.number.precision(.fractionLength(0))))ºC")
+                                            if let lowTemp = vm.dayForecast?.first?.lowTemperature.value { 
+                                              Text("\(lowTemp.formatted(.number.precision(.fractionLength(0))))ºC")
                                                     .font(.body)
                                                     .foregroundStyle(Color.white)
                                                     .fontWeight(.semibold)
@@ -163,7 +173,12 @@ struct DetailPlanView: View {
                                                 Text("--")
                                                     .foregroundStyle(Color.white)
                                             }
+                                            
+                                            Spacer()
                                         }
+                                        .padding(.horizontal, 2)
+                                        
+                                        Spacer()
                                     }
                                     .frame(width: 164, height: 70)
                                     .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))

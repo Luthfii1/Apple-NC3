@@ -10,13 +10,18 @@ import SwiftData
 
 //Grouping UseCase ke dalam satu fungsi
 class DependencyInjection: ObservableObject{
-    private var modelContext: ModelContext
-    init(modelContext: ModelContext) {
+    static let shared = DependencyInjection()
+    
+    private init() {}
+    
+    private var modelContext: ModelContext?
+    func initializer(modelContext: ModelContext) {
         self.modelContext = modelContext
+        
     }
     
     // MARK: IMPLEMENTATION
-    lazy var planLocalDataSource = PlanLocalDataSource(modelContext: modelContext)
+    lazy var planLocalDataSource = PlanLocalDataSource(modelContext: modelContext!)
     lazy var aqiDataSource = AQIRemoteDataSource()
     
     lazy var planRepository = PlanRepository(planLocalDataSource: planLocalDataSource)
@@ -38,8 +43,7 @@ class DependencyInjection: ObservableObject{
     // MARK: FUNCTION
     func homeViewModel() -> HomeViewModel {
         HomeViewModel(
-            getAllPlansUseCase: getPlanPreviewUseCase,
-            refreshHomeViewUseCase: refreshPageViewUseCase
+            getAllPlansUseCase: getPlanPreviewUseCase
         )
     }
     
@@ -49,12 +53,9 @@ class DependencyInjection: ObservableObject{
     
     func dummyHomeViewModel() -> HomeViewModel {
         HomeViewModel(
-           getAllPlansUseCase: dummyGetAllPlansPreviewUseCase,
-           refreshHomeViewUseCase: dummyRefreshHomeViewUseCase
+           getAllPlansUseCase: dummyGetAllPlansPreviewUseCase
        )
     }
-    
-    
     
     func detailPlanViewModel() -> DetailPlanViewModel {
         DetailPlanViewModel(getDetailUseCase: detailPlanUseCase)
