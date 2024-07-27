@@ -20,6 +20,9 @@ class DependencyInjection: ObservableObject{
         
     }
     
+    // Singleton instance
+    private var createPlanViewModelInstance: CreateEditPlanViewModel?
+    
     // MARK: IMPLEMENTATION
     lazy var planLocalDataSource = PlanLocalDataSource(modelContext: modelContext!)
     lazy var aqiDataSource = AQIRemoteDataSource()
@@ -47,9 +50,10 @@ class DependencyInjection: ObservableObject{
         DetailPlanViewModel(planUseCase: getPlanPreviewUseCase)
     }
     
-    func createPlanViewModel() -> CreateEditPlanViewModel {
-        CreateEditPlanViewModel(
-            planUseCase: getPlanPreviewUseCase
-        )
+    func createEditPlanViewModel() -> CreateEditPlanViewModel {
+        if createPlanViewModelInstance == nil {
+            createPlanViewModelInstance = CreateEditPlanViewModel(planUseCase: getPlanPreviewUseCase)
+        }
+        return createPlanViewModelInstance!
     }
 }

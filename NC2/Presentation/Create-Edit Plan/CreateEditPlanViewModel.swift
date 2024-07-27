@@ -22,6 +22,7 @@ class CreateEditPlanViewModel: ObservableObject {
         self.state = StateView()
         self.newPlan = PlanModel()
         self.comparePlan = PlanModel()
+        print("CreateEditPlanViewModel initialized")
     }
     
     //    private var widgetPlan = WidgetPlanModel(
