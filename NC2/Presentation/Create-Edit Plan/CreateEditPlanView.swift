@@ -39,7 +39,6 @@ struct CreateEditPlanView: View {
                 if !isCreate {
                     Task {
                         await createPlanVM.getDetailPlan(planId: idPlan!)
-                        print("Detail plan loaded")
                     }
                 }
             }

@@ -22,7 +22,6 @@ class CreateEditPlanViewModel: ObservableObject {
         self.state = StateView()
         self.newPlan = PlanModel()
         self.comparePlan = PlanModel()
-        print("CreateEditPlanViewModel initialized")
     }
     
     //    private var widgetPlan = WidgetPlanModel(
@@ -109,19 +108,14 @@ class CreateEditPlanViewModel: ObservableObject {
     }
     
     func resetNewPlanToComparePlan() {
-        print("newplan: \(self.newPlan.title)")
-        print("copy: \(self.comparePlan.title)")
         self.newPlan = self.comparePlan
-        print("newplan after: \(self.newPlan.title)")
     }
     
     func cancelAction() -> Bool {
-        print("title: \(self.newPlan.title)")
         return !newPlan.title.isEmpty || !newPlan.location.nameLocation.isEmpty
     }
     
     func cancelEditChanges() -> Bool {
-        print("title: \(self.newPlan.title)")
         return hasUnsavedChanges()
     }
     
