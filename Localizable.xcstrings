@@ -1,13 +1,11 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "   %@%%   " : {
-
-    },
-    "   %lld   " : {
+    "   %@   " : {
 
     },
     " | " : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -37,7 +35,18 @@
         }
       }
     },
+    "%@   |   %@   |   " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@   |   %2$@   |   "
+          }
+        }
+      }
+    },
     "%@ - %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -86,6 +95,7 @@
       }
     },
     "%@ºC" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -109,6 +119,9 @@
     "%lld°C" : {
 
     },
+    "%lldºC" : {
+
+    },
     "Add Plan" : {
       "localizations" : {
         "id" : {
@@ -120,6 +133,7 @@
       }
     },
     "Air Quality Condition  |   %@   |   " : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -433,6 +447,7 @@
       }
     },
     "Feels like %@ºC" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -441,6 +456,9 @@
           }
         }
       }
+    },
+    "Feels like %lldºC" : {
+
     },
     "Fetching data..." : {
       "localizations" : {
@@ -735,6 +753,7 @@
       }
     },
     "Prepicitation   |   %@   |   " : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -907,6 +926,7 @@
       }
     },
     "UV Index   |   %@   |   " : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {

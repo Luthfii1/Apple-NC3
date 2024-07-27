@@ -16,21 +16,17 @@ class DetailPlanViewModel: ObservableObject {
     @Published var hourlyForecast: Forecast<HourWeather>?
     @Published var detailPlan: PlanModel = PlanModel()
     
-    private let getDetailUseCase: PlanDetailUseCase
+    private let planUseCase: PlanUseCasesProtocol
     
-    init(getDetailUseCase: PlanDetailUseCase) {
-        self.getDetailUseCase = getDetailUseCase
+    init(planUseCase: PlanUseCasesProtocol) {
+        self.planUseCase = planUseCase
     }
     
     @MainActor
     func getHourlyWeather() async {
-        self.isLoading = true
         do {
             let weatherFetched = try await GetDetailWeatherUseCase(location: detailPlan.location.coordinatePlace, date: detailPlan.durationPlan.start).execute()
-            DispatchQueue.main.async {
-                self.hourlyForecast = weatherFetched
-                self.isLoading = false
-            }
+            self.hourlyForecast = weatherFetched
         } catch {
             print("Failed to load weather: \(error)")
         }
@@ -40,14 +36,16 @@ class DetailPlanViewModel: ObservableObject {
     func getDetailPlan(planId: UUID) async {
         self.isLoading = true
         do {
-            let detailPlan = try await getDetailUseCase.execute(planId: planId)
-            DispatchQueue.main.async {
-                self.detailPlan = detailPlan
-                self.isLoading = false
-            }
+            let detailPlan = try await planUseCase.getDetailPlan(planId: planId)
+            self.detailPlan = detailPlan
+            self.isLoading = false
+            
+            await self.getHourlyWeather()
+            await self.getDayWeather()
         } catch {
             print("Error when getting detail plan because \(error)")
         }
+        self.isLoading = false
     }
     
     @MainActor
@@ -60,6 +58,21 @@ class DetailPlanViewModel: ObservableObject {
         } catch {
             print("Error when getting detail plan because \(error)")
         }
+    }
+    
+    func getBackgroundPage() -> String {
+        return (self.detailPlan.background != nil) ? (self.detailPlan.background! + "Detail") : "clearDetail"
+    }
+    
+    func getCTABackground() -> String {
+        return Utils().setCTA(condition: self.detailPlan.weatherPlan?.first?.condition ?? .clear, isDay: self.detailPlan.weatherPlan?.first?.isDaylight ?? true, isBadUV: self.isBadUV(uvi: self.detailPlan.weatherPlan?.first?.uvIndex.value ?? 0), isBadAQI: self.isBadAQI(aqi: self.detailPlan.aqiIndex ?? 0))
+    }
+    
+    func detailTime(isDate: Bool) -> String {
+        if isDate {
+            return (String(describing: self.detailPlan.durationPlan.start.formatted(date: .complete, time: .omitted)))
+        }
+        return ("\(String(describing: self.detailPlan.durationPlan.start.formatted(date: .omitted, time: .shortened))) - \(String(describing: self.detailPlan.durationPlan.end.formatted(date: .omitted, time: .shortened)))")
     }
     
     func aqiCondition(aqi: Int) -> String {
@@ -193,5 +206,41 @@ class DetailPlanViewModel: ObservableObject {
             Air quality index: \(airQualityIndex)
             Make the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting!
             """)
+    }
+    
+    func getWeatherDetails() -> [WeatherDetailUIModel] {
+        var details = [WeatherDetailUIModel]()
+        
+        if let uvi = detailPlan.weatherPlan?.first?.uvIndex.value {
+            details.append(WeatherDetailUIModel(
+                title: "UV Index",
+                condition: uviCondition(uvi: uvi),
+                iconName: "sun.max.fill",
+                value: "\(uvi)",
+                description: uviDescription(uvi: uvi)
+            ))
+        }
+        
+        if let prep = detailPlan.weatherPlan?.first?.precipitationChance {
+            details.append(WeatherDetailUIModel(
+                title: "Precipitation",
+                condition: precipitationCondition(prepCon: prep),
+                iconName: "umbrella.fill",
+                value: "\((prep * 100).formatted(.number.precision(.fractionLength(0))))%",
+                description: precipitationDescription(prepCon: prep)
+            ))
+        }
+        
+        if let aqi = detailPlan.aqiIndex {
+            details.append(WeatherDetailUIModel(
+                title: "Air Quality Condition",
+                condition: aqiCondition(aqi: aqi),
+                iconName: "wind",
+                value: "\(aqi)",
+                description: aqiDescription(aqi: aqi)
+            ))
+        }
+        
+        return details
     }
 }

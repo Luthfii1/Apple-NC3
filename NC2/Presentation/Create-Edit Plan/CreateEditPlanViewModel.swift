@@ -16,11 +16,9 @@ class CreateEditPlanViewModel: ObservableObject {
     @Published var comparePlan: PlanModel
     @Published var discardChanges: Bool = false
     private let planUseCase: PlanUseCasesProtocol
-    private let detailUseCase: PlanDetailUseCasesProtocol
     
-    init(planUseCase: PlanUseCasesProtocol, detailUseCase: PlanDetailUseCasesProtocol) {
+    init(planUseCase: PlanUseCasesProtocol) {
         self.planUseCase = planUseCase
-        self.detailUseCase = detailUseCase
         self.state = StateView()
         self.newPlan = PlanModel()
         self.comparePlan = PlanModel()
@@ -65,7 +63,7 @@ class CreateEditPlanViewModel: ObservableObject {
             self.state.isLoading = true
         }
         do {
-            let detailPlan = try await detailUseCase.executeGetDetailPlan(planId: planId)
+            let detailPlan = try await planUseCase.getDetailPlan(planId: planId)
             self.newPlan = detailPlan
             self.comparePlan = detailPlan.copy()
         } catch {

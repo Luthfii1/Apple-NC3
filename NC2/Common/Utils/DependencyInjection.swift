@@ -28,17 +28,13 @@ class DependencyInjection: ObservableObject{
     lazy var aqiRepository = AQIRepository(AQIRemoteDataSource: aqiDataSource)
     
     // MARK: IMPLEMENTATION USE CASES
-    lazy var getPlanPreviewUseCase = PlanUseCases(planRepository: planRepository)
+    lazy var getPlanPreviewUseCase = PlanUseCases(planRepository: planRepository, AQIRepository: aqiRepository)
     lazy var refreshPageViewUseCase = RefreshHomeViewUseCase(planRepository: planRepository)
-    lazy var detailPlanUseCase = PlanDetailUseCase(AQIRepository: aqiRepository, planRepository: planRepository)
     
     // MARK: TESTING
     lazy var dummyPlanRepository = DummyPlanRepository(dummyPlans: dummyPlans)
-    lazy var dummyGetAllPlansPreviewUseCase = PlanUseCases(planRepository: dummyPlanRepository)
+    lazy var dummyGetAllPlansPreviewUseCase = PlanUseCases(planRepository: dummyPlanRepository, AQIRepository: aqiRepository)
     lazy var dummyRefreshHomeViewUseCase = RefreshHomeViewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
-    lazy var dummyDetailPlanUseCase = PlanDetailUseCase(AQIRepository: aqiRepository, planRepository: dummyPlanRepository)
-    
-    
     
     // MARK: FUNCTION
     func homeViewModel() -> HomeViewModel {
@@ -47,28 +43,13 @@ class DependencyInjection: ObservableObject{
         )
     }
     
-//    func notificationManager() -> NotificationManager {
-//        NotificationManager(getDetailUseCase: getPlanPreviewUseCase)
-//    }
-    
-    func dummyHomeViewModel() -> HomeViewModel {
-        HomeViewModel(
-           getAllPlansUseCase: dummyGetAllPlansPreviewUseCase
-       )
-    }
-    
     func detailPlanViewModel() -> DetailPlanViewModel {
-        DetailPlanViewModel(getDetailUseCase: detailPlanUseCase)
-    }
-    
-    func dummyDetailPlanViewModel() -> DetailPlanViewModel {
-        DetailPlanViewModel(getDetailUseCase: dummyDetailPlanUseCase)
+        DetailPlanViewModel(planUseCase: getPlanPreviewUseCase)
     }
     
     func createPlanViewModel() -> CreateEditPlanViewModel {
         CreateEditPlanViewModel(
-            planUseCase: getPlanPreviewUseCase,
-            detailUseCase: detailPlanUseCase
+            planUseCase: getPlanPreviewUseCase
         )
     }
 }
