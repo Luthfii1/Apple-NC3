@@ -23,7 +23,9 @@ struct CreateEditPlanView: View {
                 planDetailsSection
                 planTimeSection
                 planCategorySection
-                routineSection
+                if createPlanVM.newPlan.planCategory == .Repeat {
+                    routineSection
+                }
                 reminderSection
                 deleteSection
             }
@@ -82,54 +84,59 @@ struct CreateEditPlanView: View {
     
     private var planTimeSection: some View {
         Section {
-            Toggle(isOn: $createPlanVM.newPlan.allDay) {
-                Text("All-day")
+            if createPlanVM.newPlan.planCategory != .Repeat {
+                allDayToggle
             }
             
-            DatePicker(
-                "Starts",
-                selection: $createPlanVM.newPlan.durationPlan.start,
-                in: createPlanVM.dateRange,
-                displayedComponents: createPlanVM.newPlan.allDay ? [.date] : [.date, .hourAndMinute]
-            )
-            .datePickerStyle(.compact)
-            
-            DatePicker(
-                "Ends",
-                selection: $createPlanVM.newPlan.durationPlan.end,
-                in: createPlanVM.newPlan.durationPlan.start...Date.distantFuture,
-                displayedComponents: createPlanVM.newPlan.allDay ? [.date] : [.date, .hourAndMinute]
-            )
-            .datePickerStyle(.compact)
+            startDatePicker
+            endDatePicker
+        }
+    }
+    
+    private var allDayToggle: some View {
+        Toggle(isOn: $createPlanVM.newPlan.allDay) {
+            Text("All-day")
+        }
+    }
+    
+    private var startDatePicker: some View {
+        DatePicker(
+            "Starts",
+            selection: $createPlanVM.newPlan.durationPlan.start,
+            in: createPlanVM.dateRange,
+            displayedComponents: displayedComponents
+        )
+        .datePickerStyle(.compact)
+    }
+    
+    private var endDatePicker: some View {
+        DatePicker(
+            "Ends",
+            selection: $createPlanVM.newPlan.durationPlan.end,
+            in: createPlanVM.newPlan.durationPlan.start...Date.distantFuture,
+            displayedComponents: displayedComponents
+        )
+        .datePickerStyle(.compact)
+    }
+    
+    private var displayedComponents: DatePicker.Components {
+        if createPlanVM.newPlan.planCategory == .Repeat {
+            return [.hourAndMinute]
+        } else if createPlanVM.newPlan.allDay {
+            return [.date]
+        } else {
+            return [.date, .hourAndMinute]
         }
     }
     
     private var planCategorySection: some View {
-            Section {
-                Picker("Event", selection: $createPlanVM.newPlan.planCategory) {
-                    ForEach(PLANCATEGORY.allCases, id: \.self) { selection in
-                        Text(selection.localizedString()).tag(selection)
-                    }
+        Section {
+            Picker("Event", selection: $createPlanVM.newPlan.planCategory) {
+                ForEach(PLANCATEGORY.allCases, id: \.self) { selection in
+                    Text(selection.localizedString()).tag(selection)
                 }
             }
-            
-//            if createPlanVM.newPlan.planCategory == .Routine {
-//                Section {
-//                    MultiSelectPicker(
-//                        title: String(localized: "Repeat"),
-//                        options: DAYS.allCases,
-//                        selections: Binding(
-//                            get: {
-//                                createPlanVM.newPlan.daysRepeat ?? Set()
-//                            },
-//                            set: {
-//                                createPlanVM.newPlan.daysRepeat = $0
-//                            }
-//                        )
-//                    )
-//                }
-//            }
-        
+        }
     }
     
     private var routineSection: some View {
@@ -235,7 +242,3 @@ struct CreateEditPlanView: View {
         }
     }
 }
-
-//#Preview {
-//    CreateEditPlanView(isCreate: true)
-//}
