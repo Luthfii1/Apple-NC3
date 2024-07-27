@@ -10,6 +10,7 @@ import Foundation
 protocol PlanUseCasesProtocol {
     func getAllPlans() async throws
     func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [HomeCardUIModel]
+    func getDetailPlan(planId: UUID) async throws -> PlanModel
     func getWeatherAndSetBackground() async throws
     func insertPlan(plan: PlanModel) async throws
     func deletePlan(planId: UUID) async throws
@@ -21,11 +22,11 @@ protocol RefreshHomeViewUseCaseProtocol {
     func execute(isEvent: Int) async throws -> [HomeCardUIModel]
 }
 
-protocol PlanDetailUseCasesProtocol {
-    func execute(planId: UUID) async throws -> PlanModel
-    func executeGetDetailPlan(planId: UUID) async throws -> PlanModel
-}
-
-protocol GetDetailUseCaseProtocol {
-    func execute() async throws -> PlanModel
-}
+//protocol PlanDetailUseCasesProtocol {
+//    func execute(planId: UUID) async throws -> PlanModel
+//    func executeGetDetailPlan(planId: UUID) async throws -> PlanModel
+//}
+//
+//protocol GetDetailUseCaseProtocol {
+//    func execute() async throws -> PlanModel
+//}

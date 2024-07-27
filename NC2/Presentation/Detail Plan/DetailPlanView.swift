@@ -15,116 +15,99 @@ struct DetailPlanView: View {
     @StateObject var gemini = GeminiBotViewModel()
     var planId: UUID
     
-    @EnvironmentObject var dependencyInjection: DependencyInjection
-    @EnvironmentObject var vmHome : HomeViewModel
-    
     var body: some View {
-        VStack {
-            if vm.isLoading || gemini.inProgress {
+        VStack(spacing: 0) {
+            if vm.isLoading {
                 ProgressView("Loading...")
             } else {
                 ZStack{
-                    Image((vm.detailPlan.background != nil) ? (vm.detailPlan.background! + "Detail") : "clearDetail")
+                    Image(vm.getBackgroundPage())
                         .resizable()
                         .scaledToFill()
                         .edgesIgnoringSafeArea(.all)
                     
-                    VStack(alignment: .leading) {
-                        VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        VStack(alignment: .leading, spacing: 12) {
                             Text("\(vm.detailPlan.weatherPlan?.first?.condition.description ?? "No data yet")")
                                 .shadowedText(font: .system(size: 34, weight: .heavy, design: .rounded))
                                 .foregroundStyle(Color.white)
                                 .bold()
-                                .padding(.bottom, 12)
+                                .padding(.bottom, 8)
                             
-                            HStack {
+                            HStack(alignment: .top, spacing: 8) {
                                 Image(systemName: "clock.fill")
                                     .shadowedText(font: .system(size: 14, weight: .semibold, design: .rounded))
                                     .foregroundStyle(Color.white)
                                 
-                                Text("\(String(describing: vm.detailPlan.durationPlan.start.formatted(date: .complete, time: .omitted)))")
-                                    .shadowedText(font: .body)
-                                    .foregroundStyle(Color.white)
-                                    .fontWeight(.semibold)
-                                    .fontDesign(.rounded)
-                                Text(" | ")
-                                    .shadowedText(font: .body)
-                                    .foregroundStyle(Color.white)
-                                    .fontWeight(.semibold)
-                                    .fontDesign(.rounded)
-                                if vm.detailPlan.allDay {
-                                    Text("All Day")
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("\(vm.detailTime(isDate: true))")
                                         .shadowedText(font: .body)
                                         .foregroundStyle(Color.white)
                                         .fontWeight(.semibold)
                                         .fontDesign(.rounded)
-                                }else{
-                                    Text("\(String(describing: vm.detailPlan.durationPlan.start.formatted(date: .omitted, time: .shortened))) - \(String(describing: vm.detailPlan.durationPlan.end.formatted(date: .omitted, time: .shortened)))")
+                                    
+                                    Text("\(vm.detailPlan.allDay ? "All Day" : vm.detailTime(isDate: false))")
                                         .shadowedText(font: .body)
                                         .foregroundStyle(Color.white)
                                         .fontWeight(.semibold)
                                         .fontDesign(.rounded)
                                 }
                             }
-                            .padding(.bottom, 12)
                             
-                            HStack(alignment: .top) {
+                            HStack(alignment: .top, spacing: 8) {
                                 Image(systemName: "pin.fill")
                                     .shadowedText(font: .system(size: 14, weight: .semibold, design: .rounded))
                                     .foregroundStyle(Color.white)
-                                VStack(alignment: .leading) {
+                                
+                                VStack(alignment: .leading, spacing: 4) {
                                     Text("\(vm.detailPlan.title)")
                                         .shadowedText(font: .body)
                                         .foregroundStyle(Color.white)
                                         .fontWeight(.semibold)
                                         .fontDesign(.rounded)
+                                    
                                     Text("\(vm.detailPlan.location.nameLocation)")
-                                        .shadowedText(font: .footnote)
+                                        .shadowedText(font: .body)
                                         .foregroundStyle(Color.white)
                                         .fontWeight(.semibold)
                                         .fontDesign(.rounded)
                                 }
-                                .padding(.bottom, 12)
                             }
                         }
                         
-                        VStack(alignment: .leading) {
-                            HStack {
-                                ZStack {
-                                    Image(.chatBox)
-                                    Text(gemini.outputText)
-                                        .foregroundStyle(Color.black)
-                                        .font(Font.custom("NanumPen", size: 28))
-                                        .padding(.leading, 12)
-                                        .padding(.trailing, 36)
-                                        .padding(.top, 32)
-                                        .multilineTextAlignment(.center)
-                                }
-                                .offset(x:4, y:24)
-                                
-                                Image(Utils().setCTA(condition: vm.detailPlan.weatherPlan?.first?.condition ?? .clear, isDay: vm.detailPlan.weatherPlan?.first?.isDaylight ?? true, isBadUV: vm.isBadUV(uvi: vm.detailPlan.weatherPlan?.first?.uvIndex.value ?? 0), isBadAQI: vm.isBadAQI(aqi: vm.detailPlan.aqiIndex ?? 0)))
-                                
-                            }
-                        }
-                        .frame(width: 350, height: 224)
-                        .padding(.bottom, 12)
-                        .offset(x: 24)
-                        
-                        VStack(spacing: 20) {
+                        HStack (alignment: .bottom, spacing: 20) {
+                            Spacer()
+                            
                             VStack {
-                                HStack() {
-                                    HStack() {
+                                Text(gemini.inProgress ? "Summarizing..." : gemini.outputText)
+                                    .foregroundStyle(Color.black)
+                                    .font(Font.custom("NanumPen", size: 28))
+                                    .padding(.trailing, 24)
+                                    .frame(alignment: .center)
+                            }
+                            .background(Image(.chatBox))
+                            
+                            Image(vm.getCTABackground())
+                        }
+                        .padding(.vertical, 40)
+                        
+                        Divider()
+                            .padding(.vertical, 4)
+                        
+                        ScrollView {
+                            VStack(spacing: 0) {
+                                HStack(spacing: 16) {
+                                    HStack {
                                         Spacer()
-                                        
-                                        VStack(alignment: .leading) {
+                                        VStack(alignment: .leading, spacing: 0) {
                                             Spacer()
                                             
-                                            Text("\(String(format: "%.1f", vm.detailPlan.weatherPlan?.first?.temperature.value ?? 0))ºC")
-                                                .font(.title3)
+                                            Text("\(Int(ceil(vm.detailPlan.weatherPlan?.first?.temperature.value ?? 0)))ºC")
+                                                .font(.title)
                                                 .foregroundStyle(Color.white)
                                                 .fontWeight(.semibold)
                                                 .fontDesign(.rounded)
-                                            Text("Feels like \(String(format: "%.1f", vm.detailPlan.weatherPlan?.first?.apparentTemperature.value ?? 0))ºC")
+                                            Text("Feels like \(Int(ceil(vm.detailPlan.weatherPlan?.first?.apparentTemperature.value ?? 0)))ºC")
                                                 .font(.caption)
                                                 .foregroundStyle(Color.white)
                                                 .fontWeight(.semibold)
@@ -132,17 +115,17 @@ struct DetailPlanView: View {
                                             
                                             Spacer()
                                         }
-                                        
                                         Spacer()
                                     }
-                                    .padding(10)
-                                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(.bgDetailCard)
+                                            .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
+                                    )
                                     
-                                    
-                                    HStack() {
+                                    HStack(spacing: 12) {
                                         Spacer()
-                                        
-                                        VStack {
+                                        VStack(spacing: 0) {
                                             Spacer()
                                             
                                             Text("HIGHEST")
@@ -150,8 +133,9 @@ struct DetailPlanView: View {
                                                 .fontWeight(.semibold)
                                                 .fontDesign(.rounded)
                                                 .foregroundStyle(Color.detailSecondary)
+                                            
                                             if let highTemp = vm.dayForecast?.first?.highTemperature.value {
-                                                Text("\(highTemp.formatted(.number.precision(.fractionLength(1))))ºC")
+                                                Text("\(Int(ceil(highTemp)))ºC")
                                                     .font(.body)
                                                     .foregroundStyle(Color.white)
                                                     .fontWeight(.semibold)
@@ -163,9 +147,8 @@ struct DetailPlanView: View {
                                             
                                             Spacer()
                                         }
-                                        .padding(.horizontal, 2)
                                         
-                                        VStack {
+                                        VStack(spacing: 0) {
                                             Spacer()
                                             
                                             Text("LOWEST")
@@ -175,7 +158,7 @@ struct DetailPlanView: View {
                                                 .foregroundStyle(Color.detailSecondary)
                                             
                                             if let lowTemp = vm.dayForecast?.first?.lowTemperature.value {
-                                                Text("\(lowTemp.formatted(.number.precision(.fractionLength(1))))ºC")
+                                                Text("\(Int(ceil(lowTemp)))ºC")
                                                     .font(.body)
                                                     .foregroundStyle(Color.white)
                                                     .fontWeight(.semibold)
@@ -187,149 +170,70 @@ struct DetailPlanView: View {
                                             
                                             Spacer()
                                         }
-                                        .padding(.horizontal, 2)
-                                        
                                         Spacer()
                                     }
-                                    .padding(10)
-                                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(.bgDetailCard)
+                                            .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
+                                    )
                                 }
-                                .padding(.bottom, 8)
-                            }
-                            .frame(maxHeight: 75 )
-                            
-                            HStack() {
-                                Spacer()
+                                .frame(height: 64)
+                                .padding(.bottom, 16)
                                 
-                                VStack(alignment: .leading) {
-                                    HStack {
-                                        Image(systemName: "sun.max.fill")
-                                            .font(.body)
+                                VStack(alignment: .leading, spacing: 0) {
+                                    if let hourly = vm.detailPlan.weatherPlan {
+                                        Text("Hourly Forecast")
+                                            .font(.caption)
                                             .foregroundStyle(Color.white)
                                             .fontWeight(.semibold)
                                             .fontDesign(.rounded)
-                                        Text("\(vm.detailPlan.weatherPlan?.first?.uvIndex.value ?? 0)")
-                                            .font(.body)
-                                            .foregroundStyle(Color.white)
-                                            .fontWeight(.semibold)
-                                            .fontDesign(.rounded)
-                                    }
-                                    Text("UV index")
-                                        .font(.caption2)
-                                        .fontWeight(.semibold)
-                                        .fontDesign(.rounded)
-                                        .foregroundStyle(Color.detailSecondary)
-                                    Text(vm.uviCondition(uvi: vm.detailPlan.weatherPlan?.first?.uvIndex.value ?? -1))
-                                        .font(.caption2)
-                                        .foregroundStyle(Color.white)
-                                        .fontWeight(.semibold)
-                                        .fontDesign(.rounded)
-                                }
-                                
-                                Spacer()
-                                
-                                VStack(alignment: .leading) {
-                                    HStack {
-                                        Image(systemName: "umbrella.fill")
-                                            .font(.body)
-                                            .foregroundStyle(Color.white)
-                                            .fontWeight(.semibold)
-                                            .fontDesign(.rounded)
-                                        Text("\(((vm.detailPlan.weatherPlan?.first?.precipitationChance ?? 0) * 100).formatted(.number.precision(.fractionLength(0))))%")
-                                            .font(.body)
-                                            .foregroundStyle(Color.white)
-                                            .fontWeight(.semibold)
-                                            .fontDesign(.rounded)
-                                    }
-                                    Text("Precipitation")
-                                        .font(.caption2)
-                                        .fontWeight(.semibold)
-                                        .fontDesign(.rounded)
-                                        .foregroundStyle(Color.detailSecondary)
-                                    Text(vm.precipitationCondition(prepCon: (vm.detailPlan.weatherPlan?.first?.precipitationChance ?? -1)*100))
-                                        .font(.caption2)
-                                        .foregroundStyle(Color.white)
-                                        .fontWeight(.semibold)
-                                        .fontDesign(.rounded)
-                                }
-                                
-                                Spacer()
-                                
-                                VStack(alignment: .leading) {
-                                    HStack {
-                                        Image(systemName: "wind")
-                                            .font(.body)
-                                            .foregroundStyle(Color.white)
-                                            .fontWeight(.semibold)
-                                            .fontDesign(.rounded)
-                                        Text("\(vm.detailPlan.aqiIndex ?? 0)")
-                                            .font(.body)
-                                            .foregroundStyle(Color.white)
-                                            .fontWeight(.semibold)
-                                            .fontDesign(.rounded)
-                                    }
-                                    Text("AQI")
-                                        .font(.caption2)
-                                        .fontWeight(.semibold)
-                                        .fontDesign(.rounded)
-                                        .foregroundStyle(Color.detailSecondary)
-                                    Text(vm.aqiCondition(aqi: vm.detailPlan.aqiIndex ?? -1))
-                                        .font(.caption2)
-                                        .foregroundStyle(Color.white)
-                                        .fontWeight(.semibold)
-                                        .fontDesign(.rounded)
-                                }
-                                
-                                Spacer()
-                            }
-                            .padding(10)
-                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
-                            
-                            VStack(alignment: .leading) {
-                                if let hourly = vm.detailPlan.weatherPlan {
-                                    Text("Hourly Forecast")
-                                        .font(.caption)
-                                        .foregroundStyle(Color.white)
-                                        .fontWeight(.semibold)
-                                        .fontDesign(.rounded)
-                                        .padding(.top, 12)
-                                        .padding(.leading, 18)
-                                    Divider()
-                                    
-                                    ScrollView(.horizontal) {
-                                        HStack(spacing: 12) {
-                                            ForEach(hourly, id: \.date) { hour in
-                                                HourDetailsCell(hourWeather: hour)
-                                                    .padding(.horizontal, 5)
+                                            .padding(.top, 12)
+                                            .padding(.leading, 16)
+                                            .padding(.bottom, 8)
+                                        
+                                        Divider()
+                                            .padding(.bottom, 8)
+                                        
+                                        ScrollView(.horizontal) {
+                                            HStack(spacing: 20) {
+                                                ForEach(hourly, id: \.date) { hour in
+                                                    HourDetailsCell(hourWeather: hour)
+                                                }
                                             }
+                                            .padding(.horizontal, 16)
                                         }
+                                        .padding(.top, 8)
+                                        .padding(.bottom, 12)
                                     }
-                                    .padding(.horizontal, 12)
-                                    .padding(.bottom, 12)
+                                }
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(.bgDetailCard)
+                                        .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
+                                )
+                                .padding(.bottom, 16)
+                                
+                                ForEach(vm.getWeatherDetails()) { detail in
+                                    WeatherDetailComponent(
+                                        title: detail.title,
+                                        condition: detail.condition,
+                                        iconName: detail.iconName,
+                                        value: detail.value,
+                                        description: detail.description
+                                    )
                                 }
                             }
-                            .padding(10)
-                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
                         }
-                        .preferredColorScheme(.dark)
                     }
-                    .padding(.horizontal, 16)
-                }
-                .sheet(isPresented: $vmHome.state.isCreateSheetPresented) {
-                    CreateEditPlanView(isCreate: true)
-                        .environmentObject(dependencyInjection.createPlanViewModel())
-                }
-                .sheet(isPresented: $vmHome.state.isEditSheetPresented) {
-                    CreateEditPlanView(isCreate: false, idPlan: vmHome.idPlanEdit)
-                        .environmentObject(dependencyInjection.createPlanViewModel())
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 48)
                 }
             }
         }
         .onAppear{
             Task {
                 await vm.getDetailPlan(planId: planId)
-                await vm.getHourlyWeather()
-                await vm.getDayWeather()
                 await gemini.summarize(inputText: vm.generateInputText())
             }
         }
@@ -347,17 +251,6 @@ struct DetailPlanView: View {
                         .foregroundStyle(Color.white)
                 })
             }
-            ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {
-                    vmHome.state.isEditSheetPresented = true
-                    vmHome.idPlanEdit = planId
-                }, label: {
-                    Text("Edit")
-                        .fontDesign(.rounded)
-                        .foregroundStyle(Color.white)
-                })
-            }
         }
     }
 }
-

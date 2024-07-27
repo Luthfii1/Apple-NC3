@@ -7,14 +7,9 @@
 
 import SwiftUI
 
-struct SwipeableView: View {
+struct SwipeableComponent: View {
     @EnvironmentObject var vm: HomeViewModel
     let plan: HomeCardUIModel
-    
-    @State private var offset: CGFloat = 0
-    @State private var isSwiped = false
-    
-    private let buttonHeight: CGFloat = 100
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -25,13 +20,15 @@ struct SwipeableView: View {
                     vm.state.isEditSheetPresented = true
                     vm.idPlanEdit = plan.id
                 }) {
-                    Image(systemName: "pencil")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(30)
-                        .frame(width: 80, height: buttonHeight)
-                        .background(Color.gray)
-                        .foregroundColor(.white)
+                    ZStack {
+                        Color.gray
+                        Image(systemName: "pencil")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 90, height: 120)
                 }
                 
                 Button(action: {
@@ -39,50 +36,50 @@ struct SwipeableView: View {
                         await vm.deletePlan(planId: plan.id)
                     }
                 }) {
-                    Image(systemName: "trash")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(27)
-                        .frame(width: 74, height: buttonHeight)
-                        .background(Color.red)
-                        .foregroundColor(.white)
-                        .customCornerRadius(10, corners: [.topRight, .bottomRight])
+                    ZStack {
+                        Color.red
+                        Image(systemName: "trash")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 80, height: 120)
+                    .customCornerRadius(10, corners: [.topRight, .bottomRight])
                 }
             }
-            .frame(height: buttonHeight)
             
             // Plan Card
             PlanCardComponent(plan: plan)
-                .frame(minHeight: buttonHeight)
-                .offset(x: offset)
+                .offset(x: vm.offset)
                 .highPriorityGesture(
                     DragGesture()
                         .onChanged { gesture in
-                            if isSwiped {
+                            if vm.isSwiped {
                                 if gesture.translation.width > 0 {
-                                    self.offset = min(gesture.translation.width - 145, 0)
+                                    vm.offset = min(gesture.translation.width - 160, 0)
                                 }
                             } else {
                                 if gesture.translation.width < 0 {
-                                    self.offset = max(gesture.translation.width, -145)
+                                    vm.offset = max(gesture.translation.width, -160)
                                 }
                             }
                         }
                         .onEnded { _ in
                             withAnimation {
-                                if isSwiped {
-                                    if self.offset > -70 {
-                                        self.offset = 0
-                                        self.isSwiped = false
+                                if vm.isSwiped {
+                                    if vm.offset > -70 {
+                                        vm.offset = 0
+                                        vm.isSwiped = false
                                     } else {
-                                        self.offset = -145
+                                        vm.offset = -160
                                     }
                                 } else {
-                                    if -self.offset > 70 {
-                                        self.offset = -145
-                                        self.isSwiped = true
+                                    if -vm.offset > 70 {
+                                        vm.offset = -160
+                                        vm.isSwiped = true
                                     } else {
-                                        self.offset = 0
+                                        vm.offset = 0
                                     }
                                 }
                             }
@@ -91,8 +88,8 @@ struct SwipeableView: View {
                 .onChange(of: vm.state.resetSwipeOffset, {
                     if vm.state.resetSwipeOffset {
                         withAnimation {
-                            offset = 0
-                            isSwiped = false
+                            vm.offset = 0
+                            vm.isSwiped = false
                         }
                     }
                 })

@@ -9,11 +9,10 @@ import SwiftUI
 
 struct PlanCardComponent: View {
     var plan: HomeCardUIModel
-    @EnvironmentObject var dependencyInjection: DependencyInjection
 
     var body: some View {
         NavigationLink(destination: DetailPlanView(planId: plan.id)
-            .environmentObject(dependencyInjection.detailPlanViewModel())
+            .environmentObject(DependencyInjection.shared.detailPlanViewModel())
         ) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack(alignment: .top) {
@@ -45,7 +44,7 @@ struct PlanCardComponent: View {
                     Image(systemName: "cloud.sun.fill")
                         .shadowedText(font: .body)
 
-                    Text("\(String(format: "%.1f", plan.temperature ?? 0))°C")
+                    Text("\(Int(ceil(plan.temperature ?? 0)))°C")
                         .shadowedText(font: .body)
 
                     Text(plan.weatherDescription?.toFrontCapital() ?? "fetching data")
@@ -53,9 +52,8 @@ struct PlanCardComponent: View {
                 }
                 .padding(.vertical, 4)
             }
-            .frame(minHeight: 100)
+            .frame(height: 120)
             .padding(.horizontal, 16)
-            .padding(.vertical, 8)
             .background(
                 Image(plan.backgroundCard ?? "clearCard")
                     .resizable()
@@ -63,7 +61,6 @@ struct PlanCardComponent: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             )
             .clipShape(RoundedRectangle(cornerRadius: 10))
-            .padding(.vertical, 4)
         }
     }
 }

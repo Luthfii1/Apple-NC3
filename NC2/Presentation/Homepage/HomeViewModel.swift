@@ -9,6 +9,7 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var plans: [HomeCardUIModel] = []
+    @Published var selectedPlan: HomeCardUIModel? = nil
     @Published var idPlanEdit: UUID = UUID()
     @Published var isNewOpen: Bool
     @Published var state: StateView = StateView()
@@ -19,6 +20,10 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
+    @Published var offset: CGFloat = 0
+    @Published var isSwiped = false
+    @Published var buttonHeight: CGFloat = 100
+    
     private let getAllPlansUseCase: PlanUseCasesProtocol
     
     init(getAllPlansUseCase: PlanUseCasesProtocol) {

@@ -12,11 +12,13 @@ import WeatherKit
 class PlanUseCases: PlanUseCasesProtocol{
     var allPlans: [PlanModel] = []
     let planRepository: PlanRepositoryProtocol
+    let AQIRepository: AQIRepositoryProtocol
     let utils: Utils
     
-    init(planRepository: PlanRepositoryProtocol) {
+    init(planRepository: PlanRepositoryProtocol, AQIRepository: AQIRepositoryProtocol) {
         self.planRepository = planRepository
-        utils = Utils()
+        self.utils = Utils()
+        self.AQIRepository = AQIRepository
     }
     
     func getAllPlans() async throws {
@@ -51,9 +53,21 @@ class PlanUseCases: PlanUseCasesProtocol{
         return result
     }
     
+    func getDetailPlan(planId: UUID) async throws -> PlanModel {
+        guard let plan = self.allPlans.first(where: { $0.id == planId }) else {
+            throw NSError(domain: "PlanDetailUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "Plan not found"])
+        }
+        
+        return plan
+    }
+    
     func getWeatherAndSetBackground() async throws {
         for plan in self.allPlans {
             var background = "clearCard"
+            
+            let coordinatePlace = plan.location.coordinatePlace
+            let currentAQIData = try await AQIRepository.getAQI(geoLocation: coordinatePlace)
+            plan.aqiIndex = currentAQIData.data.aqi
             
             if let hourlyForecastPlan = await WeatherManager.shared.hourlyForecast(
                 for: CLLocation(

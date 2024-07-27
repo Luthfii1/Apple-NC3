@@ -12,15 +12,12 @@ import UserNotifications
 @main
 struct NC2App: App {
     let container : ModelContainer
-    @StateObject var dependencyInjection: DependencyInjection
     
     
     init() {
         do {
             container = try ModelContainer(for: PlanModel.self)
-            let dependency = DependencyInjection(modelContext: container.mainContext)
-            Test.shared.initializer(modelContext: container.mainContext)
-            _dependencyInjection = StateObject(wrappedValue: dependency)
+            DependencyInjection.shared.initializer(modelContext: container.mainContext)
             
         } catch {
             fatalError("Failed to initialize SwiftData")
@@ -31,8 +28,7 @@ struct NC2App: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .environmentObject(dependencyInjection)
-                .environmentObject(Test.shared.homeViewModel())
+                .environmentObject(DependencyInjection.shared.homeViewModel())
         }
         .modelContainer(container)
     }
