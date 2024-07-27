@@ -44,7 +44,7 @@ struct CreateEditPlanView: View {
             }
             .confirmationDialog(
                 String(localized: "Are you sure you want to discard your changes?"),
-                isPresented: $discardChanges,
+                isPresented: $createPlanVM.discardChanges,
                 titleVisibility: .visible
             ) {
                 discardChangesDialog
@@ -94,7 +94,7 @@ struct CreateEditPlanView: View {
                 displayedComponents: displayedComponents
             )
             .datePickerStyle(.compact)
-            
+
             DatePicker(
                 "Ends",
                 selection: $createPlanVM.newPlan.durationPlan.end,
@@ -187,13 +187,13 @@ struct CreateEditPlanView: View {
             if isCreate {
                 shouldShowDialog = createPlanVM.cancelAction()
             } else {
-                shouldShowDialog = createPlanVM.cancelEditChanges()
+                shouldShowDialog = createPlanVM.hasUnsavedChanges()
             }
             
             if shouldShowDialog {
-                DispatchQueue.main.async {
-                    discardChanges = true
-                }
+//                DispatchQueue.main.async {
+                    createPlanVM.discardChanges = true
+//                }
             } else {
                 dismissView()
             }
@@ -209,7 +209,9 @@ struct CreateEditPlanView: View {
                 if isCreate {
                     await createPlanVM.insertPlan(homeViewModel: homeViewModel)
                 } else {
-                    await createPlanVM.updatePlan(homeViewModel: homeViewModel)
+                    if createPlanVM.hasUnsavedChanges() {
+                        await createPlanVM.updatePlan(homeViewModel: homeViewModel)
+                    }
                 }
             }
             dismissView()
@@ -223,7 +225,9 @@ struct CreateEditPlanView: View {
     private var discardChangesDialog: some View {
         VStack {
             Button(String(localized: "Discard Changes"), role: .destructive) {
-                createPlanVM.resetNewPlanToComparePlan()
+                Task {
+                    await createPlanVM.cancelPlan(homeViewModel: homeViewModel)
+                }
                 dismissView()
             }
             Button(String(localized: "Cancel"), role: .cancel) {}

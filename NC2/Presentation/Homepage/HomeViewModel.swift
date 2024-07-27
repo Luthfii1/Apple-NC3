@@ -105,7 +105,7 @@ class HomeViewModel: ObservableObject {
     }
     
     @MainActor
-    func updatePlan(plan: PlanModel) async {
+    func updatePlan(plan: PlanModel) async throws {
         do {
             try await getAllPlansUseCase.updatePlan(plan: plan)
             await getPlansByFilter()
