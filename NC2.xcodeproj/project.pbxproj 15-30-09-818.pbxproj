@@ -12,7 +12,8 @@
 		3D332D832C465D6A00B10FA3 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1612C44CB05008E6AEE /* WidgetBundle.swift */; };
 		3D332D862C465EB300B10FA3 /* MultiSelectpicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */; };
 		3D332D882C465ECF00B10FA3 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */; };
-		3D9587252C476719000CDDFF /* SwipeableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587242C476719000CDDFF /* SwipeableComponent.swift */; };
+		3D9587252C476719000CDDFF /* SwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587242C476719000CDDFF /* SwipeableView.swift */; };
+		3D9587272C477208000CDDFF /* CustomRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */; };
 		3D95872C2C48AF08000CDDFF /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3D95872B2C48AEC7000CDDFF /* Localizable.xcstrings */; };
 		6376F4C92C4783D200AFBF22 /* NanumPen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6376F4C82C4783D200AFBF22 /* NanumPen.ttf */; };
 		8AC3A1732C452A57008E6AEE /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */; };
@@ -21,6 +22,7 @@
 		8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1772C452B0D008E6AEE /* GeminiBotScreen.swift */; };
 		8AC3A1842C461A9E008E6AEE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1832C461A9E008E6AEE /* WidgetKit.framework */; };
 		8AC3A1862C461A9E008E6AEE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A1852C461A9E008E6AEE /* SwiftUI.framework */; };
+		8AC3A1A22C4675BC008E6AEE /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1A12C4675BC008E6AEE /* Test.swift */; };
 		8AC3A1A82C46A6BF008E6AEE /* WidgetPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1A72C46A6BF008E6AEE /* WidgetPlanModel.swift */; };
 		8AC3A1A92C46A6BF008E6AEE /* WidgetPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3A1A72C46A6BF008E6AEE /* WidgetPlanModel.swift */; };
 		8AC3A1AA2C46A6E9008E6AEE /* PlanCategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6794E82C44E832002B24EE /* PlanCategoryEnum.swift */; };
@@ -66,7 +68,7 @@
 		DD7F94432C40D923009E4C9F /* SearchPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94422C40D923009E4C9F /* SearchPlaceViewModel.swift */; };
 		DD7F944A2C40DDE6009E4C9F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94492C40DDE6009E4C9F /* NotificationManager.swift */; };
 		DD7F944C2C42B420009E4C9F /* PlanCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F944B2C42B420009E4C9F /* PlanCardComponent.swift */; };
-		DD7F94502C42BF0E009E4C9F /* HomeCardUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F944F2C42BF0E009E4C9F /* HomeCardUIModel.swift */; };
+		DD7F94502C42BF0E009E4C9F /* PlanCardEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F944F2C42BF0E009E4C9F /* PlanCardEntity.swift */; };
 		DD7F94542C42BF43009E4C9F /* dummyPlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94532C42BF43009E4C9F /* dummyPlans.swift */; };
 		DD7F94562C42C68E009E4C9F /* PlanLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94552C42C68E009E4C9F /* PlanLocalDataSourceProtocol.swift */; };
 		DD7F94582C42C72D009E4C9F /* PlanLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94572C42C72D009E4C9F /* PlanLocalDataSource.swift */; };
@@ -78,6 +80,7 @@
 		DD7F94672C42DB00009E4C9F /* RefreshHomeViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */; };
 		DD7F94692C42DC2C009E4C9F /* DummyPlanRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94682C42DC2C009E4C9F /* DummyPlanRepository.swift */; };
 		DD7F946B2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */; };
+		DD7F946E2C4387B8009E4C9F /* AQIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F946D2C4387B8009E4C9F /* AQIResponse.swift */; };
 		DD7F94702C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F946F2C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift */; };
 		DD7F94722C438853009E4C9F /* AQIRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94712C438853009E4C9F /* AQIRemoteDataSource.swift */; };
 		DD7F94742C43EAE9009E4C9F /* AQIRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94732C43EAE9009E4C9F /* AQIRepositoryProtocol.swift */; };
@@ -85,15 +88,14 @@
 		DD7F94782C43EEE3009E4C9F /* PlanDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */; };
 		DD7F947A2C441107009E4C9F /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F94792C441107009E4C9F /* StateView.swift */; };
 		DD7F947C2C4439F5009E4C9F /* PlanUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F947B2C4439F5009E4C9F /* PlanUseCases.swift */; };
-		DDAAD0D62C4E0C5500C0066E /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAAD0D52C4E0C5500C0066E /* View+Extension.swift */; };
-		DDAAD0D82C4E0C8600C0066E /* AQIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAAD0D72C4E0C8600C0066E /* AQIResponseModel.swift */; };
 		DDCB3E762C47779600466E2B /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCB3E752C47779600466E2B /* GoogleGenerativeAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3D332D852C465EB300B10FA3 /* MultiSelectpicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectpicker.swift; sourceTree = "<group>"; };
 		3D332D872C465ECF00B10FA3 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
-		3D9587242C476719000CDDFF /* SwipeableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableComponent.swift; sourceTree = "<group>"; };
+		3D9587242C476719000CDDFF /* SwipeableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableView.swift; sourceTree = "<group>"; };
+		3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
 		3D95872B2C48AEC7000CDDFF /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		6376F4C82C4783D200AFBF22 /* NanumPen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumPen.ttf; sourceTree = "<group>"; };
 		8AC3A15D2C43163A008E6AEE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		8AC3A1832C461A9E008E6AEE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		8AC3A1852C461A9E008E6AEE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8AC3A19A2C461B86008E6AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8AC3A1A12C4675BC008E6AEE /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		8AC3A1A72C46A6BF008E6AEE /* WidgetPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPlanModel.swift; sourceTree = "<group>"; };
 		8AC3A1AF2C473C91008E6AEE /* widgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widgetExtension.entitlements; sourceTree = "<group>"; };
 		8AC3A1C22C474E39008E6AEE /* AppGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupManager.swift; sourceTree = "<group>"; };
@@ -145,7 +148,7 @@
 		DD7F94422C40D923009E4C9F /* SearchPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewModel.swift; sourceTree = "<group>"; };
 		DD7F94492C40DDE6009E4C9F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		DD7F944B2C42B420009E4C9F /* PlanCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCardComponent.swift; sourceTree = "<group>"; };
-		DD7F944F2C42BF0E009E4C9F /* HomeCardUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardUIModel.swift; sourceTree = "<group>"; };
+		DD7F944F2C42BF0E009E4C9F /* PlanCardEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCardEntity.swift; sourceTree = "<group>"; };
 		DD7F94532C42BF43009E4C9F /* dummyPlans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyPlans.swift; sourceTree = "<group>"; };
 		DD7F94552C42C68E009E4C9F /* PlanLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
 		DD7F94572C42C72D009E4C9F /* PlanLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanLocalDataSource.swift; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 		DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHomeViewUseCase.swift; sourceTree = "<group>"; };
 		DD7F94682C42DC2C009E4C9F /* DummyPlanRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyPlanRepository.swift; sourceTree = "<group>"; };
 		DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanUseCasesProtocol.swift; sourceTree = "<group>"; };
+		DD7F946D2C4387B8009E4C9F /* AQIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIResponse.swift; sourceTree = "<group>"; };
 		DD7F946F2C438827009E4C9F /* AQIRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
 		DD7F94712C438853009E4C9F /* AQIRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRemoteDataSource.swift; sourceTree = "<group>"; };
 		DD7F94732C43EAE9009E4C9F /* AQIRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -164,8 +168,6 @@
 		DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailUseCase.swift; sourceTree = "<group>"; };
 		DD7F94792C441107009E4C9F /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
 		DD7F947B2C4439F5009E4C9F /* PlanUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanUseCases.swift; sourceTree = "<group>"; };
-		DDAAD0D52C4E0C5500C0066E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		DDAAD0D72C4E0C8600C0066E /* AQIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,7 +246,6 @@
 				DD6794ED2C44F0F0002B24EE /* Date+Extension.swift */,
 				DD6794FF2C457BF3002B24EE /* Text+Extension.swift */,
 				DD260E952C46D8C4009F43F2 /* String+Extension.swift */,
-				DDAAD0D52C4E0C5500C0066E /* View+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -253,10 +254,18 @@
 			isa = PBXGroup;
 			children = (
 				DD6794F02C450EBC002B24EE /* DependencyInjection.swift */,
+				8AC3A1A12C4675BC008E6AEE /* Test.swift */,
 				8AC3A1C22C474E39008E6AEE /* AppGroupManager.swift */,
 				DD5D590B2C46274A009AB089 /* Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		DD7B641E2C4A170600308EED /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		DD7F93BE2C3D4D0A009E4C9F = {
@@ -284,7 +293,7 @@
 		DD7F93C92C3D4D0A009E4C9F /* NC2 */ = {
 			isa = PBXGroup;
 			children = (
-				DDAAD0D92C52AD8300C0066E /* Preview Content */,
+				DD7B641E2C4A170600308EED /* Preview Content */,
 				8AC3A19A2C461B86008E6AEE /* Info.plist */,
 				8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */,
 				DD6794FC2C453B1E002B24EE /* NC2Debug.entitlements */,
@@ -318,7 +327,6 @@
 				DD7F94792C441107009E4C9F /* StateView.swift */,
 				DD6794E32C44E7E6002B24EE /* LocationModel.swift */,
 				8AC3A1A72C46A6BF008E6AEE /* WidgetPlanModel.swift */,
-				DDAAD0D72C4E0C8600C0066E /* AQIResponseModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -327,9 +335,9 @@
 			isa = PBXGroup;
 			children = (
 				DD7F946A2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift */,
-				DD7F947B2C4439F5009E4C9F /* PlanUseCases.swift */,
 				DD7F94662C42DB00009E4C9F /* RefreshHomeViewUseCase.swift */,
 				DD7F94772C43EEE3009E4C9F /* PlanDetailUseCase.swift */,
+				DD7F947B2C4439F5009E4C9F /* PlanUseCases.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -361,8 +369,9 @@
 			children = (
 				DD7F94312C40D7DC009E4C9F /* HomeView.swift */,
 				DD7F94332C40D80E009E4C9F /* HomeViewModel.swift */,
-				DD7F944F2C42BF0E009E4C9F /* HomeCardUIModel.swift */,
-				3D9587242C476719000CDDFF /* SwipeableComponent.swift */,
+				DD7F944F2C42BF0E009E4C9F /* PlanCardEntity.swift */,
+				3D9587242C476719000CDDFF /* SwipeableView.swift */,
+				3D9587262C477208000CDDFF /* CustomRoundedCorner.swift */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -453,6 +462,7 @@
 				6376F4C12C46E55200AFBF22 /* Fonts */,
 				DD6794EF2C450EAB002B24EE /* Utils */,
 				DD6794EC2C44F0E3002B24EE /* Extension */,
+				DD7F946C2C43878D009E4C9F /* Model Fetching */,
 				DD7F94522C42BF2A009E4C9F /* Data Dummy */,
 			);
 			path = Common;
@@ -479,11 +489,12 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		DDAAD0D92C52AD8300C0066E /* Preview Content */ = {
+		DD7F946C2C43878D009E4C9F /* Model Fetching */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F946D2C4387B8009E4C9F /* AQIResponse.swift */,
 			);
-			path = "Preview Content";
+			path = "Model Fetching";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -627,12 +638,13 @@
 				DD6794F92C453865002B24EE /* HourDetailsCell.swift in Sources */,
 				DD7F94342C40D80E009E4C9F /* HomeViewModel.swift in Sources */,
 				DD6794E72C44E821002B24EE /* DaysEnum.swift in Sources */,
-				3D9587252C476719000CDDFF /* SwipeableComponent.swift in Sources */,
+				3D9587252C476719000CDDFF /* SwipeableView.swift in Sources */,
 				DD7F94322C40D7DC009E4C9F /* HomeView.swift in Sources */,
 				DD7F93CB2C3D4D0A009E4C9F /* NC2App.swift in Sources */,
 				DD6794EE2C44F0F0002B24EE /* Date+Extension.swift in Sources */,
 				DD7F94692C42DC2C009E4C9F /* DummyPlanRepository.swift in Sources */,
 				DD7F94432C40D923009E4C9F /* SearchPlaceViewModel.swift in Sources */,
+				DD7F946E2C4387B8009E4C9F /* AQIResponse.swift in Sources */,
 				8AC3A1A82C46A6BF008E6AEE /* WidgetPlanModel.swift in Sources */,
 				DD7F94222C40D0EB009E4C9F /* PlanModel.swift in Sources */,
 				DD7F94612C42CA2A009E4C9F /* PlanRepositoryProtocol.swift in Sources */,
@@ -640,7 +652,6 @@
 				DD7F945E2C42C9C6009E4C9F /* dummyPlanModel.swift in Sources */,
 				DD7F94632C42CA65009E4C9F /* PlanRepository.swift in Sources */,
 				DD5D590C2C46274A009AB089 /* Utils.swift in Sources */,
-				DDAAD0D62C4E0C5500C0066E /* View+Extension.swift in Sources */,
 				DD6794EB2C44E847002B24EE /* ReminderEnum.swift in Sources */,
 				DD7F94722C438853009E4C9F /* AQIRemoteDataSource.swift in Sources */,
 				DD7F946B2C42DDE6009E4C9F /* PlanUseCasesProtocol.swift in Sources */,
@@ -662,12 +673,13 @@
 				DD6794E42C44E7E6002B24EE /* LocationModel.swift in Sources */,
 				DD7F944A2C40DDE6009E4C9F /* NotificationManager.swift in Sources */,
 				8AC3A1792C452B0D008E6AEE /* GeminiBotScreen.swift in Sources */,
+				3D9587272C477208000CDDFF /* CustomRoundedCorner.swift in Sources */,
+				8AC3A1A22C4675BC008E6AEE /* Test.swift in Sources */,
 				DD7F942F2C40D7A0009E4C9F /* ButtonComponent.swift in Sources */,
 				DD7F94412C40D8E7009E4C9F /* SearchPlaceView.swift in Sources */,
 				DD6794F52C4537FE002B24EE /* GetDetailWeatherUseCase.swift in Sources */,
 				DD7F94582C42C72D009E4C9F /* PlanLocalDataSource.swift in Sources */,
-				DD7F94502C42BF0E009E4C9F /* HomeCardUIModel.swift in Sources */,
-				DDAAD0D82C4E0C8600C0066E /* AQIResponseModel.swift in Sources */,
+				DD7F94502C42BF0E009E4C9F /* PlanCardEntity.swift in Sources */,
 				DD7F94672C42DB00009E4C9F /* RefreshHomeViewUseCase.swift in Sources */,
 				DD260E962C46D8C4009F43F2 /* String+Extension.swift in Sources */,
 				DD7F947A2C441107009E4C9F /* StateView.swift in Sources */,
@@ -688,7 +700,7 @@
 				CODE_SIGN_ENTITLEMENTS = widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4V452CD2YS;
+				DEVELOPMENT_TEAM = XSHZNN2ULY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -700,7 +712,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = bachul.happykids.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -717,7 +729,7 @@
 				CODE_SIGN_ENTITLEMENTS = widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4V452CD2YS;
+				DEVELOPMENT_TEAM = XSHZNN2ULY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -729,7 +741,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = bachul.happykids.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -865,6 +877,7 @@
 				CODE_SIGN_ENTITLEMENTS = NC2/NC2Debug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
 				DEVELOPMENT_TEAM = 4V452CD2YS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -881,9 +894,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+<<<<<<< Updated upstream
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
 				PRODUCT_NAME = WePlan;
+=======
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
+				PRODUCT_NAME = "Happy Kids";
+>>>>>>> Stashed changes
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -898,7 +917,12 @@
 				CODE_SIGN_ENTITLEMENTS = NC2/NC2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
+<<<<<<< Updated upstream
+				DEVELOPMENT_TEAM = XSHZNN2ULY;
+=======
 				DEVELOPMENT_TEAM = 4V452CD2YS;
+>>>>>>> Stashed changes
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
@@ -915,7 +939,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = NC2.HappyKids;
 				PRODUCT_NAME = WePlan;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

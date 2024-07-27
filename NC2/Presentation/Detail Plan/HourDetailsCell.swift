@@ -25,7 +25,7 @@ struct HourDetailsCell: View {
                     .frame(height: 24)
                     .foregroundStyle(Color.white)
 
-                Text("\(hour.temperature.value.formatted(.number.precision(.fractionLength(1))))°")
+                Text("\(hour.temperature.value.formatted(.number.precision(.fractionLength(0))))°")
                     .font(.footnote)
                     .fontWeight(.semibold)
                     .fontDesign(.rounded)
