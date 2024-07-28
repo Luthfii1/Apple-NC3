@@ -191,6 +191,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DA2B8422C565612006062C6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		6376F4C12C46E55200AFBF22 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +282,7 @@
 			children = (
 				3D95872B2C48AEC7000CDDFF /* Localizable.xcstrings */,
 				8AC3A1AF2C473C91008E6AEE /* widgetExtension.entitlements */,
+				3DA2B8422C565612006062C6 /* Preview Content */,
 				8AC3A1CB2C47AB67008E6AEE /* Widget */,
 				DD7F93C92C3D4D0A009E4C9F /* NC2 */,
 				8AC3A1822C461A9E008E6AEE /* Frameworks */,
@@ -295,7 +303,6 @@
 		DD7F93C92C3D4D0A009E4C9F /* NC2 */ = {
 			isa = PBXGroup;
 			children = (
-				DDAAD0D92C52AD8300C0066E /* Preview Content */,
 				8AC3A19A2C461B86008E6AEE /* Info.plist */,
 				8AC3A1722C452A57008E6AEE /* GenerativeAI-Info.plist */,
 				DD6794FC2C453B1E002B24EE /* NC2Debug.entitlements */,
@@ -488,13 +495,6 @@
 				DD7F94752C43EB3D009E4C9F /* AQIRepository.swift */,
 			);
 			path = Repositories;
-			sourceTree = "<group>";
-		};
-		DDAAD0D92C52AD8300C0066E /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -877,7 +877,7 @@
 				CODE_SIGN_ENTITLEMENTS = NC2/NC2Debug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 4V452CD2YS;
+				DEVELOPMENT_TEAM = 3L9D9QLCDG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
@@ -910,7 +910,7 @@
 				CODE_SIGN_ENTITLEMENTS = NC2/NC2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 4V452CD2YS;
+				DEVELOPMENT_TEAM = 3L9D9QLCDG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NC2/Info.plist;
@@ -927,7 +927,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.glennleonali.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Feli.WeatherAppParents;
 				PRODUCT_NAME = WePlan;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

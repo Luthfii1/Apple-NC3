@@ -4,16 +4,18 @@
 //
 //  Created by Felicia Himawan on 17/07/24.
 //
-
 import SwiftUI
 
 struct SwipeableComponent: View {
     @EnvironmentObject var vm: HomeViewModel
+    @State private var showAlert = false
+    @State private var offset: CGFloat = 0
+    @State private var isSwiped = false
     let plan: HomeCardUIModel
     
     var body: some View {
         ZStack(alignment: .leading) {
-            // Buttons for Edit and Delete
+          
             HStack(spacing: 0) {
                 Spacer()
                 Button(action: {
@@ -32,9 +34,7 @@ struct SwipeableComponent: View {
                 }
                 
                 Button(action: {
-                    Task {
-                        await vm.deletePlan(planId: plan.id)
-                    }
+                    showAlert = true
                 }) {
                     ZStack {
                         Color.red
@@ -51,49 +51,52 @@ struct SwipeableComponent: View {
             
             // Plan Card
             PlanCardComponent(plan: plan)
-                .offset(x: vm.offset)
+                .offset(x: offset)
                 .highPriorityGesture(
                     DragGesture()
                         .onChanged { gesture in
-                            if vm.isSwiped {
+                            if isSwiped {
                                 if gesture.translation.width > 0 {
-                                    vm.offset = min(gesture.translation.width - 160, 0)
+                                    offset = min(gesture.translation.width - 160, 0)
                                 }
                             } else {
                                 if gesture.translation.width < 0 {
-                                    vm.offset = max(gesture.translation.width, -160)
+                                    offset = max(gesture.translation.width, -160)
                                 }
                             }
                         }
                         .onEnded { _ in
                             withAnimation {
-                                if vm.isSwiped {
-                                    if vm.offset > -70 {
-                                        vm.offset = 0
-                                        vm.isSwiped = false
+                                if isSwiped {
+                                    if offset > -70 {
+                                        offset = 0
+                                        isSwiped = false
                                     } else {
-                                        vm.offset = -160
+                                        offset = -160
                                     }
                                 } else {
-                                    if -vm.offset > 70 {
-                                        vm.offset = -160
-                                        vm.isSwiped = true
+                                    if -offset > 70 {
+                                        offset = -160
+                                        isSwiped = true
                                     } else {
-                                        vm.offset = 0
+                                        offset = 0
                                     }
                                 }
                             }
                         }
                 )
-                .onChange(of: vm.state.resetSwipeOffset, {
-                    if vm.state.resetSwipeOffset {
-                        withAnimation {
-                            vm.offset = 0
-                            vm.isSwiped = false
-                        }
-                    }
-                })
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Are you sure you want to delete your plan?"),
+                primaryButton: .destructive(Text("Delete")) {
+                    Task {
+                        await vm.deletePlan(planId: plan.id)
+                    }
+                },
+                secondaryButton: .cancel()
+            )
+        }
     }
 }

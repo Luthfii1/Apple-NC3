@@ -51,7 +51,7 @@ struct CreateEditPlanView: View {
             }
         }
     }
-    
+
     private var planDetailsSection: some View {
         Section {
             TextField("Title", text: $createPlanVM.newPlan.title)
@@ -78,7 +78,7 @@ struct CreateEditPlanView: View {
             }
         }
     }
-    
+
     private var planTimeSection: some View {
         Section {
             if createPlanVM.newPlan.planCategory != .Repeat {
@@ -114,7 +114,7 @@ struct CreateEditPlanView: View {
             return [.date, .hourAndMinute]
         }
     }
-    
+
     private var planCategorySection: some View {
         Section {
             Picker("Event", selection: $createPlanVM.newPlan.planCategory) {
@@ -139,7 +139,7 @@ struct CreateEditPlanView: View {
             }
         }
     }
-    
+
     private var reminderSection: some View {
         Section {
             Picker("Reminder", selection: $createPlanVM.newPlan.reminder) {
@@ -154,7 +154,7 @@ struct CreateEditPlanView: View {
             }
         }
     }
-    
+
     private var deleteSection: some View {
         Group {
             if !isCreate {
@@ -167,7 +167,7 @@ struct CreateEditPlanView: View {
             }
         }
     }
-    
+
     private var deleteAlert: Alert {
         Alert(
             title: Text("Are you sure you want to delete your plan?"),
@@ -180,7 +180,7 @@ struct CreateEditPlanView: View {
             secondaryButton: .cancel()
         )
     }
-    
+
     private var cancelButton: some View {
         Button("Cancel") {
             let shouldShowDialog: Bool
@@ -191,9 +191,7 @@ struct CreateEditPlanView: View {
             }
             
             if shouldShowDialog {
-//                DispatchQueue.main.async {
-                    createPlanVM.discardChanges = true
-//                }
+                createPlanVM.discardChanges = true
             } else {
                 dismissView()
             }
@@ -201,7 +199,6 @@ struct CreateEditPlanView: View {
             homeViewModel.resetSwipeOffsetFlag()
         }
     }
-    
     
     private var doneButton: some View {
         Button("Done") {
@@ -213,15 +210,15 @@ struct CreateEditPlanView: View {
                         await createPlanVM.updatePlan(homeViewModel: homeViewModel)
                     }
                 }
+                WidgetCenter.shared.reloadAllTimelines()
             }
             dismissView()
             homeViewModel.resetSwipeOffsetFlag()
             NotificationManager.shared.scheduleNotifications()
         }
         .disabled(!createPlanVM.isFormValid)
-        .bold(!createPlanVM.isFormValid ? false : true)
     }
-    
+
     private var discardChangesDialog: some View {
         VStack {
             Button(String(localized: "Discard Changes"), role: .destructive) {
@@ -230,7 +227,6 @@ struct CreateEditPlanView: View {
                 }
                 dismissView()
             }
-            Button(String(localized: "Cancel"), role: .cancel) {}
         }
     }
     

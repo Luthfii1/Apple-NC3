@@ -4,7 +4,6 @@
 //
 //  Created by Luthfi Misbachul Munir on 12/07/24.
 //
-
 import Foundation
 import MapKit
 import SwiftData
