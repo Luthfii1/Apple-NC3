@@ -48,7 +48,35 @@ class CreateEditPlanViewModel: ObservableObject {
     
     @MainActor
     func updatePlan(homeViewModel: HomeViewModel) async {
-        await homeViewModel.updatePlan(plan: newPlan)
+        do {
+            try await homeViewModel.updatePlan(plan: newPlan)
+        } catch {
+            print("error update plan")
+        }
+    }
+    
+    @MainActor
+    func cancelPlan(homeViewModel: HomeViewModel) async {
+        print("cancelling")
+        let tempPlan = newPlan
+        let backToPreviousData = comparePlan
+        
+        self.newPlan = self.comparePlan
+        
+        async let updateTempPlan: () = homeViewModel.updatePlan(plan: tempPlan)
+        async let updateBackToPreviousData: () = homeViewModel.updatePlan(plan: backToPreviousData)
+        
+        do {
+            try await updateTempPlan
+        } catch {
+            print("Failed to update plan with tempPlan: \(error)")
+        }
+        
+        do {
+            try await updateBackToPreviousData
+        } catch {
+            print("Failed to update plan with backToPreviousData: \(error)")
+        }
     }
     
     @MainActor
@@ -106,39 +134,17 @@ class CreateEditPlanViewModel: ObservableObject {
         }
     }
     
-//    func resetNewPlanToComparePlan() {
-//        print("newplan: \(self.newPlan.title)")
-//        print("copy: \(self.comparePlan.title)")
-//        self.newPlan = self.comparePlan
-//        print("newplan after: \(self.newPlan.title)")
-//    }
-    
     func cancelAction() -> Bool {
-            return !newPlan.title.isEmpty || !newPlan.location.nameLocation.isEmpty
-        }
-        
-        func cancelEditChanges() -> Bool {
-            return hasUnsavedChanges()
-        }
-        
-        func resetNewPlanToComparePlan() {
-            self.newPlan = self.comparePlan.copy()
-        }
-        
-        func hasUnsavedChanges() -> Bool {
-            return newPlan.title != comparePlan.title ||
-                   newPlan.location != comparePlan.location ||
-                   newPlan.durationPlan != comparePlan.durationPlan ||
-                   newPlan.allDay != comparePlan.allDay ||
-                   newPlan.planCategory != comparePlan.planCategory ||
-                   newPlan.reminder != comparePlan.reminder ||
-                   newPlan.daysRepeat != comparePlan.daysRepeat
-        }
-        
-        struct StateView {
-            var showDeleteAlert = false
-            var showDiscardChangesDialog = false
-            var isLoading = false
-        }
+        return !newPlan.title.isEmpty || !newPlan.location.nameLocation.isEmpty
+    }
     
+    func hasUnsavedChanges() -> Bool {
+        return newPlan.title != comparePlan.title ||
+        newPlan.location != comparePlan.location ||
+        newPlan.durationPlan != comparePlan.durationPlan ||
+        newPlan.allDay != comparePlan.allDay ||
+        newPlan.planCategory != comparePlan.planCategory ||
+        newPlan.reminder != comparePlan.reminder ||
+        newPlan.daysRepeat != comparePlan.daysRepeat
+    }
 }

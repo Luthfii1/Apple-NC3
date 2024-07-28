@@ -10,22 +10,19 @@ import SwiftData
 import WidgetKit
 
 struct CreateEditPlanView: View {
-    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var createPlanVM: CreateEditPlanViewModel
     @StateObject private var searchPlaceViewModel = SearchPlaceViewModel()
     var isCreate: Bool
     var idPlan: UUID?
-
+    @State private var discardChanges: Bool = false
+    
     var body: some View {
         NavigationView {
             Form {
                 planDetailsSection
-                planTimeSection
                 planCategorySection
-                if createPlanVM.newPlan.planCategory == .Repeat {
-                    routineSection
-                }
+                planTimeSection
                 reminderSection
                 deleteSection
             }
@@ -47,7 +44,7 @@ struct CreateEditPlanView: View {
             }
             .confirmationDialog(
                 String(localized: "Are you sure you want to discard your changes?"),
-                isPresented: $createPlanVM.state.showDiscardChangesDialog,
+                isPresented: $createPlanVM.discardChanges,
                 titleVisibility: .visible
             ) {
                 discardChangesDialog
@@ -85,40 +82,29 @@ struct CreateEditPlanView: View {
     private var planTimeSection: some View {
         Section {
             if createPlanVM.newPlan.planCategory != .Repeat {
-                allDayToggle
+                Toggle(isOn: $createPlanVM.newPlan.allDay) {
+                    Text("All-day")
+                }
             }
+            
+            DatePicker(
+                "Starts",
+                selection: $createPlanVM.newPlan.durationPlan.start,
+                in: createPlanVM.dateRange,
+                displayedComponents: displayedComponents
+            )
+            .datePickerStyle(.compact)
 
-            startDatePicker
-            endDatePicker
+            DatePicker(
+                "Ends",
+                selection: $createPlanVM.newPlan.durationPlan.end,
+                in: createPlanVM.newPlan.durationPlan.start...Date.distantFuture,
+                displayedComponents: displayedComponents
+            )
+            .datePickerStyle(.compact)
         }
     }
-
-    private var allDayToggle: some View {
-        Toggle(isOn: $createPlanVM.newPlan.allDay) {
-            Text("All-day")
-        }
-    }
-
-    private var startDatePicker: some View {
-        DatePicker(
-            "Starts",
-            selection: $createPlanVM.newPlan.durationPlan.start,
-            in: createPlanVM.dateRange,
-            displayedComponents: displayedComponents
-        )
-        .datePickerStyle(.compact)
-    }
-
-    private var endDatePicker: some View {
-        DatePicker(
-            "Ends",
-            selection: $createPlanVM.newPlan.durationPlan.end,
-            in: createPlanVM.newPlan.durationPlan.start...Date.distantFuture,
-            displayedComponents: displayedComponents
-        )
-        .datePickerStyle(.compact)
-    }
-
+    
     private var displayedComponents: DatePicker.Components {
         if createPlanVM.newPlan.planCategory == .Repeat {
             return [.hourAndMinute]
@@ -136,23 +122,21 @@ struct CreateEditPlanView: View {
                     Text(selection.localizedString()).tag(selection)
                 }
             }
-        }
-    }
-
-    private var routineSection: some View {
-        Section {
-            MultiSelectPicker(
-                title: String(localized: "Repeat"),
-                options: DAYS.allCases,
-                selections: Binding(
-                    get: {
-                        createPlanVM.newPlan.daysRepeat ?? Set()
-                    },
-                    set: {
-                        createPlanVM.newPlan.daysRepeat = $0
-                    }
+            
+            if createPlanVM.newPlan.planCategory == .Repeat {
+                MultiSelectPicker(
+                    title: String(localized: "Every"),
+                    options: DAYS.allCases,
+                    selections: Binding(
+                        get: {
+                            createPlanVM.newPlan.daysRepeat ?? Set()
+                        },
+                        set: {
+                            createPlanVM.newPlan.daysRepeat = $0
+                        }
+                    )
                 )
-            )
+            }
         }
     }
 
@@ -191,7 +175,7 @@ struct CreateEditPlanView: View {
                 Task {
                     await homeViewModel.deletePlan(planId: createPlanVM.newPlan.id)
                 }
-                presentationMode.wrappedValue.dismiss()
+                dismissView()
             },
             secondaryButton: .cancel()
         )
@@ -199,45 +183,58 @@ struct CreateEditPlanView: View {
 
     private var cancelButton: some View {
         Button("Cancel") {
+            let shouldShowDialog: Bool
             if isCreate {
-                if createPlanVM.cancelAction() {
-                    createPlanVM.state.showDiscardChangesDialog = true
-                } else {
-                    presentationMode.wrappedValue.dismiss()
-                }
+                shouldShowDialog = createPlanVM.cancelAction()
             } else {
-                if createPlanVM.cancelEditChanges() {
-                    createPlanVM.state.showDiscardChangesDialog = true
-                } else {
-                    presentationMode.wrappedValue.dismiss()
-                }
+                shouldShowDialog = createPlanVM.hasUnsavedChanges()
             }
+            
+            if shouldShowDialog {
+                createPlanVM.discardChanges = true
+            } else {
+                dismissView()
+            }
+            
+            homeViewModel.resetSwipeOffsetFlag()
         }
     }
-
+    
     private var doneButton: some View {
         Button("Done") {
             Task {
                 if isCreate {
                     await createPlanVM.insertPlan(homeViewModel: homeViewModel)
                 } else {
-                    await createPlanVM.updatePlan(homeViewModel: homeViewModel)
+                    if createPlanVM.hasUnsavedChanges() {
+                        await createPlanVM.updatePlan(homeViewModel: homeViewModel)
+                    }
                 }
                 WidgetCenter.shared.reloadAllTimelines()
-                presentationMode.wrappedValue.dismiss()
             }
+            dismissView()
+            homeViewModel.resetSwipeOffsetFlag()
+            NotificationManager.shared.scheduleNotifications()
         }
         .disabled(!createPlanVM.isFormValid)
     }
 
     private var discardChangesDialog: some View {
-            Button("Discard Changes", role: .destructive) {
-                if isCreate {
-                    presentationMode.wrappedValue.dismiss()
-                } else {
-                    createPlanVM.resetNewPlanToComparePlan()
-                    presentationMode.wrappedValue.dismiss()
+        VStack {
+            Button(String(localized: "Discard Changes"), role: .destructive) {
+                Task {
+                    await createPlanVM.cancelPlan(homeViewModel: homeViewModel)
                 }
+                dismissView()
             }
         }
+    }
+    
+    private func dismissView() {
+        if isCreate {
+            homeViewModel.state.isCreateSheetPresented = false
+        } else {
+            homeViewModel.state.isEditSheetPresented = false
+        }
+    }
 }

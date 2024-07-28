@@ -46,7 +46,6 @@
       }
     },
     "%@ - %@" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -463,6 +462,9 @@
           }
         }
       }
+    },
+    "Every" : {
+
     },
     "Every Day" : {
       "localizations" : {

@@ -12,6 +12,6 @@ enum DAYS: String, Codable, CaseIterable, Identifiable {
     case Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
     
     func localizedString() -> String {
-           return NSLocalizedString(self.rawValue, comment: "")
-       }
+        return NSLocalizedString(self.rawValue, comment: "")
+    }
 }

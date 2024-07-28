@@ -48,11 +48,11 @@ struct HomeView: View {
                     }
                     .sheet(isPresented: $vm.state.isCreateSheetPresented) {
                         CreateEditPlanView(isCreate: true)
-                            .environmentObject(DependencyInjection.shared.createPlanViewModel())
+                            .environmentObject(DependencyInjection.shared.createEditPlanViewModel())
                     }
                     .sheet(isPresented: $vm.state.isEditSheetPresented) {
                         CreateEditPlanView(isCreate: false, idPlan: vm.idPlanEdit)
-                            .environmentObject(DependencyInjection.shared.createPlanViewModel())
+                            .environmentObject(DependencyInjection.shared.createEditPlanViewModel())
                     }
                     .refreshable {
                         await vm.refreshPage()
