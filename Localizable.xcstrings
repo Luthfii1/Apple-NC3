@@ -116,6 +116,12 @@
         }
       }
     },
+    "%lld°C" : {
+
+    },
+    "%lldºC" : {
+
+    },
     "1 day before" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -539,6 +545,9 @@
         }
       }
     },
+    "Feels like %lldºC" : {
+
+    },
     "Fetching data..." : {
       "localizations" : {
         "id" : {
@@ -556,16 +565,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jumat"
-          }
-        }
-      }
-    },
-    "Fetching data..." : {
-      "localizations" : {
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mengambil data…"
           }
         }
       }
@@ -833,6 +832,9 @@
         }
       }
     },
+    "Occasional showers are likely. Keep an umbrella or raincoat handy and consider indoor alternatives for your activities." : {
+
+    },
     "Plan" : {
       "localizations" : {
         "id" : {
@@ -988,6 +990,18 @@
         }
       }
     },
+    "The air quality is good with little or no risk. Feel free to enjoy your outdoor activities without concern." : {
+
+    },
+    "The sun is moderately strong, so cover up with clothing, wear a hat and sunglasses, and use sunscreen with SPF 30+. Seek shade during midday hours." : {
+
+    },
+    "The UV index is high, increasing the risk of skin damage. Limit your sun exposure between 10 a.m. and 4 p.m., seek shade, wear protective clothing, a wide-brimmed hat, and UV-blocking sunglasses, and use broad-spectrum SPF 30+ sunscreen." : {
+
+    },
+    "There's a slight chance of light rain or drizzle. It’s a good idea to bring an umbrella just in case while enjoying your day outdoors." : {
+
+    },
     "Thursday" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1109,9 +1123,18 @@
         }
       }
     },
+    "Weather: %@\nUV: %lld\nPrecipitation chance: %lf\nAir quality index: %lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Weather: %1$@\nUV: %2$lld\nPrecipitation chance: %3$lf\nAir quality index: %4$lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting!"
+          }
+        }
+      }
+    },
     "Wednesday" : {
       "extractionState" : "manual",
-
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -1120,6 +1143,9 @@
           }
         }
       }
+    },
+    "Widespread showers are expected. Be prepared for rain throughout the day, wear waterproof clothing, and plan for indoor activities if possible." : {
+
     },
     "Your Todos" : {
       "extractionState" : "stale",

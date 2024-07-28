@@ -4,7 +4,6 @@
 //
 //  Created by Luthfi Misbachul Munir on 12/07/24.
 //
-
 import Foundation
 import MapKit
 import SwiftData
@@ -107,31 +106,39 @@ class CreateEditPlanViewModel: ObservableObject {
         }
     }
     
-    func resetNewPlanToComparePlan() {
-        print("newplan: \(self.newPlan.title)")
-        print("copy: \(self.comparePlan.title)")
-        self.newPlan = self.comparePlan
-        print("newplan after: \(self.newPlan.title)")
-    }
+//    func resetNewPlanToComparePlan() {
+//        print("newplan: \(self.newPlan.title)")
+//        print("copy: \(self.comparePlan.title)")
+//        self.newPlan = self.comparePlan
+//        print("newplan after: \(self.newPlan.title)")
+//    }
     
     func cancelAction() -> Bool {
-        print("title: \(self.newPlan.title)")
-        return !newPlan.title.isEmpty || !newPlan.location.nameLocation.isEmpty
-    }
+            return !newPlan.title.isEmpty || !newPlan.location.nameLocation.isEmpty
+        }
+        
+        func cancelEditChanges() -> Bool {
+            return hasUnsavedChanges()
+        }
+        
+        func resetNewPlanToComparePlan() {
+            self.newPlan = self.comparePlan.copy()
+        }
+        
+        func hasUnsavedChanges() -> Bool {
+            return newPlan.title != comparePlan.title ||
+                   newPlan.location != comparePlan.location ||
+                   newPlan.durationPlan != comparePlan.durationPlan ||
+                   newPlan.allDay != comparePlan.allDay ||
+                   newPlan.planCategory != comparePlan.planCategory ||
+                   newPlan.reminder != comparePlan.reminder ||
+                   newPlan.daysRepeat != comparePlan.daysRepeat
+        }
+        
+        struct StateView {
+            var showDeleteAlert = false
+            var showDiscardChangesDialog = false
+            var isLoading = false
+        }
     
-    func cancelEditChanges() -> Bool {
-        print("title: \(self.newPlan.title)")
-        return hasUnsavedChanges()
-    }
-    
-    private func hasUnsavedChanges() -> Bool {
-        print("title: \(self.newPlan.title)")
-        return newPlan.title != comparePlan.title ||
-        newPlan.location != comparePlan.location ||
-        newPlan.durationPlan != comparePlan.durationPlan ||
-        newPlan.allDay != comparePlan.allDay ||
-        newPlan.planCategory != comparePlan.planCategory ||
-        newPlan.reminder != comparePlan.reminder ||
-        newPlan.daysRepeat != comparePlan.daysRepeat
-    }
 }

@@ -16,7 +16,7 @@ struct CreateEditPlanView: View {
     @StateObject private var searchPlaceViewModel = SearchPlaceViewModel()
     var isCreate: Bool
     var idPlan: UUID?
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -54,7 +54,7 @@ struct CreateEditPlanView: View {
             }
         }
     }
-    
+
     private var planDetailsSection: some View {
         Section {
             TextField("Title", text: $createPlanVM.newPlan.title)
@@ -81,24 +81,24 @@ struct CreateEditPlanView: View {
             }
         }
     }
-    
+
     private var planTimeSection: some View {
         Section {
             if createPlanVM.newPlan.planCategory != .Repeat {
                 allDayToggle
             }
-            
+
             startDatePicker
             endDatePicker
         }
     }
-    
+
     private var allDayToggle: some View {
         Toggle(isOn: $createPlanVM.newPlan.allDay) {
             Text("All-day")
         }
     }
-    
+
     private var startDatePicker: some View {
         DatePicker(
             "Starts",
@@ -108,7 +108,7 @@ struct CreateEditPlanView: View {
         )
         .datePickerStyle(.compact)
     }
-    
+
     private var endDatePicker: some View {
         DatePicker(
             "Ends",
@@ -118,7 +118,7 @@ struct CreateEditPlanView: View {
         )
         .datePickerStyle(.compact)
     }
-    
+
     private var displayedComponents: DatePicker.Components {
         if createPlanVM.newPlan.planCategory == .Repeat {
             return [.hourAndMinute]
@@ -128,7 +128,7 @@ struct CreateEditPlanView: View {
             return [.date, .hourAndMinute]
         }
     }
-    
+
     private var planCategorySection: some View {
         Section {
             Picker("Event", selection: $createPlanVM.newPlan.planCategory) {
@@ -138,7 +138,7 @@ struct CreateEditPlanView: View {
             }
         }
     }
-    
+
     private var routineSection: some View {
         Section {
             MultiSelectPicker(
@@ -155,7 +155,7 @@ struct CreateEditPlanView: View {
             )
         }
     }
-    
+
     private var reminderSection: some View {
         Section {
             Picker("Reminder", selection: $createPlanVM.newPlan.reminder) {
@@ -170,7 +170,7 @@ struct CreateEditPlanView: View {
             }
         }
     }
-    
+
     private var deleteSection: some View {
         Group {
             if !isCreate {
@@ -183,7 +183,7 @@ struct CreateEditPlanView: View {
             }
         }
     }
-    
+
     private var deleteAlert: Alert {
         Alert(
             title: Text("Are you sure you want to delete your plan?"),
@@ -196,7 +196,7 @@ struct CreateEditPlanView: View {
             secondaryButton: .cancel()
         )
     }
-    
+
     private var cancelButton: some View {
         Button("Cancel") {
             if isCreate {
@@ -212,10 +212,9 @@ struct CreateEditPlanView: View {
                     presentationMode.wrappedValue.dismiss()
                 }
             }
-            homeViewModel.resetSwipeOffsetFlag()
         }
     }
-    
+
     private var doneButton: some View {
         Button("Done") {
             Task {
@@ -224,21 +223,21 @@ struct CreateEditPlanView: View {
                 } else {
                     await createPlanVM.updatePlan(homeViewModel: homeViewModel)
                 }
-            }
-            presentationMode.wrappedValue.dismiss()
-            NotificationManager.shared.scheduleNotifications()
-        }
-        .disabled(!createPlanVM.isFormValid)
-        .bold(!createPlanVM.isFormValid ? false : true)
-    }
-    
-    private var discardChangesDialog: some View {
-        VStack {
-            Button(String(localized: "Discard Changes"), role: .destructive) {
-                createPlanVM.resetNewPlanToComparePlan()
+                WidgetCenter.shared.reloadAllTimelines()
                 presentationMode.wrappedValue.dismiss()
             }
-            Button(String(localized: "Cancel"), role: .cancel) {}
         }
+        .disabled(!createPlanVM.isFormValid)
     }
+
+    private var discardChangesDialog: some View {
+            Button("Discard Changes", role: .destructive) {
+                if isCreate {
+                    presentationMode.wrappedValue.dismiss()
+                } else {
+                    createPlanVM.resetNewPlanToComparePlan()
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }
+        }
 }
