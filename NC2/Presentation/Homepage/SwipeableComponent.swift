@@ -10,12 +10,10 @@ struct SwipeableComponent: View {
     @EnvironmentObject var vm: HomeViewModel
     @State private var showAlert = false
     @State private var offset: CGFloat = 0
-    @State private var isSwiped = false
     let plan: HomeCardUIModel
     
     var body: some View {
         ZStack(alignment: .leading) {
-          
             HStack(spacing: 0) {
                 Spacer()
                 Button(action: {
@@ -49,13 +47,17 @@ struct SwipeableComponent: View {
                 }
             }
             
-            // Plan Card
             PlanCardComponent(plan: plan)
                 .offset(x: offset)
+                .onChange(of: vm.isSwiped, {
+                    if !vm.isSwiped {
+                        self.offset = 0
+                    }
+                })
                 .highPriorityGesture(
                     DragGesture()
                         .onChanged { gesture in
-                            if isSwiped {
+                            if vm.isSwiped {
                                 if gesture.translation.width > 0 {
                                     offset = min(gesture.translation.width - 160, 0)
                                 }
@@ -67,17 +69,17 @@ struct SwipeableComponent: View {
                         }
                         .onEnded { _ in
                             withAnimation {
-                                if isSwiped {
+                                if vm.isSwiped {
                                     if offset > -70 {
                                         offset = 0
-                                        isSwiped = false
+                                        vm.isSwiped = false
                                     } else {
                                         offset = -160
                                     }
                                 } else {
                                     if -offset > 70 {
                                         offset = -160
-                                        isSwiped = true
+                                        vm.isSwiped = true
                                     } else {
                                         offset = 0
                                     }

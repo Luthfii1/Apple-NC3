@@ -118,7 +118,6 @@ class HomeViewModel: ObservableObject {
     
     @MainActor
     func deletePlan(planId: UUID) async {
-        self.state.isLoading = true
         do {
             try await getAllPlansUseCase.deletePlan(planId: planId)
             try await getAllPlansUseCase.getAllPlans()
@@ -126,13 +125,9 @@ class HomeViewModel: ObservableObject {
         } catch {
             print("Failed to load plans: \(error)")
         }
-        self.state.isLoading.toggle()
     }
     
     func resetSwipeOffsetFlag() {
-        self.state.resetSwipeOffset = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.state.resetSwipeOffset = false
-        }
+        self.isSwiped = false
     }
 }

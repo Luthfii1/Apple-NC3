@@ -138,6 +138,11 @@ class CreateEditPlanViewModel: ObservableObject {
         return !newPlan.title.isEmpty || !newPlan.location.nameLocation.isEmpty
     }
     
+    func resetPlanValue() {
+        self.newPlan = PlanModel()
+        self.comparePlan = PlanModel()
+    }
+    
     func hasUnsavedChanges() -> Bool {
         return newPlan.title != comparePlan.title ||
         newPlan.location != comparePlan.location ||

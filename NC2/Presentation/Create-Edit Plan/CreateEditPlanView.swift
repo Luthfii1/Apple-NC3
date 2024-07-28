@@ -42,6 +42,11 @@ struct CreateEditPlanView: View {
                     }
                 }
             }
+            .onDisappear {
+                Task {
+                    createPlanVM.resetPlanValue()
+                }
+            }
             .confirmationDialog(
                 String(localized: "Are you sure you want to discard your changes?"),
                 isPresented: $createPlanVM.discardChanges,
@@ -238,3 +243,4 @@ struct CreateEditPlanView: View {
         }
     }
 }
+
