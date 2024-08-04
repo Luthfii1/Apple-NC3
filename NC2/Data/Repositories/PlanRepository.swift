@@ -20,6 +20,7 @@ class PlanRepository: PlanRepositoryProtocol {
     }
     
     func insertPlan(plan: PlanModel) async throws {
+        print("plan repo: \(plan.id) \(plan.durationPlan.start)")
         try await planLocalDataSource.insertPlan(plan: plan)
     }
     

@@ -50,13 +50,23 @@ class PlanModel: Identifiable, Equatable, Hashable {
         self.background = background
     }
     
-    func copy() -> PlanModel {
+    static func == (lhs: PlanModel, rhs: PlanModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
+extension PlanModel {
+    func copy(withId id: UUID? = nil) -> PlanModel {
         return PlanModel(
-            id: self.id,
+            id: id ?? self.id,
             title: self.title,
             location: self.location,
             weatherPlan: self.weatherPlan,
-            durationPlan: self.durationPlan,
+            durationPlan: DurationTimePlan(start: self.durationPlan.start, end: self.durationPlan.end),
             daysRepeat: self.daysRepeat,
             planCategory: self.planCategory,
             reminder: self.reminder,
@@ -64,13 +74,5 @@ class PlanModel: Identifiable, Equatable, Hashable {
             suggest: self.suggest,
             background: self.background
         )
-    }
-    
-    static func == (lhs: PlanModel, rhs: PlanModel) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
     }
 }

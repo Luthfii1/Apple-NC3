@@ -100,7 +100,7 @@ class CreateEditPlanViewModel: ObservableObject {
             self.state.isLoading = false
         }
     }
-    
+        
     private var todayDate: Date {
         return Calendar.current.startOfDay(for: Date())
     }
@@ -110,8 +110,12 @@ class CreateEditPlanViewModel: ObservableObject {
     }
     
     var dateRange: ClosedRange<Date> {
-        let now = Calendar.current.date(bySettingHour: currentTime.hour!, minute: currentTime.minute!, second: 0, of: todayDate) ?? todayDate
-        return now...Date.distantFuture
+        if self.newPlan.planCategory == .Event {
+            let now = Calendar.current.date(bySettingHour: currentTime.hour!, minute: currentTime.minute!, second: 0, of: todayDate) ?? todayDate
+            return now...Date.distantFuture
+        } else {
+            return Date.distantPast...Date.distantFuture
+        }
     }
     
     var isFormValid: Bool {

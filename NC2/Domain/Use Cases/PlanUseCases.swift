@@ -66,8 +66,14 @@ class PlanUseCases: PlanUseCasesProtocol{
             var background = "clearCard"
             
             let coordinatePlace = plan.location.coordinatePlace
-            let currentAQIData = try await AQIRepository.getAQI(geoLocation: coordinatePlace)
-            plan.aqiIndex = currentAQIData.data.aqi
+            
+            do {
+                let currentAQIData = try await AQIRepository.getAQI(geoLocation: coordinatePlace)
+                plan.aqiIndex = currentAQIData.data.aqi
+            } catch {
+                print("Failed to get AQI data: \(error)")
+                plan.aqiIndex = nil
+            }
             
             if let hourlyForecastPlan = await WeatherManager.shared.hourlyForecast(
                 for: CLLocation(
@@ -96,8 +102,55 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     func insertPlan(plan: PlanModel) async throws {
-        try await planRepository.insertPlan(plan: plan)
+        let plans = routineCheckDates(plan: plan)
+        
+        for detailPlan in plans {
+            try await planRepository.insertPlan(plan: detailPlan) // Insert each copied plan
+        }
+        
         try await self.getAllPlans()
+    }
+    
+    private func routineCheckDates(plan: PlanModel) -> [PlanModel] {
+        var plans: [PlanModel] = []
+        guard plan.planCategory == .Repeat, let daysRepeat = plan.daysRepeat else { return [plan] }
+        
+        let now = Date()
+        let calendar = Calendar.current
+        let today = calendar.component(.weekday, from: now)
+        
+        for dayRepeat in daysRepeat {
+            let addPlan = plan.copy(withId: UUID())
+            let startDate = addPlan.durationPlan.start
+            let endDate = addPlan.durationPlan.end
+            
+            if let dayOfWeek = DAYS.from(weekday: today), dayRepeat == dayOfWeek {
+                if startDate < now {
+                    addPlan.durationPlan.start = getNextOccurrence(of: dayRepeat, from: startDate)
+                    addPlan.durationPlan.end = getNextOccurrence(of: dayRepeat, from: addPlan.durationPlan.end)
+                }
+            } else {
+                addPlan.durationPlan.start = getNextOccurrence(of: dayRepeat, from: startDate)
+                addPlan.durationPlan.end = getNextOccurrence(of: dayRepeat, from: endDate)
+            }
+            
+            plans.append(addPlan)
+        }
+        
+        return plans
+    }
+    
+    private func getNextOccurrence(of day: DAYS, from date: Date) -> Date {
+        let calendar = Calendar.current
+        let weekday = day.weekday
+        var components = calendar.dateComponents([.hour, .minute, .second], from: date)
+        components.weekday = weekday
+        
+        if let nextDate = calendar.nextDate(after: date, matching: components, matchingPolicy: .nextTimePreservingSmallerComponents) {
+            return nextDate
+        }
+        
+        return calendar.date(byAdding: .weekOfYear, value: 1, to: date) ?? date
     }
     
     func getPlanData() -> PlanModel {
