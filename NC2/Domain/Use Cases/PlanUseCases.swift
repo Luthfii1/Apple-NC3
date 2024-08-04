@@ -23,12 +23,6 @@ class PlanUseCases: PlanUseCasesProtocol{
     
     func getAllPlans() async throws {
         self.allPlans = try await planRepository.getAllPlans()
-        
-        for allPlan in allPlans {
-            if (allPlan.planCategory == .Repeat) {
-                print(allPlan.id, allPlan.daysRepeat ?? "no days repeat")
-            }
-        }
     }
     
     func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [HomeCardUIModel] {
