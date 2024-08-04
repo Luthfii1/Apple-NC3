@@ -32,10 +32,18 @@ class HomeViewModel: ObservableObject {
     }
     
     var groupedPlans: [String: [HomeCardUIModel]] {
-        Dictionary(grouping: plans) { plan in
+        let grouped = Dictionary(grouping: plans) { plan in
             DateFormatter.localizedString(from: plan.durationPlan.start, dateStyle: .medium, timeStyle: .none)
         }
+        
+        // Sort each group by the start date
+        var sortedGrouped = grouped.mapValues { plans in
+            plans.sorted { $0.durationPlan.start < $1.durationPlan.start }
+        }
+        
+        return sortedGrouped
     }
+
     
     @MainActor
     func checkAndGetPlansData() async {
