@@ -23,6 +23,12 @@ class PlanUseCases: PlanUseCasesProtocol{
     
     func getAllPlans() async throws {
         self.allPlans = try await planRepository.getAllPlans()
+        
+        for allPlan in allPlans {
+            if (allPlan.planCategory == .Repeat) {
+                print(allPlan.id, allPlan.daysRepeat ?? "no days repeat")
+            }
+        }
     }
     
     func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [HomeCardUIModel] {
@@ -102,55 +108,14 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     func insertPlan(plan: PlanModel) async throws {
-        let plans = routineCheckDates(plan: plan)
+        let plans = convertMultipleRoutinePlans(plan: plan)
         
         for detailPlan in plans {
-            try await planRepository.insertPlan(plan: detailPlan) // Insert each copied plan
+            print(detailPlan.daysRepeat)
+            try await planRepository.insertPlan(plan: detailPlan)
         }
         
         try await self.getAllPlans()
-    }
-    
-    private func routineCheckDates(plan: PlanModel) -> [PlanModel] {
-        var plans: [PlanModel] = []
-        guard plan.planCategory == .Repeat, let daysRepeat = plan.daysRepeat else { return [plan] }
-        
-        let now = Date()
-        let calendar = Calendar.current
-        let today = calendar.component(.weekday, from: now)
-        
-        for dayRepeat in daysRepeat {
-            let addPlan = plan.copy(withId: UUID())
-            let startDate = addPlan.durationPlan.start
-            let endDate = addPlan.durationPlan.end
-            
-            if let dayOfWeek = DAYS.from(weekday: today), dayRepeat == dayOfWeek {
-                if startDate < now {
-                    addPlan.durationPlan.start = getNextOccurrence(of: dayRepeat, from: startDate)
-                    addPlan.durationPlan.end = getNextOccurrence(of: dayRepeat, from: addPlan.durationPlan.end)
-                }
-            } else {
-                addPlan.durationPlan.start = getNextOccurrence(of: dayRepeat, from: startDate)
-                addPlan.durationPlan.end = getNextOccurrence(of: dayRepeat, from: endDate)
-            }
-            
-            plans.append(addPlan)
-        }
-        
-        return plans
-    }
-    
-    private func getNextOccurrence(of day: DAYS, from date: Date) -> Date {
-        let calendar = Calendar.current
-        let weekday = day.weekday
-        var components = calendar.dateComponents([.hour, .minute, .second], from: date)
-        components.weekday = weekday
-        
-        if let nextDate = calendar.nextDate(after: date, matching: components, matchingPolicy: .nextTimePreservingSmallerComponents) {
-            return nextDate
-        }
-        
-        return calendar.date(byAdding: .weekOfYear, value: 1, to: date) ?? date
     }
     
     func getPlanData() -> PlanModel {
@@ -175,10 +140,71 @@ class PlanUseCases: PlanUseCasesProtocol{
         let currentDate = calendar.startOfDay(for: Date())
         
         for plan in allPlans {
-            if (plan.durationPlan.start < currentDate && plan.planCategory == .Event) {
-                try await self.deletePlan(planId: plan.id)
+            if (plan.planCategory == .Event) {
+                if (plan.durationPlan.start < currentDate) {
+                    try await self.deletePlan(planId: plan.id)
+                }
+            } else {
+                if (plan.durationPlan.start) < currentDate {
+                    let updatePlan = self.updateRoutineDatePlans(plan: plan)
+                    try await self.updatePlan(plan: updatePlan)
+                }
             }
         }
+    }
+    
+    private func updateRoutineDatePlans(plan: PlanModel) -> PlanModel {
+        let startDate = plan.durationPlan.start
+        let endDate = plan.durationPlan.end
+        let dayRepeat = plan.daysRepeat?.first
+        
+        plan.durationPlan.start = getNextOccurrence(of: dayRepeat!, from: startDate)
+        plan.durationPlan.end = getNextOccurrence(of: dayRepeat!, from: endDate)
+        
+        return plan
+    }
+    
+    private func convertMultipleRoutinePlans(plan: PlanModel) -> [PlanModel] {
+        var plans: [PlanModel] = []
+        guard plan.planCategory == .Repeat, let daysRepeat = plan.daysRepeat else { return [plan] }
+        
+        let now = Date()
+        let calendar = Calendar.current
+        let today = calendar.component(.weekday, from: now)
+        
+        for dayRepeat in daysRepeat {
+            let addPlan = plan.copy(withId: UUID())
+            let startDate = addPlan.durationPlan.start
+            let endDate = addPlan.durationPlan.end
+            
+            if let dayOfWeek = DAYS.from(weekday: today), dayRepeat == dayOfWeek {
+                if startDate < now {
+                    addPlan.durationPlan.start = getNextOccurrence(of: dayRepeat, from: startDate)
+                    addPlan.durationPlan.end = getNextOccurrence(of: dayRepeat, from: addPlan.durationPlan.end)
+                }
+            } else {
+                addPlan.durationPlan.start = getNextOccurrence(of: dayRepeat, from: startDate)
+                addPlan.durationPlan.end = getNextOccurrence(of: dayRepeat, from: endDate)
+            }
+            
+            addPlan.daysRepeat = [dayRepeat]
+            plans.append(addPlan)
+        }
+        
+        return plans
+    }
+    
+    private func getNextOccurrence(of day: DAYS, from date: Date) -> Date {
+        let calendar = Calendar.current
+        let weekday = day.weekday
+        var components = calendar.dateComponents([.hour, .minute, .second], from: date)
+        components.weekday = weekday
+        
+        if let nextDate = calendar.nextDate(after: date, matching: components, matchingPolicy: .nextTimePreservingSmallerComponents) {
+            return nextDate
+        }
+        
+        return calendar.date(byAdding: .weekOfYear, value: 1, to: date) ?? date
     }
 }
 
