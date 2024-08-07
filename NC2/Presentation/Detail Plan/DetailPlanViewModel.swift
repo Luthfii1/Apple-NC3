@@ -204,7 +204,7 @@ class DetailPlanViewModel: ObservableObject {
             UV: \(uvIndex)
             Precipitation chance: \(precipitationChance)
             Air quality index: \(airQualityIndex)
-            Make the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting!
+            Make the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting! No emoji!
             """)
     }
     
