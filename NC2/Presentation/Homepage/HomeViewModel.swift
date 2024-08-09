@@ -33,17 +33,44 @@ class HomeViewModel: ObservableObject {
     
     var groupedPlans: [String: [HomeCardUIModel]] {
         let grouped = Dictionary(grouping: plans) { plan in
-            DateFormatter.localizedString(from: plan.durationPlan.start, dateStyle: .medium, timeStyle: .none)
+            let now = Date()
+            let calendar = Calendar.current
+            let dateFormatter = DateFormatter()
+            
+            if calendar.isDateInToday(plan.durationPlan.start) {
+                return "Today"
+            } else if calendar.isDateInTomorrow(plan.durationPlan.start) {
+                return "Tomorrow"
+            } else {
+                dateFormatter.dateFormat = "EEE, dd MMM yyyy"
+                return dateFormatter.string(from: plan.durationPlan.start)
+            }
         }
         
-        // Sort each group by the start date
-        var sortedGrouped = grouped.mapValues { plans in
+        return grouped.mapValues { plans in
             plans.sorted { $0.durationPlan.start < $1.durationPlan.start }
         }
-        
-        return sortedGrouped
     }
-
+    
+    var sortedKeys: [String] {
+        let order = ["Today", "Tomorrow"]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE, dd MMM yyyy"
+        
+        return groupedPlans.keys.sorted { key1, key2 in
+            if let index1 = order.firstIndex(of: key1), let index2 = order.firstIndex(of: key2) {
+                return index1 < index2
+            } else if order.contains(key1) {
+                return true
+            } else if order.contains(key2) {
+                return false
+            } else {
+                let date1 = dateFormatter.date(from: key1) ?? Date.distantPast
+                let date2 = dateFormatter.date(from: key2) ?? Date.distantPast
+                return date1 < date2
+            }
+        }
+    }
     
     @MainActor
     func checkAndGetPlansData() async {
