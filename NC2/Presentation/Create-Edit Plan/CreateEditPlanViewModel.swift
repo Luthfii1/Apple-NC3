@@ -4,7 +4,6 @@
 //
 //  Created by Luthfi Misbachul Munir on 12/07/24.
 //
-
 import Foundation
 import MapKit
 import SwiftData
@@ -14,12 +13,11 @@ class CreateEditPlanViewModel: ObservableObject {
     @Published var state: StateView
     @Published var newPlan: PlanModel
     @Published var comparePlan: PlanModel
+    @Published var discardChanges: Bool = false
     private let planUseCase: PlanUseCasesProtocol
-    private let detailUseCase: PlanDetailUseCasesProtocol
     
-    init(planUseCase: PlanUseCasesProtocol, detailUseCase: PlanDetailUseCasesProtocol) {
+    init(planUseCase: PlanUseCasesProtocol) {
         self.planUseCase = planUseCase
-        self.detailUseCase = detailUseCase
         self.state = StateView()
         self.newPlan = PlanModel()
         self.comparePlan = PlanModel()
@@ -50,22 +48,59 @@ class CreateEditPlanViewModel: ObservableObject {
     
     @MainActor
     func updatePlan(homeViewModel: HomeViewModel) async {
-        await homeViewModel.updatePlan(plan: newPlan)
+        do {
+            try await homeViewModel.updatePlan(plan: newPlan)
+        } catch {
+            print("error update plan")
+        }
+    }
+    
+    @MainActor
+    func cancelPlan(homeViewModel: HomeViewModel) async {
+        print("cancelling")
+        let tempPlan = newPlan
+        let backToPreviousData = comparePlan
+        
+        self.newPlan = self.comparePlan
+        
+        async let updateTempPlan: () = homeViewModel.updatePlan(plan: tempPlan)
+        async let updateBackToPreviousData: () = homeViewModel.updatePlan(plan: backToPreviousData)
+        
+        do {
+            try await updateTempPlan
+        } catch {
+            print("Failed to update plan with tempPlan: \(error)")
+        }
+        
+        do {
+            try await updateBackToPreviousData
+        } catch {
+            print("Failed to update plan with backToPreviousData: \(error)")
+        }
+    }
+    
+    @MainActor
+    func setDiscardNotification() {
+        self.discardChanges = true
     }
     
     @MainActor
     func getDetailPlan(planId: UUID) async {
-        self.state.isLoading = true
+        DispatchQueue.main.async {
+            self.state.isLoading = true
+        }
         do {
-            let detailPlan = try await detailUseCase.executeGetDetailPlan(planId: planId)
+            let detailPlan = try await planUseCase.getDetailPlan(planId: planId)
             self.newPlan = detailPlan
             self.comparePlan = detailPlan.copy()
         } catch {
             print("Failed when get detail plan: \(error)")
         }
-        self.state.isLoading = false
+        DispatchQueue.main.async {
+            self.state.isLoading = false
+        }
     }
-    
+        
     private var todayDate: Date {
         return Calendar.current.startOfDay(for: Date())
     }
@@ -75,8 +110,12 @@ class CreateEditPlanViewModel: ObservableObject {
     }
     
     var dateRange: ClosedRange<Date> {
-        let now = Calendar.current.date(bySettingHour: currentTime.hour!, minute: currentTime.minute!, second: 0, of: todayDate) ?? todayDate
-        return now...Date.distantFuture
+        if self.newPlan.planCategory == .Event {
+            let now = Calendar.current.date(bySettingHour: currentTime.hour!, minute: currentTime.minute!, second: 0, of: todayDate) ?? todayDate
+            return now...Date.distantFuture
+        } else {
+            return Date.distantPast...Date.distantFuture
+        }
     }
     
     var isFormValid: Bool {
@@ -99,23 +138,16 @@ class CreateEditPlanViewModel: ObservableObject {
         }
     }
     
-    func resetNewPlanToComparePlan() {
-        self.newPlan = self.comparePlan.copy()
-    }
-    
     func cancelAction() -> Bool {
         return !newPlan.title.isEmpty || !newPlan.location.nameLocation.isEmpty
     }
     
-    func cancelEditChanges() -> Bool {
-        if hasUnsavedChanges() {
-            self.resetNewPlanToComparePlan()
-            return true
-        }
-        return false
+    func resetPlanValue() {
+        self.newPlan = PlanModel()
+        self.comparePlan = PlanModel()
     }
     
-    private func hasUnsavedChanges() -> Bool {
+    func hasUnsavedChanges() -> Bool {
         return newPlan.title != comparePlan.title ||
         newPlan.location != comparePlan.location ||
         newPlan.durationPlan != comparePlan.durationPlan ||

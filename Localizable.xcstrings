@@ -1,7 +1,11 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "   %@   " : {
+
+    },
     " | " : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -31,6 +35,16 @@
         }
       }
     },
+    "%@   |   %@   |   " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@   |   %2$@   |   "
+          }
+        }
+      }
+    },
     "%@ - %@" : {
       "localizations" : {
         "en" : {
@@ -48,6 +62,7 @@
       }
     },
     "%@%%" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -68,6 +83,7 @@
       }
     },
     "%@°C" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -78,6 +94,7 @@
       }
     },
     "%@ºC" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -88,11 +105,95 @@
       }
     },
     "%lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
+          }
+        }
+      }
+    },
+    "%lld°C" : {
+
+    },
+    "%lldºC" : {
+
+    },
+    "1 day before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 hari sebelum"
+          }
+        }
+      }
+    },
+    "1 hour before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 jam sebelum"
+          }
+        }
+      }
+    },
+    "2 hours before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 jam sebelum"
+          }
+        }
+      }
+    },
+    "5 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 menit sebelum"
+          }
+        }
+      }
+    },
+    "10 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 menit sebelum"
+          }
+        }
+      }
+    },
+    "15 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "15 menit sebelum"
+          }
+        }
+      }
+    },
+    "30 minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 menut sebelum"
           }
         }
       }
@@ -103,6 +204,27 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tambah Rencana"
+          }
+        }
+      }
+    },
+    "Air Quality Condition  |   %@   |   " : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kualitas Udara   |   %@   |   "
+          }
+        }
+      }
+    },
+    "Air quality is acceptable but may pose a moderate health concern for sensitive individuals. If you're sensitive to air pollution, consider reducing prolonged or heavy exertion outdoors." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kualitas udara dapat diterima, tetapi mungkin menimbulkan kekhawatiran kesehatan yang moderat bagi individu yang sensitif. Jika Anda sensitif terhadap polusi udara, pertimbangkan untuk mengurangi aktivitas berat atau berkepanjangan di luar ruangan."
           }
         }
       }
@@ -128,11 +250,12 @@
       }
     },
     "AQI" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "AQI"
           }
         }
       }
@@ -153,6 +276,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apakah Anda yakin ingin membuang perubahan Anda?"
+          }
+        }
+      }
+    },
+    "At time of event" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pada saat kegiatan"
           }
         }
       }
@@ -259,6 +393,7 @@
       }
     },
     "Edit" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -284,6 +419,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Berakhir"
+          }
+        }
+      }
+    },
+    "Enjoy your time outside with minimal risk of sunburn. However, it’s still a good idea to wear sunglasses and apply sunscreen if you plan to be outdoors for an extended period." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikmati waktu Anda di luar dengan risiko terbakar sinar matahari yang minimal. Namun, tetap disarankan untuk memakai kacamata hitam dan mengoleskan tabir surya jika Anda berencana untuk berada di luar ruangan dalam waktu yang lama."
           }
         }
       }
@@ -318,6 +463,9 @@
         }
       }
     },
+    "Every" : {
+
+    },
     "Every Day" : {
       "localizations" : {
         "id" : {
@@ -348,6 +496,26 @@
         }
       }
     },
+    "Everyone may start to experience health effects, with more serious effects for sensitive groups. Limit outdoor activities, especially for sensitive groups. Wear a mask and keep windows closed." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semua orang mungkin mulai mengalami efek kesehatan, dengan efek yang lebih serius pada kelompok sensitif. Batasi aktivitas di luar ruangan, terutama bagi kelompok sensitif. Kenakan masker dan tutup jendela."
+          }
+        }
+      }
+    },
+    "Expect dry weather with little to no precipitation. Perfect for outdoor activities without any special precautions." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuaca kering dengan sedikit atau tanpa curah hujan. Sempurna untuk kegiatan di luar ruangan tanpa tindakan pencegahan khusus."
+          }
+        }
+      }
+    },
     "EXTREME" : {
       "localizations" : {
         "id" : {
@@ -358,7 +526,18 @@
         }
       }
     },
+    "Extreme UV levels pose a serious risk of skin damage. Avoid sun exposure between 10 a.m. and 4 p.m., seek shade, wear protective clothing, a wide-brimmed hat, and UV-blocking sunglasses, and apply broad-spectrum SPF 30+ sunscreen generously and frequently." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tingkat UV yang ekstrem menimbulkan risiko serius terhadap kerusakan kulit. Hindari paparan sinar matahari antara pukul 10 pagi dan 4 sore, cari tempat teduh, kenakan pakaian pelindung, topi bertepi lebar, dan kacamata hitam yang menghalangi UV, serta oleskan tabir surya spektrum luas SPF 30+ secara melimpah dan sering."
+          }
+        }
+      }
+    },
     "Feels like %@ºC" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -368,8 +547,29 @@
         }
       }
     },
-    "Fetching data..." : {
+    "Feels like %lldºC" : {
 
+    },
+    "Fetching data..." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Memuat data..."
+          }
+        }
+      }
+    },
+    "Friday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jumat"
+          }
+        }
+      }
     },
     "Go" : {
       "localizations" : {
@@ -397,6 +597,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "BERBAHAYA"
+          }
+        }
+      }
+    },
+    "Health alert: everyone may experience more serious health effects. Avoid outdoor activities, use air purifiers indoors, and keep windows closed." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peringatan kesehatan: semua orang mungkin mengalami efek kesehatan yang lebih serius. Hindari aktivitas di luar ruangan, gunakan pembersih udara di dalam ruangan, dan tutup jendela."
+          }
+        }
+      }
+    },
+    "Health warnings of emergency conditions, where the entire population is likely to be affected. Stay indoors as much as possible, use air purifiers, wear a mask if you need to go outside, and keep windows and doors closed tightly." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peringatan kesehatan kondisi darurat, di mana seluruh populasi kemungkinan besar akan terpengaruh. Tetap di dalam ruangan sebisa mungkin, gunakan pembersih udara, kenakan masker jika Anda perlu keluar, dan tutup jendela serta pintu dengan rapat."
+          }
+        }
+      }
+    },
+    "Heavy rain or thunderstorms are very likely. It’s best to avoid outdoor activities, wear waterproof clothing, and stay safe indoors." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hujan lebat atau badai petir sangat mungkin terjadi. Sebaiknya hindari aktivitas di luar ruangan, kenakan pakaian tahan air, dan tetaplah aman di dalam ruangan."
           }
         }
       }
@@ -562,6 +792,17 @@
         }
       }
     },
+    "Monday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Senin"
+          }
+        }
+      }
+    },
     "New Plan" : {
       "localizations" : {
         "id" : {
@@ -577,10 +818,24 @@
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "TDAK ADA DATA"
+            "value" : "TIDAK ADA DATA"
           }
         }
       }
+    },
+    "None" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak ada"
+          }
+        }
+      }
+    },
+    "Occasional showers are likely. Keep an umbrella or raincoat handy and consider indoor alternatives for your activities." : {
+
     },
     "Plan" : {
       "localizations" : {
@@ -603,11 +858,23 @@
       }
     },
     "Precipitation" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Curah hujan"
+          }
+        }
+      }
+    },
+    "Prepicitation   |   %@   |   " : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Curah Hujan   |   %@   |   "
           }
         }
       }
@@ -638,6 +905,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rutinitas"
+          }
+        }
+      }
+    },
+    "Saturday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sabtu"
           }
         }
       }
@@ -673,12 +951,33 @@
         }
       }
     },
+    "Sensitive individuals may experience health effects. It’s advisable for sensitive groups to reduce prolonged or heavy exertion outdoors and consider wearing a mask if needed." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Individu yang sensitif mungkin mengalami efek kesehatan. Disarankan bagi kelompok sensitif untuk mengurangi aktivitas berat atau berkepanjangan di luar ruangan dan mempertimbangkan untuk memakai masker jika diperlukan."
+          }
+        }
+      }
+    },
     "Starts" : {
       "localizations" : {
         "id" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mulai"
+          }
+        }
+      }
+    },
+    "Sunday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minggu"
           }
         }
       }
@@ -693,12 +992,46 @@
         }
       }
     },
+    "The air quality is good with little or no risk. Feel free to enjoy your outdoor activities without concern." : {
+
+    },
+    "The sun is moderately strong, so cover up with clothing, wear a hat and sunglasses, and use sunscreen with SPF 30+. Seek shade during midday hours." : {
+
+    },
+    "The UV index is high, increasing the risk of skin damage. Limit your sun exposure between 10 a.m. and 4 p.m., seek shade, wear protective clothing, a wide-brimmed hat, and UV-blocking sunglasses, and use broad-spectrum SPF 30+ sunscreen." : {
+
+    },
+    "There's a slight chance of light rain or drizzle. It’s a good idea to bring an umbrella just in case while enjoying your day outdoors." : {
+
+    },
+    "Thursday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamis"
+          }
+        }
+      }
+    },
     "Title" : {
       "localizations" : {
         "id" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Judul"
+          }
+        }
+      }
+    },
+    "Tuesday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selasa"
           }
         }
       }
@@ -714,11 +1047,33 @@
       }
     },
     "UV index" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "Index UV"
+          }
+        }
+      }
+    },
+    "UV Index   |   %@   |   " : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Index UV   |   %@   |   "
+          }
+        }
+      }
+    },
+    "UV levels are very high, meaning unprotected skin can burn quickly. Minimize sun exposure between 10 a.m. and 4 p.m., seek shade, cover up with clothing, wear a hat and UV-blocking sunglasses, and use broad-spectrum SPF 30+ sunscreen." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tingkat UV sangat tinggi, artinya kulit yang tidak terlindungi bisa terbakar dengan cepat. Minimalkan paparan sinar matahari antara pukul 10 pagi dan 4 sore, cari tempat teduh, tutupi tubuh dengan pakaian, kenakan topi dan kacamata hitam yang menghalangi UV, serta gunakan tabir surya spektrum luas SPF 30+."
           }
         }
       }
@@ -754,6 +1109,7 @@
       }
     },
     "Weather: %@\nUV: %lld\nPrecipitation chance: %lf\nAir quality index: %lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. End with emoji. Show only the call-to-action copywriting!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -768,6 +1124,30 @@
           }
         }
       }
+    },
+    "Weather: %@\nUV: %lld\nPrecipitation chance: %lf\nAir quality index: %lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting! No emoji!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Weather: %1$@\nUV: %2$lld\nPrecipitation chance: %3$lf\nAir quality index: %4$lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting! No emoji!"
+          }
+        }
+      }
+    },
+    "Wednesday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rabu"
+          }
+        }
+      }
+    },
+    "Widespread showers are expected. Be prepared for rain throughout the day, wear waterproof clothing, and plan for indoor activities if possible." : {
+
     },
     "Your Todos" : {
       "extractionState" : "stale",

@@ -17,4 +17,8 @@ enum REMINDER: String, Codable, CaseIterable {
     case _1HourBefore = "1 hour before"
     case _2HourBefore = "2 hours before"
     case _1DayBefore = "1 day before"
+    
+    func localizedString() -> String {
+           return NSLocalizedString(self.rawValue, comment: "")
+       }
 }

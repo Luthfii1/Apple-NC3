@@ -10,64 +10,50 @@ import SwiftData
 
 //Grouping UseCase ke dalam satu fungsi
 class DependencyInjection: ObservableObject{
-    private var modelContext: ModelContext
-    init(modelContext: ModelContext) {
+    static let shared = DependencyInjection()
+    
+    private init() {}
+    
+    private var modelContext: ModelContext?
+    func initializer(modelContext: ModelContext) {
         self.modelContext = modelContext
+        
     }
     
+    // Singleton instance
+    private var createPlanViewModelInstance: CreateEditPlanViewModel?
+    
     // MARK: IMPLEMENTATION
-    lazy var planLocalDataSource = PlanLocalDataSource(modelContext: modelContext)
+    lazy var planLocalDataSource = PlanLocalDataSource(modelContext: modelContext!)
     lazy var aqiDataSource = AQIRemoteDataSource()
     
     lazy var planRepository = PlanRepository(planLocalDataSource: planLocalDataSource)
     lazy var aqiRepository = AQIRepository(AQIRemoteDataSource: aqiDataSource)
     
     // MARK: IMPLEMENTATION USE CASES
-    lazy var getPlanPreviewUseCase = PlanUseCases(planRepository: planRepository)
+    lazy var getPlanPreviewUseCase = PlanUseCases(planRepository: planRepository, AQIRepository: aqiRepository)
     lazy var refreshPageViewUseCase = RefreshHomeViewUseCase(planRepository: planRepository)
-    lazy var detailPlanUseCase = PlanDetailUseCase(AQIRepository: aqiRepository, planRepository: planRepository)
     
     // MARK: TESTING
     lazy var dummyPlanRepository = DummyPlanRepository(dummyPlans: dummyPlans)
-    lazy var dummyGetAllPlansPreviewUseCase = PlanUseCases(planRepository: dummyPlanRepository)
+    lazy var dummyGetAllPlansPreviewUseCase = PlanUseCases(planRepository: dummyPlanRepository, AQIRepository: aqiRepository)
     lazy var dummyRefreshHomeViewUseCase = RefreshHomeViewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
-    lazy var dummyDetailPlanUseCase = PlanDetailUseCase(AQIRepository: aqiRepository, planRepository: dummyPlanRepository)
-    
-    
     
     // MARK: FUNCTION
     func homeViewModel() -> HomeViewModel {
         HomeViewModel(
-            getAllPlansUseCase: getPlanPreviewUseCase,
-            refreshHomeViewUseCase: refreshPageViewUseCase
+            getAllPlansUseCase: getPlanPreviewUseCase
         )
     }
-    
-//    func notificationManager() -> NotificationManager {
-//        NotificationManager(getDetailUseCase: getPlanPreviewUseCase)
-//    }
-    
-    func dummyHomeViewModel() -> HomeViewModel {
-        HomeViewModel(
-           getAllPlansUseCase: dummyGetAllPlansPreviewUseCase,
-           refreshHomeViewUseCase: dummyRefreshHomeViewUseCase
-       )
-    }
-    
-    
     
     func detailPlanViewModel() -> DetailPlanViewModel {
-        DetailPlanViewModel(getDetailUseCase: detailPlanUseCase)
+        DetailPlanViewModel(planUseCase: getPlanPreviewUseCase)
     }
     
-    func dummyDetailPlanViewModel() -> DetailPlanViewModel {
-        DetailPlanViewModel(getDetailUseCase: dummyDetailPlanUseCase)
-    }
-    
-    func createPlanViewModel() -> CreateEditPlanViewModel {
-        CreateEditPlanViewModel(
-            planUseCase: getPlanPreviewUseCase,
-            detailUseCase: detailPlanUseCase
-        )
+    func createEditPlanViewModel() -> CreateEditPlanViewModel {
+        if createPlanViewModelInstance == nil {
+            createPlanViewModelInstance = CreateEditPlanViewModel(planUseCase: getPlanPreviewUseCase)
+        }
+        return createPlanViewModelInstance!
     }
 }

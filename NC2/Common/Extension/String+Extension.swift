@@ -36,4 +36,8 @@ extension String {
             return result
         }
     }
+    
+    func truncated(to length: Int, trailing: String = "...") -> String {
+        return self.count > length ? self.prefix(length) + trailing : self
+    }
 }

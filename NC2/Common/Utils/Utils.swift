@@ -9,18 +9,7 @@ import Foundation
 import WeatherKit
 
 class Utils{
-    func setBackground(condition: WeatherCondition, isDay: Bool, date: Date/*, state: CARDSTATE*/) -> String {
-//        let stateBackground: String = {
-//            switch state {
-//            case .Card:
-//                return "Card"
-//            case .Widget:
-//                return "Widget"
-//            case .Detail:
-//                return "Detail"
-//            }
-//        }()
-        
+    func setBackground(condition: WeatherCondition, isDay: Bool, date: Date) -> String {
         if !isDay {
             switch condition {
             case .rain, .drizzle, .freezingRain, .freezingDrizzle, .hail, .heavyRain, .sleet, .sunShowers:
@@ -53,9 +42,9 @@ class Utils{
     func setCTA(condition: WeatherCondition, isDay: Bool, isBadUV: Bool, isBadAQI: Bool) -> String {
         switch condition {
         case .rain, .drizzle, .freezingRain, .freezingDrizzle, .hail, .heavyRain, .sleet, .sunShowers:
-                return "rain" + "CTADetail"
+            return "rain" + "CTADetail"
         case .scatteredThunderstorms, .isolatedThunderstorms, .strongStorms, .thunderstorms, .tropicalStorm:
-                return "thunderStorm" + "CTADetail"
+            return "thunderStorm" + "CTADetail"
         case .breezy, .cloudy, .foggy, .mostlyCloudy:
             if isDay, isBadUV, isBadAQI {
                 return "cloudy" + "UVAQI" + "CTADetail"

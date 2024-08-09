@@ -9,6 +9,10 @@ import Foundation
 
 enum PLANCATEGORY: String, Codable, CaseIterable {
     case Event
-    case Routine
+    case Repeat
+    
+    func localizedString() -> String {
+           return NSLocalizedString(self.rawValue, comment: "")
+       }
 }
 

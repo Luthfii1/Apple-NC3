@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var vm: HomeViewModel
-    @EnvironmentObject var dependencyInjection: DependencyInjection
     
     var body: some View {
         NavigationStack {
@@ -30,8 +29,15 @@ struct HomeView: View {
                         .padding(.vertical, 8)
                         
                         
-                        VStack (alignment: .leading) {
-                            ForEach(vm.groupedPlans.keys.sorted(), id: \.self) { date in
+                        VStack(alignment: .leading) {
+                            ForEach(vm.groupedPlans.keys.sorted { key1, key2 in
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateStyle = .medium
+                                dateFormatter.timeStyle = .none
+                                let date1 = dateFormatter.date(from: key1) ?? Date.distantPast
+                                let date2 = dateFormatter.date(from: key2) ?? Date.distantPast
+                                return date1 < date2
+                            }, id: \.self) { date in
                                 Section(
                                     header: Text(date)
                                         .font(.subheadline)
@@ -40,20 +46,21 @@ struct HomeView: View {
                                         .padding(.top, 12)
                                 ) {
                                     ForEach(vm.groupedPlans[date]!, id: \.id) { plan in
-                                        SwipeableView(plan: plan)
+                                        SwipeableComponent(plan: plan)
                                     }
                                 }
                             }
                         }
                         .padding(.horizontal, 12)
+
                     }
                     .sheet(isPresented: $vm.state.isCreateSheetPresented) {
                         CreateEditPlanView(isCreate: true)
-                            .environmentObject(dependencyInjection.createPlanViewModel())
+                            .environmentObject(DependencyInjection.shared.createEditPlanViewModel())
                     }
                     .sheet(isPresented: $vm.state.isEditSheetPresented) {
                         CreateEditPlanView(isCreate: false, idPlan: vm.idPlanEdit)
-                            .environmentObject(dependencyInjection.createPlanViewModel())
+                            .environmentObject(DependencyInjection.shared.createEditPlanViewModel())
                     }
                     .refreshable {
                         await vm.refreshPage()

@@ -9,6 +9,7 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var plans: [HomeCardUIModel] = []
+    @Published var selectedPlan: HomeCardUIModel? = nil
     @Published var idPlanEdit: UUID = UUID()
     @Published var isNewOpen: Bool
     @Published var state: StateView = StateView()
@@ -19,20 +20,30 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-    private let getAllPlansUseCase: PlanUseCasesProtocol
-    private let refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol
+    @Published var offset: CGFloat = 0
+    @Published var isSwiped = false
+    @Published var buttonHeight: CGFloat = 100
     
-    init(getAllPlansUseCase: PlanUseCasesProtocol, refreshHomeViewUseCase: RefreshHomeViewUseCaseProtocol) {
+    private let getAllPlansUseCase: PlanUseCasesProtocol
+    
+    init(getAllPlansUseCase: PlanUseCasesProtocol) {
         self.getAllPlansUseCase = getAllPlansUseCase
-        self.refreshHomeViewUseCase = refreshHomeViewUseCase
         self.isNewOpen = true
     }
     
     var groupedPlans: [String: [HomeCardUIModel]] {
-        Dictionary(grouping: plans) { plan in
+        let grouped = Dictionary(grouping: plans) { plan in
             DateFormatter.localizedString(from: plan.durationPlan.start, dateStyle: .medium, timeStyle: .none)
         }
+        
+        // Sort each group by the start date
+        var sortedGrouped = grouped.mapValues { plans in
+            plans.sorted { $0.durationPlan.start < $1.durationPlan.start }
+        }
+        
+        return sortedGrouped
     }
+
     
     @MainActor
     func checkAndGetPlansData() async {
@@ -53,6 +64,8 @@ class HomeViewModel: ObservableObject {
     func firstOpenApp() async {
         self.state.isLoading = true
         do {
+            try await getAllPlansUseCase.getAllPlans()
+            try await getAllPlansUseCase.removePreviousDatePlans()
             try await getAllPlansUseCase.getAllPlans()
             await getPlansByFilter()
             self.state.isLoading = false
@@ -79,7 +92,7 @@ class HomeViewModel: ObservableObject {
         do {
             let plansFetched = try await getAllPlansUseCase.getAllPlansByFilter(
                 category: pickedPlanFilter == 0 ?
-                    .Event : .Routine
+                    .Event : .Repeat
             )
             self.plans = plansFetched
         } catch {
@@ -100,7 +113,7 @@ class HomeViewModel: ObservableObject {
     }
     
     @MainActor
-    func updatePlan(plan: PlanModel) async {
+    func updatePlan(plan: PlanModel) async throws {
         do {
             try await getAllPlansUseCase.updatePlan(plan: plan)
             await getPlansByFilter()
@@ -113,20 +126,16 @@ class HomeViewModel: ObservableObject {
     
     @MainActor
     func deletePlan(planId: UUID) async {
-        self.state.isLoading = true
         do {
             try await getAllPlansUseCase.deletePlan(planId: planId)
+            try await getAllPlansUseCase.getAllPlans()
             await getPlansByFilter()
         } catch {
             print("Failed to load plans: \(error)")
         }
-        self.state.isLoading.toggle()
     }
     
     func resetSwipeOffsetFlag() {
-        self.state.resetSwipeOffset = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.state.resetSwipeOffset = false
-        }
+        self.isSwiped = false
     }
 }

@@ -9,65 +9,53 @@ import SwiftUI
 
 struct PlanCardComponent: View {
     var plan: HomeCardUIModel
-    @EnvironmentObject var dependencyInjection: DependencyInjection
     
     var body: some View {
         NavigationLink(destination: DetailPlanView(planId: plan.id)
-            .environmentObject(dependencyInjection.detailPlanViewModel())
+            .environmentObject(DependencyInjection.shared.detailPlanViewModel())
         ) {
-            ZStack {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(alignment: .top) {
+                    Text(plan.title)
+                        .shadowedText(font: .body)
+                    
+                    Spacer()
+                    
+                    if plan.allDay {
+                        Text("All Day")
+                            .shadowedText(font: .subheadline)
+                    } else {
+                        Text("\(plan.durationPlan.start.formattedTime24Hour()) - \(plan.durationPlan.end.formattedTime24Hour())")
+                            .shadowedText(font: .subheadline)
+                    }
+                }
+                
+                Text(plan.location.nameLocation.truncated(to: 15))
+                    .shadowedText(font: .subheadline)
+                
+                
+                
+                HStack {
+                    Image(systemName: "cloud.sun.fill")
+                        .shadowedText(font: .body)
+                    
+                    Text("\(Int(ceil(plan.temperature ?? 0)))°C")
+                        .shadowedText(font: .body)
+                    
+                    Text(plan.weatherDescription?.toFrontCapital() ?? "fetching data")
+                        .shadowedText(font: .body)
+                }
+                .padding(.vertical, 4)
+            }
+            .frame(height: 120)
+            .padding(.horizontal, 16)
+            .background(
                 Image(plan.backgroundCard ?? "clearCard")
                     .resizable()
                     .scaledToFill()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    HStack(alignment: .top) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(plan.title)
-                                .shadowedText(font: .body)
-                            
-                            Text(plan.location.nameLocation)
-                                .shadowedText(font: .subheadline)
-                        }
-                        
-                        Spacer()
-                        
-                        if plan.allDay {
-                            Text("All Day")
-                                .shadowedText(font: .subheadline)
-                        } else {
-                            VStack(alignment: .trailing, spacing: 8) {
-                                Text(plan.durationPlan.start.formattedTime())
-                                    .shadowedText(font: .subheadline)
-                                
-                                Text(plan.durationPlan.end.formattedTime())
-                                    .shadowedText(font: .subheadline)
-                            }
-                        }
-                    }
-                    
-                    HStack {
-                        Image(systemName: "cloud.sun.fill")
-                            .shadowedText(font: .body)
-                        
-                        Text("\(String(format: "%.1f", plan.temperature ?? 0))°C")
-                            .shadowedText(font: .body)
-                        
-                        Text(plan.weatherDescription?.toFrontCapital() ?? "fetching data")
-                            .shadowedText(font: .body)
-                    }
-                    .padding(.vertical, 4)
-                }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-            }
-            .padding(.vertical, 4)
+            )
             .clipShape(RoundedRectangle(cornerRadius: 10))
         }
     }
-}
-
-#Preview {
-    PlanCardComponent(plan: dummyPlansEntity[6])
 }
