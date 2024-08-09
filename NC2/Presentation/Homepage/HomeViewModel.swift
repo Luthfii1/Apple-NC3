@@ -33,7 +33,6 @@ class HomeViewModel: ObservableObject {
     
     var groupedPlans: [String: [HomeCardUIModel]] {
         let grouped = Dictionary(grouping: plans) { plan in
-            let now = Date()
             let calendar = Calendar.current
             let dateFormatter = DateFormatter()
             
