@@ -1125,12 +1125,12 @@
         }
       }
     },
-    "Weather: %@\nUV: %lld\nPrecipitation chance: %lf\nAir quality index: %lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting!" : {
+    "Weather: %@\nUV: %lld\nPrecipitation chance: %lf\nAir quality index: %lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting! No emoji!" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Weather: %1$@\nUV: %2$lld\nPrecipitation chance: %3$lf\nAir quality index: %4$lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting!"
+            "value" : "Weather: %1$@\nUV: %2$lld\nPrecipitation chance: %3$lf\nAir quality index: %4$lld\nMake the content max 5 words containing recommendation using 'sunscreen' if UV is high, 'mask' if AQI is high, 'umbrella' if raining, or any clothes based on the weather. Show only the call-to-action copywriting! No emoji!"
           }
         }
       }

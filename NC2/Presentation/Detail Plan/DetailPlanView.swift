@@ -74,25 +74,14 @@ struct DetailPlanView: View {
                                 }
                             }
                         }
+                        .padding(.top, 24)
                         
-                        HStack (alignment: .bottom, spacing: 20) {
-                            Spacer()
-                            
-                            VStack {
-                                Text(gemini.inProgress ? "Summarizing..." : gemini.outputText)
-                                    .foregroundStyle(Color.black)
-                                    .font(Font.custom("NanumPen", size: 28))
-                                    .padding(.trailing, 24)
-                                    .frame(alignment: .center)
-                            }
-                            .background(Image(.chatBox))
-                            
-                            Image(vm.getCTABackground())
-                        }
-                        .padding(.vertical, 40)
-                        
-                        Divider()
-                            .padding(.vertical, 4)
+                        Image(vm.getCTABackground())
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 345)
+                            .offset(x:36)
+                            .padding(.vertical, 24)
                         
                         ScrollView {
                             VStack(spacing: 0) {
