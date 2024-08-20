@@ -731,6 +731,9 @@
         }
       }
     },
+    "legal" : {
+
+    },
     "Loading logs..." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1159,6 +1162,9 @@
           }
         }
       }
+    },
+    " Weather" : {
+
     }
   },
   "version" : "1.0"

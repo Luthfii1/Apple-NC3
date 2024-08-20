@@ -80,6 +80,24 @@ struct HomeView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 })
                                 Spacer()
+                                
+                                Button(action: {
+                                    if let url = URL(string: "https://developer.apple.com/weatherkit/data-source-attribution/") {
+                                        UIApplication.shared.open(url)
+                                    }
+                                }) {
+                                    HStack(alignment: .center, spacing: 8) {
+                                        Text(" Weather")
+                                            .font(.headline)
+                                            .foregroundStyle(.gray)
+                                        
+                                        Text("legal")
+                                            .font(.caption)
+                                            .underline()
+                                            .foregroundStyle(.gray)
+                                    }
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
                     }

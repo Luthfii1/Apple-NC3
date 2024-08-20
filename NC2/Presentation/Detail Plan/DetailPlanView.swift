@@ -217,6 +217,8 @@ struct DetailPlanView: View {
                     }
                     .padding(.horizontal, 24)
                     .padding(.vertical, 48)
+                    .padding(.bottom, 24)
+                    
                 }
             }
         }
