@@ -321,6 +321,9 @@
         }
       }
     },
+    "Check the weather before heading out!" : {
+
+    },
     "Delete" : {
       "localizations" : {
         "id" : {
@@ -363,6 +366,7 @@
       }
     },
     "Don’t forget your raincoat and umbrella - there are thunderstorms expected!🌧️" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -373,6 +377,7 @@
       }
     },
     "Don’t forget your umbrella!☔️. It's raining outside, so be sure to stay dry on your way to %@." : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -710,6 +715,9 @@
           }
         }
       }
+    },
+    "It's mostly cloudy today. Make sure to stay prepared for changing weather!🌥️" : {
+
     },
     "It's partly cloudy, so don't forget your jacket!🧥" : {
       "localizations" : {

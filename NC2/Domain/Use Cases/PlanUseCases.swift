@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 import WeatherKit
+import UserNotifications
 
 class PlanUseCases: PlanUseCasesProtocol{
     var allPlans: [PlanModel] = []
@@ -23,6 +24,11 @@ class PlanUseCases: PlanUseCasesProtocol{
     
     func getAllPlans() async throws {
         self.allPlans = try await planRepository.getAllPlans()
+        
+        for plan in allPlans {
+            print("start \(plan.durationPlan.start)")
+            print("start \(plan.durationPlan.end)")
+        }
     }
     
     func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [HomeCardUIModel] {
@@ -62,6 +68,9 @@ class PlanUseCases: PlanUseCasesProtocol{
     }
     
     func getWeatherAndSetBackground() async throws {
+        // Clear all previous notifications before scheduling new ones
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+
         for plan in self.allPlans {
             var background = "clearCard"
             
@@ -87,6 +96,13 @@ class PlanUseCases: PlanUseCasesProtocol{
                         condition: firstForecast.condition,
                         isDay: firstForecast.isDaylight,
                         date: plan.durationPlan.start
+                    )
+                    
+                    // Schedule notification 15 minutes before the plan
+                    NotificationManager.shared.scheduleNotifications(
+                        date: plan.durationPlan.start,
+                        weather: firstForecast.condition,
+                        title: plan.title
                     )
                 }
                 

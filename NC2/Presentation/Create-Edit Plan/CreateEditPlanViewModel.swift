@@ -23,32 +23,16 @@ class CreateEditPlanViewModel: ObservableObject {
         self.comparePlan = PlanModel()
     }
     
-    //    private var widgetPlan = WidgetPlanModel(
-    //        id: UUID(),
-    //        title: "Morning Routine",
-    //        temprature: 22,
-    //        durationPlan: Date(),
-    //        allDay: false
-    //    )
-    
     @MainActor
     func insertPlan(homeViewModel: HomeViewModel) async {
+        await self.checkDurationStartAndEnd()
         await homeViewModel.insertPlan(plan: newPlan)
-        //        DispatchQueue.main.async {
-        //            self.widgetPlan.id = self.newPlan.id
-        //            self.widgetPlan.title = self.newPlan.title
-        //            self.widgetPlan.temprature = self.newPlan.weatherPlan?.forecast.first?.temperature.value ?? 0
-        //            self.widgetPlan.durationPlan = self.newPlan.durationPlan.start
-        //            self.widgetPlan.allDay = self.newPlan.allDay
-        //
-        //            self.saveWidgetPlanModel(self.widgetPlan)
-        //            WidgetCenter.shared.reloadAllTimelines()
-        //        }
     }
     
     @MainActor
     func updatePlan(homeViewModel: HomeViewModel) async {
         do {
+            await self.checkDurationStartAndEnd()
             try await homeViewModel.updatePlan(plan: newPlan)
         } catch {
             print("error update plan")
@@ -80,11 +64,6 @@ class CreateEditPlanViewModel: ObservableObject {
     }
     
     @MainActor
-    func setDiscardNotification() {
-        self.discardChanges = true
-    }
-    
-    @MainActor
     func getDetailPlan(planId: UUID) async {
         DispatchQueue.main.async {
             self.state.isLoading = true
@@ -98,6 +77,12 @@ class CreateEditPlanViewModel: ObservableObject {
         }
         DispatchQueue.main.async {
             self.state.isLoading = false
+        }
+    }
+    
+    func checkDurationStartAndEnd() async {
+        if newPlan.durationPlan.end < newPlan.durationPlan.start {
+            newPlan.durationPlan.end = newPlan.durationPlan.start
         }
     }
         

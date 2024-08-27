@@ -219,7 +219,6 @@ struct CreateEditPlanView: View {
             }
             dismissView()
             homeViewModel.resetSwipeOffsetFlag()
-            NotificationManager.shared.scheduleNotifications()
         }
         .disabled(!createPlanVM.isFormValid)
     }
