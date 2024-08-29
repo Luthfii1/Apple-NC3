@@ -24,11 +24,6 @@ class PlanUseCases: PlanUseCasesProtocol{
     
     func getAllPlans() async throws {
         self.allPlans = try await planRepository.getAllPlans()
-        
-        for plan in allPlans {
-            print("start \(plan.durationPlan.start)")
-            print("start \(plan.durationPlan.end)")
-        }
     }
     
     func getAllPlansByFilter(category: PLANCATEGORY) async throws -> [HomeCardUIModel] {
@@ -98,11 +93,12 @@ class PlanUseCases: PlanUseCasesProtocol{
                         date: plan.durationPlan.start
                     )
                     
-                    // Schedule notification 15 minutes before the plan
+                    // Schedule notification based on the user's selected reminder
                     NotificationManager.shared.scheduleNotifications(
                         date: plan.durationPlan.start,
                         weather: firstForecast.condition,
-                        title: plan.title
+                        title: plan.title,
+                        reminder: plan.reminder
                     )
                 }
                 
@@ -116,6 +112,7 @@ class PlanUseCases: PlanUseCasesProtocol{
         
         try await self.getAllPlans()
     }
+
     
     func insertPlan(plan: PlanModel) async throws {
         let plans = convertMultipleRoutinePlans(plan: plan)

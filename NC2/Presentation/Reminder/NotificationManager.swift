@@ -9,10 +9,10 @@ import Foundation
 import UserNotifications
 import WeatherKit
 
-class NotificationManager: ObservableObject{
+class NotificationManager: ObservableObject {
     static let shared = NotificationManager()
-    private init(){}
-    
+    private init() {}
+
     func requestAuthorization() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if let error = error {
@@ -22,10 +22,10 @@ class NotificationManager: ObservableObject{
             }
         }
     }
-    
-    func scheduleNotifications(date: Date, weather: WeatherCondition, title: String) {
+
+    func scheduleNotifications(date: Date, weather: WeatherCondition, title: String, reminder: REMINDER) {
         let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.removeAllPendingNotificationRequests()  // Clear previous notifications
+        notificationCenter.removeAllPendingNotificationRequests()
         
         let content = UNMutableNotificationContent()
         content.title = "Check Your \(title) Planned"
@@ -53,8 +53,9 @@ class NotificationManager: ObservableObject{
 
         content.sound = UNNotificationSound.default
         
-        // Calculate the notification trigger date (15 minutes before the event date)
-        let triggerDate = Calendar.current.date(byAdding: .minute, value: -15, to: date)!
+        // Calculate the notification trigger date based on the selected reminder
+        let triggerDate = calculateTriggerDate(for: reminder, eventDate: date)
+        
         let triggerComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: triggerDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: false)
         
@@ -64,6 +65,31 @@ class NotificationManager: ObservableObject{
             if let error = error {
                 print("Failed to schedule notification: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    private func calculateTriggerDate(for reminder: REMINDER, eventDate: Date) -> Date {
+        let calendar = Calendar.current
+        
+        switch reminder {
+        case .AtTime:
+            return eventDate
+        case ._5MinBefore:
+            return calendar.date(byAdding: .minute, value: -5, to: eventDate)!
+        case ._10MinBefore:
+            return calendar.date(byAdding: .minute, value: -10, to: eventDate)!
+        case ._15MinBefore:
+            return calendar.date(byAdding: .minute, value: -15, to: eventDate)!
+        case ._30MinBefore:
+            return calendar.date(byAdding: .minute, value: -30, to: eventDate)!
+        case ._1HourBefore:
+            return calendar.date(byAdding: .hour, value: -1, to: eventDate)!
+        case ._2HourBefore:
+            return calendar.date(byAdding: .hour, value: -2, to: eventDate)!
+        case ._1DayBefore:
+            return calendar.date(byAdding: .day, value: -1, to: eventDate)!
+        default:
+            return eventDate
         }
     }
 }
